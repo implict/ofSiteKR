@@ -49,7 +49,7 @@ blog.name = "openFrameworks.kr"
 blog.description = "Your Blog's short description"
 
 ## blog_timezone -- the timezone that you normally write your blog posts from
-blog.timezone = "JP"
+blog.timezone = "KR"
 
 controllers.documentation.enabled = True
 controllers.community.enabled = True
