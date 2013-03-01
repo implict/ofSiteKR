@@ -32,6 +32,11 @@ And run:
 	blogofile build
 	blogofile serve
 
+blogofile build시 python ValueError: unknown locale: UTF-8라는 오류의 해결법
+
+<pre><code>export LC_ALL=en_US.UTF-8    
+export LANG=en_US.UTF-8</code></pre>
+    
 
 ## Documentation-style markdown
 
