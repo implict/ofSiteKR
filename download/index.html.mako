@@ -3,8 +3,8 @@
 <h1>download</h1>
 <div id="download-latest-header">
 	<h2>${bf.config.currentVersion}</h2>
-	<p><strong>is the most recent release. It has a lot of new features, new interfaces, and probably some new bugs too. ${bf.config.currentVersion} is not 100% compatible with older projects. Please see the <a href="https://github.com/openframeworks/openFrameworks/blob/develop/changes.txt">changelog</a> to get an overview of the differences between versions.</strong></p>
-	<p>To use openFrameworks you will need an IDE, and the setup guide for your platform can walk you through this. Please post any bugs on the <a href="http://github.com/openframeworks/openFrameworks/issues">issues</a> page, and post to the <a href="http://forum.openframeworks.cc">forum</a> if you have any other questions. openFrameworks is distributed under the <a href="../about/license.html">MIT License</a>.</p>
+	<p><strong>은 최신 배포입니다. 다양한 새로운 기능과 인터페이스가 추가되어 있습니다. 그리고 어쩌면 새로운 버그도... ${bf.config.currentVersion}은 이전 프로젝트와 100% 호환성이 없습니다. 버전 간의 차이점에 대한 개요를 알기 위하여 <a href="https://github.com/openframeworks/openFrameworks/blob/develop/changes.txt">changelog</a>를 참조하십시오.</strong></p>
+	<p>To use openFrameworks you will need an IDE, and the setup guide for your platform can walk you through this. Please post any bugs on the<a href="http://github.com/openframeworks/openFrameworks/issues"> issues</a> page, and post to th <a href="http://forum.openframeworks.cc">eforum</a> if you have any other questions. openFrameworks is distributed under the <a href="../about/license.html">MIT License</a>.</p>
 </div>
 
 <div id="download-latest-platform">

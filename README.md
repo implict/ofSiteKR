@@ -1,7 +1,7 @@
 # openFrameworks 한국어 사이트
 openframeworks한국어판 사이트 opneframeworks.kr을 생성하는 콘텐츠를 관리하는 저장소(repository)입니다.
 
-## Setting up the site to build locally
+## 사이트를 로컬에서 구축하기 위한 설정
 
 To contribute, fork the repository and download to your local machine. You'll need to install Python, lxml and [blogofile](http://blogofile.com/):
 
