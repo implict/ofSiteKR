@@ -9,7 +9,7 @@
 
 <div class="page-right-narrow">
     <div class="home-links">
-        <h2>openFrameworks는 창조적인 코딩을 위한 C++ 오픈 소스 개발환경입니다.</h2>
+        <h2>openFrameworks 창조적인 코딩을 위한 C++ 오픈 소스 개발환경</h2>
 
         <h3><a href="download/">download</a></h3>
         <p>최신 버전의 입수와 openFrameworks을 운영하기 위한 설치 안내.</p>

@@ -4,13 +4,13 @@
 <div id="download-latest-header">
 	<h2>${bf.config.currentVersion}</h2>
 	<p><strong>은 최신 배포입니다. 다양한 새로운 기능과 인터페이스가 추가되어 있습니다. 그리고 어쩌면 새로운 버그도... ${bf.config.currentVersion}은 이전 프로젝트와 100% 호환성이 없습니다. 버전 간의 차이점에 대한 개요를 알기 위하여 <a href="https://github.com/openframeworks/openFrameworks/blob/develop/changes.txt">changelog</a>를 참조하십시오.</strong></p>
-	<p>To use openFrameworks you will need an IDE, and the setup guide for your platform can walk you through this. Please post any bugs on the<a href="http://github.com/openframeworks/openFrameworks/issues"> issues</a> page, and post to th <a href="http://forum.openframeworks.cc">eforum</a> if you have any other questions. openFrameworks is distributed under the <a href="../about/license.html">MIT License</a>.</p>
+	<p>openFrameworks를 사용하기 위해서는 IDE (통합 개발 환경)가 필요합니다. 플랫폼별 설치 안내는 이것에 대해 자세히 설명할 수 있습니다.
+	(To use openFrameworks you will need an IDE, and the setup guide for your platform can walk you through this.) Please post any bugs on the<a href="http://github.com/openframeworks/openFrameworks/issues"> issues</a> page, and post to th <a href="http://forum.openframeworks.cc">eforum</a> if you have any other questions. openFrameworks is distributed under the <a href="../about/license.html">MIT License</a>.</p>
 </div>
 
 <div id="download-latest-platform">
 	<h2>osx</h2>
-	<h3>download openFrameworks for</h3>
-	<p><a href="http://www.openframeworks.cc/versions/v${bf.config.currentVersion}/of_v${bf.config.currentVersion}_osx_release.zip">xcode</a></p><br/>
+	<p><a href="http://www.openframeworks.cc/versions/v${bf.config.currentVersion}/of_v${bf.config.currentVersion}_osx_release.zip">xcode</a></p><h3>를 위한 openFrameworks를 다운로드</h3><br/>
 	<h3>IDE setup guide</h3>
 	<p><a href="../setup/xcode">xcode</a></p>
 </div>
