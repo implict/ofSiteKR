@@ -1,23 +1,28 @@
 # openFrameworks 한국어 사이트
-openframeworks한국어판 사이트 opneframeworks.kr을 생성하는 콘텐츠를 관리하는 저장소(repository)입니다.
+openframeworks한국어판 사이트 opneframeworks.kr을 생성하는 콘텐츠를 관리하는 저장소(repository)입니다.번역작업을 도와주실 수 있는 분은 아래의 메일 주소로 연락 주시기 바랍니다.
+
+김정운 (azuremous@gmail.com)
 
 ## 사이트를 로컬에서 구축하기 위한 설정
 
-To contribute, fork the repository and download to your local machine. You'll need to install Python, lxml and [blogofile](http://blogofile.com/):
+번역을 도와 주실 분은 먼저 저장소를 Fork하여 로컬 컴퓨터에 다운로드합니다. 또한, 당신의 컴퓨터에는 Python, lxml 그리고 [blogofile](http://blogofile.com/)가 설치되어 있어야 합니다. Python이 설치된 컴퓨터는 다음 단계로 lxml과 blogofile을 설치할 수 있습니다 :
 
 	easy_install lxml
 	easy_install blogofile
 
-If you run into trouble, check the notes below.
-
-To generate and view the site locally, you have to run:
+로컬 컴퓨터에서 사이트를 생성하고 보기 위해서는 다음 명령을 실행합니다 :
 
 	blogofile build
 	blogofile serve
 
-And access the local site in http://localhost:8080/ 
+그리고 로컬 사이트인 http://localhost:8080/에 접속합니다.
 
-You can start editing pages right away. In order to see your changes on your local version you'll have always have to run build & serve before.
+** blogofile build시 'python ValueError: unknown locale: UTF-8'오류 해결 방법
+
+<pre><code>export LC_ALL=en_US.UTF-8    
+export LANG=en_US.UTF-8</code></pre>
+
+로컬 버전에서 변경 사항을 확인하려면 항상 먼저 build와 serve를 실행해야 합니다.
 
 ** Please note, this version of ofSite is built in blogofile v.0.7.1, see the reference for installing on Vanilla Ubuntu [below](#below)
 
@@ -31,11 +36,6 @@ And run:
 
 	blogofile build
 	blogofile serve
-
-blogofile build시 python ValueError: unknown locale: UTF-8라는 오류의 해결법
-
-<pre><code>export LC_ALL=en_US.UTF-8    
-export LANG=en_US.UTF-8</code></pre>
     
 
 ## Documentation-style markdown
@@ -59,11 +59,11 @@ Images are added using normal markdown format:
 
 Additional tips can be found in [Contributing Documentation](https://github.com/openframeworks/ofSite/wiki/Contributing-documentation) on the [ofSite wiki](https://github.com/openframeworks/ofSite/wiki)
 
-## Useful Markdown Editors
+## 유용한 Markdown 에디터들
 
 An alternative to running blogofile locally is to use a Markdown editor that can show you a rendering as you work.
 
-* Mac OSX: [Mou](http://mouapp.com/) (OSX 10.7) or [MarkEdit](http://keshiki.net/markdown-editor/) (OSX 10.6+)
+* Mac OSX: [Mou](http://mouapp.com/) (OSX 10.7) 혹은 [MarkEdit](http://keshiki.net/markdown-editor/) (OSX 10.6+)
 * Windows: [MarkdownPad](http://www.markdownpad.com/)
 * Linux: [Writr](http://antrix.net/pages/writr-markdown/), [ReText](http://sourceforge.net/p/retext/home/ReText/), & the [gedit-markdown](http://www.jpfleury.net/en/software/gedit-markdown.php) plugin
 
