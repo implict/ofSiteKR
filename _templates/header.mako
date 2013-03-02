@@ -21,7 +21,7 @@
 			<li><span class="external-dot"> ></span>&nbsp;<a href="http://forum.openframeworks.cc/index.php" target="_blank">forum</a></li>
 			<li><span class="external-dot"> ></span>&nbsp;<a href="http://ofxaddons.com" target="_blank">addons</a></li>
 			<li><span class="external-dot"> ></span>&nbsp;<a href="http://wiki.openframeworks.cc/" target="_blank">wiki</a></li>
-			<li><span class="external-dot"> ></span>&nbsp;<a href="http://github.com/openframeworks/openFrameworks" target="_blank">github</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="https://github.com/azuremous/ofSiteKR" target="_blank">github (KR)</a></li>
 			<li><span class="external-dot"> ></span>&nbsp;<a href="http://openframeworks.cc/list-info" target="_blank">mailing list</a></li>
 			<li><span class="external-dot"> ></span>&nbsp;<a href="http://webchat.freenode.net?channels=openframeworks&uio=MT1mYWxzZSY5PXRydWUmMTE9Mjk39" target="_blank">IRC</a></li>
 		</ul>
@@ -45,9 +45,11 @@
                 <span class='but'><input type="submit" name="unsub" value="unsubscribe" /></span>
             </form-->
         <ul class="submenu">
-            <li>english</li>
+            <li><a href ="http://www.openframeworks.cc/">english</a></li>
             <li>/</li>
             <li><a href="http://openframeworks.jp">japanese</a></li>
+            <li>/</li>
+            <li>korean</li>
         </ul>
 		</div>
 </div><!-- head -->
