@@ -18,7 +18,7 @@
 		</ul>
 		
 		<ul class="menu-externals">
-			<li><span class="external-dot"> ></span>&nbsp;<a href="http://forum.openframeworks.cc/index.php" target="_blank">forum</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://artcode.kr/viewforum.php?f=2" target="_blank">forum(KR)</a></li>
 			<li><span class="external-dot"> ></span>&nbsp;<a href="http://ofxaddons.com" target="_blank">addons</a></li>
 			<li><span class="external-dot"> ></span>&nbsp;<a href="http://wiki.openframeworks.cc/" target="_blank">wiki</a></li>
 			<li><span class="external-dot"> ></span>&nbsp;<a href="https://github.com/azuremous/ofSiteKR" target="_blank">github (KR)</a></li>

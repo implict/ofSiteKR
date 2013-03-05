@@ -9,7 +9,7 @@
 
 <div class="page-right-narrow">
     <div class="home-links">
-        <h2>openFrameworks 창조적인 코딩을 위한 C++ 오픈 소스 개발환경</h2>
+        <h2>openFrameworks </br>창조적인 코딩을 위한 C++ 오픈 소스 개발환경</h2>
 
         <h3><a href="download/">download</a></h3>
         <p>최신 버전의 입수와 openFrameworks을 운영하기 위한 설치 안내.</p>
@@ -18,7 +18,7 @@
 	<p>openFramewroks의 클래스, 함수, 기능, 애드온의 참조 자료. 안내 및 튜토리얼은 <a href="http://wiki.openframeworks.cc/">wiki</a>를 참조하십시오.</p>
         
 	<h3><a href="http://forum.openframeworks.cc/">forum</a></h3>
-	<p>한국어 포럼은 준비중입니다.</p>
+	<p>포럼은 openFrameworks에 관련해 많은 동료와 교류하는 장이 되고 있습니다. <a href="http://artcode.kr/viewforum.php?f=2">한국어 게시판</a>도 있습니다.</p>
     </div>
 </div>
 
