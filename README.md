@@ -1,5 +1,5 @@
 # openFrameworks 한국어 사이트
-openframeworks한국어판 사이트 opneframeworks.kr을 생성하는 콘텐츠를 관리하는 저장소(repository)입니다.번역작업을 도와주실 수 있는 분은 아래의 메일 주소로 연락 주시기 바랍니다.
+openframeworks한국어판 사이트 [openframeworks.kr](http://openframeworks.kr)을 생성하는 콘텐츠를 관리하는 저장소(repository)입니다.번역작업을 도와주실 수 있는 분은 아래의 메일 주소로 연락 주시기 바랍니다.
 
 김정운 (azuremous@gmail.com)
 
