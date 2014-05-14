@@ -1,8 +1,34 @@
 #class ofGLRenderer
 
 
+<!--
+_visible: True_
+_advanced: False_
+_istemplated: False_
+-->
+
+##InlineDescription
+
+
+
+
+
+
 ##Description
 
+The ofGLRenderer is a renderer for OF that supports OpenGL 2 and lower. It's the more classic, "direct mode" version of OpenGL that you may be familiar with but that also uses vertex arrays underneath to store all of the vertices that you create for the basic OF drawing operations. This is the default renderer that is created when you create your OF app:
+
+~~~~{.cpp}
+ofSetupOpenGL(1024,768, OF_WINDOW);			// by default this makes a ofGLRenderer
+
+// this kicks off the running of my app
+// can be OF_WINDOW or OF_FULLSCREEN
+// pass in width and height too:
+ofRunApp( new testApp());
+
+~~~~
+
+This renderer does not work so well with mobile devices (more specifically with GLES) or on ARM6/7 Linux devices (Raspberry Pi, for instance) but it is the classic version that will be supported on all laptops and desktop machines. Most of the calls to this renderer are handled by other functions, so most of this documenation will simply link to the end user functions that you should call, since you probably don't want to call the renderer directly. 
 
 
 
@@ -25,13 +51,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+Whether you want to clear the background or not.
 
 
 
@@ -54,13 +91,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofBackground](ofGraphics.html#show_ofBackground)
 
 
 
@@ -83,10 +131,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -112,13 +169,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofBackground](ofGraphics.html#show_ofBackground)
 
 
 
@@ -141,13 +209,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofBackground](ofGraphics.html#show_ofBackground)
 
 
 
@@ -170,13 +249,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofClear](ofGraphics.html#show_ofClear)
 
 
 
@@ -199,13 +289,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofClear](ofGraphics.html#show_ofClear)
 
 
 
@@ -228,13 +329,64 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofClear](ofGraphics.html#show_ofClear)
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void disableAntiAliasing()
+
+<!--
+_syntax: disableAntiAliasing()_
+_name: disableAntiAliasing_
+_returns: void_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+See [ofDisableAntiAliasing](ofGraphics.html#show_ofDisableAntiAliasing)
 
 
 
@@ -257,10 +409,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -273,16 +434,16 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###void draw(&vertexData)
+###void disableTextureTarget(textureTarget)
 
 <!--
-_syntax: draw(&vertexData)_
-_name: draw_
+_syntax: disableTextureTarget(textureTarget)_
+_name: disableTextureTarget_
 _returns: void_
 _returns_description: _
-_parameters: ofMesh &vertexData_
+_parameters: int textureTarget_
 _access: public_
-_version_started: 007_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -291,7 +452,7 @@ _visible: True_
 _advanced: False_
 -->
 
-_description: _
+_inlined_description: _
 
 
 
@@ -299,200 +460,6 @@ _description: _
 
 
 
-
-<!----------------------------------------------------------------------------->
-
-###void draw(&vertexData, renderType)
-
-<!--
-_syntax: draw(&vertexData, renderType)_
-_name: draw_
-_returns: void_
-_returns_description: _
-_parameters: ofMesh &vertexData, ofPolyRenderMode renderType_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void draw(&poly)
-
-<!--
-_syntax: draw(&poly)_
-_name: draw_
-_returns: void_
-_returns_description: _
-_parameters: ofPolyline &poly_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void draw(&path)
-
-<!--
-_syntax: draw(&path)_
-_name: draw_
-_returns: void_
-_returns_description: _
-_parameters: ofPath &path_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void draw(&vertexData, drawMode)
-
-<!--
-_syntax: draw(&vertexData, drawMode)_
-_name: draw_
-_returns: void_
-_returns_description: _
-_parameters: vector< ofPoint > &vertexData, ofPrimitiveMode drawMode_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void draw(&image, x, y, z, w, h)
-
-<!--
-_syntax: draw(&image, x, y, z, w, h)_
-_name: draw_
-_returns: void_
-_returns_description: _
-_parameters: ofImage &image, float x, float y, float z, float w, float h_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void draw(&image, x, y, z, w, h)
-
-<!--
-_syntax: draw(&image, x, y, z, w, h)_
-_name: draw_
-_returns: void_
-_returns_description: _
-_parameters: ofFloatImage &image, float x, float y, float z, float w, float h_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void draw(&image, x, y, z, w, h)
-
-<!--
-_syntax: draw(&image, x, y, z, w, h)_
-_name: draw_
-_returns: void_
-_returns_description: _
-_parameters: ofShortImage &image, float x, float y, float z, float w, float h_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -518,13 +485,24 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+Draws an ofMesh.
 
 
 
@@ -547,13 +525,144 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+Draws an ofMesh.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void draw(&model, renderType)
+
+<!--
+_syntax: draw(&model, renderType)_
+_name: draw_
+_returns: void_
+_returns_description: _
+_parameters: of3dPrimitive &model, ofPolyRenderMode renderType_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Draws a of3dPrimitive. Called internally.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void draw(&poly)
+
+<!--
+_syntax: draw(&poly)_
+_name: draw_
+_returns: void_
+_returns_description: _
+_parameters: ofPolyline &poly_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Handles drawing ofPolylines. This is called when you call line.draw().
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void draw(&path)
+
+<!--
+_syntax: draw(&path)_
+_name: draw_
+_returns: void_
+_returns_description: _
+_parameters: ofPath &path_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Handles drawing ofPath. This is called when you call ofPath::draw().
 
 
 
@@ -576,13 +685,24 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+Draws an texture.
 
 
 
@@ -605,13 +725,24 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+Draws an texture.
 
 
 
@@ -634,13 +765,24 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+Draws an texture.
 
 
 
@@ -663,13 +805,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofCircle](ofGraphics.html#show_ofCircle)
 
 
 
@@ -692,13 +845,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofEllipse](ofGraphics.html#show_ofEllipse)
 
 
 
@@ -721,13 +885,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofLine](ofGraphics.html#show_ofLine)
 
 
 
@@ -750,42 +925,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void drawSphere(x, y, z, radius)
-
-<!--
-_syntax: drawSphere(x, y, z, radius)_
-_name: drawSphere_
-_returns: void_
-_returns_description: _
-_parameters: float x, float y, float z, float radius_
-_access: public_
-_version_started: 0071_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
+See [ofRect](ofGraphics.html#show_ofRect)
 
 
 
@@ -808,13 +965,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+Draws a characters to the screen.
 
 
 
@@ -837,13 +1005,64 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+Draw a Triangle.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void enableAntiAliasing()
+
+<!--
+_syntax: enableAntiAliasing()_
+_name: enableAntiAliasing_
+_returns: void_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+See [ofEnableAntiAliasing](ofGraphics.html#show_ofEnableAntiAliasing)
 
 
 
@@ -866,10 +1085,57 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void enableTextureTarget(textureTarget)
+
+<!--
+_syntax: enableTextureTarget(textureTarget)_
+_name: enableTextureTarget_
+_returns: void_
+_returns_description: _
+_parameters: int textureTarget_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -895,10 +1161,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -911,12 +1186,12 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofFloatColor getBgColor()
+###ofFloatColor & getBgColor()
 
 <!--
 _syntax: getBgColor()_
 _name: getBgColor_
-_returns: ofFloatColor_
+_returns: ofFloatColor &_
 _returns_description: _
 _parameters: _
 _access: public_
@@ -924,10 +1199,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -953,10 +1237,72 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+See [ofGetCoordHandedness](ofGraphics.html#show_ofGetCoordHandedness)
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofMatrix4x4 getCurrentMatrix(matrixMode_)
+
+<!--
+_syntax: getCurrentMatrix(matrixMode_)_
+_name: getCurrentMatrix_
+_returns: ofMatrix4x4_
+_returns_description: _
+_parameters: ofMatrixMode matrixMode__
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+Queries the current OpenGL matrix state  Returns the specified matrix as held by the renderer's current matrix stack. 
+
+
+    You can query one of the following:
+
+    [OF_MATRIX_MODELVIEW | OF_MATRIX_PROJECTION | OF_MATRIX_TEXTURE]
+
+    Each query will return the state of the matrix
+    as it was uploaded to the shader currently bound.
+
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -982,13 +1328,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofGetCurrentViewport](ofGraphics.html#show_ofGetCurrentViewport)
 
 
 
@@ -1011,13 +1368,64 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofGetFill](ofGraphics.html#show_ofGetFill)
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofRectangle getNativeViewport()
+
+<!--
+_syntax: getNativeViewport()_
+_name: getNativeViewport_
+_returns: ofRectangle_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+See [ofGetNativeViewport](ofGraphics.html#show_ofGetNativeViewport)
 
 
 
@@ -1040,13 +1448,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofGetRectMode](ofGraphics.html#show_ofGetRectMode)
 
 
 
@@ -1056,12 +1475,12 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###string getType()
+###const string & getType()
 
 <!--
 _syntax: getType()_
 _name: getType_
-_returns: string_
+_returns: const string &_
 _returns_description: _
 _parameters: _
 _access: public_
@@ -1069,10 +1488,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1098,13 +1526,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofGetViewportHeight](ofGraphics.html#show_ofGetViewportHeight)
 
 
 
@@ -1127,13 +1566,64 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofGetViewportWidth](ofGraphics.html#show_ofGetViewportWidth)
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool isVFlipped()
+
+<!--
+_syntax: isVFlipped()_
+_name: isVFlipped_
+_returns: bool_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+See [ofIsVFlipped](ofGraphics.html#show_ofIsVFlipped)
 
 
 
@@ -1156,12 +1646,24 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
+
+See [ofLoadIdentityMatrix](ofGraphics.html#show_ofLoadIdentityMatrix)
 
 
 
@@ -1184,12 +1686,24 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
+
+See [ofLoadMatrix](ofGraphics.html#show_ofLoadMatrix)
 
 
 
@@ -1212,12 +1726,62 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
+
+See [ofLoadMatrix](ofGraphics.html#show_ofLoadMatrix)
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void matrixMode(mode)
+
+<!--
+_syntax: matrixMode(mode)_
+_name: matrixMode_
+_returns: void_
+_returns_description: _
+_parameters: ofMatrixMode mode_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -1240,12 +1804,22 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1268,12 +1842,22 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1296,10 +1880,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1325,13 +1918,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofPopMatrix](ofGraphics.html#show_ofPopMatrix)
 
 
 
@@ -1354,10 +1958,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1383,13 +1996,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofPushMatrix](ofGraphics.html#show_ofPushMatrix)
 
 
 
@@ -1412,10 +2036,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1441,10 +2074,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1470,13 +2112,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofRotate](ofGraphics.html#show_ofRotate)
 
 
 
@@ -1499,13 +2152,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofRotate](ofGraphics.html#show_ofRotate)
 
 
 
@@ -1528,13 +2192,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofRotate](ofGraphics.html#show_ofRotate)
 
 
 
@@ -1557,13 +2232,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofRotate](ofGraphics.html#show_ofRotate)
 
 
 
@@ -1586,13 +2272,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofRotate](ofGraphics.html#show_ofRotate)
 
 
 
@@ -1615,13 +2312,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofScale](ofGraphics.html#show_ofScale)
 
 
 
@@ -1644,10 +2352,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1673,13 +2390,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofEnableBlendMode](ofGraphics.html#show_ofEnableBlendMode)
 
 
 
@@ -1702,13 +2430,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofSetCircleResolution](ofGraphics.html#show_ofSetCircleResolution)
 
 
 
@@ -1731,13 +2470,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofSetColor](ofGraphics.html#show_ofSetColor)
 
 
 
@@ -1760,13 +2510,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofSetColor](ofGraphics.html#show_ofSetColor)
 
 
 
@@ -1789,13 +2550,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofSetColor](ofGraphics.html#show_ofSetColor)
 
 
 
@@ -1818,13 +2590,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofSetColor](ofGraphics.html#show_ofSetColor)
 
 
 
@@ -1847,13 +2630,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofSetColor](ofGraphics.html#show_ofSetColor)
 
 
 
@@ -1876,13 +2670,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofSetCoordHandedness](ofGraphics.html#show_ofSetCoordHandedness)
 
 
 
@@ -1905,13 +2710,62 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setDepthTest(depthTest)
+
+<!--
+_syntax: setDepthTest(depthTest)_
+_name: setDepthTest_
+_returns: void_
+_returns_description: _
+_parameters: bool depthTest_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+See [ofDisableDepthTest](ofGraphics.html#show_ofDisableDepthTest) and [ofEnableDepthTest](ofGraphics.html#show_ofEnableDepthTest)
 
 
 
@@ -1934,10 +2788,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1963,13 +2826,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofSetColor](ofGraphics.html#show_ofSetColor)
 
 
 
@@ -1992,10 +2866,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2021,10 +2904,59 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+See [ofSetLineWidth](ofGraphics.html#show_ofSetLineWidth)
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setOrientation(orientation, vFlip)
+
+<!--
+_syntax: setOrientation(orientation, vFlip)_
+_name: setOrientation_
+_returns: void_
+_returns_description: _
+_parameters: ofOrientation orientation, bool vFlip_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2050,42 +2982,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setSphereResolution(res)
-
-<!--
-_syntax: setSphereResolution(res)_
-_name: setSphereResolution_
-_returns: void_
-_returns_description: _
-_parameters: int res_
-_access: public_
-_version_started: 0071_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
+See [ofSetRectMode](ofGraphics.html#show_ofSetRectMode)
 
 
 
@@ -2108,10 +3022,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2137,13 +3060,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofSetupScreen](ofGraphics.html#show_ofSetupScreen)
 
 
 
@@ -2153,26 +3087,37 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###void setupScreenOrtho(width = 0, height = 0, orientation = OF_ORIENTATION_UNKNOWN, vFlip = true, nearDist = -1, farDist = 1)
+###void setupScreenOrtho(width = 0, height = 0, nearDist = -1, farDist = 1)
 
 <!--
-_syntax: setupScreenOrtho(width = 0, height = 0, orientation = OF_ORIENTATION_UNKNOWN, vFlip = true, nearDist = -1, farDist = 1)_
+_syntax: setupScreenOrtho(width = 0, height = 0, nearDist = -1, farDist = 1)_
 _name: setupScreenOrtho_
 _returns: void_
 _returns_description: _
-_parameters: float width=0, float height=0, ofOrientation orientation=OF_ORIENTATION_UNKNOWN, bool vFlip=true, float nearDist=-1, float farDist=1_
+_parameters: float width=0, float height=0, float nearDist=-1, float farDist=1_
 _access: public_
-_version_started: 007_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofSetupScreenOrth](ofGraphics.html#show_ofSetupScreenOrtho)
 
 
 
@@ -2182,26 +3127,37 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###void setupScreenPerspective(width = 0, height = 0, orientation = OF_ORIENTATION_UNKNOWN, vFlip = true, fov = 60, nearDist = 0, farDist = 0)
+###void setupScreenPerspective(width = 0, height = 0, fov = 60, nearDist = 0, farDist = 0)
 
 <!--
-_syntax: setupScreenPerspective(width = 0, height = 0, orientation = OF_ORIENTATION_UNKNOWN, vFlip = true, fov = 60, nearDist = 0, farDist = 0)_
+_syntax: setupScreenPerspective(width = 0, height = 0, fov = 60, nearDist = 0, farDist = 0)_
 _name: setupScreenPerspective_
 _returns: void_
 _returns_description: _
-_parameters: float width=0, float height=0, ofOrientation orientation=OF_ORIENTATION_UNKNOWN, bool vFlip=true, float fov=60, float nearDist=0, float farDist=0_
+_parameters: float width=0, float height=0, float fov=60, float nearDist=0, float farDist=0_
 _access: public_
-_version_started: 007_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofSetupScreenPerspective](ofGraphics.html#show_ofSetupScreenPerspective)
 
 
 
@@ -2224,10 +3180,57 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool texturesNeedVFlip()
+
+<!--
+_syntax: texturesNeedVFlip()_
+_name: texturesNeedVFlip_
+_returns: bool_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2253,13 +3256,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofTranslate](ofGraphics.html#show_ofTranslate)
 
 
 
@@ -2282,13 +3296,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+See [ofTranslate](ofGraphics.html#show_ofTranslate)
 
 
 
@@ -2311,10 +3336,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2340,10 +3374,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2363,16 +3406,25 @@ _syntax: viewport(x = 0, y = 0, width = 0, height = 0, invertY = true)_
 _name: viewport_
 _returns: void_
 _returns_description: _
-_parameters: float x=0, float y=0, float width=0, float height=0, bool invertY=true_
+_parameters: float x=0, float y=0, float width=0, float height=0, bool vflip=ofIsVFlipped()_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2398,10 +3450,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2418,13 +3479,13 @@ _description: _
 
 
 
-###bool bBackgroundAuto
+###const string TYPE
 
 <!--
-_name: bBackgroundAuto_
-_type: bool_
-_access: private_
-_version_started: 007_
+_name: TYPE_
+_type: const string_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _visible: True_
@@ -2443,11 +3504,11 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofFillFlag bFilled
+###bool bBackgroundAuto
 
 <!--
-_name: bFilled_
-_type: ofFillFlag_
+_name: bBackgroundAuto_
+_type: bool_
 _access: private_
 _version_started: 007_
 _version_deprecated: _
@@ -2568,38 +3629,13 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofHandednessType coordHandedness
+###ofFillFlag fillFlag
 
 <!--
-_name: coordHandedness_
-_type: ofHandednessType_
+_name: fillFlag_
+_type: ofFillFlag_
 _access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###ofFbo currentFbo
-
-<!--
-_name: currentFbo_
-_type: ofFbo_
-_access: private_
-_version_started: 007_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _visible: True_
@@ -2643,38 +3679,13 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofMatrix4x4 modelViewStack
+###ofMatrixStack matrixStack
 
 <!--
-_name: modelViewStack_
-_type: ofMatrix4x4_
+_name: matrixStack_
+_type: ofMatrixStack_
 _access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###ofMatrix4x4 projectionStack
-
-<!--
-_name: projectionStack_
-_type: ofMatrix4x4_
-_access: private_
-_version_started: 007_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _visible: True_
@@ -2743,61 +3754,11 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofMesh sphereMesh
-
-<!--
-_name: sphereMesh_
-_type: ofMesh_
-_access: private_
-_version_started: 0071_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
 ###ofPoint triPoints
 
 <!--
 _name: triPoints_
 _type: ofPoint_
-_access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###ofRectangle viewportHistory
-
-<!--
-_name: viewportHistory_
-_type: ofRectangle_
 _access: private_
 _version_started: 007_
 _version_deprecated: _

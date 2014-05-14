@@ -1,9 +1,40 @@
+## -*- coding: utf-8 -*-
 <%inherit file="/_templates/markdown.mako" />
 
 older releases
 =========
 
 as we update and change OF, you can download older versions of the framework here. As we start to have multiple version of OF, please try to be clear on the discussion forum as to which version you are using.
+
+--------------------------------
+
+**pre release v0.8.0** 
+
+windows: [code blocks][106] | [visual studio 2012][107] 
+
+mac [x-code (10.6-10.9)][108]
+
+linux: [code blocks][109] | [(64 bit) code blocks][110]
+
+iOS: [iOS][111] 
+
+android: [Android][112]
+
+linux arm: [armv6][113] | [armv7][114]
+
+--------------------------------
+
+**pre release v0074** 
+
+windows: [code blocks][99] | [visual studio 2010][100] 
+
+mac [x-code (10.6-10.7)][101]
+
+linux: [code blocks][102] | [(64 bit) code blocks][103]
+
+iphone: [iPhone][104] 
+
+android: [Android][105]
 
 --------------------------------
 
@@ -227,28 +258,35 @@ changes: [changelog for 0.04][67]
 [80]: http://www.openframeworks.cc/versions/v0.071/of_0071_osx_release.zip
 [81]: http://www.openframeworks.cc/versions/v0.071/of_v0071_linux_release.tar.gz
 [82]: http://www.openframeworks.cc/versions/v0.071/of_v0071_linux64_release.tar.gz
-[83]: http://www.openframeworks.cc/versions/v0.071/of_0071_iOS_release.zip
+[83]: http://www.openframeworks.cc/versions/v0.071/of_0071_ios_release.zip
 [84]: http://www.openframeworks.cc/versions/v0.071/of_v0071_android_release.tar.gz
 [85]: http://www.openframeworks.cc/versions/v0072/of_v0072_win_cb_release.zip
 [86]: http://www.openframeworks.cc/versions/v0072/of_v0072_vs2010_release.zip
 [87]: http://www.openframeworks.cc/versions/v0072/of_v0072_osx_release.zip
 [88]: http://www.openframeworks.cc/versions/v0072/of_v0072_linux_release.tar.gz
 [89]: http://www.openframeworks.cc/versions/v0072/of_v0072_linux64_release.tar.gz
-[90]: http://www.openframeworks.cc/versions/v0072/of_v0072_iOS_release.zip
+[90]: http://www.openframeworks.cc/versions/v0072/of_v0072_ios_release.zip
 [91]: http://www.openframeworks.cc/versions/v0072/of_v0072_android_release.tar.gz
 [92]: http://www.openframeworks.cc/versions/v0073/of_v0073_win_cb_release.zip
 [93]: http://www.openframeworks.cc/versions/v0073/of_v0073_vs2010_release.zip
 [94]: http://www.openframeworks.cc/versions/v0073/of_v0073_osx_release.zip
 [95]: http://www.openframeworks.cc/versions/v0073/of_v0073_linux_release.tar.gz
 [96]: http://www.openframeworks.cc/versions/v0073/of_v0073_linux64_release.tar.gz
-[97]: http://www.openframeworks.cc/versions/v0073/of_v0073_iOS_release.zip
+[97]: http://www.openframeworks.cc/versions/v0073/of_v0073_ios_release.zip
 [98]: http://www.openframeworks.cc/versions/v0073/of_v0073_android_release.tar.gz
 [99]: http://www.openframeworks.cc/versions/v0.7.4/of_v0.7.4_win_cb_release.zip
 [100]: http://www.openframeworks.cc/versions/v0.7.4/of_v0.7.4_vs2010_release.zip
 [101]: http://www.openframeworks.cc/versions/v0.7.4/of_v0.7.4_osx_release.zip
 [102]: http://www.openframeworks.cc/versions/v0.7.4/of_v0.7.4_linux_release.tar.gz
 [103]: http://www.openframeworks.cc/versions/v0.7.4/of_v0.7.4_linux64_release.tar.gz
-[104]: http://www.openframeworks.cc/versions/v0.7.4/of_v0.7.4_iOS_release.zip
+[104]: http://www.openframeworks.cc/versions/v0.7.4/of_v0.7.4_ios_release.zip
 [105]: http://www.openframeworks.cc/versions/v0.7.4/of_v0.7.4_android_release.tar.gz
-
-
+[106]: http://www.openframeworks.cc/versions/v0.8.0/of_v0.8.0_win_cb_release.zip
+[107]: http://www.openframeworks.cc/versions/v0.8.0/of_v0.8.0_vs_release.zip
+[108]: http://www.openframeworks.cc/versions/v0.8.0/of_v0.8.0_osx_release.zip
+[109]: http://www.openframeworks.cc/versions/v0.8.0/of_v0.8.0_linux_release.tar.gz
+[110]: http://www.openframeworks.cc/versions/v0.8.0/of_v0.8.0_linux64_release.tar.gz
+[111]: http://www.openframeworks.cc/versions/v0.8.0/of_v0.8.0_ios_release.zip
+[112]: http://www.openframeworks.cc/versions/v0.8.0/of_v0.8.0_android_release.tar.gz
+[113]: http://www.openframeworks.cc/versions/v0.8.0/of_v0.8.0_linuxarmv6l_release.tar.gz
+[114]: http://www.openframeworks.cc/versions/v0.8.0/of_v0.8.0_linuxarmv7l_release.tar.gz

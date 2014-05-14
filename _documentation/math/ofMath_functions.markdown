@@ -1,6 +1,13 @@
 #functions
 
+
+<!--
+_visible: True_
+_advanced: False_
+-->
+
 ##Description
+
 
 
 
@@ -25,7 +32,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Calculates the difference between two angles in degrees. 
+
+This will calculate the actual difference, taking into account multiple revolutions. For example: 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -52,34 +72,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Calculates the difference between two angles in radians. 
+
+This will calculate the actual difference, taking into account multiple revolutions. For example: 
+
+
+
+
+
+
+
 _description: _
 
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###float ofAngleSumRadians(currentAngle, targetAngle)
-
-<!--
-_syntax: ofAngleSumRadians(currentAngle, targetAngle)_
-_name: ofAngleSumRadians_
-_returns: float_
-_returns_description: _
-_parameters: float currentAngle, float targetAngle_
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
 
 
 
@@ -106,7 +112,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Given the four points that determine a bezier curve, return an interpolated point on the curve. 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -133,7 +150,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Given the four points that determine a bezier curve and an offset along the curve, return an tangent vector to a point on the curve. Currently this is not a normalized point, and will need to be normalized. 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -160,17 +188,21 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Clamp a value between min and max. 
+
+Restricts a value to be within a specified range defined by values min and max. If the value is min <= value <= max, returns value. If the value is greater than max, return max; if the value is less than min, return min. 
+
+
+
+
+
+
+
 _description: _
 
-Restricts a value to be within a specified range defined by values min and max. 
-e.g:
-~~~~{.cpp}
-float val, newval;
-val=10;
-newval=ofClamp(val,30,40); //newval = 30
-newval=ofClamp(val,0,5); //newval = 5
-newval=ofClamp(val,0,20); //newval = 10
-~~~~
+
 
 
 
@@ -196,7 +228,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Given the four points that determine a Catmull Rom curve, return an interpolated point on the curve. 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -223,7 +266,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Return a tangent point for an offset along a Catmull Rom curve. 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -250,9 +304,21 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Convert degrees to radians. 
+
+Example: 
+
+
+
+
+
+
+
 _description: _
 
-Convert an angle value expressed in Degrees into an angle in Radians. For example if we call this function for degrees=90 we obtain PI/2.
+
 
 
 
@@ -278,9 +344,17 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
-Calculates the distance between two points, (x1, y1) and (x2, y2).   Uses http://en.wikipedia.org/wiki/Pythagorean_theorem
+
 
 
 
@@ -306,7 +380,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Calculates the distance between two points. 
+
+Uses 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -333,9 +420,17 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
-Calculates the distances between two points, as in ofDist() but doesn't take the sqrt() of the result, which is a faster operation if you need to calculate and compare multiple distances. 
+
 
 
 
@@ -361,7 +456,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Calculates the distance between two points, without taking the square root of the result. 
+
+Same as ofMath::ofDist() but doesn't take the sqrt() of the result, which is a faster operation if you need to calculate and compare multiple distances.
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -388,9 +496,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Determines if a number is inside of a given range. 
+
+
+
+
+
+
+
 _description: _
 
-Returns true if the number t is the range of [min - max], false if it's not. 
+
 
 
 
@@ -416,7 +534,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Determine if an (x,y) coordinate is within the polygon defined by a vector of ofPoints. 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -443,7 +572,198 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Determine if an ofPoint is within the polygon defined by a vector of ofPoints. 
+
+
+
+
+
+
+
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###Type ofInterpolateCatmullRom(y0, y1, y2, y3, pct)
+
+<!--
+_syntax: ofInterpolateCatmullRom(y0, y1, y2, y3, pct)_
+_name: ofInterpolateCatmullRom_
+_returns: Type_
+_returns_description: _
+_parameters: Type y0, Type y1, Type y2, Type y3, float pct_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###Type ofInterpolateCosine(y1, y2, pct)
+
+<!--
+_syntax: ofInterpolateCosine(y1, y2, pct)_
+_name: ofInterpolateCosine_
+_returns: Type_
+_returns_description: _
+_parameters: Type y1, Type y2, float pct_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###Type ofInterpolateCubic(y0, y1, y2, y3, pct)
+
+<!--
+_syntax: ofInterpolateCubic(y0, y1, y2, y3, pct)_
+_name: ofInterpolateCubic_
+_returns: Type_
+_returns_description: _
+_parameters: Type y0, Type y1, Type y2, Type y3, float pct_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###Type ofInterpolateHermite(y0, y1, y2, y3, pct)
+
+<!--
+_syntax: ofInterpolateHermite(y0, y1, y2, y3, pct)_
+_name: ofInterpolateHermite_
+_returns: Type_
+_returns_description: _
+_parameters: Type y0, Type y1, Type y2, Type y3, float pct_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###Type ofInterpolateHermite(y0, y1, y2, y3, pct, tension, bias)
+
+<!--
+_syntax: ofInterpolateHermite(y0, y1, y2, y3, pct, tension, bias)_
+_name: ofInterpolateHermite_
+_returns: Type_
+_returns_description: _
+_parameters: Type y0, Type y1, Type y2, Type y3, float pct, float tension, float bias_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -470,19 +790,21 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Linearly interpolate a value be within a range. 
+
+Calculates a number between two numbers (start,stop) at a specific increment (amt). If we want the new number to be between start and stop numbers, amt needs to be a number between 0 and 1. 
+
+
+
+
+
+
+
 _description: _
 
-Calculates a number between two numbers (start,stop) at a specific increment (amt).
-If we want the new number to be between start,stop numbers amp needs to be a number between 0 and 1. 
-e.g:
-~~~~{.cpp}
-float init,end,increment,result;
-increment=0.2;
-init = 1;
-end =2;
-result=ofLerp(init, end, increment); //result = 1.2
-//We are doing init+increment*(end-init)
-~~~~
+
 
 
 
@@ -508,7 +830,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Linearly interpolate a value between two angles in degrees. 
+
+Calculates a number between two numbers (start, stop) at a specific increment (amt). This does constrain the result into a single rotation, but does not clamp the values
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -535,7 +870,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Linearly interpolate a value between two angles in radians. 
+
+Calculates a number between two numbers (start, stop) at a specific increment (amt). This does constrain the result into a single rotation, but does not clamp the values
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -562,7 +910,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Determine the intersection between two lines. 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -589,16 +948,17 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
-Re-maps a number from one range to another. We convert the number value where inputMin < value < inputMax into a number beetween outputMin and outputMax.
-e.g:
-~~~~{.cpp}
-float x, newx;
-x=5;
-// 0 < x < 10
-newx = ofMap(x, 0, 10, 21, 22) //newx = 21.5 a value between 21 and 22
-~~~~
+
 
 
 
@@ -624,12 +984,23 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Given a value and an input range, remap the value to be within an output range. 
+
+ofMap remaps the value passed in "value", calculating it's linear distance between inputMin and inputMax, and remapping it based on that percentage to outputMin and outputMax. You can choose to clamp the results, which will constrain the results between outputMin and outputMax. Results are not clamped by default.
+
+Example: 
+
+
+
+
+
+
+
 _description: _
 
-ofMap remaps the value passed in "value", calculating it's linear distance between inputMin and inputMax, and remapping it based on that percentage to outputMin and outputMax.  You can choose to clamp the results.  Results are not clamped by default.
-For example:
-float color = ofMap(mouseX, 0, ofGetWidth(), 0, 255, true);
-ofBackground(color, color, color);
+
 
 
 
@@ -655,9 +1026,23 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Calculates the next larger power of 2. 
+
+If the input is already a power of 2, it will return itself. Example:
+
+ofNextPow2(50); // returns 64 ofNextPow2(64); // returns 64 ofNextPow(401)); // returns 512
+
+
+
+
+
+
+
 _description: _
 
-eg: for an input of 50 ofNextPow2 will return 64 and for an input of 401 it will return 512.
+
 
 
 
@@ -683,7 +1068,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Calculates a one dimensional Perlin noise value between 0.0...1.0. 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -710,7 +1106,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Calculates a two dimensional Perlin noise value between 0.0...1.0. 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -737,7 +1144,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Calculates a three dimensional Perlin noise value between 0.0...1.0. 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -764,7 +1182,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Calculates a four dimensional Perlin noise value between 0.0...1.0. 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -791,10 +1220,21 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Given a value and a range, remap the value to be within 0 and 1. 
+
+Often, you'll need to work with percentages or other methods that expect a value between 0 and 1. This function will take a minimum and maximum, and then finds where within that range a value sits. If the value is outside the range, it will be mapped to 0 or 1.
+
+
+
+
+
+
+
 _description: _
 
-Normalizes a number from a given range (min,max) into a value between 0 and 1.
-note: we are getting a clamp number between 0 and 1 of "value-min/max-min"
+
 
 
 
@@ -820,9 +1260,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Convert radians to degrees. 
+
+
+
+
+
+
+
 _description: _
 
-Convert an angle value expressed in Radians into an angle in Degrees. For example if we call this function for radians=PI/2 we obtain 90. 
+
 
 
 
@@ -848,9 +1298,23 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+returns a random number between two values. 
+
+Example:
+
+// Return a random floating point number between -30 and 20. ofRandom(-30, 20);
+
+
+
+
+
+
+
 _description: _
 
-For example, ofRandom(-30,20) will return a random float point number between -30 and 20.
+
 
 
 
@@ -876,9 +1340,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Returns a random floating point number between 0 and max. 
+
+
+
+
+
+
+
 _description: _
 
-Picks a random float point number between 0 and max. 
+
 
 
 
@@ -904,7 +1378,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -931,9 +1414,17 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
-Picks a random number between 0 and the width of the screen. 
+
 
 
 
@@ -959,9 +1450,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
-Picks a random float point number between -1 and 1. 
+
+
 
 
 
@@ -986,9 +1486,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+a random floating point number between 0 and 1. 
+
+
+
+
+
+
+
 _description: _
 
-Picks a random float point number between 0 and 1. 
+
+
 
 
 
@@ -1013,9 +1524,21 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Randomly seeds the random number generator. 
+
+This seeds the random number generator with an acceptably random value, generated from clock time and the PID. 
+
+
+
+
+
+
+
 _description: _
 
-Seeds the random number generator to the clock time, so that random numbers will always be different.
+
 
 
 
@@ -1041,9 +1564,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Seeds the random number generator with a value for consistent randomness. 
+
+
+
+
+
+
+
 _description: _
 
-Seeds the random number generator to a value passed in (val), so that random numbers will always be the same using the same seed.
+
 
 
 
@@ -1069,9 +1602,58 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
-Return 1 if n is positive, 0 if n = 0, and -1 if n is negative.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int ofSign(n)
+
+<!--
+_syntax: ofSign(n)_
+_name: ofSign_
+_returns: int_
+_returns_description: _
+_parameters: float n_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+Returns the sign of a number. 
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
 
 
 
@@ -1094,7 +1676,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Calculates a one dimensional Perlin noise value between -1.0...1.0. 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1121,7 +1714,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Calculates a two dimensional Perlin noise value between -1.0...1.0. 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1148,7 +1752,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Calculates a three dimensional Perlin noise value between -1.0...1.0. 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1175,7 +1790,60 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Calculates a four dimensional Perlin noise value between -1.0...1.0. 
+
+
+
+
+
+
+
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###float ofWrap(value, from, to)
+
+<!--
+_syntax: ofWrap(value, from, to)_
+_name: ofWrap_
+_returns: float_
+_returns_description: _
+_parameters: float value, float from, float to_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+Find a value within a given range, wrapping the value if it overflows. 
+
+If a value is between from and to, return that value. If a value is NOT within that range, wrap it.
+
+For example: 
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -1202,7 +1870,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1229,7 +1906,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 

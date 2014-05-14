@@ -1,25 +1,37 @@
 #class ofVec2f
 
 
+<!--
+_visible: True_
+_advanced: False_
+_istemplated: False_
+-->
+
+##InlineDescription
+
+
+
+
+
+
 ##Description
 
-
-`ofVec2f` is a class for storing a two dimensional vector. 
+ofVec2f is a class for storing a two dimensional vector. 
 
 Moving through space requires knowledge of where things are and where they are going. Vector Maths is the class of mathematics that gives us control over these things in space, allowing for elegant and intuitive descriptions of complex structures and movement. Vectors are at the heart of animations, particle systems, and 2D and 3D graphics.
 
 Vectors in mathematics in general are entities with magnitude (also called length) and direction. A vector whose magnitude is 1 (ie a vector that is *normalized*) is called a *unit vector*. Unit vectors are very handy for storing directions as they can be easily scaled up (or down) to represent motion in a particular direction with a particular length.
 
-*You will also see the term `vector` used to describe an array of objects in C++ (such as text strings). Don't let this confuse you, they are quite different: one of them is a mathematical term for a fixed-length list of numbers that you can do mathematical operations on, the other is a C++-specific term that means 'dynamically sizeable array'.*
+*You will also see the term vector used to describe an array of objects in C++ (such as text strings). Don't let this confuse you, they are quite different: one of them is a mathematical term for a fixed-length list of numbers that you can do mathematical operations on, the other is a C++-specific term that means 'dynamically sizeable array'.*
 
-`ofVec2f` has two member variables, `x` and `y`, which allow to conveniently store 2D properties of an object such as its position, velocity, or acceleration. 
+ofVec2f has two member variables, x and y, which allow to conveniently store 2D properties of an object such as its position, velocity, or acceleration. 
 
 ~~~~{.cpp}
 ofVec2f v1; // v1.x is 0, v1.y is 0
 v1.set( 10, 50 ); // now v1.x is 10, v1.y is 50
 ~~~~
 
-Using `ofVec2f` greatly simplifies arithmetic operations in two dimensions. For example if you have two vectors `v1` and `v2`, both of which represent a 2D change in position, you can find the total change of position of both of them just by doing an addition `v1 + v2`:
+Using ofVec2f greatly simplifies arithmetic operations in two dimensions. For example if you have two vectors v1 and v2, both of which represent a 2D change in position, you can find the total change of position of both of them just by doing an addition v1 + v2:
 
 ~~~~{.cpp}
 ofVec2f v1(5, 2); // v1 represents walking 5 steps forward then 2 steps sideways
@@ -29,7 +41,7 @@ v2.set(1, 1); // v2 represents walking 1 step forward then 1 step sideways
 ofVec2f result = v1 + v2; // result is 6 steps forward then 3 steps sideways
 ~~~~
 
-You can scale an `ofVec2f` by multiplying it with a float:
+You can scale an ofVec2f by multiplying it with a float:
 
 ~~~~{.cpp}
 ofVec2f v1(5, 2); // walk 5 steps forward and 2 steps right
@@ -39,7 +51,7 @@ ofVec2f result = v1 * 3; // result is 15 steps forward and 6 steps right
 
 This also works for subtraction and division.
 
-As you can see this really makes dealing with vectors as easy as dealing with single `float`s or `int`s, and can reduce the number of lines of code you have to write by half, at the same time making your code much easier to read and understand! 
+As you can see this really makes dealing with vectors as easy as dealing with single floats or ints, and can reduce the number of lines of code you have to write by half, at the same time making your code much easier to read and understand! 
 
 
 
@@ -62,15 +74,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Returns `true` if both vectors are aligned (pointing in the same direction). `tolerance` is an angle tolerance/threshold (specified in degrees) for deciding if the vectors are sufficiently aligned.
+Returns true if both vectors are aligned (pointing in the same direction). tolerance is an angle tolerance/threshold (specified in degrees) for deciding if the vectors are sufficiently aligned.
 
 ~~~~{.cpp}
 ofVec2f v1 = ofVec2f(40, 20);
@@ -99,10 +120,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -130,15 +160,26 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+Angle (deg) between two vectors. This is a signed relative angle between -180 and 180. 
+
+
+
+
+
+
+
 _description: _
 
 
-Calculate and return the angle in degrees between this vector and `vec`.
+Calculate and return the angle in degrees between this vector and vec.
 
 ~~~~{.cpp}
 ofVec2f v1(1,0);
@@ -167,15 +208,26 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+Angle (deg) between two vectors. This is a signed relative angle between -180 and 180. 
+
+
+
+
+
+
+
 _description: _
 
 
-Calculate and return the angle in radians between this vector and `vec`.
+Calculate and return the angle in radians between this vector and vec.
 
 ~~~~{.cpp}
 ofVec2f v1(1,0);
@@ -191,12 +243,12 @@ float angle = v1.angleRad(v2); // angle is HALF_PI
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f average(*points, num)
+###ofVec2f & average(*points, num)
 
 <!--
 _syntax: average(*points, num)_
 _name: average_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: const ofVec2f *points, int num_
 _access: public_
@@ -204,15 +256,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Sets this vector to be the average (*centre of gravity* or *centroid*) of a given array of `ofVec2f`s. `points` is the array of `ofVec2f`s and `num` specifies the number of `ofVec2f`s in the array.
+Sets this vector to be the average (*centre of gravity* or *centroid*) of a given array of ofVec2fs. points is the array of ofVec2fs and num specifies the number of ofVec2fs in the array.
 
 ~~~~{.cpp}
 int numPoints = 10;
@@ -246,15 +307,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Treats both this vector and `pnt` as points in 2D space, and calculates and returns the distance between them.
+Treats both this vector and pnt as points in 2D space, and calculates and returns the distance between them.
 
 ~~~~{.cpp}
 ofVec2f p1( 3, 4 );
@@ -262,7 +332,7 @@ ofVec2f p2( 6, 8 );
 float distance = p1.distance( p2 ); // distance is 5
 ~~~~
 
-`distance` involves a square root calculation, which is one of the slowest things you can do in programming. If you don't need an exact number but rather just a rough idea of distance (for example when finding the shortest distance of a bunch of points to a reference point, where it doesn't matter exactly what the distances are, you just want the shortest), you can use [`squareDistance`](#squareDistance) instead.
+distance involves a square root calculation, which is one of the slowest things you can do in programming. If you don't need an exact number but rather just a rough idea of distance (for example when finding the shortest distance of a bunch of points to a reference point, where it doesn't matter exactly what the distances are, you just want the shortest), you can use [squareDistance](#squareDistance) instead.
 
 
 
@@ -285,15 +355,24 @@ _version_started: 007_
 _version_deprecated: 007_
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Deprecated; use [`squaredDistance`](#squaredDistance).
+Deprecated; use [squaredDistance](#squaredDistance).
 
 
 
@@ -316,15 +395,26 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+Dot Product. 
+
+
+
+
+
+
+
 _description: _
 
 
-Calculate and return the dot product of this vector with `vec`.
+Calculate and return the dot product of this vector with vec.
 
 *Dot product* (less commonly known as *Euclidean inner product*) expresses the angular relationship between two vectors. In other words it is a measure of how *parallel* two vectors are. If they are completely perpendicular the dot product is 0; if they are completely parallel their dot product is either 1 if they are pointing in the same direction, or -1 if they are pointing in opposite directions.
 
@@ -367,15 +457,26 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+p==0.0 results in this point, p==0.5 results in the midpoint, and p==1.0 results in pnt being returned. 
+
+
+
+
+
+
+
 _description: _
 
 
-Perform a linear interpolation of this vector's position towards `pnt` and return the interpolated position without altering the original vector. `p` controls the amount to move towards `pnt`. `p` is normally between 0 and 1 and where 0 means stay the original position and 1 means move all the way to `pnt`, but you can also have `p` greater than 1 overshoot `pnt`, or less than 0 to move backwards away from `pnt`.
+Perform a linear interpolation of this vector's position towards pnt and return the interpolated position without altering the original vector. p controls the amount to move towards pnt. p is normally between 0 and 1 and where 0 means stay the original position and 1 means move all the way to pnt, but you can also have p greater than 1 overshoot pnt, or less than 0 to move backwards away from pnt.
 
 ~~~~{.cpp}
 ofVec2f v1( 0, 5 );
@@ -405,15 +506,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Return a copy of this vector with its length (magnitude) restricted to a maximum of `max` units by scaling down if necessary.
+Return a copy of this vector with its length (magnitude) restricted to a maximum of max units by scaling down if necessary.
 
 ~~~~{.cpp}
 ofVec2f v1(5, 1); // length is about 5.1
@@ -445,17 +555,26 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: True_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Return a new `ofVec2f` calculated by copying this vector and then mapping from its default coordinate system -- origin (0,0), X direction (1,0), Y direction (0,1) -- to a new coordinate system defined with origin at `origin`, X direction `vx`, and Y direction `vy`.
+Return a new ofVec2f calculated by copying this vector and then mapping from its default coordinate system -- origin (0,0), X direction (1,0), Y direction (0,1) -- to a new coordinate system defined with origin at origin, X direction vx, and Y direction vy.
 
-*In most cases you want `vx` and `vy` to be perpendicular and of unit length; if they are not perpendicular you will have shearing as part of the mapping, and if they are not of unit length you will have scaling as part of the mapping.*
+*In most cases you want vx and vy to be perpendicular and of unit length; if they are not perpendicular you will have shearing as part of the mapping, and if they are not of unit length you will have scaling as part of the mapping.*
 
 
 
@@ -478,15 +597,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Calculate and return the midpoint between this vector and `pnt`.
+Calculate and return the midpoint between this vector and pnt.
 
 ~~~~{.cpp}
 ofVec2f v1(5, 0);
@@ -515,10 +643,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -555,15 +692,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Return the **normalized** `ofVec2f` that is perpendicular to this vector (ie rotated 90 degrees and normalized).
+Return the **normalized** ofVec2f that is perpendicular to this vector (ie rotated 90 degrees and normalized).
 
 ![PERPENDICULAR](../math/perpendicular.png)
 Image courtesy of Wikipedia
@@ -572,6 +718,44 @@ Image courtesy of Wikipedia
 ofVec2f v(2, 5);
 ofVec2f u = v.getPerpendicular(); // u is (0.928, -0.371)
 ~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###float * getPtr()
+
+<!--
+_syntax: getPtr()_
+_name: getPtr_
+_returns: float *_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -594,15 +778,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: True_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Returns a pointer to the memory position of the first element of the vector  (`x`); the second element (`y`) immediately follows it in memory.
+Returns a pointer to the memory position of the first element of the vector  (x); the second element (y) immediately follows it in memory.
 
 ~~~~{.cpp}
 ofVec2f v1 = ofVec2f(40, 20);
@@ -611,7 +804,7 @@ float x = *(v1Ptr); // x is 40
 float y = *(v1Ptr+1); // y is 20
 ~~~~
 
-This is very useful when using arrays of `ofVec2f`s to store geometry information, as it allows the vector to be treated as a simple C array of `float`s that can be passed verbatim to OpenGL.
+This is very useful when using arrays of ofVec2fs to store geometry information, as it allows the vector to be treated as a simple C array of floats that can be passed verbatim to OpenGL.
 
 
 
@@ -634,15 +827,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Return a new `ofVec2f` that is the result of rotating this vector by `angle` degrees around the origin.
+Return a new ofVec2f that is the result of rotating this vector by angle degrees around the origin.
 
 ~~~~{.cpp}
 ofVec2f v1(1, 0);
@@ -671,15 +873,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Like [getRotated](#getRotated) but rotates around `pivot` rather than around the origin.
+Like [getRotated](#getRotated) but rotates around pivot rather than around the origin.
 
 
 
@@ -702,15 +913,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Return a new `ofVec2f` that is the result of rotating this vector by `angle` radians around the origin.
+Return a new ofVec2f that is the result of rotating this vector by angle radians around the origin.
 
 ~~~~{.cpp}
 ofVec2f v1(1, 0);
@@ -739,15 +959,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Like [getRotatedRad](#getRotatedRad) but rotates around `pivot` rather than around the origin.
+Like [getRotatedRad](#getRotatedRad) but rotates around pivot rather than around the origin.
 
 
 
@@ -770,15 +999,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Return a new `ofVec2f` that is the result of scaling this vector up or down so that it has the requested length.
+Return a new ofVec2f that is the result of scaling this vector up or down so that it has the requested length.
 
 ~~~~{.cpp}
 ofVec2f v1( 3, 4 ); // length is 5
@@ -793,12 +1031,12 @@ ofVec2f v2 = v1.getScaled( 15 ); // ( 9, 12 ), length is now 15
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f interpolate(&pnt, p)
+###ofVec2f & interpolate(&pnt, p)
 
 <!--
 _syntax: interpolate(&pnt, p)_
 _name: interpolate_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: const ofVec2f &pnt, float p_
 _access: public_
@@ -806,15 +1044,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Perform a linear interpolation of this vector's position towards `pnt`. `p` controls the amount to move towards `pnt`. `p` is normally between 0 and 1 and where 0 means stay the original position and 1 means move all the way to `pnt`, but you can also have `p` greater than 1 overshoot `pnt`, or less than 0 to move backwards away from `pnt`.
+Perform a linear interpolation of this vector's position towards pnt. p controls the amount to move towards pnt. p is normally between 0 and 1 and where 0 means stay the original position and 1 means move all the way to pnt, but you can also have p greater than 1 overshoot pnt, or less than 0 to move backwards away from pnt.
 
 ~~~~{.cpp}
 ofVec2f v1( 0, 5 );
@@ -847,10 +1094,21 @@ _version_started: 007_
 _version_deprecated: 007_
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+p==0.0 results in this point, p==0.5 results in the midpoint, and p==1.0 results in pnt being returned. 
+
+
+
+
+
+
 
 _description: _
 
@@ -876,10 +1134,21 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+Checks if vectors look in the same direction. Tolerance is specified in degree. 
+
+
+
+
+
+
 
 _description: _
 
@@ -905,10 +1174,19 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -934,10 +1212,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -949,7 +1236,7 @@ ofVec2f v(3, 4);
 float len = v.length(); // len is 5 (3,4,5 triangle)
 ~~~~
 
-`length` involves a square root calculation, which is one of the slowest things you can do in programming. If you don't need an exact number but rather just a rough idea of a length (for example when finding the shortest distance of a bunch of points to a reference point, where it doesn't matter exactly what the lengths are, you just want the shortest), you can use [`squareLength`](#squareLength) instead.
+length involves a square root calculation, which is one of the slowest things you can do in programming. If you don't need an exact number but rather just a rough idea of a length (for example when finding the shortest distance of a bunch of points to a reference point, where it doesn't matter exactly what the lengths are, you just want the shortest), you can use [squareLength](#squareLength) instead.
 
 
 
@@ -972,13 +1259,31 @@ _version_started: 007_
 _version_deprecated: 007_
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+Return the squared length (squared magnitude) of this vector.
+
+~~~~{.cpp}
+ofVec2f v(3, 4);
+float len = v.length(); // len is 5 (3,4,5 triangle)
+~~~~
+
+Use as a much faster alternative to [length](#length) if you don't need to know an accurate length but rather just a rough idea of a length (for example when finding the shortest distance of a bunch of points to a reference point, where it doesn't matter exactly what the lengths are, you just want the shortest). It avoids the square root calculation that is ordinarily required to calculate a length.
 
 
 
@@ -988,12 +1293,12 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f limit(max)
+###ofVec2f & limit(max)
 
 <!--
 _syntax: limit(max)_
 _name: limit_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: float max_
 _access: public_
@@ -1001,15 +1306,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Restrict the length (magnitude) of this vector to a maximum of `max` units by scaling down if necessary.
+Restrict the length (magnitude) of this vector to a maximum of max units by scaling down if necessary.
 
 ~~~~{.cpp}
 ofVec2f v1(5, 1); // length is about 5.1
@@ -1041,10 +1355,19 @@ _version_started: 007_
 _version_deprecated: 007_
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1057,12 +1380,12 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f map(&origin, &vx, &vy)
+###ofVec2f & map(&origin, &vx, &vy)
 
 <!--
 _syntax: map(&origin, &vx, &vy)_
 _name: map_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: const ofVec2f &origin, const ofVec2f &vx, const ofVec2f &vy_
 _access: public_
@@ -1070,17 +1393,26 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Maps this vector from its default coordinate system -- origin (0,0), X direction (1,0), Y direction (0,1) -- to a new coordinate system defined with origin at `origin`, X direction `vx`, and Y direction `vy`. 
+Maps this vector from its default coordinate system -- origin (0,0), X direction (1,0), Y direction (0,1) -- to a new coordinate system defined with origin at origin, X direction vx, and Y direction vy. 
 
-*In most case you want `vx` and `vy` to be perpendicular and of unit length; if they are not perpendicular you will have shearing as part of the mapping, and if they are not of unit length you will have scaling as part of the mapping.*
+*In most case you want vx and vy to be perpendicular and of unit length; if they are not perpendicular you will have shearing as part of the mapping, and if they are not of unit length you will have scaling as part of the mapping.*
 
 
 
@@ -1103,10 +1435,19 @@ _version_started: 007_
 _version_deprecated: 007_
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1132,15 +1473,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Returns `true` if each component is *close enough* to its corresponding component in `vec`, where what is *close enough* is determined by the value of `tolerance`: 
+Returns true if each component is *close enough* to its corresponding component in vec, where what is *close enough* is determined by the value of tolerance: 
 
 ~~~~{.cpp}
 ofVec2f v1 = ofVec2f(40, 20);
@@ -1159,12 +1509,12 @@ This is handy if, for example, you want to find out when a point becomes *close 
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f middle(&pnt)
+###ofVec2f & middle(&pnt)
 
 <!--
 _syntax: middle(&pnt)_
 _name: middle_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: const ofVec2f &pnt_
 _access: public_
@@ -1172,15 +1522,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Set this vector to the midpoint between itself and `pnt`.
+Set this vector to the midpoint between itself and pnt.
 
 ~~~~{.cpp}
 ofVec2f v1( 0, 5 );
@@ -1213,10 +1572,19 @@ _version_started: 007_
 _version_deprecated: 007_
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1229,12 +1597,12 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f normalize()
+###ofVec2f & normalize()
 
 <!--
 _syntax: normalize()_
 _name: normalize_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: _
 _access: public_
@@ -1242,10 +1610,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1282,10 +1659,95 @@ _version_started: 007_
 _version_deprecated: 007_
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+### ofVec2f()
+
+<!--
+_syntax: ofVec2f()_
+_name: ofVec2f_
+_returns: _
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0072_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+### ofVec2f(_scalar)
+
+<!--
+_syntax: ofVec2f(_scalar)_
+_name: ofVec2f_
+_returns: _
+_returns_description: _
+_parameters: float _scalar_
+_access: public_
+_version_started: 0072_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1311,10 +1773,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1348,15 +1819,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Create a 2D vector (`ofVec2f`) from a 3D vector (`ofVec3f`) by throwing away the `z` component of the 3D vector.
+Create a 2D vector (ofVec2f) from a 3D vector (ofVec3f) by throwing away the z component of the 3D vector.
 
 ~~~~{.cpp}
 ofVec3f mom3d(40, 20, 50); // 3d vector 
@@ -1384,78 +1864,29 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Create a 2D vector (`ofVec2f`) from a 4D vector (`ofVec4f`) by throwing away the `z` and `w` components of the 4D vector.
+Create a 2D vector (ofVec2f) from a 4D vector (ofVec4f) by throwing away the z and w components of the 4D vector.
 
 ~~~~{.cpp}
 ofVec3f mom4d(40, 20, 50, 80); // 4d vector 
 ofVec2f v(mom4d); // v.x is 40, v.y is 20
 ~~~~
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-### ofVec2f()
-
-<!--
-_syntax: ofVec2f()_
-_name: ofVec2f_
-_returns: _
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 0072_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-### ofVec2f(_scalar)
-
-<!--
-_syntax: ofVec2f(_scalar)_
-_name: ofVec2f_
-_returns: _
-_returns_description: _
-_parameters: float _scalar_
-_access: public_
-_version_started: 0072_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
 
 
 
@@ -1478,10 +1909,19 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1507,15 +1947,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Returns `true` if any component is different to its corresponding component in `vec`, ie if `x != vec.x` or `y != vec.y`; otherwise returns `false`.
+Returns true if any component is different to its corresponding component in vec, ie if x != vec.x or y != vec.y; otherwise returns false.
 
 ~~~~{.cpp}
 ofVec2f v1(40, 20); 
@@ -1546,15 +1995,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: True_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Returns a new vector (`x`*`vec.x`,`y`*`vec.y`).
+Returns a new vector (x*vec.x,y*vec.y).
 
 ~~~~{.cpp}
 ofVec2f v1 = ofVec2f(40, 20); 
@@ -1585,15 +2043,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Return a new `ofVec2f` that is this vector scaled by multiplying both `x` and `y` members by `f`.
+Return a new ofVec2f that is this vector scaled by multiplying both x and y members by f.
 
 ~~~~{.cpp}
 ofVec2f v1(2, 5);
@@ -1608,12 +2075,12 @@ ofVec2f v2 = v1 * 4; // (8, 20)
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f operator*=(&vec)
+###ofVec2f & operator*=(&vec)
 
 <!--
 _syntax: operator*=(&vec)_
 _name: operator*=_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: const ofVec2f &vec_
 _access: public_
@@ -1621,15 +2088,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: True_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Multiplies `x` by `vec.x`, and multiplies `y` by `vec.y`.
+Multiplies x by vec.x, and multiplies y by vec.y.
 
 ~~~~{.cpp}
 ofVec2f v1 = ofVec2f(40, 20); 
@@ -1647,12 +2123,12 @@ Useful for scaling a 2D point by a non-uniform scale.
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f operator*=(f)
+###ofVec2f & operator*=(f)
 
 <!--
 _syntax: operator*=(f)_
 _name: operator*=_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: const float f_
 _access: public_
@@ -1660,15 +2136,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Scale this vector by multiplying both `x` and `y` members by `f`.
+Scale this vector by multiplying both x and y members by f.
 
 ~~~~{.cpp}
 ofVec2f v1(2, 5);
@@ -1696,15 +2181,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Super easy vector addition. Returns a new vector (`x`+`vec.x`,`y`+`vec.y`).
+Super easy vector addition. Returns a new vector (x+vec.x,y+vec.y).
 
 ~~~~{.cpp}
 ofVec2f v1 = ofVec2f(40, 20); 
@@ -1733,15 +2227,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Returns a new vector with a float value `f` added to both `x` and `y` members.
+Returns a new vector with a float value f added to both x and y members.
 
 ~~~~{.cpp}
 ofVec2f v1(2, 5);
@@ -1756,12 +2259,12 @@ ofVec2f v2 = v1 + 10; // (12, 15)
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f operator+=(&vec)
+###ofVec2f & operator+=(&vec)
 
 <!--
 _syntax: operator+=(&vec)_
 _name: operator+=_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: const ofVec2f &vec_
 _access: public_
@@ -1769,15 +2272,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Super easy addition assignment. Adds `vec.x` to `x`, and adds `vec.y` to `y`.
+Super easy addition assignment. Adds vec.x to x, and adds vec.y to y.
 
 ~~~~{.cpp}
 ofVec2f v1 = ofVec2f(40, 20); 
@@ -1793,12 +2305,12 @@ v1 += v2; // v1 is (65, 70)
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f operator+=(f)
+###ofVec2f & operator+=(f)
 
 <!--
 _syntax: operator+=(f)_
 _name: operator+=_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: const float f_
 _access: public_
@@ -1806,15 +2318,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Adds a float value `f` to both `x` and `y` members.
+Adds a float value f to both x and y members.
 
 ~~~~{.cpp}
 ofVec2f v1(2, 5);
@@ -1842,15 +2363,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Super easy vector subtraction. Returns a new vector (`x`-`vec.x`,`y`-`vec.y`).
+Super easy vector subtraction. Returns a new vector (x-vec.x,y-vec.y).
 
 ~~~~{.cpp}
 ofVec2f v1 = ofVec2f(40, 20); 
@@ -1879,15 +2409,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Returns a new vector with a float value `f` subtracted from both `x` and `y` members.
+Returns a new vector with a float value f subtracted from both x and y members.
 
 ~~~~{.cpp}
 ofVec2f v1(2, 5);
@@ -1915,15 +2454,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Returns a new `ofVec2f` that is the inverted version (mirrored in X and Y) of this vector.
+Returns a new ofVec2f that is the inverted version (mirrored in X and Y) of this vector.
 
 ~~~~{.cpp}
 ofVec2f v1(2, 5);
@@ -1938,12 +2486,12 @@ ofVec2f v2 = -v1; // (-2, -5)
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f operator-=(&vec)
+###ofVec2f & operator-=(&vec)
 
 <!--
 _syntax: operator-=(&vec)_
 _name: operator-=_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: const ofVec2f &vec_
 _access: public_
@@ -1951,15 +2499,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Super easy subtraction assignment. Subtracts `vec.x` from `x`, and subtracts `vec.y` from `y`.
+Super easy subtraction assignment. Subtracts vec.x from x, and subtracts vec.y from y.
 
 ~~~~{.cpp}
 ofVec2f v1 = ofVec2f(40, 20); 
@@ -1975,12 +2532,12 @@ v1 -= v2; // v1 is (15, -30)
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f operator-=(f)
+###ofVec2f & operator-=(f)
 
 <!--
 _syntax: operator-=(f)_
 _name: operator-=_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: const float f_
 _access: public_
@@ -1988,15 +2545,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Subtract a float value `f` from both `x` and `y` members.
+Subtract a float value f from both x and y members.
 
 ~~~~{.cpp}
 ofVec2f v1(2, 5);
@@ -2024,15 +2590,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: True_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Returns a new vector (`x`/`vec.x`,`y`/`vec.y`).
+Returns a new vector (x/vec.x,y/vec.y).
 
 ~~~~{.cpp}
 ofVec2f v1 = ofVec2f(40, 20); 
@@ -2063,15 +2638,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Return a new `ofVec2f` that is this vector scaled by dividing both `x` and `y` members by `f`.
+Return a new ofVec2f that is this vector scaled by dividing both x and y members by f.
 
 ~~~~{.cpp}
 ofVec2f v1(2, 5);
@@ -2086,12 +2670,12 @@ ofVec2f v2 = v1 / 4; // (0.5, 1.25)
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f operator/=(&vec)
+###ofVec2f & operator/=(&vec)
 
 <!--
 _syntax: operator/=(&vec)_
 _name: operator/=_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: const ofVec2f &vec_
 _access: public_
@@ -2099,15 +2683,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: True_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Divides `x` by `vec.x`, and divides `y` by `vec.y`.
+Divides x by vec.x, and divides y by vec.y.
 
 ~~~~{.cpp}
 ofVec2f v1 = ofVec2f(40, 20); 
@@ -2125,12 +2718,12 @@ Useful for scaling a 2D point by a non-uniform scale.
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f operator/=(f)
+###ofVec2f & operator/=(f)
 
 <!--
 _syntax: operator/=(f)_
 _name: operator/=_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: const float f_
 _access: public_
@@ -2138,15 +2731,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Scale this vector by dividing both `x` and `y` members by `f`.
+Scale this vector by dividing both x and y members by f.
 
 ~~~~{.cpp}
 ofVec2f v1(2, 5);
@@ -2174,15 +2776,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Returns `true` if each component is the same as the corresponding component in `vec`, ie if `x == vec.x` and `y == vec.y`; otherwise returns `false`.
+Returns true if each component is the same as the corresponding component in vec, ie if x == vec.x and y == vec.y; otherwise returns false.
 
 ~~~~{.cpp}
 ofVec2f v1(40, 20); 
@@ -2191,6 +2802,44 @@ ofVec2f v3(40, 20);
 // ( v1 == v2 ) is false
 // ( v1 == v3 ) is true
 ~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###float & operator[](n)
+
+<!--
+_syntax: operator[](n)_
+_name: operator[]_
+_returns: float &_
+_returns_description: _
+_parameters: int n_
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -2213,15 +2862,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: True_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Allows to access the `x` and `y` components of an `ofVec2f` as though it is an array:
+Allows to access the x and y components of an ofVec2f as though it is an array:
 
 ~~~~{.cpp}
 ofVec2f v1 = ofVec2f(40, 20);
@@ -2229,7 +2887,7 @@ float x = v1[0]; // x is 40
 float y = v1[1]; // y is 20
 ~~~~
 
-This function can be handy if you want to do the same operation to both `x` and `y` components, as it means you can just make a `for` loop that repeats twice.
+This function can be handy if you want to do the same operation to both x and y components, as it means you can just make a for loop that repeats twice.
 
 
 
@@ -2239,12 +2897,12 @@ This function can be handy if you want to do the same operation to both `x` and 
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f perpendicular()
+###ofVec2f & perpendicular()
 
 <!--
 _syntax: perpendicular()_
 _name: perpendicular_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: _
 _access: public_
@@ -2252,10 +2910,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2291,10 +2958,19 @@ _version_started: 007_
 _version_deprecated: 007_
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2307,12 +2983,12 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f rescale(length)
+###ofVec2f & rescale(length)
 
 <!--
 _syntax: rescale(length)_
 _name: rescale_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: const float length_
 _access: public_
@@ -2320,10 +2996,19 @@ _version_started: 007_
 _version_deprecated: 007_
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2349,10 +3034,19 @@ _version_started: 007_
 _version_deprecated: 007_
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2365,12 +3059,12 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f rotate(angle)
+###ofVec2f & rotate(angle)
 
 <!--
 _syntax: rotate(angle)_
 _name: rotate_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: float angle_
 _access: public_
@@ -2378,15 +3072,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Rotate this vector by `angle` degrees around the origin.
+Rotate this vector by angle degrees around the origin.
 
 ~~~~{.cpp}
 ofVec2f v1(1, 0);
@@ -2402,12 +3105,12 @@ v1.rotate( 45 ); // (0, 1)
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f rotate(angle, &pivot)
+###ofVec2f & rotate(angle, &pivot)
 
 <!--
 _syntax: rotate(angle, &pivot)_
 _name: rotate_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: float angle, const ofVec2f &pivot_
 _access: public_
@@ -2415,15 +3118,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Like [rotate](#rotate) but rotates around `pivot` rather than around the origin.
+Like [rotate](#rotate) but rotates around pivot rather than around the origin.
 
 
 
@@ -2433,12 +3145,12 @@ Like [rotate](#rotate) but rotates around `pivot` rather than around the origin.
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f rotateRad(angle)
+###ofVec2f & rotateRad(angle)
 
 <!--
 _syntax: rotateRad(angle)_
 _name: rotateRad_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: float angle_
 _access: public_
@@ -2446,15 +3158,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Rotate this vector by `angle` radians around the origin.
+Rotate this vector by angle radians around the origin.
 
 ~~~~{.cpp}
 ofVec2f v1(1, 0);
@@ -2470,12 +3191,12 @@ v1.rotate( PI/4 ); // (0, 1)
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f rotateRad(angle, &pivot)
+###ofVec2f & rotateRad(angle, &pivot)
 
 <!--
 _syntax: rotateRad(angle, &pivot)_
 _name: rotateRad_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: float angle, const ofVec2f &pivot_
 _access: public_
@@ -2483,15 +3204,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Like [rotateRad](#rotateRad) but rotates around `pivot` rather than around the origin.
+Like [rotateRad](#rotateRad) but rotates around pivot rather than around the origin.
 
 
 
@@ -2514,10 +3244,19 @@ _version_started: 007_
 _version_deprecated: 007_
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2543,10 +3282,19 @@ _version_started: 007_
 _version_deprecated: 007_
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2559,12 +3307,12 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofVec2f scale(length)
+###ofVec2f & scale(length)
 
 <!--
 _syntax: scale(length)_
 _name: scale_
-_returns: ofVec2f_
+_returns: ofVec2f &_
 _returns_description: _
 _parameters: const float length_
 _access: public_
@@ -2572,10 +3320,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2586,6 +3343,44 @@ Scales this vector up or down so that it has the requested length.
 ofVec2f v1( 3, 4 ); // length is 5
 v1.scale( 15 ); // v1 is now (9, 12), with length 15
 ~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void set(_scalar)
+
+<!--
+_syntax: set(_scalar)_
+_name: set_
+_returns: void_
+_returns_description: _
+_parameters: float _scalar_
+_access: public_
+_version_started: 0072_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -2608,15 +3403,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Set `x` and `y` components of this vector with just one function call.
+Set x and y components of this vector with just one function call.
 
 ~~~~{.cpp}
 ofVec2f v1;
@@ -2644,50 +3448,30 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Set the `x` and `y` components of this vector by copying the corresponding values from `vec`.
+Set the x and y components of this vector by copying the corresponding values from vec.
 
 ~~~~{.cpp}
 ofVec2f v1(40, 20);
 ofVec2f v2;
 v2.set(v1); // v2.x is 40, v2.y is 20
 ~~~~
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void set(_scalar)
-
-<!--
-_syntax: set(_scalar)_
-_name: set_
-_returns: void_
-_returns_description: _
-_parameters: float _scalar_
-_access: public_
-_version_started: 0072_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
 
 
 
@@ -2710,15 +3494,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Treats both this vector and `pnt` as points in 2D space, and calculates and returns the squared distance between them.
+Treats both this vector and pnt as points in 2D space, and calculates and returns the squared distance between them.
 
 ~~~~{.cpp}
 ofVec2f p1( 3, 4 );
@@ -2726,45 +3519,7 @@ ofVec2f p2( 6, 8 );
 float distance = p1.distance( p2 ); // distance is 5
 ~~~~
 
-Use as a much faster alternative to [`distance`](#distance) if you don't need to know an exact number but rather just a rough idea of distance (for example when finding the shortest distance of a bunch of points to a reference point, where it doesn't matter exactly what the distances are, you just want the shortest). It avoids the square root calculation that is ordinarily required to calculate a length.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###float squareLength()
-
-<!--
-_syntax: squareLength()_
-_name: squareLength_
-_returns: float_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-Return the squared length (squared magnitude) of this vector.
-
-~~~~{.cpp}
-ofVec2f v(3, 4);
-float len = v.length(); // len is 5 (3,4,5 triangle)
-~~~~
-
-Use as a much faster alternative to [`length`](#length) if you don't need to know an accurate length but rather just a rough idea of a length (for example when finding the shortest distance of a bunch of points to a reference point, where it doesn't matter exactly what the lengths are, you just want the shortest). It avoids the square root calculation that is ordinarily required to calculate a length.
+Use as a much faster alternative to [distance](#distance) if you don't need to know an exact number but rather just a rough idea of distance (for example when finding the shortest distance of a bunch of points to a reference point, where it doesn't matter exactly what the distances are, you just want the shortest). It avoids the square root calculation that is ordinarily required to calculate a length.
 
 
 
@@ -2787,10 +3542,19 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 

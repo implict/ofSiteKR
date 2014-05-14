@@ -1,8 +1,28 @@
 #class ofMaterial
 
 
-##Description
+<!--
+_visible: True_
+_advanced: False_
+_istemplated: False_
+-->
 
+##InlineDescription
+
+
+Material concept: "Anything graphical applied to the polygons"
+
+***author:*** 
+	Diederick Huijbers <diederick[at]apollomedia[dot]nl>
+
+
+material file spec: [http://people.sc.fsu.edu/~jburkardt/data/mtl/mtl.html](http://people.sc.fsu.edu/~jburkardt/data/mtl/mtl.html)  Ogre3D [http://www.ogre3d.org/docs/manual/manual_11.html#SEC14](http://www.ogre3d.org/docs/manual/manual_11.html#SEC14)  assim material [http://assimp.sourceforge.net/lib_html/ai_material_8h.html#7dd415ff703a2cc53d1c22ddbbd7dde0](http://assimp.sourceforge.net/lib_html/ai_material_8h.html#7dd415ff703a2cc53d1c22ddbbd7dde0) 
+
+
+
+
+
+##Description
 
 
 
@@ -25,10 +45,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -54,10 +83,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -83,10 +121,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -112,10 +159,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -141,10 +197,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -170,10 +235,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -199,10 +273,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -228,10 +311,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -257,10 +349,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -286,10 +387,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -315,10 +425,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -344,10 +463,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -373,10 +501,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -402,10 +539,57 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+### ~ofMaterial()
+
+<!--
+_syntax: ~ofMaterial()_
+_name: ~ofMaterial_
+_returns: _
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -522,6 +706,31 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
+###ofFloatColor prev_ambient_back
+
+<!--
+_name: prev_ambient_back_
+_type: ofFloatColor_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
 ###ofFloatColor prev_diffuse
 
 <!--
@@ -529,6 +738,31 @@ _name: prev_diffuse_
 _type: ofFloatColor_
 _access: private_
 _version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofFloatColor prev_diffuse_back
+
+<!--
+_name: prev_diffuse_back_
+_type: ofFloatColor_
+_access: private_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _visible: True_
@@ -572,6 +806,31 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
+###ofFloatColor prev_emissive_back
+
+<!--
+_name: prev_emissive_back_
+_type: ofFloatColor_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
 ###float prev_shininess
 
 <!--
@@ -597,6 +856,31 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
+###float prev_shininess_back
+
+<!--
+_name: prev_shininess_back_
+_type: float_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
 ###ofFloatColor prev_specular
 
 <!--
@@ -604,6 +888,31 @@ _name: prev_specular_
 _type: ofFloatColor_
 _access: private_
 _version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofFloatColor prev_specular_back
+
+<!--
+_name: prev_specular_back_
+_type: ofFloatColor_
+_access: private_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _visible: True_

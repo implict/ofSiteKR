@@ -1,10 +1,40 @@
 #class ofColor_
 
 
+<!--
+_visible: True_
+_advanced: False_
+_istemplated: True_
+-->
+
+##InlineDescription
+
+A class template to represent a color with variable precision. 
+
+
+ofColor_ is a class template for representing a color using the [RGB model](RGB model). Consequently, ofColor_ stores three numbers representing representing the R (red), G (green) and B (blue) color components. In addition to the R, G and B components, ofColor_ represent's a color's opacity with a fourth alpha component. An alpha value of zero represents a completely transparent color. A maximal alpha value (which depends upon the range and precision of the underlying data type) represents an opaque color.
+
+Since each of the R, G, B and A components is represented by any underlying numerical PixelType, the choice of PixelType affects both the range of values and resulting precision of the RGB color representation.
+
+Typically users will not use this class template directly, but will use the convenient pre-defined typedefs.
+
+
+For integral PixelTypes (e.g. unsigned char and unsigned short), the minimum is zero and the maximum is given by: std::numeric_limits<PixelType>::max();
+
+
+For floating point PixelsTypes, the maximum is 1.0.
+
+The ofColor typedef represents an 8-bit RGBA color. Thus, each component has a maximum value of 255 and a minimum value of 0. The ofColor typedef is the default color type in openFrameworks and will work for most user applications.
+
+The ofFloatColor and ofShortColor represent higher precision representations of a given color and are used in special cases where precision color math is required. ofFloatColor might be used for specialized image processing, such as image averaging where rounding errors might otherwise introduce unaccaptable visual artifacts. ofShortColor might be used with depth camera images that can represent the "depth" of each pixel with greater than 256 unique levels. 
+
+
+
+
+
 ##Description
 
-
-`ofColor` represents a color in openFrameworks. Colors are usually defined by specifying a red, green, and blue component (RGB), and a transparency (alpha) component. You can also specify colors using hue, saturation and brightness (HSB).
+ofColor represents a color in openFrameworks. Colors are usually defined by specifying a red, green, and blue component (RGB), and a transparency (alpha) component. You can also specify colors using hue, saturation and brightness (HSB).
 
 For example: 
 
@@ -27,13 +57,13 @@ ofSetColor( ofColor(0, 0, ofRandom( 128, 255 ) );
 // draw color is now a random blue
 ~~~~
 
-`ofColor` also enables a lot of extra functionality like using HSB instead of color spectrums, lerping or linearly interpolating between colors, and inverting colors, among other things. 
+ofColor also enables a lot of extra functionality like using HSB instead of color spectrums, lerping or linearly interpolating between colors, and inverting colors, among other things. 
 
-`ofColor` is templated, which means that it has several different ways it can be created. These are probably best to leave as they are because there's already a few kinds `typedef`ed for you. The default `ofColor` uses `unsigned char` values (0 to 255), but you can make an `ofFloatColor` if you want to work with floating point numbers between 0 and 1, or `ofShortColor` if you want to work with integers between 0 and 65,535.
+ofColor is templated, which means that it has several different ways it can be created. These are probably best to leave as they are because there's already a few kinds typedefed for you. The default ofColor uses unsigned char values (0 to 255), but you can make an ofFloatColor if you want to work with floating point numbers between 0 and 1, or ofShortColor if you want to work with integers between 0 and 65,535.
 
 ### HSB
 
-You're probably familiar with RGB colors already, but HSB is a big part of `ofColor`. It uses a *hue* value (for the standard `ofColor` the range for this value is between 0 and 255) to determine what the hue (the 'color' in the sense of a color in the rainbow) will be:
+You're probably familiar with RGB colors already, but HSB is a big part of ofColor. It uses a *hue* value (for the standard ofColor the range for this value is between 0 and 255) to determine what the hue (the 'color' in the sense of a color in the rainbow) will be:
 
 ![HSB](../types/hsb.png)
 
@@ -61,12 +91,12 @@ In other words, saturation refers to the intensity of the color: high saturation
 
 
 
-###ofColor_ clamp()
+###ofColor_< PixelType > & clamp()
 
 <!--
 _syntax: clamp()_
 _name: clamp_
-_returns: ofColor__
+_returns: ofColor_< PixelType > &_
 _returns_description: _
 _parameters: _
 _access: public_
@@ -74,15 +104,34 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Clamp values between 0 and the limit(). 
+
+
+Clamps the value of each component, R, G, B and A to a maximum of limit() and a minimum of zero.
+
+***return:*** 
+	A reference to itself. 
+
+
+
+
+
+
+
+
+
+
 _description: _
 
 
-This clamps the values of your color in case they're too high or low for their types, in case you go negative or too use values that are too high, like anything >1.0 in the case of `ofFloatColor`.
+This clamps the values of your color in case they're too high or low for their types, in case you go negative or too use values that are too high, like anything >1.0 in the case of ofFloatColor.
 
 ~~~~{.cpp}
 ofFloatColor c( 1, 0, 0 );
@@ -111,10 +160,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -127,12 +185,12 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ fromHex(hexColor, alpha = limit())
+###ofColor_< PixelType > fromHex(hexColor, alpha = limit())
 
 <!--
 _syntax: fromHex(hexColor, alpha = limit())_
 _name: fromHex_
-_returns: ofColor__
+_returns: ofColor_< PixelType >_
 _returns_description: _
 _parameters: int hexColor, float alpha=limit()_
 _access: public_
@@ -140,10 +198,28 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Create an ofColor_ from a hexadecimal value. 
+
+
+In some cases, it is convenient to represent colors using a hexadecimal number. In this case, red, green and blue values are packed into a single integer.
+
+The alpha channel is specified separately and will default to the PixelType's maximum, resulting in an opaque color.
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -162,12 +238,12 @@ ofColor c = ofColor::fromHex(0xFFFF00); // c is yellow
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ fromHsb(hue, saturation, brightness, alpha = limit())
+###ofColor_< PixelType > fromHsb(hue, saturation, brightness, alpha = limit())
 
 <!--
 _syntax: fromHsb(hue, saturation, brightness, alpha = limit())_
 _name: fromHsb_
-_returns: ofColor__
+_returns: ofColor_< PixelType >_
 _returns_description: _
 _parameters: float hue, float saturation, float brightness, float alpha=limit()_
 _access: public_
@@ -175,10 +251,30 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Create an ofColor_ from an HSB representation. 
+
+
+While ofColor_ represents color using R, G, B, and A components, other representations are available. This method allows the user to construct an ofColor_ from a Hue (H), Saturation (S), and Brightness (B) and an optional alpha value.
+
+The alpha channel is specified separately and will default to the PixelType's maximum, resulting in an opaque color.
+
+For more information about HSB, see: [http://en.wikipedia.org/wiki/HSV_color_space](http://en.wikipedia.org/wiki/HSV_color_space)
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -210,10 +306,25 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Calculate the brightness of of the R, G and B components. 
+
+
+Brightness is simply the maximum of the three color components. This method of calculating brightness is used by Photoshop (HSB) and Processing (HSB). Note that brightness is also called "Value".
+
+returns the brightness in the range 0 - limit(). 
+
+
+
+
+
+
 
 _description: _
 
@@ -228,12 +339,12 @@ Return the brightness component of the HSB representation of this color. Refer t
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ getClamped()
+###ofColor_< PixelType > getClamped()
 
 <!--
 _syntax: getClamped()_
 _name: getClamped_
-_returns: ofColor__
+_returns: ofColor_< PixelType >_
 _returns_description: _
 _parameters: _
 _access: public_
@@ -241,10 +352,31 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+A non-destructive version of clamp(). 
+
+
+***return:*** 
+	A copy of this color, clamped. 
+
+
+***see:*** 
+	clamp() 
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -272,10 +404,31 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Get a hexadecimal representation of the RGB color. 
+
+
+***warning:*** 
+	This method does not encode the alpha component.
+
+
+***return:*** 
+	An integer representing an RGB color. 
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -310,10 +463,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Extract the hue, saturation and brightness from this color. 
+
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -350,10 +517,29 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Get the Hue of this color. 
+
+
+The color is converted from the default RGB to an HSB colorspace and the resulting Hue value is returned. The resulting hue value will always be returned in the range 0 - limit().
+
+***return:*** 
+	The Hue value in the range 0 - limit(). 
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -368,12 +554,60 @@ Return the hue component of the HSB representation of this color. Refer the [dis
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ getInverted()
+###float getHueAngle()
+
+<!--
+_syntax: getHueAngle()_
+_name: getHueAngle_
+_returns: float_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+Get the Hue angle of this color. 
+
+
+The color is converted from the default RGB to an HSB colorspace and the resulting Hue angle is returned. The resulting hue value will always be returned in degrees in the range 0 - 360.
+
+***return:*** 
+	The Hue angle in the range 0 - 360. 
+
+
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_< PixelType > getInverted()
 
 <!--
 _syntax: getInverted()_
 _name: getInverted_
-_returns: ofColor__
+_returns: ofColor_< PixelType >_
 _returns_description: _
 _parameters: _
 _access: public_
@@ -381,10 +615,31 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+A non-destructive version of invert(). 
+
+
+***return:*** 
+	A copy of this color, inverted. 
+
+
+***see:*** 
+	invert() 
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -399,12 +654,12 @@ Returns the color that is the inverted version (complement) to this color, witho
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ getLerped(&target, amount)
+###ofColor_< PixelType > getLerped(&target, amount)
 
 <!--
 _syntax: getLerped(&target, amount)_
 _name: getLerped_
-_returns: ofColor__
+_returns: ofColor_< PixelType >_
 _returns_description: _
 _parameters: const ofColor_< PixelType > &target, float amount_
 _access: public_
@@ -412,15 +667,36 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+A non-destructive version of lerp(). 
+
+
+***return:*** 
+	A copy of this color, lerped. 
+
+
+***see:*** 
+	lerp() 
+
+
+
+
+
+
+
+
+
+
 _description: _
 
 
-Returns this color lerped towards `target` by `amount`, without modifying the original. See [lerp](#lerp) for more info.
+Returns this color lerped towards target by amount, without modifying the original. See [lerp](#lerp) for more info.
 
 
 
@@ -443,10 +719,25 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Calculate the lightness of the R, G and B components. 
+
+
+Lightness is simply the average of the three color components. This method of calculating lightness is used by the Lab and HSL color spaces.
+
+returns the lightness in the range 0 - limit(). 
+
+
+
+
+
+
 
 _description: _
 
@@ -461,12 +752,12 @@ Return the average of the three color components. This is used by the Lab and HS
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ getNormalized()
+###ofColor_< PixelType > getNormalized()
 
 <!--
 _syntax: getNormalized()_
 _name: getNormalized_
-_returns: ofColor__
+_returns: ofColor_< PixelType >_
 _returns_description: _
 _parameters: _
 _access: public_
@@ -474,10 +765,31 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: True_
 -->
+
+_inlined_description: _
+
+A non-destructive version of normalize(). 
+
+
+***return:*** 
+	A copy of this color, normalized. 
+
+
+***see:*** 
+	normalize() 
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -505,10 +817,29 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Get the Saturation of this color. 
+
+
+The color is converted from the default RGB to an HSB colorspace and the resulting saturation is returned. The resulting saturation value will always be returned in the range 0 - limit().
+
+***return:*** 
+	The saturation in the range 0 - limit(). 
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -523,12 +854,12 @@ Return the saturation component of the HSB representation of this color. Refer t
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ invert()
+###ofColor_< PixelType > & invert()
 
 <!--
 _syntax: invert()_
 _name: invert_
-_returns: ofColor__
+_returns: ofColor_< PixelType > &_
 _returns_description: _
 _parameters: _
 _access: public_
@@ -536,10 +867,40 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Invert the R, G and B components. 
+
+
+Performs an inversion operation on the color by replacing the red, green and blue components with their original value subtracted from the limit(). For example, an ofColor value of: unsigned char maxValue = limit(); // would return 255
+
+unsigned char r = 255;
+unsigned char g = 255;
+unsigned char b = 0;
+
+unsigned char rNew = maxValue - r; // 255 - 255 = 0
+unsigned char gNew = maxValue - g; // 255 - 255 = 0
+unsigned char bNew = maxValue - b; // 255 - 0   = 255;
+
+
+Thus the inversion of ofColor(255, 255, 0) is ofColor(0, 0, 255);
+
+***return:*** 
+	A reference to itself. 
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -559,12 +920,12 @@ c.invert(); // c is now (255,255,0), or yellow, which is blue's complement
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ lerp(&target, amount)
+###ofColor_< PixelType > & lerp(&target, amount)
 
 <!--
 _syntax: lerp(&target, amount)_
 _name: lerp_
-_returns: ofColor__
+_returns: ofColor_< PixelType > &_
 _returns_description: _
 _parameters: const ofColor_< PixelType > &target, float amount_
 _access: public_
@@ -572,10 +933,30 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+A linear interpolation between all components of two colors. 
+
+
+The lerp method performs a linear interpolation (or [lerp](lerp)) between this color and a target color. In contrast to many of the mathematical functions found in ofColor_, The linear interpolation is carried out on all components, R, G, B and A. The amount is typically a value between 0.0 and 1.0, with 0.0 yielding an unchanged color and 1.0 yielding a color identical to the target color.
+
+
+***return:*** 
+	A reference to itself. 
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -610,15 +991,32 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Return the maximum value of a color. 
+
+
+***return:*** 
+	The value associated with a fully saturated color component. 
+
+
+
+
+
+
+
+
+
+
 _description: _
 
 
-Returns the maximum value for a component for this color. For standard `ofColor` returns 255, for `ofFloatColor` returns 1.0, for `ofShortColor` returns 65,536.
+Returns the maximum value for a component for this color. For standard ofColor returns 255, for ofFloatColor returns 1.0, for ofShortColor returns 65,536.
 
 
 
@@ -628,12 +1026,12 @@ Returns the maximum value for a component for this color. For standard `ofColor`
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ normalize()
+###ofColor_< PixelType > & normalize()
 
 <!--
 _syntax: normalize()_
 _name: normalize_
-_returns: ofColor__
+_returns: ofColor_< PixelType > &_
 _returns_description: _
 _parameters: _
 _access: public_
@@ -641,10 +1039,37 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: True_
 -->
+
+_inlined_description: _
+
+Normalize the R, G and B components. 
+
+
+Performs a normalization operation on the red, green and blue components by scaling them by brightness of the original color divided by the limit(). The brightness is calculated by finding the maximum of original red, green and blue components. This operation is equivalent to the following: ofColor myColor(127, 0, 0, 127);
+
+float brightness = myColor.getBrightness(); // returns 127.
+float scaleFactor = brightness / limit();   // returns 127 / 255.
+
+ofColor myNormalizedColor = myColor / scaleFactor;
+                            // Divides the red, green and blue
+                            // components by the scale factor.
+
+
+***return:*** 
+	A reference to itself. 
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -686,10 +1111,21 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Construct an ofColor_ instance. 
+
+
+
+
+
+
+
 
 _description: _
 
@@ -716,16 +1152,32 @@ _syntax: ofColor_(_r, _g, _b, _a = limit())_
 _name: ofColor__
 _returns: _
 _returns_description: _
-_parameters: float _r, float _g, float _b, float _a=limit()_
+_parameters: float red, float green, float blue, float alpha=limit()_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Construct an ofColor_ by using channel values. 
+
+
+When creating an instance of ofColor_ the channel values must fall within the range represented by the PixelType. By default, the alpha component will take the PixelType's maximum, producing an opaque color.
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -735,41 +1187,6 @@ Creates a color using RGB values and optional alpha value. The default alpha val
 ~~~~{.cpp}
 ofColor c1(255, 0, 0); // red with 100% alpha
 ofColor c2(255, 0, 0, 128); // red with 50% alpha.
-~~~~
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-### ofColor_(gray, _a = limit())
-
-<!--
-_syntax: ofColor_(gray, _a = limit())_
-_name: ofColor__
-_returns: _
-_returns_description: _
-_parameters: float gray, float _a=limit()_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-Creates a gray color from the value of `gray`. `_a` defaults to completely opaque.
-
-~~~~{.cpp}
-ofColor c(0.5, 122); // now c is 50% alpha gray, ooh, dismal
 ~~~~
 
 
@@ -793,10 +1210,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Construct an ofColor_ from an existing ofColor_. 
+
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -823,25 +1254,92 @@ _syntax: ofColor_(&color, _a)_
 _name: ofColor__
 _returns: _
 _returns_description: _
-_parameters: const ofColor_< PixelType > &color, float _a_
+_parameters: const ofColor_< PixelType > &color, float alpha_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Construct an ofColor_ from an existing ofColor_. 
+
+
+This constructor will use the R, G and B components from the passed color ignoring its alpha channel. The provided alpha channel will be used instead.
+
+
+
+
+
+
+
+
+
+
 _description: _
 
 
-Creates a color by copying another color, overriding the existing alpha value with the value of `_a`:
+Creates a color by copying another color, overriding the existing alpha value with the value of _a:
 
 ~~~~{.cpp}
 ofColor mom(255, 0, 0); // red
 ofColor c(mom, 128); // now c is red with 50% alpha
+~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+### ofColor_(gray, _a = limit())
+
+<!--
+_syntax: ofColor_(gray, _a = limit())_
+_name: ofColor__
+_returns: _
+_returns_description: _
+_parameters: float gray, float alpha=limit()_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+Construct a grayscale ofColor_ by specifiying a single number. 
+
+
+This constructor will use a single value to describe a grayscale color. This single value will be taken by each of the R, G and B components. The alpha channel is specified separately and will and will default to the PixelType's maximum resulting in an opaque color.
+
+
+
+
+
+
+
+
+
+
+_description: _
+
+
+Creates a gray color from the value of gray. _a defaults to completely opaque.
+
+~~~~{.cpp}
+ofColor c(0.5, 122); // now c is 50% alpha gray, ooh, dismal
 ~~~~
 
 
@@ -865,15 +1363,35 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Construct an ofColor_ from an existing ofColor_. 
+
+
+This constructor will attempt to convert between color instances of differing precision.
+
+***warning:*** 
+	Depending on the PixelType and SrcType used, color precision may be lost when converting a higher precision to a lower precision representation.
+
+
+
+
+
+
+
+
+
+
+
 _description: _
 
 
-Creates a color by copying another color with a different type (for example when copying from a standard `ofColor` using `unsigned char`s to an `ofFloatColor`):
+Creates a color by copying another color with a different type (for example when copying from a standard ofColor using unsigned chars to an ofFloatColor):
 
 ~~~~{.cpp}
 ofColor c1(255, 128, 0); // orange
@@ -896,29 +1414,36 @@ _syntax: operator!=(&color)_
 _name: operator!=_
 _returns: bool_
 _returns_description: _
-_parameters: ofColor_< PixelType > const &color_
+_parameters: const ofColor_< PixelType > &color_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Test two colors for inequality. 
+
+
+***return:*** 
+	true iff any of the R, G, B or A components are not equal. 
+
+
+
+
+
+
+
+
+
+
 _description: _
 
-
-Non-equivalence operator. Returns `true` if any RGB component is different from its equivalent in `color`, otherwise returns `false`.
-
-~~~~{.cpp}
-ofColor c1(255, 0, 0); // red
-ofColor c2(0, 255, 0); // green
-ofColor c3(255, 0, 0); // red
-// ( c1 != c2 ) is true
-// ( c1 != c3 ) is false
-~~~~
 
 
 
@@ -928,34 +1453,35 @@ ofColor c3(255, 0, 0); // red
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator*(&color)
+###ofColor_< PixelType > operator*(&color)
 
 <!--
 _syntax: operator*(&color)_
 _name: operator*_
-_returns: ofColor__
+_returns: ofColor_< PixelType >_
 _returns_description: _
-_parameters: ofColor_< PixelType > const &color_
+_parameters: const ofColor_< PixelType > &color_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-Returns a new color where each channel has been multiplied by its parallel in `color`, with 100% alpha. Behaves like a multiply blend in a photo editing app: if the red channel in `color` is 50%, the output red channel will be 50% of the input red channel.
-
-~~~~{.cpp}
-ofColor c1(128, 0, 0); // 50% red
-ofColor c2(255, 255, 255); // white
-ofColor c3 = c2*c1; // c3 is (128, 0, 0)
-~~~~
 
 
 
@@ -965,33 +1491,35 @@ ofColor c3 = c2*c1; // c3 is (128, 0, 0)
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator*(&val)
+###ofColor_< PixelType > operator*(&val)
 
 <!--
 _syntax: operator*(&val)_
 _name: operator*_
-_returns: ofColor__
+_returns: ofColor_< PixelType >_
 _returns_description: _
-_parameters: float const &val_
+_parameters: const float &val_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-Returns a new color where each channel has been multiplied by `val`, with alpha 100% alpha. Before multiplying, `val` is clamped to a range of 0 to 1.
-
-~~~~{.cpp}
-ofColor c1(255, 128, 0);
-ofColor c2 = c1*0.5; // c2 is (127, 64, 0)
-~~~~
 
 
 
@@ -1001,34 +1529,35 @@ ofColor c2 = c1*0.5; // c2 is (127, 64, 0)
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator*=(&color)
+###ofColor_< PixelType > & operator*=(&color)
 
 <!--
 _syntax: operator*=(&color)_
 _name: operator*=_
-_returns: ofColor__
+_returns: ofColor_< PixelType > &_
 _returns_description: _
-_parameters: ofColor_< PixelType > const &color_
+_parameters: const ofColor_< PixelType > &color_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-Multiplication assignment operator. Multiplies each channel by its parallel in `color`, without touching alpha. Behaves like a multiply blend in a photo editing app: if the red channel in `color` is 50%, the red channel in this color will be reduced to 50% of its input value.
-
-~~~~{.cpp}
-ofColor c1(128, 0, 0); // 50% red
-ofColor c2(255, 255, 255); // white
-ofColor c2 *= c1; // c2 is now (128, 0, 0)
-~~~~
 
 
 
@@ -1038,33 +1567,35 @@ ofColor c2 *= c1; // c2 is now (128, 0, 0)
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator*=(&val)
+###ofColor_< PixelType > & operator*=(&val)
 
 <!--
 _syntax: operator*=(&val)_
 _name: operator*=_
-_returns: ofColor__
+_returns: ofColor_< PixelType > &_
 _returns_description: _
-_parameters: float const &val_
+_parameters: const float &val_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-Multiplication assignment operator. Multiplies each channel by `val`, without touching alpha. Before multiplying, `val` is clamped to a range of 0 to 1.
-
-~~~~{.cpp}
-ofColor c1(255, 128, 0);
-ofColor c1*=0.5; // c2 is (127, 64, 0)
-~~~~
 
 
 
@@ -1074,34 +1605,35 @@ ofColor c1*=0.5; // c2 is (127, 64, 0)
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator+(&color)
+###ofColor_< PixelType > operator+(&color)
 
 <!--
 _syntax: operator+(&color)_
 _name: operator+_
-_returns: ofColor__
+_returns: ofColor_< PixelType >_
 _returns_description: _
-_parameters: ofColor_< PixelType > const &color_
+_parameters: const ofColor_< PixelType > &color_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-Sum red, green and blue components separately, ignoring alpha. In the case of integer types, like `ofColor` and `ofShortColor` this operation wraps. In the case of `ofFloatColor`, it automatically clamps the result by calling [clamp](#clamp).
-
-~~~~{.cpp}
-ofColor c1(64, 64, 0, 128);
-ofColor c2(0, 64, 64, 64 );
-ofColor c3 = c1 + c2; // c3 is (64, 128, 64) with alpha 128
-~~~~
 
 
 
@@ -1111,33 +1643,35 @@ ofColor c3 = c1 + c2; // c3 is (64, 128, 64) with alpha 128
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator+(&val)
+###ofColor_< PixelType > operator+(&val)
 
 <!--
 _syntax: operator+(&val)_
 _name: operator+_
-_returns: ofColor__
+_returns: ofColor_< PixelType >_
 _returns_description: _
-_parameters: float const &val_
+_parameters: const float &val_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-Add `val` to all components except alpha. In the case of integer types, like `ofColor` and `ofShortColor` this operation wraps. In the case of `ofFloatColor`, it automatically clamps the result by calling [clamp](#clamp).
-
-~~~~{.cpp}
-ofColor c1(128, 64, 0, 128);
-ofColor c2 = c1 + 64; // c3 is (192, 128, 64) with alpha 128
-~~~~
 
 
 
@@ -1147,34 +1681,35 @@ ofColor c2 = c1 + 64; // c3 is (192, 128, 64) with alpha 128
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator+=(&color)
+###ofColor_< PixelType > & operator+=(&color)
 
 <!--
 _syntax: operator+=(&color)_
 _name: operator+=_
-_returns: ofColor__
+_returns: ofColor_< PixelType > &_
 _returns_description: _
-_parameters: ofColor_< PixelType > const &color_
+_parameters: const ofColor_< PixelType > &color_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-Addition assignment operator. Adds the contents of `color` (except alpha) to this color. In the case of integer types, like `ofColor` and `ofShortColor` this operation wraps. In the case of `ofFloatColor`, it automatically clamps the result by calling [clamp](#clamp).
-
-~~~~{.cpp}
-ofColor c1(0, 64, 0);
-ofColor c2(64, 64, 0);
-c1 += c2; // c1 is now (64, 128, 0);
-~~~~
 
 
 
@@ -1184,33 +1719,35 @@ c1 += c2; // c1 is now (64, 128, 0);
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator+=(&val)
+###ofColor_< PixelType > & operator+=(&val)
 
 <!--
 _syntax: operator+=(&val)_
 _name: operator+=_
-_returns: ofColor__
+_returns: ofColor_< PixelType > &_
 _returns_description: _
-_parameters: float const &val_
+_parameters: const float &val_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-Addition assignment operator. Adds `val` to all components (except alpha) to this color. In the case of integer types, like `ofColor` and `ofShortColor` this operation wraps. In the case of `ofFloatColor`, it automatically clamps the result by calling [clamp](#clamp).
-
-~~~~{.cpp}
-ofColor c1(128, 64, 0);
-c1 += 128; // c1 is now (255, 192, 128)
-~~~~
 
 
 
@@ -1220,28 +1757,35 @@ c1 += 128; // c1 is now (255, 192, 128)
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator-(&color)
+###ofColor_< PixelType > operator-(&color)
 
 <!--
 _syntax: operator-(&color)_
 _name: operator-_
-_returns: ofColor__
+_returns: ofColor_< PixelType >_
 _returns_description: _
-_parameters: ofColor_< PixelType > const &color_
+_parameters: const ofColor_< PixelType > &color_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-Subtraction operator. Works like [the addition operator](#operator+).
 
 
 
@@ -1251,28 +1795,35 @@ Subtraction operator. Works like [the addition operator](#operator+).
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator-(&val)
+###ofColor_< PixelType > operator-(&val)
 
 <!--
 _syntax: operator-(&val)_
 _name: operator-_
-_returns: ofColor__
+_returns: ofColor_< PixelType >_
 _returns_description: _
-_parameters: float const &val_
+_parameters: const float &val_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-Subtraction operator. Works like [the addition operator](#operator+).
 
 
 
@@ -1282,28 +1833,35 @@ Subtraction operator. Works like [the addition operator](#operator+).
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator-=(&color)
+###ofColor_< PixelType > & operator-=(&color)
 
 <!--
 _syntax: operator-=(&color)_
 _name: operator-=_
-_returns: ofColor__
+_returns: ofColor_< PixelType > &_
 _returns_description: _
-_parameters: ofColor_< PixelType > const &color_
+_parameters: const ofColor_< PixelType > &color_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-Subtraction assignment operator. Works like [the addition assignment operator](#operator+=).
 
 
 
@@ -1313,28 +1871,35 @@ Subtraction assignment operator. Works like [the addition assignment operator](#
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator-=(&val)
+###ofColor_< PixelType > & operator-=(&val)
 
 <!--
 _syntax: operator-=(&val)_
 _name: operator-=_
-_returns: ofColor__
+_returns: ofColor_< PixelType > &_
 _returns_description: _
-_parameters: float const &val_
+_parameters: const float &val_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-Subtraction assignment operator. Works like [the addition assignment operator](#operator+=).
 
 
 
@@ -1344,28 +1909,35 @@ Subtraction assignment operator. Works like [the addition assignment operator](#
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator/(&color)
+###ofColor_< PixelType > operator/(&color)
 
 <!--
 _syntax: operator/(&color)_
 _name: operator/_
-_returns: ofColor__
+_returns: ofColor_< PixelType >_
 _returns_description: _
-_parameters: ofColor_< PixelType > const &color_
+_parameters: const ofColor_< PixelType > &color_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-Division operator. Works similar to [the * operator](#operator*) but divides instead of multiplies.
 
 
 
@@ -1375,28 +1947,35 @@ Division operator. Works similar to [the * operator](#operator*) but divides ins
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator/(&val)
+###ofColor_< PixelType > operator/(&val)
 
 <!--
 _syntax: operator/(&val)_
 _name: operator/_
-_returns: ofColor__
+_returns: ofColor_< PixelType >_
 _returns_description: _
-_parameters: float const &val_
+_parameters: const float &val_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-Division operator. Works similar to [the * operator](#operator*) but divides instead of multiplies.
 
 
 
@@ -1406,28 +1985,35 @@ Division operator. Works similar to [the * operator](#operator*) but divides ins
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator/=(&color)
+###ofColor_< PixelType > & operator/=(&color)
 
 <!--
 _syntax: operator/=(&color)_
 _name: operator/=_
-_returns: ofColor__
+_returns: ofColor_< PixelType > &_
 _returns_description: _
-_parameters: ofColor_< PixelType > const &color_
+_parameters: const ofColor_< PixelType > &color_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-Division assignment operator. Works similar to [the *= operator](#operator*=) but divides instead of multiplies.
 
 
 
@@ -1437,28 +2023,35 @@ Division assignment operator. Works similar to [the *= operator](#operator*=) bu
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator/=(&val)
+###ofColor_< PixelType > & operator/=(&val)
 
 <!--
 _syntax: operator/=(&val)_
 _name: operator/=_
-_returns: ofColor__
+_returns: ofColor_< PixelType > &_
 _returns_description: _
-_parameters: float const &val_
+_parameters: const float &val_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-Division assignment operator. Works similar to [the *= operator](#operator*=) but divides instead of multiplies.
 
 
 
@@ -1468,42 +2061,46 @@ Division assignment operator. Works similar to [the *= operator](#operator*=) bu
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator=(&color)
+###ofColor_< PixelType > & operator=(&color)
 
 <!--
 _syntax: operator=(&color)_
 _name: operator=_
-_returns: ofColor__
+_returns: ofColor_< PixelType > &_
 _returns_description: _
-_parameters: ofColor_< PixelType > const &color_
+_parameters: const ofColor_< PixelType > &color_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Assign a color using an existing color. 
+
+
+R, G, B and A components are set to the the values of the assigned color.
+
+
+***return:*** 
+	A reference to itself. 
+
+
+
+
+
+
+
+
+
+
 _description: _
 
-
-Assignment operator.
-
-~~~~{.cpp}
-ofColor c1(255, 0, 0); // red
-ofColor c2; // default white
-c2 = c1; // c2 is now red
-~~~~
-
-The color types can be different: you can assign an `ofFloatColor` to an `ofColor`:
-
-~~~~{.cpp}
-ofFloatColor c1(1.0, 0.0, 0.0); // red
-ofColor c2; // default white
-c2 = c1; // c2 is now red (255, 0, 0)
-~~~~
 
 
 
@@ -1513,23 +2110,47 @@ c2 = c1; // c2 is now red (255, 0, 0)
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator=(&color)
+###ofColor_< PixelType > & operator=(&color)
 
 <!--
 _syntax: operator=(&color)_
 _name: operator=_
-_returns: ofColor__
+_returns: ofColor_< PixelType > &_
 _returns_description: _
-_parameters: ofColor_< SrcType > const &color_
+_parameters: const ofColor_< SrcType > &color_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
-_visible: False_
+_static: False_
+_visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Assign a color using an existing color. 
+
+
+R, G, B and A components are set to the the values of the assigned color.
+
+***warning:*** 
+	Depending on the PixelType and SrcType used, color precision may be lost when converting a higher precision to a lower precision representation.
+
+
+
+***return:*** 
+	A reference to itself. 
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1542,33 +2163,50 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ operator=(&val)
+###ofColor_< PixelType > & operator=(&val)
 
 <!--
 _syntax: operator=(&val)_
 _name: operator=_
-_returns: ofColor__
+_returns: ofColor_< PixelType > &_
 _returns_description: _
-_parameters: float const &val_
+_parameters: const float &val_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Assign a color using a grayscale value. 
+
+
+R, G and B components are set to the grayscale value and alpha is set to limit(). ofColor myColor = 127;
+
+
+is equivalent to: ofColor myColor(127, 127, 127, 255);
+
+
+
+***return:*** 
+	A reference to itself. 
+
+
+
+
+
+
+
+
+
+
 _description: _
 
-
-Assigns `val` to all components, including alpha. Has the same effect as calling [`set(val,val)`](#set).
-
-~~~~{.cpp}
-ofColor c;
-c.set( 128 ); // c is RGB (128, 128, 128) with alpha of 128
-~~~~
 
 
 
@@ -1585,29 +2223,74 @@ _syntax: operator==(&color)_
 _name: operator==_
 _returns: bool_
 _returns_description: _
-_parameters: ofColor_< PixelType > const &color_
+_parameters: const ofColor_< PixelType > &color_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Test two colors for equality. 
+
+
+***return:*** 
+	true iff the R, G, B and A components are all equal. 
+
+
+
+
+
+
+
+
+
+
 _description: _
 
 
-Equivalence operator. Returns `true` if every RGB component is the same as its equivalent in `color`, otherwise returns `false`. 
 
-~~~~{.cpp}
-ofColor c1(255, 0, 0); // red
-ofColor c2(0, 255, 0); // green
-ofColor c3(255, 0, 0); // red
-// ( c1 == c2 ) is false
-// ( c1 == c3 ) is true
-~~~~
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###const PixelType & operator[](n)
+
+<!--
+_syntax: operator[](n)_
+_name: operator[]_
+_returns: const PixelType &_
+_returns_description: _
+_parameters: int n_
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -1630,15 +2313,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Array subscript operator. If `n` is 0 returns .r, if 1 returns .g, if 2 returns .b, if 3 returns alpha.
+Array subscript operator. If n is 0 returns .r, if 1 returns .g, if 2 returns .b, if 3 returns alpha.
 
 ~~~~{.cpp}
 ofColor c(128, 64, 255);
@@ -1660,16 +2352,32 @@ _syntax: set(_r, _g, _b, _a = limit())_
 _name: set_
 _returns: void_
 _returns_description: _
-_parameters: float _r, float _g, float _b, float _a=limit()_
+_parameters: float red, float green, float blue, float alpha=limit()_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Set an ofColor_ by using channel values. 
+
+
+When modifying an instance of ofColor_ the channel values must fall within the range represented by the PixelType. By default, the alpha component will take the PixelType's maximum, producing an opaque color.
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1696,21 +2404,37 @@ _syntax: set(_gray, _a = limit())_
 _name: set_
 _returns: void_
 _returns_description: _
-_parameters: float _gray, float _a=limit()_
+_parameters: float gray, float alpha=limit()_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Set a grayscale ofColor_ by specifiying a single number. 
+
+
+When modifying an instance of ofColor_ you can use a single value to describe a grayscale color. This single value will be taken by each of the R, G and B components. The alpha channel is specified separately and will and will default to the PixelType's maximum resulting in an opaque color.
+
+
+
+
+
+
+
+
+
+
 _description: _
 
 
-Creates a gray color from the value of `gray`. `_a` defaults to completely opaque.
+Creates a gray color from the value of gray. _a defaults to completely opaque.
 ~~~~{.cpp}
 ofColor c(255, 0, 0); // red
 c.set( 128, 128 ); // now 50% gray with 50% alpha
@@ -1731,27 +2455,35 @@ _syntax: set(&color)_
 _name: set_
 _returns: void_
 _returns_description: _
-_parameters: ofColor_< PixelType > const &color_
+_parameters: const ofColor_< PixelType > &color_
 _access: public_
-_version_started: 007_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Set an ofColor_ from an existing ofColor_. 
+
+
+This will use the R, G, B and A components from the passed color.
+
+
+
+
+
+
+
+
+
+
 _description: _
 
-
-Set this color to be the same as `color`.
-
-~~~~{.cpp}
-ofColor c1(255, 0, 0); // red
-ofColor c2(0, 255, 0); // green
-c2.set(c1); // c2 is now red
-~~~~
 
 
 
@@ -1774,10 +2506,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Set the brightness of this color. 
+
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1812,15 +2558,37 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Set an ofColor_ from a hexadecimal representation. 
+
+
+In some cases, it is convenient to represent colors using a hexadecimal number. In this case, red, green and blue values are packed into a integer.
+
+The alpha channel is specified separately and will default to the PixelType's maximum, resulting in an opaque color.
+
+***warning:*** 
+	The alpha value should not be packed in the hexColor and must be specified separately.
+
+
+
+
+
+
+
+
+
+
+
 _description: _
 
 
-Set this color to `hexColor` using a 24 bit hex-style color as normally used in web development.  `alpha` defaults to completely opaque.
+Set this color to hexColor using a 24 bit hex-style color as normally used in web development.  alpha defaults to completely opaque.
 ~~~~{.cpp}
 ofColor c;
 c.setHex( 0xFFFFFF ); // white
@@ -1849,44 +2617,29 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-Set this color using a HSB representation. Refer the [discussion of HSB](#HSB) above. **Note** that the `hue` value has a range that matches the base data type (ie **0 to 255** for the standard `ofColor`), rather than 0 to 360, 0 to 100 or float 0 to 1, as may be expected.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setHsb(hue, saturation, brightness)
-
-<!--
-_syntax: setHsb(hue, saturation, brightness)_
-_name: setHsb_
-_returns: void_
-_returns_description: _
-_parameters: float hue, float saturation, float brightness_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
 _static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Set the color using HSB components. 
+
+
+
+
+
+
+
+
+
+
+
 _description: _
 
+
+Set this color using a HSB representation. Refer the [discussion of HSB](#HSB) above. **Note** that the hue value has a range that matches the base data type (ie **0 to 255** for the standard ofColor), rather than 0 to 360, 0 to 100 or float 0 to 1, as may be expected.
 
 
 
@@ -1909,10 +2662,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Set the hue of this color. 
+
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1925,6 +2692,49 @@ c.setHue( 128 ); // now bright cyan
 ~~~~
 
 Refer the [discussion of HSB](#HSB) above.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setHueAngle(angle)
+
+<!--
+_syntax: setHueAngle(angle)_
+_name: setHueAngle_
+_returns: void_
+_returns_description: _
+_parameters: float angle_
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+Set the hue angle of this color. 
+
+
+
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -1947,10 +2757,30 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Set the saturation this color. 
+
+
+This method uses HSB not HSL. So red desaturated is white, not gray
+
+
+***see:*** 
+	[http://en.wikipedia.org/wiki/HSL_and_HSV](http://en.wikipedia.org/wiki/HSL_and_HSV) 
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1985,10 +2815,21 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Destroy an ofColor_ instance. 
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2005,16 +2846,16 @@ _description: _
 
 
 
-###union ofColor @1
+###union ofColor_::@3 @4
 
 <!--
-_name: @1_
-_type: union ofColor_
+_name: @4_
+_type: union ofColor_::@3_
 _access: public_
-_version_started: 007_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
-_visible: False_
+_visible: True_
 _constant: True_
 _advanced: False_
 -->
@@ -2057,6 +2898,131 @@ The alpha value (transparency) of a color. 0 is completely transparent, 255 is c
 
 <!----------------------------------------------------------------------------->
 
+###ofColor_ aliceBlue
+
+<!--
+_name: aliceBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ antiqueWhite
+
+<!--
+_name: antiqueWhite_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ aqua
+
+<!--
+_name: aqua_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ aquamarine
+
+<!--
+_name: aquamarine_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ azure
+
+<!--
+_name: azure_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
 ###PixelType b
 
 <!--
@@ -2080,6 +3046,56 @@ The blue component of this color.
 ofColor c = ofColor::cyan;
 float blue = c.b; // 255
 ~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ beige
+
+<!--
+_name: beige_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ bisque
+
+<!--
+_name: bisque_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
 
 
 
@@ -2120,6 +3136,31 @@ ofColor c = ofColor::black; // (0, 0, 0)
 
 <!----------------------------------------------------------------------------->
 
+###ofColor_ blanchedAlmond
+
+<!--
+_name: blanchedAlmond_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
 ###ofColor blue
 
 <!--
@@ -2142,6 +3183,281 @@ Pre-iniatilized blue color.
 ~~~~{.cpp}
 ofColor c = ofColor::blue; // (0, 0, 255)
 ~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ blueSteel
+
+<!--
+_name: blueSteel_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ blueViolet
+
+<!--
+_name: blueViolet_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ brown
+
+<!--
+_name: brown_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ burlyWood
+
+<!--
+_name: burlyWood_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ cadetBlue
+
+<!--
+_name: cadetBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ chartreuse
+
+<!--
+_name: chartreuse_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ chocolate
+
+<!--
+_name: chocolate_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ coral
+
+<!--
+_name: coral_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ cornflowerBlue
+
+<!--
+_name: cornflowerBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ cornsilk
+
+<!--
+_name: cornsilk_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ crimson
+
+<!--
+_name: crimson_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
 
 
 
@@ -2182,6 +3498,706 @@ ofColor c = ofColor::cyan; // (0, 255, 255)
 
 <!----------------------------------------------------------------------------->
 
+###ofColor_ darkBlue
+
+<!--
+_name: darkBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkCyan
+
+<!--
+_name: darkCyan_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkGoldenRod
+
+<!--
+_name: darkGoldenRod_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkGray
+
+<!--
+_name: darkGray_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkGreen
+
+<!--
+_name: darkGreen_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkGrey
+
+<!--
+_name: darkGrey_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkKhaki
+
+<!--
+_name: darkKhaki_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkMagenta
+
+<!--
+_name: darkMagenta_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkOliveGreen
+
+<!--
+_name: darkOliveGreen_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkOrchid
+
+<!--
+_name: darkOrchid_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkRed
+
+<!--
+_name: darkRed_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkSalmon
+
+<!--
+_name: darkSalmon_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkSeaGreen
+
+<!--
+_name: darkSeaGreen_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkSlateBlue
+
+<!--
+_name: darkSlateBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkSlateGray
+
+<!--
+_name: darkSlateGray_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkSlateGrey
+
+<!--
+_name: darkSlateGrey_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkTurquoise
+
+<!--
+_name: darkTurquoise_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkViolet
+
+<!--
+_name: darkViolet_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ darkorange
+
+<!--
+_name: darkorange_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ deepPink
+
+<!--
+_name: deepPink_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ deepSkyBlue
+
+<!--
+_name: deepSkyBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ dimGray
+
+<!--
+_name: dimGray_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ dimGrey
+
+<!--
+_name: dimGrey_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ dodgerBlue
+
+<!--
+_name: dodgerBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ fireBrick
+
+<!--
+_name: fireBrick_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ floralWhite
+
+<!--
+_name: floralWhite_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ forestGreen
+
+<!--
+_name: forestGreen_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ fuchsia
+
+<!--
+_name: fuchsia_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
 ###PixelType g
 
 <!--
@@ -2205,6 +4221,106 @@ The green component of this color.
 ofColor c = ofColor::yellow;
 float green = c.g; // 255
 ~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ gainsboro
+
+<!--
+_name: gainsboro_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ ghostWhite
+
+<!--
+_name: ghostWhite_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ gold
+
+<!--
+_name: gold_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ goldenRod
+
+<!--
+_name: goldenRod_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
 
 
 
@@ -2276,6 +4392,756 @@ ofColor c = ofColor::green; // (0, 255, 0)
 
 <!----------------------------------------------------------------------------->
 
+###ofColor_ greenYellow
+
+<!--
+_name: greenYellow_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ grey
+
+<!--
+_name: grey_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ honeyDew
+
+<!--
+_name: honeyDew_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ hotPink
+
+<!--
+_name: hotPink_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ indianRed
+
+<!--
+_name: indianRed_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ indigo
+
+<!--
+_name: indigo_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ ivory
+
+<!--
+_name: ivory_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ khaki
+
+<!--
+_name: khaki_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lavender
+
+<!--
+_name: lavender_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lavenderBlush
+
+<!--
+_name: lavenderBlush_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lawnGreen
+
+<!--
+_name: lawnGreen_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lemonChiffon
+
+<!--
+_name: lemonChiffon_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lightBlue
+
+<!--
+_name: lightBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lightCoral
+
+<!--
+_name: lightCoral_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lightCyan
+
+<!--
+_name: lightCyan_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lightGoldenRodYellow
+
+<!--
+_name: lightGoldenRodYellow_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lightGray
+
+<!--
+_name: lightGray_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lightGreen
+
+<!--
+_name: lightGreen_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lightGrey
+
+<!--
+_name: lightGrey_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lightPink
+
+<!--
+_name: lightPink_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lightSalmon
+
+<!--
+_name: lightSalmon_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lightSeaGreen
+
+<!--
+_name: lightSeaGreen_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lightSkyBlue
+
+<!--
+_name: lightSkyBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lightSlateGray
+
+<!--
+_name: lightSlateGray_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lightSlateGrey
+
+<!--
+_name: lightSlateGrey_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lightSteelBlue
+
+<!--
+_name: lightSteelBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lightYellow
+
+<!--
+_name: lightYellow_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ lime
+
+<!--
+_name: lime_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ limeGreen
+
+<!--
+_name: limeGreen_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ linen
+
+<!--
+_name: linen_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
 ###ofColor magenta
 
 <!--
@@ -2298,6 +5164,831 @@ Pre-iniatilized magenta color.
 ~~~~{.cpp}
 ofColor c = ofColor::magenta; // (255, 0, 255)
 ~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ maroon
+
+<!--
+_name: maroon_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ mediumAquaMarine
+
+<!--
+_name: mediumAquaMarine_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ mediumBlue
+
+<!--
+_name: mediumBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ mediumOrchid
+
+<!--
+_name: mediumOrchid_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ mediumPurple
+
+<!--
+_name: mediumPurple_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ mediumSeaGreen
+
+<!--
+_name: mediumSeaGreen_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ mediumSlateBlue
+
+<!--
+_name: mediumSlateBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ mediumSpringGreen
+
+<!--
+_name: mediumSpringGreen_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ mediumTurquoise
+
+<!--
+_name: mediumTurquoise_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ mediumVioletRed
+
+<!--
+_name: mediumVioletRed_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ midnightBlue
+
+<!--
+_name: midnightBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ mintCream
+
+<!--
+_name: mintCream_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ mistyRose
+
+<!--
+_name: mistyRose_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ moccasin
+
+<!--
+_name: moccasin_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ navajoWhite
+
+<!--
+_name: navajoWhite_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ navy
+
+<!--
+_name: navy_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ oldLace
+
+<!--
+_name: oldLace_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ olive
+
+<!--
+_name: olive_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ oliveDrab
+
+<!--
+_name: oliveDrab_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ orange
+
+<!--
+_name: orange_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ orangeRed
+
+<!--
+_name: orangeRed_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ orchid
+
+<!--
+_name: orchid_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ paleGoldenRod
+
+<!--
+_name: paleGoldenRod_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ paleGreen
+
+<!--
+_name: paleGreen_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ paleTurquoise
+
+<!--
+_name: paleTurquoise_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ paleVioletRed
+
+<!--
+_name: paleVioletRed_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ papayaWhip
+
+<!--
+_name: papayaWhip_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ peachPuff
+
+<!--
+_name: peachPuff_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ peru
+
+<!--
+_name: peru_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ pink
+
+<!--
+_name: pink_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ plum
+
+<!--
+_name: plum_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ powderBlue
+
+<!--
+_name: powderBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ purple
+
+<!--
+_name: purple_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
 
 
 
@@ -2370,6 +6061,531 @@ ofColor c = ofColor::red; // (255, 0, 0)
 
 <!----------------------------------------------------------------------------->
 
+###ofColor_ rosyBrown
+
+<!--
+_name: rosyBrown_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ royalBlue
+
+<!--
+_name: royalBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ saddleBrown
+
+<!--
+_name: saddleBrown_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ salmon
+
+<!--
+_name: salmon_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ sandyBrown
+
+<!--
+_name: sandyBrown_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ seaGreen
+
+<!--
+_name: seaGreen_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ seaShell
+
+<!--
+_name: seaShell_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ sienna
+
+<!--
+_name: sienna_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ silver
+
+<!--
+_name: silver_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ skyBlue
+
+<!--
+_name: skyBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ slateBlue
+
+<!--
+_name: slateBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ slateGray
+
+<!--
+_name: slateGray_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ slateGrey
+
+<!--
+_name: slateGrey_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ snow
+
+<!--
+_name: snow_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ springGreen
+
+<!--
+_name: springGreen_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ steelBlue
+
+<!--
+_name: steelBlue_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ tan
+
+<!--
+_name: tan_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ teal
+
+<!--
+_name: teal_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ thistle
+
+<!--
+_name: thistle_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ tomato
+
+<!--
+_name: tomato_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ turquoise
+
+<!--
+_name: turquoise_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
 ###PixelType v
 
 <!--
@@ -2388,6 +6604,56 @@ _description: _
 
 
 Array/pointer access. Allows the r, g, b, a components to be accessed as a pointer to an array of PixelType.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ violet
+
+<!--
+_name: violet_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ wheat
+
+<!--
+_name: wheat_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
 
 
 
@@ -2428,6 +6694,31 @@ ofColor c = ofColor::white;
 
 <!----------------------------------------------------------------------------->
 
+###ofColor_ whiteSmoke
+
+<!--
+_name: whiteSmoke_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
 ###ofColor yellow
 
 <!--
@@ -2450,6 +6741,31 @@ Pre-iniatilized yellow color.
 ~~~~{.cpp}
 ofColor c = ofColor::yellow; // (255, 255, 0)
 ~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor_ yellowGreen
+
+<!--
+_name: yellowGreen_
+_type: ofColor__
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
 
 
 

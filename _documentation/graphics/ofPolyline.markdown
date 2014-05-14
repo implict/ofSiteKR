@@ -1,8 +1,20 @@
 #class ofPolyline
 
 
-##Description
+<!--
+_visible: True_
+_advanced: False_
+_istemplated: False_
+-->
 
+##InlineDescription
+
+
+
+
+
+
+##Description
 
 ofPolyLine allows you to combine multiple points into a single vector data object that can be drawn to the screen, manipulated point by point, and combined with other ofPolyline instances. It is less complex than the [ofPath](ofPath.html) and generally represents a single line or vector shape rather than multiple lines or shapes.
 
@@ -27,8 +39,9 @@ while (angle < TWO_PI ) {
 	angle += TWO_PI / 30;
 }
 ~~~~
-ofPolyline also includes methods to get the cloeset point, determien whether a point is inside shape, and resample shapes. Along with the ofPath class, it's the best way to draw and manipulate 2D and 3D vector graphics that you'll need to update and manipulate frequently.
-If you use the line or curveTo or bezierTo functions, you move the drawing point, so that drawing a line to 100,100 means a line from 0,0 to 100, 100. The next line would be a line from 100,100 to whereever you go next. Storing this position means that you can easily create continuous drawings without difficulty.
+ofPolyline also includes methods to get the closest point, determine whether a point is inside shape, and resample shapes. Along with the ofPath class, it's the best way to draw and manipulate 2D and 3D vector graphics that you'll need to update and manipulate frequently.
+
+If you use the lineTo or curveTo or bezierTo functions, you move the drawing point, so that drawing a line to 100,100 means a line from 0,0 to 100, 100. The next line would be a line from 100,100 to wherever you go next. Storing this position means that you can easily create continuous drawings without difficulty.
 
 
 
@@ -51,10 +64,21 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+add a vertex 
+
+
+
+
+
+
+
 
 _description: _
 
@@ -82,10 +106,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -100,16 +133,16 @@ Adds a point using floats instead of an ofPoint at the end of the ofPolyline.
 
 <!----------------------------------------------------------------------------->
 
-###void addVertexes(&verts)
+###void addVertices(&verts)
 
 <!--
-_syntax: addVertexes(&verts)_
-_name: addVertexes_
+_syntax: addVertices(&verts)_
+_name: addVertices_
 _returns: void_
 _returns_description: _
 _parameters: const vector< ofPoint > &verts_
 _access: public_
-_version_started: 007_
+_version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -117,6 +150,15 @@ _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -147,16 +189,16 @@ p.addVertexes(verts);
 
 <!----------------------------------------------------------------------------->
 
-###void addVertexes(*verts, numverts)
+###void addVertices(*verts, numverts)
 
 <!--
-_syntax: addVertexes(*verts, numverts)_
-_name: addVertexes_
+_syntax: addVertices(*verts, numverts)_
+_name: addVertices_
 _returns: void_
 _returns_description: _
 _parameters: const ofPoint *verts, int numverts_
 _access: public_
-_version_started: 007_
+_version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -164,6 +206,15 @@ _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -194,55 +245,41 @@ p.addVertexes(verts, 5);
 
 <!----------------------------------------------------------------------------->
 
-###void addVertices(&verts)
+###void arc(&center, radiusX, radiusY, angleBegin, angleEnd, clockwise, curveResolution = 20)
 
 <!--
-_syntax: addVertices(&verts)_
-_name: addVertices_
+_syntax: arc(&center, radiusX, radiusY, angleBegin, angleEnd, clockwise, curveResolution = 20)_
+_name: arc_
 _returns: void_
 _returns_description: _
-_parameters: const vector< ofPoint > &verts_
+_parameters: const ofPoint &center, float radiusX, float radiusY, float angleBegin, float angleEnd, bool clockwise, int circleResolution=20_
 _access: public_
-_version_started: 0072_
+_version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
+Draws an arc around the ofPoint ``center`` with the width of ``radiusX`` and the height of ``radiusY``.
+The ``angleBegin`` and ``angleEnd`` indicate the start and end angles of the arc in degrees measured clockwise from the x-axis.
+The ``clockwise`` boolean sets the drawing direction.  Passing 'false' to it will draw the arc counter-clockwise.
 
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void addVertices(*verts, numverts)
-
-<!--
-_syntax: addVertices(*verts, numverts)_
-_name: addVertices_
-_returns: void_
-_returns_description: _
-_parameters: const ofPoint *verts, int numverts_
-_access: public_
-_version_started: 0072_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
+Optionally, you can specify ``circleResolution``, which is the number of line segments a circle would be drawn with.
 
 
 
@@ -259,29 +296,57 @@ _syntax: arc(&center, radiusX, radiusY, angleBegin, angleEnd, curveResolution = 
 _name: arc_
 _returns: void_
 _returns_description: _
-_parameters: const ofPoint &center, float radiusX, float radiusY, float angleBegin, float angleEnd, int curveResolution=20_
+_parameters: const ofPoint &center, float radiusX, float radiusY, float angleBegin, float angleEnd, int circleResolution=20_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Draw an arc around the ofPoint p with the width of radiusX and the height of radiusY. The angleBegin and angleEnd indicate how far around you want the arc to extend. For instance, to draw a circle:
+Draws an arc around the ofPoint ``center`` with the width of ``radiusX`` and the height of ``radiusY``. 
+The ``angleBegin`` and ``angleEnd`` indicate the start and end angles of the arc in degrees measured clockwise from the x-axis.
+
+Optionally, you can specify ``circleResolution``, which is the number of line segments a circle would be drawn with.
+A partial arc will be drawn with the same resolution: if circleResolution == 20, a half-circle will be drawn with 10 segments.
+	
+If there are already vertexes in the ofPolyline the arc will extend them;
+a line will be created from the endmost point on the ofPolyline to the beginning point of the arc.
+
+Example:
 ~~~~{.cpp}
-ofPoint p(0, 0);
-polyline.arc(p,100,100,0,360,40); // circle with a diameter of 100
+ofPolyline polyline1, polyline2;
+
+// draw an circle with a diameter of 100 in blue
+ofPoint point1(150,120);
+polyline1.arc(point1,100,100,0,360);
+ofSetColor(ofColor::blue);
+polyline1.draw();
+
+// draw an line, then an semi-circle in red
+polyline2.lineTo(300, 50);
+ofPoint point2(450,120);
+polyline2.arc(point2,100,100,0,180);
+ofSetColor(ofColor::red);
+polyline2.draw();
 ~~~~
-~~~~{.cpp}
-ofPoint p(100, 0);
-polyline.arc(p,100,100,0,180,40); // semi-circle with a diameter of 100
-~~~~
+
+![Arc Example](ofpolyline_arc.png)
 
 
 
@@ -298,27 +363,33 @@ _syntax: arc(x, y, radiusX, radiusY, angleBegin, angleEnd, curveResolution = 20)
 _name: arc_
 _returns: void_
 _returns_description: _
-_parameters: float x, float y, float radiusX, float radiusY, float angleBegin, float angleEnd, int curveResolution=20_
+_parameters: float x, float y, float radiusX, float radiusY, float angleBegin, float angleEnd, int circleResolution=20_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Draw an arc around the point x,y with the width of radiusX and the height of radiusY. The angleBegin and angleEnd indicate how far around you want the arc to extend. For instance, to draw a circle:
-~~~~{.cpp}
-polyline.arc(0,0,100,100,0,360,40); // circle with a diameter of 100
-~~~~
-~~~~{.cpp}
-polyline.arc(0,0,100,100,0,180,40); // semi-circle with a diameter of 100
-~~~~
+Draws an arc around the coordinates (``x``,``y``) with the width of ``radiusX`` and the height of ``radiusY``.
+The ``angleBegin`` and ``angleEnd`` indicate the start and end angles of the arc in degrees measured clockwise from the x-axis.
+
+Optionally, you can specify ``circleResolution``, which is the number of line segments a circle would be drawn with.
 
 
 
@@ -335,29 +406,18 @@ _syntax: arc(x, y, z, radiusX, radiusY, angleBegin, angleEnd, curveResolution = 
 _name: arc_
 _returns: void_
 _returns_description: _
-_parameters: float x, float y, float z, float radiusX, float radiusY, float angleBegin, float angleEnd, int curveResolution=20_
+_parameters: float x, float y, float z, float radiusX, float radiusY, float angleBegin, float angleEnd, int circleResolution=20_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-Draw an arc around the point x,y,z with the width of radiusX and the height of radiusY. The angleBegin and angleEnd indicate how far around you want the arc to extend. For instance, to draw a circle:
-~~~~{.cpp}
-// at middle and -100 back
-polyline.arc(ofGetWidth()/2,ofGetHeight()/2,100,100,100,0,360,40); // circle with a diameter of 100
-~~~~
-~~~~{.cpp}
-// at middle and -100 back
-polyline.arc(ofGetWidth()/2,ofGetHeight()/2,100,100,100,0,180,40); // semi-circle with a diameter of 100
-~~~~
+_inlined_description: _
 
 
 
@@ -365,28 +425,14 @@ polyline.arc(ofGetWidth()/2,ofGetHeight()/2,100,100,100,0,180,40); // semi-circl
 
 
 
-<!----------------------------------------------------------------------------->
-
-###void arc(&center, radiusX, radiusY, angleBegin, angleEnd, clockwise, curveResolution = 20)
-
-<!--
-_syntax: arc(&center, radiusX, radiusY, angleBegin, angleEnd, clockwise, curveResolution = 20)_
-_name: arc_
-_returns: void_
-_returns_description: _
-_parameters: const ofPoint &center, float radiusX, float radiusY, float angleBegin, float angleEnd, bool clockwise, int curveResolution=20_
-_access: public_
-_version_started: 0071_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
+
+Draws an arc around the coordinates (``x``,``y``,``z``) with the width of ``radiusX`` and the height of ``radiusY``.
+The ``angleBegin`` and ``angleEnd`` indicate the start and end angles of the arc in degrees measured clockwise from the x-axis.
+
+Optionally, you can specify ``circleResolution``, which is the number of line segments a circle would be drawn with.
 
 
 
@@ -403,16 +449,25 @@ _syntax: arcNegative(&center, radiusX, radiusY, angleBegin, angleEnd, curveResol
 _name: arcNegative_
 _returns: void_
 _returns_description: _
-_parameters: const ofPoint &center, float radiusX, float radiusY, float angleBegin, float angleEnd, int curveResolution=20_
+_parameters: const ofPoint &center, float radiusX, float radiusY, float angleBegin, float angleEnd, int circleResolution=20_
 _access: public_
 _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -432,16 +487,25 @@ _syntax: arcNegative(x, y, radiusX, radiusY, angleBegin, angleEnd, curveResoluti
 _name: arcNegative_
 _returns: void_
 _returns_description: _
-_parameters: float x, float y, float radiusX, float radiusY, float angleBegin, float angleEnd, int curveResolution=20_
+_parameters: float x, float y, float radiusX, float radiusY, float angleBegin, float angleEnd, int circleResolution=20_
 _access: public_
 _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -461,19 +525,65 @@ _syntax: arcNegative(x, y, z, radiusX, radiusY, angleBegin, angleEnd, curveResol
 _name: arcNegative_
 _returns: void_
 _returns_description: _
-_parameters: float x, float y, float z, float radiusX, float radiusY, float angleBegin, float angleEnd, int curveResolution=20_
+_parameters: float x, float y, float z, float radiusX, float radiusY, float angleBegin, float angleEnd, int circleResolution=20_
 _access: public_
 _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###vector< ofVec3f >::iterator begin()
+
+<!--
+_syntax: begin()_
+_name: begin_
+_returns: vector< ofVec3f >::iterator_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
 
 
 
@@ -490,16 +600,27 @@ _syntax: bezierTo(&cp1, &cp2, &to, curveResolution = 16)_
 _name: bezierTo_
 _returns: void_
 _returns_description: _
-_parameters: const ofPoint &cp1, const ofPoint &cp2, const ofPoint &to, int curveResolution=16_
+_parameters: const ofPoint &cp1, const ofPoint &cp2, const ofPoint &to, int curveResolution=20_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+cubic bezier 
+
+
+
+
+
+
+
 
 _description: _
 
@@ -528,16 +649,25 @@ _syntax: bezierTo(cx1, cy1, cx2, cy2, x, y, curveResolution = 16)_
 _name: bezierTo_
 _returns: void_
 _returns_description: _
-_parameters: float cx1, float cy1, float cx2, float cy2, float x, float y, int curveResolution=16_
+_parameters: float cx1, float cy1, float cx2, float cy2, float x, float y, int curveResolution=20_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -559,16 +689,25 @@ _syntax: bezierTo(cx1, cy1, cz1, cx2, cy2, cz2, x, y, z, curveResolution = 16)_
 _name: bezierTo_
 _returns: void_
 _returns_description: _
-_parameters: float cx1, float cy1, float cz1, float cx2, float cy2, float cz2, float x, float y, float z, int curveResolution=16_
+_parameters: float cx1, float cy1, float cz1, float cx2, float cy2, float cz2, float x, float y, float z, int curveResolution=20_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -599,6 +738,44 @@ for (float i = 0.0; i < TWO_PI; i+=step) {
 
 <!----------------------------------------------------------------------------->
 
+###void calcData(index, &tangent, &angle, &rotation, &normal)
+
+<!--
+_syntax: calcData(index, &tangent, &angle, &rotation, &normal)_
+_name: calcData_
+_returns: void_
+_returns_description: _
+_parameters: int index, ofVec3f &tangent, float &angle, ofVec3f &rotation, ofVec3f &normal_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
 ###void clear()
 
 <!--
@@ -612,10 +789,21 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+remove all the points 
+
+
+
+
+
+
+
 
 _description: _
 
@@ -643,10 +831,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -668,16 +865,25 @@ _syntax: curveTo(&to, curveResolution = 16)_
 _name: curveTo_
 _returns: void_
 _returns_description: _
-_parameters: const ofPoint &to, int curveResolution=16_
+_parameters: const ofPoint &to, int curveResolution=20_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -691,6 +897,47 @@ while (angle < TWO_PI ) {
 	angle += TWO_PI / 30;
 }
 ~~~~
+
+You need at least 4 points to be able to draw with curveTo, here's an explanation of why this happens:
+
+If we have an empty `ofPolyline` `p`, and we do:
+
+    p.lineTo(v0); 
+    p.lineTo(v1); 
+    p.lineTo(v2); 
+    p.lineTo(v3); 
+
+We end up with a line that starts at `v0`, heads to `v1`, then heads to `v2` and finally ends at `v3`.  But if we had instead done:
+
+    p.curveTo(v0); 
+    p.curveTo(v1); 
+    p.curveTo(v2); 
+    p.curveTo(v3); 
+
+We end up with a curve that goes from `v1` to `v2`.  That might seem initially puzzling...
+
+So, we have to dive under the hood.  The `curveTo(...)` method makes Catmull-Rom splines [wiki](http://en.wikipedia.org/wiki/Centripetal_Catmull%E2%80%93Rom_spline).  The relevant bit to understand is that this type of spline is defined by four points:
+
+![](http://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Catmull-Rom_Spline.png/220px-Catmull-Rom_Spline.png)
+
+P1 and P2 are the endpoints of our curve, while P0 and P3 are the control that define the shape of the curve.
+
+When using `curveTo(...)` with `ofPolyline`, there's an internal vector that stores P0, P1, P2 and P3.  When our `ofPolyline` is empty then the internal vector is also empty.  When we call:
+
+    p.curveTo(v0); // Internal vector is [v0], so only P0 is defined 
+    p.curveTo(v1); // Internal vector is [v0, v1], so only P0 and P1 are defined
+    p.curveTo(v2); // Internal vector is [v0, v1, v2], so only P0, P1 and P2 are defined
+    p.curveTo(v3); // Internal vector is [v0, v1, v2, v3], so all points are defined
+
+Only once all of those points (P0 through P4) have been defined, then a spline has been fully defined and vertices can finally be added to our `ofPolyline`.  When `curveTo(v3)` is called above, then the curve between P1 (`v1`) and P2 (`v2`) is sampled (at a resolution defined by the optional parameter `curveResolution`).  That sampling slides along the curve and adds vertices to your `ofPolyline`.  
+
+The curve doesn't start at `v0` and end at `v3` because those points are acting as the control points (i.e. the points connected by dotted lines in the image above).
+
+And now that we have P0 through P4 defined, when we call `curveTo(...)` next:
+
+    curveTo(v4); // Internal vector becomes [v1, v2, v3, v4]
+
+The oldest point, `v0`, was bumped and everything shifted down.  The sampling occurs again, but this time it is between `v2` and `v3`.
 
 
 
@@ -707,16 +954,25 @@ _syntax: curveTo(x, y, z = 0, curveResolution = 16)_
 _name: curveTo_
 _returns: void_
 _returns_description: _
-_parameters: float x, float y, float z=0, int curveResolution=16_
+_parameters: float x, float y, float z=0, int curveResolution=20_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -752,15 +1008,99 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 Draw the line using the current renderer.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###vector< ofVec3f >::iterator end()
+
+<!--
+_syntax: end()_
+_name: end_
+_returns: vector< ofVec3f >::iterator_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void flagHasChanged()
+
+<!--
+_syntax: flagHasChanged()_
+_name: flagHasChanged_
+_returns: void_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -783,10 +1123,95 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###float getAngleAtIndex(index)
+
+<!--
+_syntax: getAngleAtIndex(index)_
+_name: getAngleAtIndex_
+_returns: float_
+_returns_description: _
+_parameters: int index_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###float getAngleAtIndexInterpolated(findex)
+
+<!--
+_syntax: getAngleAtIndexInterpolated(findex)_
+_name: getAngleAtIndexInterpolated_
+_returns: float_
+_returns_description: _
+_parameters: float findex_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -812,10 +1237,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -843,10 +1277,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -874,10 +1317,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -905,15 +1357,290 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 This returns the point on the line closest to the target. You can also optionally pass a pointer to/address of an unsigned int to get the index of the closest vertex.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###float getIndexAtLength(f)
+
+<!--
+_syntax: getIndexAtLength(f)_
+_name: getIndexAtLength_
+_returns: float_
+_returns_description: _
+_parameters: float f_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###float getIndexAtPercent(f)
+
+<!--
+_syntax: getIndexAtPercent(f)_
+_name: getIndexAtPercent_
+_returns: float_
+_returns_description: _
+_parameters: float f_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void getInterpolationParams(findex, &i1, &i2, &t)
+
+<!--
+_syntax: getInterpolationParams(findex, &i1, &i2, &t)_
+_name: getInterpolationParams_
+_returns: void_
+_returns_description: _
+_parameters: float findex, int &i1, int &i2, float &t_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###float getLengthAtIndex(index)
+
+<!--
+_syntax: getLengthAtIndex(index)_
+_name: getLengthAtIndex_
+_returns: float_
+_returns_description: _
+_parameters: int index_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###float getLengthAtIndexInterpolated(findex)
+
+<!--
+_syntax: getLengthAtIndexInterpolated(findex)_
+_name: getLengthAtIndexInterpolated_
+_returns: float_
+_returns_description: _
+_parameters: float findex_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofVec3f getNormalAtIndex(index)
+
+<!--
+_syntax: getNormalAtIndex(index)_
+_name: getNormalAtIndex_
+_returns: ofVec3f_
+_returns_description: _
+_parameters: int index_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofVec3f getNormalAtIndexInterpolated(findex)
+
+<!--
+_syntax: getNormalAtIndexInterpolated(findex)_
+_name: getNormalAtIndexInterpolated_
+_returns: ofVec3f_
+_returns_description: _
+_parameters: float findex_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -936,15 +1663,138 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 Returns the size of the perimeter of the polyline, good for determining length of the line, rather than just the bounding box shape.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofPoint getPointAtIndexInterpolated(findex)
+
+<!--
+_syntax: getPointAtIndexInterpolated(findex)_
+_name: getPointAtIndexInterpolated_
+_returns: ofPoint_
+_returns_description: _
+_parameters: float findex_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofPoint getPointAtLength(f)
+
+<!--
+_syntax: getPointAtLength(f)_
+_name: getPointAtLength_
+_returns: ofPoint_
+_returns_description: _
+_parameters: float f_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofPoint getPointAtPercent(f)
+
+<!--
+_syntax: getPointAtPercent(f)_
+_name: getPointAtPercent_
+_returns: ofPoint_
+_returns_description: _
+_parameters: float f_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -967,10 +1817,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -998,10 +1857,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1013,6 +1881,120 @@ ofTranslate(400, 0);
 line.getResampledBySpacing(100).draw();
 ~~~~
 ![polyline resample](resample.png)
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofVec3f getRightVector()
+
+<!--
+_syntax: getRightVector()_
+_name: getRightVector_
+_returns: ofVec3f_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofVec3f getRotationAtIndex(index)
+
+<!--
+_syntax: getRotationAtIndex(index)_
+_name: getRotationAtIndex_
+_returns: ofVec3f_
+_returns_description: _
+_parameters: int index_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofVec3f getRotationAtIndexInterpolated(findex)
+
+<!--
+_syntax: getRotationAtIndexInterpolated(findex)_
+_name: getRotationAtIndexInterpolated_
+_returns: ofVec3f_
+_returns_description: _
+_parameters: float findex_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -1035,10 +2017,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1053,12 +2044,126 @@ This returns a smoothed version of the ofPolyline.
 
 <!----------------------------------------------------------------------------->
 
-###ofPoint getVertices()
+###ofVec3f getTangentAtIndex(index)
+
+<!--
+_syntax: getTangentAtIndex(index)_
+_name: getTangentAtIndex_
+_returns: ofVec3f_
+_returns_description: _
+_parameters: int index_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofVec3f getTangentAtIndexInterpolated(findex)
+
+<!--
+_syntax: getTangentAtIndexInterpolated(findex)_
+_name: getTangentAtIndexInterpolated_
+_returns: ofVec3f_
+_returns_description: _
+_parameters: float findex_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###vector< ofPoint > & getVertices()
 
 <!--
 _syntax: getVertices()_
 _name: getVertices_
-_returns: ofPoint_
+_returns: vector< ofPoint > &_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###const vector< ofPoint > & getVertices()
+
+<!--
+_syntax: getVertices()_
+_name: getVertices_
+_returns: const vector< ofPoint > &_
 _returns_description: _
 _parameters: _
 _access: public_
@@ -1066,15 +2171,62 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 Returns the vector of vertices that the line contains, vector<ofPoint> &.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int getWrappedIndex(index)
+
+<!--
+_syntax: getWrappedIndex(index)_
+_name: getWrappedIndex_
+_returns: int_
+_returns_description: _
+_parameters: int index_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -1097,15 +2249,100 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 Returns whether the vertices within the line have changed.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void insertVertex(&p, index)
+
+<!--
+_syntax: insertVertex(&p, index)_
+_name: insertVertex_
+_returns: void_
+_returns_description: _
+_parameters: const ofPoint &p, int index_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void insertVertex(x, y, z, index)
+
+<!--
+_syntax: insertVertex(x, y, z, index)_
+_name: insertVertex_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y, float z, int index_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -1128,10 +2365,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1159,10 +2405,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1190,10 +2445,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1221,10 +2485,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1252,10 +2525,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1283,10 +2565,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1314,10 +2605,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1345,10 +2645,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1376,10 +2685,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1404,12 +2722,50 @@ There is an easier way to draw circles though, using the arc() method.
 
 <!----------------------------------------------------------------------------->
 
-###ofPoint operator[](index)
+###const ofPoint & operator[](index)
 
 <!--
 _syntax: operator[](index)_
 _name: operator[]_
-_returns: ofPoint_
+_returns: const ofPoint &_
+_returns_description: _
+_parameters: int index_
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofPoint & operator[](index)
+
+<!--
+_syntax: operator[](index)_
+_name: operator[]_
+_returns: ofPoint &_
 _returns_description: _
 _parameters: int index_
 _access: public_
@@ -1417,10 +2773,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1453,16 +2818,27 @@ _syntax: quadBezierTo(cx1, cy1, cz1, cx2, cy2, cz2, x, y, z, curveResolution = 1
 _name: quadBezierTo_
 _returns: void_
 _returns_description: _
-_parameters: float cx1, float cy1, float cz1, float cx2, float cy2, float cz2, float x, float y, float z, int curveResolution=16_
+_parameters: float cx1, float cy1, float cz1, float cx2, float cy2, float cz2, float x, float y, float z, int curveResolution=20_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+quadratic bezier (lower resolution than cubic) 
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1485,16 +2861,25 @@ _syntax: quadBezierTo(&p1, &p2, &p3, curveResolution = 16)_
 _name: quadBezierTo_
 _returns: void_
 _returns_description: _
-_parameters: const ofPoint &p1, const ofPoint &p2, const ofPoint &p3, int curveResolution=16_
+_parameters: const ofPoint &p1, const ofPoint &p2, const ofPoint &p3, int curveResolution=20_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1516,16 +2901,25 @@ _syntax: quadBezierTo(cx1, cy1, cx2, cy2, x, y, curveResolution = 16)_
 _name: quadBezierTo_
 _returns: void_
 _returns_description: _
-_parameters: float cx1, float cy1, float cx2, float cy2, float x, float y, int curveResolution=16_
+_parameters: float cx1, float cy1, float cx2, float cy2, float x, float y, int curveResolution=20_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1553,10 +2947,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1584,10 +2987,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1613,15 +3025,64 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+closed 
+
+
+
+
+
+
+
 
 _description: _
 
 
 Closes the ofPolyline, meaning that all the vertices will be linked and can be "walked".
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setRightVector(v = ofVec3f(0, 0, -1))
+
+<!--
+_syntax: setRightVector(v = ofVec3f(0, 0, -1))_
+_name: setRightVector_
+_returns: void_
+_returns_description: _
+_parameters: ofVec3f v=ofVec3f(0, 0,-1)_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -1638,16 +3099,25 @@ _syntax: simplify(tolerance = 0.3)_
 _name: simplify_
 _returns: void_
 _returns_description: _
-_parameters: float tolerance=0.3_
+_parameters: float tolerance=0.3f_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1675,15 +3145,64 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+points vector access 
+
+
+
+
+
+
+
 
 _description: _
 
 
 The number of points in the ofPolyline.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void updateCache(bForceUpdate = false)
+
+<!--
+_syntax: updateCache(bForceUpdate = false)_
+_name: updateCache_
+_returns: void_
+_returns_description: _
+_parameters: bool bForceUpdate=false_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -1706,10 +3225,19 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1725,6 +3253,81 @@ _description: _
 ##Variables
 
 
+
+###vector< float > angles
+
+<!--
+_name: angles_
+_type: vector< float >_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: False_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###float area
+
+<!--
+_name: area_
+_type: float_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: False_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool bCacheIsDirty
+
+<!--
+_name: bCacheIsDirty_
+_type: bool_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: False_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
 
 ###bool bClosed
 
@@ -1762,6 +3365,31 @@ _version_deprecated: _
 _summary: _
 _visible: True_
 _constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofPoint centroid2D
+
+<!--
+_name: centroid2D_
+_type: ofPoint_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: False_
 _advanced: False_
 -->
 
@@ -1826,6 +3454,56 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
+###vector< float > lengths
+
+<!--
+_name: lengths_
+_type: vector< float >_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: False_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofVec3f normals
+
+<!--
+_name: normals_
+_type: ofVec3f_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: False_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
 ###ofPoint points
 
 <!--
@@ -1837,6 +3515,81 @@ _version_deprecated: _
 _summary: _
 _visible: True_
 _constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofVec3f rightVector
+
+<!--
+_name: rightVector_
+_type: ofVec3f_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofVec3f rotations
+
+<!--
+_name: rotations_
+_type: ofVec3f_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: False_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofVec3f tangents
+
+<!--
+_name: tangents_
+_type: ofVec3f_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: False_
 _advanced: False_
 -->
 

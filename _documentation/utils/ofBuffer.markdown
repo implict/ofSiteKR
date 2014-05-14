@@ -1,19 +1,31 @@
 #class ofBuffer
 
 
-##Description
+<!--
+_visible: True_
+_advanced: False_
+_istemplated: False_
+-->
 
+##InlineDescription
+
+
+
+
+
+
+##Description
 
 ofBuffer is a convenience class that provides easy methods for reading from and writing to files. It makes heavy use of the standard C++ ostream and istream classes, but also adds in easy ways to convert file data to strings, like:
 
-~~~~.cpp
+~~~~{.cpp}
 ofBuffer buffer = ofBufferFromFile("someFile.txt"); // reading into the buffer
 cout << buffer.getText(); // let's see what it says
 ~~~~
 
 You can also use the ofBufferFromFile() method to create a buffer from a file:
 
-~~~~.cpp
+~~~~{.cpp}
 ofBuffer fileBuffer = ofBufferFromFile("someFile.txt");
 ~~~~
 
@@ -38,15 +50,62 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 Allocate memory for the buffer to use. This sizes the char vector that the ofBuffer instance contains.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void append(&_buffer)
+
+<!--
+_syntax: append(&_buffer)_
+_name: append_
+_returns: void_
+_returns_description: _
+_parameters: const string &_buffer_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -69,10 +128,19 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -98,15 +166,64 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 Clears all the data from the buffer.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###char * getBinaryBuffer()
+
+<!--
+_syntax: getBinaryBuffer()_
+_name: getBinaryBuffer_
+_returns: char *_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Returns a pointer into the vector that contains the buffer data.
 
 
 
@@ -129,10 +246,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -160,10 +286,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -191,10 +326,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -222,10 +366,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -253,10 +406,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -284,10 +446,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -309,9 +480,9 @@ _syntax: ofBuffer(*buffer, size)_
 _name: ofBuffer_
 _returns: _
 _returns_description: _
-_parameters: const char *buffer, int size_
+_parameters: const char *buffer, unsigned int size_
 _access: public_
-_version_started: 007_
+_version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -320,15 +491,62 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
 Create a buffer with a character array.
 
-~~~~.cpp
+~~~~{.cpp}
 string giantDataString;
 ofBuffer buff(giantDataString.c_str(), giantDataString.size());
 ~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+### ofBuffer(&text)
+
+<!--
+_syntax: ofBuffer(&text)_
+_name: ofBuffer_
+_returns: _
+_returns_description: _
+_parameters: const string &text_
+_access: public_
+_version_started: 0072_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -351,10 +569,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -382,79 +609,30 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 Copy constructor, allows you to do:
 
-~~~~.cpp
+~~~~{.cpp}
 ofBuffer aBuff;
 // put some stuff in aBuff
 ofBuffer bBuff(aBuff); // now it's in bBuff as well
 ~~~~
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-### ofBuffer(*buffer, size)
-
-<!--
-_syntax: ofBuffer(*buffer, size)_
-_name: ofBuffer_
-_returns: _
-_returns_description: _
-_parameters: const char *buffer, unsigned int size_
-_access: public_
-_version_started: 0072_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-### ofBuffer(&text)
-
-<!--
-_syntax: ofBuffer(&text)_
-_name: ofBuffer_
-_returns: _
-_returns_description: _
-_parameters: const string &text_
-_access: public_
-_version_started: 0072_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
 
 
 
@@ -477,10 +655,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -495,12 +682,12 @@ Internally, calls getText()
 
 <!----------------------------------------------------------------------------->
 
-###ofBuffer operator=(&text)
+###ofBuffer & operator=(&text)
 
 <!--
 _syntax: operator=(&text)_
 _name: operator=_
-_returns: ofBuffer_
+_returns: ofBuffer &_
 _returns_description: _
 _parameters: const string &text_
 _access: public_
@@ -508,10 +695,19 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -537,52 +733,12 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-Internally the ofBuffer keeps track of the lines in a file using an index of the \n or \r characters in the data that it contains. resetLineReader() clears this index.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void set(*_buffer, _size)
-
-<!--
-_syntax: set(*_buffer, _size)_
-_name: set_
-_returns: void_
-_returns_description: _
-_parameters: const char *_buffer, int _size_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
 _static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-Set the buffer from a string.
-
-~~~~.cpp
-string giantDataString;
-ofBuffer buff;
-buff.set(giantDataString.c_str(), giantDataString.size());
-~~~~
+_inlined_description: _
 
 
 
@@ -590,36 +746,11 @@ buff.set(giantDataString.c_str(), giantDataString.size());
 
 
 
-<!----------------------------------------------------------------------------->
-
-###bool set(&stream)
-
-<!--
-_syntax: set(&stream)_
-_name: set_
-_returns: bool_
-_returns_description: _
-_parameters: istream &stream_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
 
-Set the buffer from an istream.
-
-~~~~.cpp
-string giantDataString;
-ofBuffer buff;
-buff.set(giantDataString.c_str(), giantDataString.size());
-~~~~
+Internally the ofBuffer keeps track of the lines in a file using an index of the \n or \r characters in the data that it contains. resetLineReader() clears this index.
 
 
 
@@ -642,13 +773,30 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+Set the buffer from a string.
+
+~~~~{.cpp}
+string giantDataString;
+ofBuffer buff;
+buff.set(giantDataString.c_str(), giantDataString.size());
+~~~~
 
 
 
@@ -671,13 +819,62 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool set(&stream)
+
+<!--
+_syntax: set(&stream)_
+_name: set_
+_returns: bool_
+_returns_description: _
+_parameters: istream &stream_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Set the buffer from an istream.
 
 
 
@@ -700,10 +897,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -731,10 +937,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -760,10 +975,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 

@@ -1,8 +1,20 @@
 #class ofPtr
 
 
-##Description
+<!--
+_visible: True_
+_advanced: False_
+_istemplated: False_
+-->
 
+##InlineDescription
+
+
+
+
+
+
+##Description
 
 ofPtr is a shared pointer implementation that allows you to dynamically allocate objects, much like a pointer, without needing to worry about when and who will free that pointers memory because the shared pointer implementation is able to sort out when a resource is no longer being used free that resource as soon as nobody is interested in it anymore. This means it's much less likely that you'll end up with dangling pointers and memory leaks in your application. Last one to leave turns out the lights. This is like garbage collection but actually better and more powerful because resources are freed immediately and not at some undetermined future time when the VM decides to do a sweep.
 
@@ -59,10 +71,19 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -88,10 +109,19 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -117,10 +147,19 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -146,10 +185,19 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -175,10 +223,19 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -204,10 +261,19 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -227,9 +293,9 @@ _syntax: ofPtr(&__r)_
 _name: ofPtr_
 _returns: _
 _returns_description: _
-_parameters: const std_
+_parameters: const std::shared_ptr< Tp1 > &__r_
 _access: public_
-_version_started: 0071_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -237,6 +303,15 @@ _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -256,9 +331,9 @@ _syntax: ofPtr(&__r)_
 _name: ofPtr_
 _returns: _
 _returns_description: _
-_parameters: const std_
+_parameters: const std::weak_ptr< Tp1 > &__r_
 _access: public_
-_version_started: 0072_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -266,6 +341,15 @@ _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -285,18 +369,18 @@ _syntax: ofPtr(&__r, std_
 _name: ofPtr_
 _returns: _
 _returns_description: _
-_parameters: const ofPtr< Tp1 > &__r, std::tr1::__dynamic_cast_tag_
+_parameters: const ofPtr< Tp1 > &__r, std::__dynamic_cast_tag_
 _access: public_
 _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
+_inlined_description: _
 
 
 
@@ -304,26 +388,6 @@ _description: _
 
 
 
-
-<!----------------------------------------------------------------------------->
-
-### ofPtr(&__r)
-
-<!--
-_syntax: ofPtr(&__r)_
-_name: ofPtr_
-_returns: _
-_returns_description: _
-_parameters: const std::tr1::weak_ptr< Tp1 > &__r_
-_access: public_
-_version_started: 0072_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 

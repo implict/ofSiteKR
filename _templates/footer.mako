@@ -1,3 +1,4 @@
+## -*- coding: utf-8 -*-
 <p id="credits">
 
 Last updated ${self.getTime()}&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/${self.getLastCommitHash()}">${self.getLastCommitHash()}</a>
@@ -41,8 +42,6 @@ try {
 var pageTracker = _gat._getTracker("UA-9614675-1");
 pageTracker._trackPageview();
 } catch(err) {}</script>
-
-
 
 <%def name="getTime()">
   <% 

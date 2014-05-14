@@ -1,8 +1,20 @@
 #class ofShader
 
 
-##Description
+<!--
+_visible: True_
+_advanced: False_
+_istemplated: False_
+-->
 
+##InlineDescription
+
+
+
+
+
+
+##Description
 
 Graphics Language Shading Language (GLSL) can be used in oF by using the ofShader object. Shading happens in two distinct steps: the vertex shader creates values for each vertex in the model, and the fragment shader creates values for each pixel in the rendered object. To define a shader, create a .frag file for the fragment shader and a .vert file for the vertex shader.
 A vertex shader has attributes about a location in space or vertex, which means not only the actual coordinates of that location but also its color, how any textures should be mapped onto it, and how the vertices are modified in the operation. A vertex shader can change the positions of each vertex, the number of lighting computations per vertex, and the color that will be applied to each vertex.
@@ -30,15 +42,100 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 After you call begin() everything that you draw, vertexes and textures, in your of application have the effects of the shader applied to them.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void bindAttribute(location, &name)
+
+<!--
+_syntax: bindAttribute(location, &name)_
+_name: bindAttribute_
+_returns: void_
+_returns_description: _
+_parameters: GLuint location, const string &name_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool bindDefaults()
+
+<!--
+_syntax: bindDefaults()_
+_name: bindDefaults_
+_returns: bool_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -61,10 +158,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -90,10 +196,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -119,10 +234,19 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -135,45 +259,16 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###void checkShaderInfoLog(shader, type)
+###void checkShaderInfoLog(shader, type, logLevel)
 
 <!--
-_syntax: checkShaderInfoLog(shader, type)_
+_syntax: checkShaderInfoLog(shader, type, logLevel)_
 _name: checkShaderInfoLog_
 _returns: void_
 _returns_description: _
-_parameters: GLuint shader, GLenum type_
+_parameters: GLuint shader, GLenum type, ofLogLevel logLevel_
 _access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool checkShaderLinkStatus(shader, type)
-
-<!--
-_syntax: checkShaderLinkStatus(shader, type)_
-_name: checkShaderLinkStatus_
-_returns: bool_
-_returns_description: _
-_parameters: GLuint shader, GLenum type_
-_access: private_
-_version_started: 007_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -181,6 +276,15 @@ _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -206,10 +310,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -224,16 +337,16 @@ After you call end() any drawing, vertexes and textures, do not have the effect 
 
 <!----------------------------------------------------------------------------->
 
-###GLint getAttributeLocation(name)
+###GLint getAttributeLocation(&name)
 
 <!--
-_syntax: getAttributeLocation(name)_
+_syntax: getAttributeLocation(&name)_
 _name: getAttributeLocation_
 _returns: GLint_
 _returns_description: _
-_parameters: const char* name_
-_access: _
-_version_started: _
+_parameters: const string &name_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -242,10 +355,7 @@ _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-// set attributes that vary per vertex (look up the location before glBegin)
+_inlined_description: _
 
 
 
@@ -253,25 +363,6 @@ _description: _
 
 
 
-<!----------------------------------------------------------------------------->
-
-###GLint getAttributeLocation(*name)
-
-<!--
-_syntax: getAttributeLocation(*name)_
-_name: getAttributeLocation_
-_returns: GLint_
-_returns_description: _
-_parameters: const char *name_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -297,10 +388,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -328,10 +428,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -359,10 +468,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -377,23 +495,113 @@ This returns the GLuint for the actual shader object that is active on the graph
 
 <!----------------------------------------------------------------------------->
 
-###GLint getUniformLocation(*name)
+###string getShaderSource(type)
 
 <!--
-_syntax: getUniformLocation(*name)_
-_name: getUniformLocation_
-_returns: GLint_
+_syntax: getShaderSource(type)_
+_name: getShaderSource_
+_returns: string_
 _returns_description: _
-_parameters: const char *name_
-_access: private_
-_version_started: 007_
+_parameters: GLenum type_
+_access: public_
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+returns the shader source as it was passed to the GLSL compiler 
+
+
+
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###GLint getUniformLocation(&name)
+
+<!--
+_syntax: getUniformLocation(&name)_
+_name: getUniformLocation_
+_returns: GLint_
+_returns_description: _
+_parameters: const string &name_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool isLoaded()
+
+<!--
+_syntax: isLoaded()_
+_name: isLoaded_
+_returns: bool_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -419,10 +627,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -450,10 +667,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -485,10 +711,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -520,10 +755,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -549,10 +793,259 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+### ofShader(&shader)
+
+<!--
+_syntax: ofShader(&shader)_
+_name: ofShader_
+_returns: _
+_returns_description: _
+_parameters: const ofShader &shader_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool operator!=(&other)
+
+<!--
+_syntax: operator!=(&other)_
+_name: operator!=_
+_returns: bool_
+_returns_description: _
+_parameters: const ofShader &other_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofShader & operator=(&shader)
+
+<!--
+_syntax: operator=(&shader)_
+_name: operator=_
+_returns: ofShader &_
+_returns_description: _
+_parameters: const ofShader &shader_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool operator==(&other)
+
+<!--
+_syntax: operator==(&other)_
+_name: operator==_
+_returns: bool_
+_returns_description: _
+_parameters: const ofShader &other_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###string parseForIncludes(&source, &sourceDirectoryPath = "")
+
+<!--
+_syntax: parseForIncludes(&source, &sourceDirectoryPath = "")_
+_name: parseForIncludes_
+_returns: string_
+_returns_description: _
+_parameters: const string &source, const string &sourceDirectoryPath=""_
+_access: private_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+Mimics the #include behaviour of the c preprocessor  Includes files specified using the '#pragma include <filepath>' directive. 
+
+
+***note:*** 
+	Include paths are always specified relative to the including file's current path 
+
+Recursive #pragma include statements are possible 
+
+Includes will be processed up to 32 levels deep 
+
+
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###string parseForIncludes(&source, &included, level = 0, &sourceDirectoryPath = "")
+
+<!--
+_syntax: parseForIncludes(&source, &included, level = 0, &sourceDirectoryPath = "")_
+_name: parseForIncludes_
+_returns: string_
+_returns_description: _
+_parameters: const string &source, vector< string > &included, int level=0, const string &sourceDirectoryPath=""_
+_access: private_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -578,10 +1071,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -609,10 +1111,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -640,10 +1151,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -672,16 +1192,63 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 Set one float attributes on the shader.
 Attributes are different than uniforms in that you can pass an attribute to each vertex or fragment that is being shaded.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setAttribute1fv(&name, *v, stride = sizeof(float))
+
+<!--
+_syntax: setAttribute1fv(&name, *v, stride = sizeof(float))_
+_name: setAttribute1fv_
+_returns: void_
+_returns_description: _
+_parameters: const string &name, float *v, GLsizei stride=sizeof(float)_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -704,10 +1271,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -736,10 +1312,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -768,16 +1353,63 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 Set two float attributes on the shader.
 Attributes are different than uniforms in that you can pass an attribute to each vertex or fragment that is being shaded.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setAttribute2fv(&name, *v, stride = sizeof(float)*2)
+
+<!--
+_syntax: setAttribute2fv(&name, *v, stride = sizeof(float)*2)_
+_name: setAttribute2fv_
+_returns: void_
+_returns_description: _
+_parameters: const string &name, float *v, GLsizei stride=sizeof(float)*2_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -800,10 +1432,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -832,10 +1473,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -864,16 +1514,63 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 Set three float attributes on the shader.
 Attributes are different than uniforms in that you can pass an attribute to each vertex or fragment that is being shaded.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setAttribute3fv(&name, *v, stride = sizeof(float)*3)
+
+<!--
+_syntax: setAttribute3fv(&name, *v, stride = sizeof(float)*3)_
+_name: setAttribute3fv_
+_returns: void_
+_returns_description: _
+_parameters: const string &name, float *v, GLsizei stride=sizeof(float)*3_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -896,10 +1593,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -928,10 +1634,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -960,16 +1675,63 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 Set four float attributes on the shader.
 Attributes are different than uniforms in that you can pass an attribute to each vertex or fragment that is being shaded.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setAttribute4fv(&name, *v, stride = sizeof(float)*4)
+
+<!--
+_syntax: setAttribute4fv(&name, *v, stride = sizeof(float)*4)_
+_name: setAttribute4fv_
+_returns: void_
+_returns_description: _
+_parameters: const string &name, float *v, GLsizei stride=sizeof(float)*4_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -992,10 +1754,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1024,10 +1795,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1056,10 +1836,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1087,10 +1876,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1106,16 +1904,16 @@ type: GL_POINTS, GL_LINE_STRIP or GL_TRIANGLE_STRIP
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform1f(name, v1)
+###void setUniform1f(&name, v1)
 
 <!--
-_syntax: setUniform1f(name, v1)_
+_syntax: setUniform1f(&name, v1)_
 _name: setUniform1f_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, float v1_
-_access: _
-_version_started: _
+_parameters: const string &name, float v1_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1123,6 +1921,15 @@ _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1137,45 +1944,16 @@ set a float uniform on the shader
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform1f(*name, v1)
+###void setUniform1fv(&name, *v, count = 1)
 
 <!--
-_syntax: setUniform1f(*name, v1)_
-_name: setUniform1f_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, float v1_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setUniform1fv(name, v, count =  1)
-
-<!--
-_syntax: setUniform1fv(name, v, count =  1)_
+_syntax: setUniform1fv(&name, *v, count = 1)_
 _name: setUniform1fv_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, float* v, int count = 1_
-_access: _
-_version_started: _
+_parameters: const string &name, float *v, int count=1_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1184,14 +1962,7 @@ _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-set an array of uniform values on the shader using int[2] value. On the shader this looks like:
-This allows you to set multiple float uniforms.
-~~~~{.cpp}
-float v[2];
-~~~~
+_inlined_description: _
 
 
 
@@ -1199,25 +1970,6 @@ float v[2];
 
 
 
-<!----------------------------------------------------------------------------->
-
-###void setUniform1fv(*name, *v, count = 1)
-
-<!--
-_syntax: setUniform1fv(*name, *v, count = 1)_
-_name: setUniform1fv_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, float *v, int count=1_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -1230,16 +1982,16 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform1i(name, v1)
+###void setUniform1i(&name, v1)
 
 <!--
-_syntax: setUniform1i(name, v1)_
+_syntax: setUniform1i(&name, v1)_
 _name: setUniform1i_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, int v1_
-_access: _
-_version_started: _
+_parameters: const string &name, int v1_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1248,13 +2000,7 @@ _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-set a single uniform value. On your shader this should look like:
-~~~~{.cpp}
-uniform int texture;
-~~~~
+_inlined_description: _
 
 
 
@@ -1262,25 +2008,6 @@ uniform int texture;
 
 
 
-<!----------------------------------------------------------------------------->
-
-###void setUniform1i(*name, v1)
-
-<!--
-_syntax: setUniform1i(*name, v1)_
-_name: setUniform1i_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, int v1_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -1293,16 +2020,16 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform1iv(name, v, count =  1)
+###void setUniform1iv(&name, *v, count = 1)
 
 <!--
-_syntax: setUniform1iv(name, v, count =  1)_
+_syntax: setUniform1iv(&name, *v, count = 1)_
 _name: setUniform1iv_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, int* v, int count = 1_
-_access: _
-_version_started: _
+_parameters: const string &name, int *v, int count=1_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1311,17 +2038,7 @@ _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-set an array of uniform values on the shader, this uses single values, i.e. 
-~~~~{.cpp}
-int ids[4] = {1, 2, 3, 4};
-~~~~
-On the shader side, this is:
-~~~~{.cpp}
-ivec iv[2];
-~~~~
+_inlined_description: _
 
 
 
@@ -1329,25 +2046,6 @@ ivec iv[2];
 
 
 
-<!----------------------------------------------------------------------------->
-
-###void setUniform1iv(*name, *v, count = 1)
-
-<!--
-_syntax: setUniform1iv(*name, *v, count = 1)_
-_name: setUniform1iv_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, int *v, int count=1_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -1360,16 +2058,16 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform2f(name, v1, v2)
+###void setUniform2f(&name, v1, v2)
 
 <!--
-_syntax: setUniform2f(name, v1, v2)_
+_syntax: setUniform2f(&name, v1, v2)_
 _name: setUniform2f_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, float v1, float v2_
-_access: _
-_version_started: _
+_parameters: const string &name, float v1, float v2_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1378,10 +2076,7 @@ _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-set a vec2 uniform on the shader
+_inlined_description: _
 
 
 
@@ -1389,25 +2084,6 @@ set a vec2 uniform on the shader
 
 
 
-<!----------------------------------------------------------------------------->
-
-###void setUniform2f(*name, v1, v2)
-
-<!--
-_syntax: setUniform2f(*name, v1, v2)_
-_name: setUniform2f_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, float v1, float v2_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -1420,16 +2096,16 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform2fv(name, v, count =  1)
+###void setUniform2fv(&name, *v, count = 1)
 
 <!--
-_syntax: setUniform2fv(name, v, count =  1)_
+_syntax: setUniform2fv(&name, *v, count = 1)_
 _name: setUniform2fv_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, float* v, int count = 1_
-_access: _
-_version_started: _
+_parameters: const string &name, float *v, int count=1_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1437,6 +2113,15 @@ _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1454,45 +2139,16 @@ vec2 v[2];
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform2fv(*name, *v, count = 1)
+###void setUniform2i(&name, v1, v2)
 
 <!--
-_syntax: setUniform2fv(*name, *v, count = 1)_
-_name: setUniform2fv_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, float *v, int count=1_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setUniform2i(name, v1, v2)
-
-<!--
-_syntax: setUniform2i(name, v1, v2)_
+_syntax: setUniform2i(&name, v1, v2)_
 _name: setUniform2i_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, int v1, int v2_
-_access: _
-_version_started: _
+_parameters: const string &name, int v1, int v2_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1501,12 +2157,7 @@ _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-~~~~{.cpp}
-uniform ivec2 texture;
-~~~~
+_inlined_description: _
 
 
 
@@ -1514,25 +2165,6 @@ uniform ivec2 texture;
 
 
 
-<!----------------------------------------------------------------------------->
-
-###void setUniform2i(*name, v1, v2)
-
-<!--
-_syntax: setUniform2i(*name, v1, v2)_
-_name: setUniform2i_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, int v1, int v2_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -1545,16 +2177,16 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform2iv(name, v, count =  1)
+###void setUniform2iv(&name, *v, count = 1)
 
 <!--
-_syntax: setUniform2iv(name, v, count =  1)_
+_syntax: setUniform2iv(&name, *v, count = 1)_
 _name: setUniform2iv_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, int* v, int count = 1_
-_access: _
-_version_started: _
+_parameters: const string &name, int *v, int count=1_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1562,6 +2194,15 @@ _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1579,45 +2220,16 @@ ivec2 iv[2];
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform2iv(*name, *v, count = 1)
+###void setUniform3f(&name, v1, v2, v3)
 
 <!--
-_syntax: setUniform2iv(*name, *v, count = 1)_
-_name: setUniform2iv_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, int *v, int count=1_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setUniform3f(name, v1, v2, v3)
-
-<!--
-_syntax: setUniform3f(name, v1, v2, v3)_
+_syntax: setUniform3f(&name, v1, v2, v3)_
 _name: setUniform3f_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, float v1, float v2, float v3_
-_access: _
-_version_started: _
+_parameters: const string &name, float v1, float v2, float v3_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1625,6 +2237,15 @@ _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1639,45 +2260,16 @@ set a vec3 uniform on the shader
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform3f(*name, v1, v2, v3)
+###void setUniform3fv(&name, *v, count = 1)
 
 <!--
-_syntax: setUniform3f(*name, v1, v2, v3)_
-_name: setUniform3f_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, float v1, float v2, float v3_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setUniform3fv(name, v, count =  1)
-
-<!--
-_syntax: setUniform3fv(name, v, count =  1)_
+_syntax: setUniform3fv(&name, *v, count = 1)_
 _name: setUniform3fv_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, float* v, int count = 1_
-_access: _
-_version_started: _
+_parameters: const string &name, float *v, int count=1_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1685,6 +2277,15 @@ _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1702,45 +2303,16 @@ vec3 v[2];
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform3fv(*name, *v, count = 1)
+###void setUniform3i(&name, v1, v2, v3)
 
 <!--
-_syntax: setUniform3fv(*name, *v, count = 1)_
-_name: setUniform3fv_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, float *v, int count=1_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setUniform3i(name, v1, v2, v3)
-
-<!--
-_syntax: setUniform3i(name, v1, v2, v3)_
+_syntax: setUniform3i(&name, v1, v2, v3)_
 _name: setUniform3i_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, int v1, int v2, int v3_
-_access: _
-_version_started: _
+_parameters: const string &name, int v1, int v2, int v3_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1748,6 +2320,15 @@ _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1764,45 +2345,16 @@ uniform ivec3 texture;
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform3i(*name, v1, v2, v3)
+###void setUniform3iv(&name, *v, count = 1)
 
 <!--
-_syntax: setUniform3i(*name, v1, v2, v3)_
-_name: setUniform3i_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, int v1, int v2, int v3_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setUniform3iv(name, v, count =  1)
-
-<!--
-_syntax: setUniform3iv(name, v, count =  1)_
+_syntax: setUniform3iv(&name, *v, count = 1)_
 _name: setUniform3iv_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, int* v, int count = 1_
-_access: _
-_version_started: _
+_parameters: const string &name, int *v, int count=1_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1810,6 +2362,15 @@ _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1827,45 +2388,16 @@ ivec3 iv[2];
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform3iv(*name, *v, count = 1)
+###void setUniform4f(&name, v1, v2, v3, v4)
 
 <!--
-_syntax: setUniform3iv(*name, *v, count = 1)_
-_name: setUniform3iv_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, int *v, int count=1_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setUniform4f(name, v1, v2, v3, v4)
-
-<!--
-_syntax: setUniform4f(name, v1, v2, v3, v4)_
+_syntax: setUniform4f(&name, v1, v2, v3, v4)_
 _name: setUniform4f_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, float v1, float v2, float v3, float v4_
-_access: _
-_version_started: _
+_parameters: const string &name, float v1, float v2, float v3, float v4_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1873,6 +2405,15 @@ _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1890,45 +2431,16 @@ vec4 fv;
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform4f(*name, v1, v2, v3, v4)
+###void setUniform4fv(&name, *v, count = 1)
 
 <!--
-_syntax: setUniform4f(*name, v1, v2, v3, v4)_
-_name: setUniform4f_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, float v1, float v2, float v3, float v4_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setUniform4fv(name, v, count =  1)
-
-<!--
-_syntax: setUniform4fv(name, v, count =  1)_
+_syntax: setUniform4fv(&name, *v, count = 1)_
 _name: setUniform4fv_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, float* v, int count = 1_
-_access: _
-_version_started: _
+_parameters: const string &name, float *v, int count=1_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1936,6 +2448,15 @@ _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1953,45 +2474,16 @@ vec4 v[2];
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform4fv(*name, *v, count = 1)
+###void setUniform4i(&name, v1, v2, v3, v4)
 
 <!--
-_syntax: setUniform4fv(*name, *v, count = 1)_
-_name: setUniform4fv_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, float *v, int count=1_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setUniform4i(name, v1, v2, v3, v4)
-
-<!--
-_syntax: setUniform4i(name, v1, v2, v3, v4)_
+_syntax: setUniform4i(&name, v1, v2, v3, v4)_
 _name: setUniform4i_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, int v1, int v2, int v3, int v4_
-_access: _
-_version_started: _
+_parameters: const string &name, int v1, int v2, int v3, int v4_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -2000,12 +2492,7 @@ _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-~~~~{.cpp}
-uniform ivec4 texture;
-~~~~
+_inlined_description: _
 
 
 
@@ -2013,25 +2500,6 @@ uniform ivec4 texture;
 
 
 
-<!----------------------------------------------------------------------------->
-
-###void setUniform4i(*name, v1, v2, v3, v4)
-
-<!--
-_syntax: setUniform4i(*name, v1, v2, v3, v4)_
-_name: setUniform4i_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, int v1, int v2, int v3, int v4_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -2044,16 +2512,16 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform4iv(name, v, count =  1)
+###void setUniform4iv(&name, *v, count = 1)
 
 <!--
-_syntax: setUniform4iv(name, v, count =  1)_
+_syntax: setUniform4iv(&name, *v, count = 1)_
 _name: setUniform4iv_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, int* v, int count = 1_
-_access: _
-_version_started: _
+_parameters: const string &name, int *v, int count=1_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -2061,6 +2529,15 @@ _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2078,74 +2555,16 @@ ivec4 iv[2];
 
 <!----------------------------------------------------------------------------->
 
-###void setUniform4iv(*name, *v, count = 1)
+###void setUniformMatrix4f(&name, &m)
 
 <!--
-_syntax: setUniform4iv(*name, *v, count = 1)_
-_name: setUniform4iv_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, int *v, int count=1_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setUniformMatrix4f(*name, &m)
-
-<!--
-_syntax: setUniformMatrix4f(*name, &m)_
+_syntax: setUniformMatrix4f(&name, &m)_
 _name: setUniformMatrix4f_
 _returns: void_
 _returns_description: _
-_parameters: const char *name, const ofMatrix4x4 &m_
+_parameters: const string &name, const ofMatrix4x4 &m_
 _access: public_
-_version_started: 0071_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setUniformTexture(name, img, textureLocation)
-
-<!--
-_syntax: setUniformTexture(name, img, textureLocation)_
-_name: setUniformTexture_
-_returns: void_
-_returns_description: _
-_parameters: const char* name, ofBaseHasTexture& img, int textureLocation_
-_access: _
-_version_started: _
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -2153,6 +2572,53 @@ _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setUniformTexture(&name, &img, textureLocation)
+
+<!--
+_syntax: setUniformTexture(&name, &img, textureLocation)_
+_name: setUniformTexture_
+_returns: void_
+_returns_description: _
+_parameters: const string &name, ofBaseHasTexture &img, int textureLocation_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2171,16 +2637,16 @@ uniform sampler2DRect texture;
 
 <!----------------------------------------------------------------------------->
 
-###void setUniformTexture(name, img, textureLocation)
+###void setUniformTexture(&name, &img, textureLocation)
 
 <!--
-_syntax: setUniformTexture(name, img, textureLocation)_
+_syntax: setUniformTexture(&name, &img, textureLocation)_
 _name: setUniformTexture_
 _returns: void_
 _returns_description: _
-_parameters: const char* name, ofTexture& img, int textureLocation_
-_access: _
-_version_started: _
+_parameters: const string &name, ofTexture &img, int textureLocation_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -2189,13 +2655,7 @@ _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-For multi-texturing.
-~~~~{.cpp}
-uniform sampler2DRect texture;
-~~~~
+_inlined_description: _
 
 
 
@@ -2203,25 +2663,6 @@ uniform sampler2DRect texture;
 
 
 
-<!----------------------------------------------------------------------------->
-
-###void setUniformTexture(*name, &img, textureLocation)
-
-<!--
-_syntax: setUniformTexture(*name, &img, textureLocation)_
-_name: setUniformTexture_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, ofBaseHasTexture &img, int textureLocation_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -2234,25 +2675,25 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###void setUniformTexture(*name, &img, textureLocation)
+###void setUniformTexture(&name, textureTarget, textureID, textureLocation)
 
 <!--
-_syntax: setUniformTexture(*name, &img, textureLocation)_
+_syntax: setUniformTexture(&name, textureTarget, textureID, textureLocation)_
 _name: setUniformTexture_
 _returns: void_
 _returns_description: _
-_parameters: const char *name, ofTexture &img, int textureLocation_
+_parameters: const string &name, int textureTarget, GLint textureID, int textureLocation_
 _access: public_
-_version_started: 007_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
+_inlined_description: _
 
 
 
@@ -2260,26 +2701,6 @@ _description: _
 
 
 
-
-<!----------------------------------------------------------------------------->
-
-###void setUniformTexture(*name, textureTarget, textureID, textureLocation)
-
-<!--
-_syntax: setUniformTexture(*name, textureTarget, textureID, textureLocation)_
-_name: setUniformTexture_
-_returns: void_
-_returns_description: _
-_parameters: const char *name, int textureTarget, GLint textureID, int textureLocation_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -2305,10 +2726,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2323,28 +2753,35 @@ This are more of advanced use function and doesn't need.
 
 <!----------------------------------------------------------------------------->
 
-###bool setupShaderFromSource(type, source)
+###bool setupShaderFromSource(type, source, sourceDirectoryPath = "")
 
 <!--
-_syntax: setupShaderFromSource(type, source)_
+_syntax: setupShaderFromSource(type, source, sourceDirectoryPath = "")_
 _name: setupShaderFromSource_
 _returns: bool_
 _returns_description: _
-_parameters: GLenum type, string source_
+_parameters: GLenum type, string source, string sourceDirectoryPath=""_
 _access: public_
-_version_started: _
+_version_started: 0.8.0_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-
-these methods create and compile a shader from a string, type: GL_VERTEX_SHADER, GL_FRAGMENT_SHADER, GL_GEOMETRY_SHADER_EXT etc.
 
 
 
@@ -2367,10 +2804,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2398,10 +2844,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2468,6 +2923,31 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
+###map< GLenum, string >  shaderSource
+
+<!--
+_name: shaderSource_
+_type: map< GLenum, string > _
+_access: private_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
 ###map< GLenum, GLuint > shaders
 
 <!--
@@ -2475,6 +2955,31 @@ _name: shaders_
 _type: map< GLenum, GLuint >_
 _access: private_
 _version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###map< string, GLint > uniformLocations
+
+<!--
+_name: uniformLocations_
+_type: map< string, GLint >_
+_access: private_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _visible: True_

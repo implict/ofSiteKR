@@ -1,8 +1,38 @@
 #class ofLog
 
 
-##Description
+<!--
+_visible: True_
+_advanced: False_
+_istemplated: False_
+-->
 
+##InlineDescription
+
+a streaming log interface 
+
+
+ofLog accepts variables via the ostream operator << and builds a string and logs it when the stream is finished (via the destructor). A newline is printed automatically and all the stream controls (endl, flush, hex, etc) work normally. The log level is explicitly OF_LOG_NOTICE unless set, see the derived wrapper classes:
+
+Usage: ofLog() << "a string" << 100 << 20.234f;
+
+It also accepts the legacy ofLog interface: ofLog(ofLogLevel level, string message):
+
+Usage: ofLog(OF_LOG_ERROR, "another string");
+
+class idea from: [http://www.gamedev.net/community/forums/topic.asp?topic_id=525405&whichpage=1&#3406418](http://www.gamedev.net/community/forums/topic.asp?topic_id=525405&whichpage=1&#3406418) how to catch std::endl (which is actually a func pointer): [http://yvan.seth.id.au/Entries/Technology/Code/std__endl.html](http://yvan.seth.id.au/Entries/Technology/Code/std__endl.html)
+
+***author:*** 
+	Dan Wilcox [danomatika@gmail.com](danomatika@gmail.com) danomatika.com 
+
+
+
+
+
+
+
+
+##Description
 
 ofLog provides an interface for writing text output from your app. It's basically a more useful version of cout or printf where output can be filtered and written to the console or to a file. 
 
@@ -21,7 +51,7 @@ Log levels are (in order of priority):
 	OF_LOG_FATAL_ERROR
 	OF_LOG_SILENT
 
-**Note**: `OF_LOG_SILENT` is a special value which disables **all** messages.
+**Note**: OF_LOG_SILENT is a special value which disables **all** messages.
 
 ####Usage
 
@@ -39,7 +69,7 @@ ofLog(OF_LOG_NOTICE, "the number is %d", 10);
 
 ~~~~
 
-See [ofLog(logLevel, &message) & ofLog(logLevel, format*, …)](./ofLog.html#methods) for more details.
+See [ofLog(logLevel, &message) & ofLog(logLevel, format*, ...)](./ofLog.html#methods) for more details.
 
 ####Stream: as a stream using the << stream operator
 
@@ -110,10 +140,21 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+print a log line 
+
+
+
+
+
+
+
 
 _description: _
 
@@ -139,10 +180,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -168,10 +218,21 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+log at notice level 
+
+
+
+
+
+
+
 
 _description: _
 
@@ -187,7 +248,7 @@ ofLog() << "a string" << 100 << 20.234f;
 
 ~~~~
 
-The log level is explicitly `OF_LOG_NOTICE`.
+The log level is explicitly OF_LOG_NOTICE.
 
 See [ofSetLogLevel(logLevel)](./ofLog.html#functions) for more info on log levels.
 
@@ -206,16 +267,27 @@ _syntax: ofLog(logLevel)_
 _name: ofLog_
 _returns: _
 _returns_description: _
-_parameters: ofLogLevel logLevel_
+_parameters: ofLogLevel level_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+set the log level 
+
+
+
+
+
+
+
 
 _description: _
 
@@ -264,16 +336,27 @@ _syntax: ofLog(logLevel, &message)_
 _name: ofLog_
 _returns: _
 _returns_description: _
-_parameters: ofLogLevel logLevel, const string &message_
+_parameters: ofLogLevel level, const string &message_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+the legacy ofLog interfaces 
+
+
+
+
+
+
+
 
 _description: _
 
@@ -307,16 +390,25 @@ _syntax: ofLog(logLevel, *format, ...)_
 _name: ofLog_
 _returns: _
 _returns_description: _
-_parameters: ofLogLevel logLevel, const char *format,..._
+_parameters: ofLogLevel level, const char *format,..._
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -353,7 +445,7 @@ ofLog(OF_LOG_NOTICE, "we've got %d & %f, we got everything you want honey, we kn
 
 ~~~~
 
-Note: `theNames.c_str()` returns a C string from theNames which is a C++ string object.
+Note: theNames.c_str() returns a C string from theNames which is a C++ string object.
 
 There are other formatting options such as setting the decimal precision of float objects and the forward padding of numbers (i.e. 0001 instead of 1). See the [Wikipedia printf format string article](http://en.wikipedia.org/wiki/Printf_format_string) for more detailed information.
 
@@ -378,10 +470,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -394,12 +495,12 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofLog operator<<(&value)
+###ofLog & operator<<(&value)
 
 <!--
 _syntax: operator<<(&value)_
 _name: operator<<_
-_returns: ofLog_
+_returns: ofLog &_
 _returns_description: _
 _parameters: const T &value_
 _access: public_
@@ -407,12 +508,14 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
 
-_description: _
+_inlined_description: _
+
+catch the << ostream with a template class to read any type of data 
 
 
 
@@ -420,26 +523,6 @@ _description: _
 
 
 
-
-<!----------------------------------------------------------------------------->
-
-###ofLog operator<<(&))
-
-<!--
-_syntax: operator<<(&))_
-_name: operator<<_
-_returns: ofLog_
-_returns_description: _
-_parameters: std_
-_access: public_
-_version_started: 0071_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -452,41 +535,12 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofLog operator<<(&))
+###ofLog & operator<<(&))
 
 <!--
 _syntax: operator<<(&))_
 _name: operator<<_
-_returns: ofLog_
-_returns_description: _
-_parameters: std_
-_access: public_
-_version_started: 0072_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###ofLog operator<<(&))
-
-<!--
-_syntax: operator<<(&))_
-_name: operator<<_
-_returns: ofLog_
+_returns: ofLog &_
 _returns_description: _
 _parameters: std::ostream &(*func)(std::ostream &)_
 _access: public_
@@ -494,10 +548,21 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+catch the << ostream function pointers such as std::endl and std::hex 
+
+
+
+
+
+
+
 
 _description: _
 
@@ -510,12 +575,12 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofLog operator=(&from)
+###ofLog & operator=(&from)
 
 <!--
 _syntax: operator=(&from)_
 _name: operator=_
-_returns: ofLog_
+_returns: ofLog &_
 _returns_description: _
 _parameters: ofLog &from_
 _access: private_
@@ -523,10 +588,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -552,10 +626,21 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+put a space between stream operator calls? 
+
+
+
+
+
+
+
 
 _description: _
 
@@ -581,10 +666,21 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+set the logging channel destinations for messages 
+
+
+
+
+
+
+
 
 _description: _
 
@@ -614,10 +710,21 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+does the actual printing when the ostream is done 
+
+
+
+
+
+
+
 
 _description: _
 

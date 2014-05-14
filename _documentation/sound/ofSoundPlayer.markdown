@@ -1,8 +1,24 @@
 #class ofSoundPlayer
 
 
-##Description
+<!--
+_visible: True_
+_advanced: False_
+_istemplated: False_
+-->
 
+##InlineDescription
+
+Plays sound files. 
+
+
+ofSoundPlayer handles simple playback of sound files, with controls for volume, pan, speed, seeking and multiplay. This is a common cross-platform sound player interface which is inherited by each of the platform-specific sound player implementations. 
+
+
+
+
+
+##Description
 
 The ofSoundPlayer class wraps one of several underlying audio utility libraries, depending on your OS and your configuration that can be Fmod, Quicktime, or OpenAL. The ofSoundPlayer is primarily to allow you to load sound files and control and manipulate their playback and properties, if you want more low level access to sound data and to your sound card then you should take a look at the ofSoundStream class. 
 
@@ -27,10 +43,27 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Gets current playback state. 
+
+
+***return:*** 
+	true if the player is currently playing a file. 
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -67,10 +100,27 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Gets stereo pan. 
+
+
+***return:*** 
+	stereo pan in the range -1 to 1. 
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -98,12 +148,12 @@ Example:
 
 <!----------------------------------------------------------------------------->
 
-###ofPtr getPlayer()
+###ofPtr< ofBaseSoundPlayer > getPlayer()
 
 <!--
 _syntax: getPlayer()_
 _name: getPlayer_
-_returns: ofPtr_
+_returns: ofPtr< ofBaseSoundPlayer >_
 _returns_description: _
 _parameters: _
 _access: public_
@@ -111,10 +161,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -142,16 +201,32 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Gets position of the playhead. 
+
+
+***return:*** 
+	playhead position as a float between 0 and 1. 
+
+
+
+
+
+
+
+
+
+
 _description: _
 
 
-Returns the current position of the playback-head in the sound. 0.0 - 1.0
-range. 0.0 is the beginning of the sound file and 1.0 is the end.
+Returns the current position of the playhead as a float between 0.0 and 1.0. 0.0 is the beginning of the sound file and 1.0 is the end.
   
 Example:
 ~~~~{.cpp}    
@@ -182,15 +257,32 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Gets position of the playhead. 
+
+
+***return:*** 
+	playhead position in milliseconds. 
+
+
+
+
+
+
+
+
+
+
 _description: _
 
 
-This returns the milliseconds of the sound or file currently playing in milliseconds.
+This returns the position of the playhead in terms of milliseconds (i.e. 5000 for 5 seconds into the sound).
 
 
 
@@ -213,10 +305,27 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Gets playback speed. 
+
+
+***return:*** 
+	playback speed (see ofSoundPlayer::setSpeed()). 
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -255,13 +364,32 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Gets current volume. 
+
+
+***return:*** 
+	current volume in the range 0 to 1. 
+
+
+
+
+
+
+
+
+
+
 _description: _
 
+
+Returns the current volume of the sound player, as set by `setVolume()`. 0.0 is silent and 1.0 is full volume.
 
 
 
@@ -284,13 +412,32 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Queries the player to see if its file was loaded successfully. 
+
+
+***return:*** 
+	whether or not the player is ready to begin playback. 
+
+
+
+
+
+
+
+
+
+
 _description: _
 
+
+Returns whether or not a sound has been successfully loaded into the sound player. 
 
 
 
@@ -313,10 +460,26 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Tells the sound player which file to play. 
+
+
+Codec support varies by platform but wav, aif, and mp3 are safe.
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -359,10 +522,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -390,10 +562,21 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Starts playback. 
+
+
+
+
+
+
+
 
 _description: _
 
@@ -434,16 +617,30 @@ _syntax: setLoop(bLp)_
 _name: setLoop_
 _returns: void_
 _returns_description: _
-_parameters: bool bLp_
+_parameters: bool loop_
 _access: public_
 _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Sets whether to loop once the end of the file is reached. 
+
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -473,16 +670,30 @@ _syntax: setMultiPlay(bMp)_
 _name: setMultiPlay_
 _returns: void_
 _returns_description: _
-_parameters: bool bMp_
+_parameters: bool multiplay_
 _access: public_
 _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Enables playing multiple simultaneous copies of the sound. 
+
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -514,16 +725,30 @@ _syntax: setPan(vol)_
 _name: setPan_
 _returns: void_
 _returns_description: _
-_parameters: float vol_
+_parameters: float pan_
 _access: public_
 _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Sets stereo pan. 
+
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -555,21 +780,35 @@ _syntax: setPaused(bP)_
 _name: setPaused_
 _returns: void_
 _returns_description: _
-_parameters: bool bP_
+_parameters: bool paused_
 _access: public_
 _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Enables pause / resume. 
+
+
+
+
+
+
+
+
+
+
+
 _description: _
 
 
-Pauses and un-pauses the playback of the sound. 
+Pauses and un-pauses the playback of the sound.
 
 Example
 ~~~~{.cpp}
@@ -601,10 +840,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -631,16 +879,30 @@ _syntax: setPosition(pct)_
 _name: setPosition_
 _returns: void_
 _returns_description: _
-_parameters: float pct_
+_parameters: float percent_
 _access: public_
 _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Sets position of the playhead within the file (aka "seeking"). 
+
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -677,15 +939,29 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Sets position of the playhead within the file (aka "seeking"). 
+
+
+
+
+
+
+
+
+
+
+
 _description: _
 
 
-This sets the position of the sound currently playing in milliseconds.
+This sets the position of the playhead in milliseconds.
 
 
 
@@ -702,21 +978,35 @@ _syntax: setSpeed(spd)_
 _name: setSpeed_
 _returns: void_
 _returns_description: _
-_parameters: float spd_
+_parameters: float speed_
 _access: public_
 _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Sets playback speed. 
+
+
+
+
+
+
+
+
+
+
+
 _description: _
 
 
-Sets the playback speed (spd) of the sound. 1.0 is the normal speed. 2.0 is double the normal speed etc. 
+Sets the playback speed of the sound. 1.0 is normal speed. 2.0 is double the normal speed etc. 
 
 Example:
 ~~~~{.cpp}
@@ -749,15 +1039,29 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Sets playback volume. 
+
+
+
+
+
+
+
+
+
+
+
 _description: _
 
 
-Sets the volume (vol) of the sound. 0.0 - 1.0 range. 0.0 is silent and 1.0 is full volume. 
+Sets the volume of the sound. 0.0 - 1.0 range. 0.0 is silent and 1.0 is full volume. 
 
 Example:
 ~~~~{.cpp}
@@ -788,10 +1092,21 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Stops playback. 
+
+
+
+
+
+
+
 
 _description: _
 
@@ -827,10 +1142,21 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Stops and unloads the current sound. 
+
+
+
+
+
+
+
 
 _description: _
 
@@ -853,277 +1179,9 @@ mySound.unloadSound(); //Stops sound from playing, unloads "beat.mp3"
 
 <!----------------------------------------------------------------------------->
 
-###void ~ofSoundPlayer()
-
-<!--
-_syntax: ~ofSoundPlayer()_
-_name: ~ofSoundPlayer_
-_returns: void_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: False_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
 ##Variables
 
 
-
-###bool bLoadedOk
-
-<!--
-_name: bLoadedOk_
-_type: bool_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: False_
-_advanced: False_
--->
-
-_description: _
-
-
-bLoadedOk is a boolean variable containing true if the sound was successfully loaded.  
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool bLoop
-
-<!--
-_name: bLoop_
-_type: bool_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: False_
-_advanced: False_
--->
-
-_description: _
-
-
-bLoop variable controls if we are playing the sound as a loop.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool bMultiPlay
-
-<!--
-_name: bMultiPlay_
-_type: bool_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: False_
-_advanced: False_
--->
-
-_description: _
-
-
-Allows a sound to be played multiple times at once. See setMultiPlay(bool bMp) function for more info.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool bPaused
-
-<!--
-_name: bPaused_
-_type: bool_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: False_
-_advanced: False_
--->
-
-_description: _
-
-
-bPaused contain true if we pause the sound.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###FMOD_CHANNEL * channel
-
-<!--
-_name: channel_
-_type: FMOD_CHANNEL *_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: False_
-_advanced: True_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###float internalFreq
-
-<!--
-_name: internalFreq_
-_type: float_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_visible: False_
-_constant: False_
-_advanced: False_
--->
-
-_description: _
-
-
-Contains the frequency value of the sound. It is set by default to 44100.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool isStreaming
-
-<!--
-_name: isStreaming_
-_type: bool_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: False_
-_advanced: False_
--->
-
-_description: _
-
-
-This boolean variable tells if the sound we are using is streaming or not.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###unsigned int length
-
-<!--
-_name: length_
-_type: unsigned int_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: False_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###float pan
-
-<!--
-_name: pan_
-_type: float_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: False_
-_advanced: False_
--->
-
-_description: _
-
-
-Contains the pan position of the sound. Going from -1 to 1.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
 
 ###ofPtr player
 
@@ -1141,110 +1199,6 @@ _advanced: False_
 
 _description: _
 
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###FMOD_RESULT result
-
-<!--
-_name: result_
-_type: FMOD_RESULT_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_visible: False_
-_constant: False_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###FMOD_SOUND * sound
-
-<!--
-_name: sound_
-_type: FMOD_SOUND *_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: False_
-_advanced: True_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###float speed
-
-<!--
-_name: speed_
-_type: float_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: False_
-_advanced: False_
--->
-
-_description: _
-
-
-Contains the playback speed of the sound. 1.0 is the normal speed. 2.0 is double the normal speed, -1 is backwards etc. 
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###float volume
-
-<!--
-_name: volume_
-_type: float_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: False_
-_advanced: False_
--->
-
-_description: _
-
-
-Contains the value of the volume of our sound.
 
 
 

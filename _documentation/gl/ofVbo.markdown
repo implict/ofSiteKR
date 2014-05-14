@@ -1,8 +1,20 @@
 #class ofVbo
 
 
-##Description
+<!--
+_visible: True_
+_advanced: False_
+_istemplated: False_
+-->
 
+##InlineDescription
+
+
+
+
+
+
+##Description
 
 First things first: a Vertex Buffer Object (VBO) provides a way for you to create vertices, normals, colors, and texture coordinates on the graphics card for non-immediate mode rendering. This means that you can store it all on the graphics card and then access, update, or draw it, whenever you need. This is pretty convenient when you have something that you want to draw multiple times wihtout changing it much, because it means that, instead of needing to upload new data each time, you can simply draw it without needing to recreate all your vertices and colors, a philosophy which is probably familiar to you from working with the ofFbo or ofTexture.
 
@@ -132,42 +144,6 @@ The data store contents are modified by reading data from the GL, and used as th
 
 
 
-###ofVbo & &operator=(mom)
-
-<!--
-_syntax: &operator=(mom)_
-_name: &operator=_
-_returns: ofVbo &_
-_returns_description: _
-_parameters: const ofVbo& mom_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-Allows you copy one ofVbo from another ofVbo using the = operator:
-~~~~{.cpp}
-ofVbo one, two;
-//add some vertices and texcoords to one
-two = one;
-~~~~
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
 ###void bind()
 
 <!--
@@ -181,10 +157,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -212,10 +197,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -243,10 +237,19 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -272,10 +275,19 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -301,10 +313,19 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -330,10 +351,19 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -359,10 +389,19 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -388,10 +427,19 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -417,10 +465,19 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -446,10 +503,19 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -475,10 +541,57 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void disableVAOs()
+
+<!--
+_syntax: disableVAOs()_
+_name: disableVAOs_
+_returns: void_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: True_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -504,10 +617,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -541,10 +663,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -556,6 +687,82 @@ Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LI
 vbo.drawElements( GL_TRIANGLES, 60);
 ~~~~
 amt specifies the number of indices to be rendered. This last part is pretty important: if you have more indices than vertices you'll want to make sure that you pass the number of indices, not the number of vertices.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void drawElementsInstanced(drawMode, amt, primCount)
+
+<!--
+_syntax: drawElementsInstanced(drawMode, amt, primCount)_
+_name: drawElementsInstanced_
+_returns: void_
+_returns_description: _
+_parameters: int drawMode, int amt, int primCount_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void drawInstanced(drawMode, first, total, primCount)
+
+<!--
+_syntax: drawInstanced(drawMode, first, total, primCount)_
+_name: drawInstanced_
+_returns: void_
+_returns_description: _
+_parameters: int drawMode, int first, int total, int primCount_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -578,10 +785,19 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -607,10 +823,19 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -636,10 +861,19 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -665,10 +899,57 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void enableVAOs()
+
+<!--
+_syntax: enableVAOs()_
+_name: enableVAOs_
+_returns: void_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: True_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -694,10 +975,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -723,10 +1013,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -752,10 +1051,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -783,10 +1091,95 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int getNumIndices()
+
+<!--
+_syntax: getNumIndices()_
+_name: getNumIndices_
+_returns: int_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int getNumVertices()
+
+<!--
+_syntax: getNumVertices()_
+_name: getNumVertices_
+_returns: int_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -812,10 +1205,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -841,10 +1243,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -872,10 +1283,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -903,10 +1323,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -934,10 +1363,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -965,10 +1403,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -996,10 +1443,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1025,46 +1481,24 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-Simple constructor for the ofVbo. When the ofVbo is first created there are no vertices or normals within it.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-### ofVbo(mom)
-
-<!--
-_syntax: ofVbo(mom)_
-_name: ofVbo_
-_returns: _
-_returns_description: _
-_parameters: const ofVbo & mom_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
 _static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-Allows you copy one ofVbo from another ofVbo.
+Simple constructor for the ofVbo. When the ofVbo is first created there are no vertices or normals within it.
 
 
 
@@ -1087,10 +1521,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1111,12 +1554,12 @@ ofVbo v2(v1); // v2 now contains all of v1s properties in a separate VBO
 
 <!----------------------------------------------------------------------------->
 
-###ofVbo operator=(&mom)
+###ofVbo & operator=(&mom)
 
 <!--
 _syntax: operator=(&mom)_
 _name: operator=_
-_returns: ofVbo_
+_returns: ofVbo &_
 _returns_description: _
 _parameters: const ofVbo &mom_
 _access: public_
@@ -1124,10 +1567,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1148,16 +1600,16 @@ ofVbo v2 = v1; // v2 now contains all of v1s properties in a separate VBO
 
 <!----------------------------------------------------------------------------->
 
-###void setColorData(colors, total, usage)
+###void setAttributeData(location, *vert0x, numCoords, total, usage, stride = sizeof(float))
 
 <!--
-_syntax: setColorData(colors, total, usage)_
-_name: setColorData_
+_syntax: setAttributeData(location, *vert0x, numCoords, total, usage, stride = sizeof(float))_
+_name: setAttributeData_
 _returns: void_
 _returns_description: _
-_parameters: const ofFloatColor * colors, int total, int usage_
-_access: _
-_version_started: _
+_parameters: int location, const float *vert0x, int numCoords, int total, int usage, int stride=0_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1166,11 +1618,7 @@ _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-total Specifies the number of objects that you're passing in.
-usage Specifies the expected usage pattern of the data store. The symbolic constant must be GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
+_inlined_description: _
 
 
 
@@ -1178,34 +1626,9 @@ usage Specifies the expected usage pattern of the data store. The symbolic const
 
 
 
-<!----------------------------------------------------------------------------->
-
-###void setColorData(color0r, total, usage, stride = 0)
-
-<!--
-_syntax: setColorData(color0r, total, usage, stride = 0)_
-_name: setColorData_
-_returns: void_
-_returns_description: _
-_parameters: const float * color0r, int total, int usage, int stride=0_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
-
-This sets the colors for a VBO by using 3 floats for the color RGB rather than an ofFloatColor instance.
-~~~~{.cpp}
-float Colors[] = {...};
-vbo.setVertexData(&Colors[0], 12, 36, GL_DYNAMIC_DRAW); //use GL_DYNAMIC_DRAW if you want to update it later
-~~~~
 
 
 
@@ -1228,10 +1651,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1267,10 +1699,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1278,39 +1719,6 @@ _description: _
 This sets the color data for the ofVbo from a pointer to an array of floats. The colors are RGB and are floats from 0.f - 1.f
 
 The possible options for usage are: GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setIndexData(indices, total, usage)
-
-<!--
-_syntax: setIndexData(indices, total, usage)_
-_name: setIndexData_
-_returns: void_
-_returns_description: _
-_parameters: const ofIndexType * indices, int total, int usage_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-Indices are the indices of vertices that you want used to create your polygons, so like {1, 2, 3} for a triangle, would make a triangle out of vertexs at positions 1, 2, and 3 in the vertex array. QUADS need 4 indices per primitive, LINES need 2.
-total Specifies the number of objects that you're passing in.
-usage Specifies the expected usage pattern of the data store. The symbolic constant must be GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
 
 
 
@@ -1333,10 +1741,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1344,42 +1761,6 @@ _description: _
 This sets the index data for the VBO from a pointer to an array of ints. Each int represents the index of a vertex, and when the vbo is drawn the indices are used to generate the geometry from the indices.
 
 The possible options for usage are: GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setMesh(mesh, usage)
-
-<!--
-_syntax: setMesh(mesh, usage)_
-_name: setMesh_
-_returns: void_
-_returns_description: _
-_parameters: const ofMesh & mesh, int usage_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-This copies an ofMesh into an ofVbo, which is a very easy way of creating a VBO.
-~~~~{.cpp}
-ofMesh m;
-vbo.setMesh(m, GL_DYNAMIC_DRAW);
-~~~~
-This copies all the properties from the mesh, indices, vertices, colors, and texcoords, into the VBO.
 
 
 
@@ -1402,10 +1783,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1430,16 +1820,16 @@ The possible options for usage are: GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_CO
 
 <!----------------------------------------------------------------------------->
 
-###void setNormalData(normals, total, usage)
+###void setMesh(&mesh, usage, useColors, useTextures, useNormals)
 
 <!--
-_syntax: setNormalData(normals, total, usage)_
-_name: setNormalData_
+_syntax: setMesh(&mesh, usage, useColors, useTextures, useNormals)_
+_name: setMesh_
 _returns: void_
 _returns_description: _
-_parameters: const ofVec3f * normals, int total, int usage_
-_access: _
-_version_started: _
+_parameters: const ofMesh &mesh, int usage, bool useColors, bool useTextures, bool useNormals_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1448,11 +1838,7 @@ _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-total Specifies the number of objects that you're passing in.
-usage Specifies the expected usage pattern of the data store. The symbolic constant must be GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
+_inlined_description: _
 
 
 
@@ -1460,34 +1846,9 @@ usage Specifies the expected usage pattern of the data store. The symbolic const
 
 
 
-<!----------------------------------------------------------------------------->
-
-###void setNormalData(normal0x, total, usage, stride = 0)
-
-<!--
-_syntax: setNormalData(normal0x, total, usage, stride = 0)_
-_name: setNormalData_
-_returns: void_
-_returns_description: _
-_parameters: const float * normal0x, int total, int usage, int stride=0_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
-
-This sets the normals for a VBO by using 3 floats for the normal rather than an ofVec3f
-~~~~{.cpp}
-float Norms[] = {...};
-vbo.setNormalData(&Norms[0], 12, 36, GL_DYNAMIC_DRAW); //use GL_DYNAMIC_DRAW if you want to update it later
-~~~~
 
 
 
@@ -1510,10 +1871,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1569,10 +1939,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1580,73 +1959,6 @@ _description: _
 This sets the normals data for the ofVbo from a pointer to an array of floats, x,y,z, for each face, so a 3D cube would require an array of 18 floats, 3 for each face.
 
 The possible options for usage are: GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setTexCoordData(texCoords, total, usage)
-
-<!--
-_syntax: setTexCoordData(texCoords, total, usage)_
-_name: setTexCoordData_
-_returns: void_
-_returns_description: _
-_parameters: const ofVec2f * texCoords, int total, int usage_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-total Specifies the number of objects that you're passing in.
-usage Specifies the expected usage pattern of the data store. The symbolic constant must be GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setTexCoordData(texCoord0x, total, usage, stride = 0)
-
-<!--
-_syntax: setTexCoordData(texCoord0x, total, usage, stride = 0)_
-_name: setTexCoordData_
-_returns: void_
-_returns_description: _
-_parameters: const float * texCoord0x, int total, int usage, int stride=0_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-This sets the texcoords for a VBO by using 2 floats for the texture coordinates rather than an ofVec2f
-~~~~{.cpp}
-float Norms[] = {...};
-vbo.setNormalData(&Norms[0], 12, 36, GL_DYNAMIC_DRAW); //use GL_DYNAMIC_DRAW if you want to update it later
-~~~~
 
 
 
@@ -1669,10 +1981,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1702,10 +2023,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1713,113 +2043,6 @@ _description: _
 This sets the texCoord data for the ofVbo from a pointer to an array of floats, ST, for each face, so a 3D cube would require an array of 16 floats, 2 for each vertex.
 
 The possible options for usage are: GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setVertexData(verts, total, usage)
-
-<!--
-_syntax: setVertexData(verts, total, usage)_
-_name: setVertexData_
-_returns: void_
-_returns_description: _
-_parameters: const ofVec3f * verts, int total, int usage_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-Sets vertices using ofVec3f objects. You pass a pointer to ofVec3fs, a int saying how many are in the pointer, and what kind of array you want to be created on the graphics card for the VBO to use.
-~~~~{.cpp}
-ofVec3f *v = new ofVec3f[12];
-vbo.setVertexData(v, 12, GL_DYNAMIC_DRAW);
-~~~~
-total Specifies the number of objects that you're passing in.
-usage Specifies the expected usage pattern of the data store. The symbolic constant must be GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setVertexData(verts, total, usage)
-
-<!--
-_syntax: setVertexData(verts, total, usage)_
-_name: setVertexData_
-_returns: void_
-_returns_description: _
-_parameters: const ofVec2f * verts, int total, int usage_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-total Specifies the number of objects that you're passing in.
-usage Specifies the expected usage pattern of the data store. The symbolic constant must be GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setVertexData(vert0x, numCoords, total, usage, stride = 0)
-
-<!--
-_syntax: setVertexData(vert0x, numCoords, total, usage, stride = 0)_
-_name: setVertexData_
-_returns: void_
-_returns_description: _
-_parameters: const float * vert0x, int numCoords, int total, int usage, int stride=0_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-vert0x Specifies a pointer to data that will be copied into the data store for initialization.
-numCoords This is the number of complete coordinates that youre adding to the VBO
-total Specifies the number of objects that you're passing in.
-usage Specifies the expected usage pattern of the data store. The symbolic constant must be GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
-~~~~{.cpp}
-float Verts[] = {...};
-vbo.setVertexData(&Verts[0], 12, 36, GL_DYNAMIC_DRAW);
-~~~~
 
 
 
@@ -1842,10 +2065,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1875,10 +2107,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1908,10 +2149,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1941,10 +2191,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1959,16 +2218,16 @@ This is for advanced users who might want to use ways of drawing other than draw
 
 <!----------------------------------------------------------------------------->
 
-###void updateColorData(colors, total)
+###void updateAttributeData(location, *vert0x, total)
 
 <!--
-_syntax: updateColorData(colors, total)_
-_name: updateColorData_
+_syntax: updateAttributeData(location, *vert0x, total)_
+_name: updateAttributeData_
 _returns: void_
 _returns_description: _
-_parameters: const ofFloatColor * colors, int total_
-_access: _
-_version_started: _
+_parameters: int location, const float *vert0x, int total_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
@@ -1977,10 +2236,7 @@ _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-If you've created your VBO with colors that are using GL_DYNAMIC_DRAW then you can update the vertices at any time.
+_inlined_description: _
 
 
 
@@ -1988,30 +2244,9 @@ If you've created your VBO with colors that are using GL_DYNAMIC_DRAW then you c
 
 
 
-<!----------------------------------------------------------------------------->
-
-###void updateColorData(color0r, total)
-
-<!--
-_syntax: updateColorData(color0r, total)_
-_name: updateColorData_
-_returns: void_
-_returns_description: _
-_parameters: const float * color0r, int total_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
-
-If you've created your VBO with colors that are using GL_DYNAMIC_DRAW then you can update the vertices at any time. This version uses 3 floats for the RGB of each color instead of ofColor.
 
 
 
@@ -2034,10 +2269,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2065,46 +2309,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-If the vertex colors of the VBO have been declared as GL_DYNAMIC_DRAW, then you can update the colors at any time using an array of floats.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void updateIndexData(indices, total)
-
-<!--
-_syntax: updateIndexData(indices, total)_
-_name: updateIndexData_
-_returns: void_
-_returns_description: _
-_parameters: const ofIndexType * indices, int total_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
 _static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-If you've created your VBO with indices that are using GL_DYNAMIC_DRAW then you can update the vertices at any time. Note that if you're not adding or removing vertices you probably don't need to update the vertices.
+If the vertex colors of the VBO have been declared as GL_DYNAMIC_DRAW, then you can update the colors at any time using an array of floats.
 
 
 
@@ -2127,52 +2349,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-If the indices of the VBO have been declared as GL_DYNAMIC_DRAW, then you can update the indices at any time.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void updateMesh(mesh)
-
-<!--
-_syntax: updateMesh(mesh)_
-_name: updateMesh_
-_returns: void_
-_returns_description: _
-_parameters: const ofMesh & mesh_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
 _static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-This allows you add a mesh to to the VBO, like so:
-~~~~{.cpp}
-ofMesh m;
-/// fill out the mesh
-ofVbo v;
-v.updateMesh(mesh);
-~~~~
+If the indices of the VBO have been declared as GL_DYNAMIC_DRAW, then you can update the indices at any time.
 
 
 
@@ -2195,77 +2389,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 Updates all the data within the VBO from the data in the ofMesh.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void updateNormalData(normals, total)
-
-<!--
-_syntax: updateNormalData(normals, total)_
-_name: updateNormalData_
-_returns: void_
-_returns_description: _
-_parameters: const ofVec3f * normals, int total_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-If you've created your VBO with normals that are using GL_DYNAMIC_DRAW then you can update the vertices at any time.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void updateNormalData(normal0x, total)
-
-<!--
-_syntax: updateNormalData(normal0x, total)_
-_name: updateNormalData_
-_returns: void_
-_returns_description: _
-_parameters: const float * normal0x, int total_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-If you've created your VBO with normals that are using GL_DYNAMIC_DRAW then you can update the vertices at any time. This version uses 3 floats for each normal instead of an ofVec3f.
 
 
 
@@ -2288,10 +2429,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2319,77 +2469,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 If the normals of the VBO have been declared as GL_DYNAMIC_DRAW, then you can update the normal data at any time using an array of floats.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void updateTexCoordData(texCoords, total)
-
-<!--
-_syntax: updateTexCoordData(texCoords, total)_
-_name: updateTexCoordData_
-_returns: void_
-_returns_description: _
-_parameters: const ofVec2f * texCoords, int total_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-If you've created your VBO with texture coordinates that are using GL_DYNAMIC_DRAW then you can update the vertices at any time.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void updateTexCoordData(texCoord0x, total)
-
-<!--
-_syntax: updateTexCoordData(texCoord0x, total)_
-_name: updateTexCoordData_
-_returns: void_
-_returns_description: _
-_parameters: const float * texCoord0x, int total_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-If you've created your VBO with texture coordinates that are using GL_DYNAMIC_DRAW then you can update the vertices at any time. This version uses 2 floats for each tex coord instead of an ofVec2f.
 
 
 
@@ -2412,10 +2509,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2443,108 +2549,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 If the texture coords of the VBO have been declared as GL_DYNAMIC_DRAW, then you can update the tex coords at any time using an array of floats.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void updateVertexData(verts, total)
-
-<!--
-_syntax: updateVertexData(verts, total)_
-_name: updateVertexData_
-_returns: void_
-_returns_description: _
-_parameters: const ofVec3f * verts, int total_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-If you've created your VBO with vertices that are using GL_DYNAMIC_DRAW then you can update the vertices at any time. This is for 3D VBOs.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void updateVertexData(verts, total)
-
-<!--
-_syntax: updateVertexData(verts, total)_
-_name: updateVertexData_
-_returns: void_
-_returns_description: _
-_parameters: const ofVec2f * verts, int total_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-If you've created your VBO with vertices that are using GL_DYNAMIC_DRAW then you can update the vertices at any time. This is for 2D VBOs as it only uses ofVe2f.
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void updateVertexData(ver0x, total)
-
-<!--
-_syntax: updateVertexData(ver0x, total)_
-_name: updateVertexData_
-_returns: void_
-_returns_description: _
-_parameters: const float * ver0x, int total_
-_access: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-If you've created your VBO with indices that are using GL_DYNAMIC_DRAW then you can update the vertices at any time. Note that if you're not adding or removing vertices you probably don't need to update the vertices.
 
 
 
@@ -2567,10 +2589,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2598,10 +2629,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2629,10 +2669,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2660,10 +2709,19 @@ _version_started: _
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2682,6 +2740,106 @@ This is the destructor for the ofVbo, it clears all the vertices, texture coordi
 
 
 
+###map< int, GLuint > attributeIds
+
+<!--
+_name: attributeIds_
+_type: map< int, GLuint >_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###map< int, int > attributeNumCoords
+
+<!--
+_name: attributeNumCoords_
+_type: map< int, int >_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###map< int, int >  attributeSize
+
+<!--
+_name: attributeSize_
+_type: map< int, int > _
+_access: private_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###map< int, int > attributeStrides
+
+<!--
+_name: attributeStrides_
+_type: map< int, int >_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
 ###bool bAllocated
 
 <!--
@@ -2689,6 +2847,31 @@ _name: bAllocated_
 _type: bool_
 _access: private_
 _version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool bBound
+
+<!--
+_name: bBound_
+_type: bool_
+_access: private_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _visible: True_
@@ -3007,6 +3190,31 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
+###bool supportVAOs
+
+<!--
+_name: supportVAOs_
+_type: bool_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
 ###GLuint texCoordId
 
 <!--
@@ -3082,6 +3290,31 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
+###int totalIndices
+
+<!--
+_name: totalIndices_
+_type: int_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
 ###int totalVerts
 
 <!--
@@ -3089,6 +3322,81 @@ _name: totalVerts_
 _type: int_
 _access: private_
 _version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool vaoChanged
+
+<!--
+_name: vaoChanged_
+_type: bool_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool vaoChecked
+
+<!--
+_name: vaoChecked_
+_type: bool_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###GLuint vaoID
+
+<!--
+_name: vaoID_
+_type: GLuint_
+_access: private_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _visible: True_

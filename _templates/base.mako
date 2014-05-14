@@ -1,3 +1,4 @@
+## -*- coding: utf-8 -*-
 <%def name="filter(chain)">
   ${bf.filter.run_chain(chain, capture(caller.body))}
 </%def>
@@ -10,8 +11,11 @@
   <%include file="header.mako"  args="active=active" />
 </%def>
 
-<%def name="head()">
-  <%include file="head.mako" />
+<%def name="head(subtitle='')">
+	<% 
+		subtitle = ('' if subtitle == '' else " - " + subtitle)
+	%>
+  <%include file="head.mako" args="subtitle=subtitle"/>
 </%def>
 
 <%def name="footer()">

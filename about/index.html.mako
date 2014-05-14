@@ -1,3 +1,4 @@
+## -*- coding: utf-8 -*-
 <%inherit file="/_templates/slideshow.mako" />
 
 <h1>about</h1>
@@ -22,48 +23,75 @@ openFrameworks is an [open source](license.html) [C++](https://en.wikipedia.org/
 * [FreeImage](http://freeimage.sourceforge.net/) for image saving and loading
 * [Quicktime](http://developer.apple.com/quicktime/), [GStreamer](http://gstreamer.freedesktop.org/) and [videoInput](https://github.com/ofTheo/videoInput) for video playback and grabbing
 * [Poco](http://pocoproject.org/) for a variety of utilities
-* [OpenCV](http://http://opencv.org/) for computer vision
+* [OpenCV](http://opencv.org/) for computer vision
 * [Assimp](http://assimp.sourceforge.net/) for 3D model loading
 
-
 The code is written to be massively cross-compatible. Right now we support five operating systems (Windows, OSX, Linux, iOS, Android) and four IDEs (XCode, Code::Blocks, and Visual Studio and Eclipse). The API is designed to be minimal and easy to grasp.
+
+openFrameworks is distributed under the [MIT License](license.html). This gives everyone the freedoms to use openFrameworks in any context: commercial or non-commercial, public or private, open or closed source. While many openFrameworks users give their work back to the community in a similarly free way, there is no obligation to contribute.
 
 Simply put, openFrameworks is a tool that makes it much easier to make things with code. We find it super useful, and we hope you do too.
 
 ----------------
-
 contributors and supporters
---------
+----------------
 
-openFrameworks is actively developed by [Zach Lieberman](http://thesystemis.com/), [Theodore Watson](http://muonics.net/), and [Arturo Castro](http://arturocastro.net/) ("the core"), with help from the [OF community](../community/). openFrameworks is indebted to two significant precursors: the [Processing development environment](http://processing.org/), created by [Casey Reas](http://reas.com/), [Ben Fry](http://benfry.com/) and the Processing community; and the ACU Toolkit, a privately distributed C++ library developed by Ben Fry and others in the [MIT Media Lab's Aesthetics and Computation Group](http://acg.media.mit.edu/). A number of community leaders maintain responsibility for subsections of openFrameworks on a rotating basis, currently:
+openFrameworks is actively developed by [Zach Lieberman](http://thesystemis.com/), [Theodore Watson](http://muonics.net/), and [Arturo Castro](http://arturocastro.net/) ("the core"), with help from the [OF community](../community/). openFrameworks is indebted to two significant precursors: the [Processing development environment](http://processing.org/), created by [Casey Reas](http://reas.com/), [Ben Fry](http://benfry.com/) and the Processing community; and the ACU Toolkit, a privately distributed C++ library developed by Ben Fry and others in the [>MIT Media Lab's Aesthetics and Computation Group](http://acg.media.mit.edu/). A number of community leaders maintain responsibility for subsections of openFrameworks on a rotating basis, currently:
 
-* 3D leader: [Elliot Woods](http://www.kimchiandchips.com/) (elliotwoods)
-* Addons leader(s): [James George](jamesgeorge.org/) (obviousjim) and [Greg Borenstein](http://gregborenstein.com/) (atduskgreg)
-* Community manager: [Kyle McDonald](http://kylemcdonald.net/) (kylemcdonald)
-* Documentation leader: [Dayan Moisa](http://justdayan.com/) (justdayan)
-* Forum leader: [Jason Van Cleave](http://jvcref.com/) (jvcleave)
-* GitHub leader: [Christoph Buchner](https://github.com/bilderbuchi) (bilderbuchi)
-* Hardware leader: [Josh Noble](http://thefactoryfactory.com/) (joshua noble)
-* Internals/app leader: [Philip Whitfield](http://undef.ch/) (underdoeg)
-* iOS leader: [Lukasz Karluk](http://www.julapy.com/blog/) (julapy)
-* Outreach leader: [Caitlin Morris](http://caitlinmorris.net/) (c_tl_n)
-* Sound leader: [Damian Stewart](http://damianstewart.com/) (damian)
-* Tutorial leader(s): [Diederick Huijbers](http://www.roxlu.com/) (roxlu) and [Jeff Crouse](http://www.jeffcrouse.info/) (jefftimesten)
-* Typography leader: [Christopher Baker](http://christopherbaker.net/) (bakercp)
-* Video leader: [James George](http://www.jamesgeorge.org/) (obviousjim)
-* Windows leader: [Matthew Gingold](http://gingold.com.au/) (gameoverhack)
+
+* 3D leader: [Elliot Woods](http://www.kimchiandchips.com/) (elliotwoods)</li>
+* Addons leader(s): [James George](http://jamesgeorge.org/) (obviousjim), [Greg Borenstein](http://gregborenstein.com/) (atduskgreg), [Matt Miller](http://mmworks.mattmillerart.com/)</li>
+* Community manager: [Kyle McDonald](http://kylemcdonald.net/) (kylemcdonald)</li>
+* Documentation leader: [Dayan Moisa](http://justdayan.com/) (justdayan)</li>
+* Forum leader: [Jason Van Cleave](http://jvcref.com/) (jvcleave)</li>
+* GitHub leader: [Christoph Buchner](https://github.com/bilderbuchi) (bilderbuchi)</li>
+* Hardware leader: [Josh Noble](http://thefactoryfactory.com/) (joshua noble)</li>
+* Internals/app leader: [Philip Whitfield](http://undef.ch/) (underdoeg)</li>
+* iOS leader: [Lukasz Karluk](http://www.julapy.com/blog/) (julapy)</li>
+* Outreach leader: [Caitlin Morris](http://caitlinmorris.net/) (c_tl_n)</li>
+* Sound leader: [Adam Carlucci](https://github.com/admsyn) (admsyn)</li>
+* Tutorial leader(s): [Diederick Huijbers](http://www.roxlu.com/) (roxlu) and [Jeff Crouse](http://www.jeffcrouse.info/) (jefftimesten)</li>
+* Typography leader: [Christopher Baker](http://christopherbaker.net/) (bakercp)</li>
+* Video leader: [James George](http://www.jamesgeorge.org/) (obviousjim)</li>
+* Windows leader: [Matthew Gingold](http://gingold.com.au/) (gameoverhack)</li>
+
 
 And previously:
 
-* [Steve Varga](http://www.vargatron.com/) (vargatron) as typography leader
+* [Damian Stewart](http://damianstewart.com/) (damian) as sound leader</li>
+* [Steve Varga](http://www.vargatron.com/) (vargatron) as typography leader</li>
 
-A number of institutions have provided major support for openFrameworks through grants, donations, and as hosting partners for our international developer conferences:
+A number of institutions have provided major support for openFrameworks through grants, donations, and as hosting partners for our international developer conferences. These events often require significant resources to bring together participants from many countries to a single location for multiple days.
 
-* [Ars Electronica Futurelab and Festival](http://www.aec.at/)
-* [Eyebeam Art & Technology Center](http://eyebeam.org/)
-* [Ford Foundation](http://www.fordfoundation.org/)
-* [Frank-Ratchye STUDIO for Creative Inquiry](http://studioforcreativeinquiry.org/) at CMU
-* [Parsons the New School for Design](http://amt.parsons.edu)
+<span class="sponsors">
+  <a href="http://amt.parsons.edu"><img alt="sponsor_logo" src="logo-parsons.png" style="display: block; height: 58px;padding-bottom: 3px;"></a>
+  <a href="http://www.ycam.jp/en/"><img alt="sponsor_logo" src="logo-ycam.png" style="display: block; height: 69px; /* padding-bottom: 8px; */"></a>
+  <a href="http://eyebeam.org/"><img alt="sponsor_logo" src="logo-eyebeam.png" style="display: block; height: 30px; padding-bottom: 18px;"></a>
+  <a href="http://studioforcreativeinquiry.org/"><img alt="sponsor_logo" src="logo-sfci.png" style="display: block; height: 69px;"></a>
+  <a href="http://www.aec.at/"><img alt="sponsor_logo" src="logo-ars.png" style="display: block; height: 41px; padding-bottom: 14px;"></a>
+  <a href="http://www.fordfoundation.org/"><img alt="sponsor_logo" src="logo-fordfoundation.png" style="display: block; height: 42px; padding-bottom: 13px;"></a>
+</span>
+
+
+**[Ars Electronica Festival and Futurelab](http://www.aec.at/)**
+
+We would like to thank the [Ars Electronica Festival and Futurelab](http://www.aec.at/) for sponsoring the OF Lab at Ars Electronica 2008.
+
+**[Eyebeam](http://eyebeam.org/)**
+
+**[Ford Foundation](http://www.fordfoundation.org/)**
+
+We would like to thank the [Ford Foundation](http://www.fordfoundation.org/) for sponsoring the second openFrameworks developers conference.
+
+**[Parsons the New School for Design](http://amt.parsons.edu)**
+
+**[Frank-Ratchye STUDIO for Creative Inquiry](http://studioforcreativeinquiry.org/)**
+
+We would like to thank the [Frank-Ratchye STUDIO for Creative Inquiry](http://studioforcreativeinquiry.org/) for hosting the first openFrameworks developers conference, and providing other small grants and support to openFrameworks developers.
+
+**[Yamaguchi Center for Arts and Media](http://www.ycam.jp/en/)**
+
+We would like to thank [YCAM](http://www.ycam.jp/en/) for their ongoing support for OF. In 2008 YCAM hosted the first [OF workshop](http://wiki.openframeworks.cc/index.php?title=OfYcam) in Asia, and have since hosted many OF-related events such as: the [LabACT series](http://interlab.ycam.jp/en/projects/labact/eye-tracking-study) exploring uses of the EyeWriter, the first two [Guest Research Projects](http://interlab.ycam.jp/en/projects/guestresearch) which featured OF developers working on open source arts engineering tools like [ofxTimeline](http://interlab.ycam.jp/en/projects/guestresearch/vol2) and [mapamok](http://interlab.ycam.jp/en/projects/guestresearch/vol1), and most recently YCAM has hosted the [third openFrameworks developers conference](http://interlab.ycam.jp/en/projects/of-devcon2013).
 
 We are proud to acknowledge institutions and organizations which have hosted multi-day educational workshops and "OF Lab" events (see [the wiki](http://wiki.openframeworks.cc/index.php?title=Education) for a more complete list): 
 
@@ -77,24 +105,63 @@ We are proud to acknowledge institutions and organizations which have hosted mul
 * [Pratersauna Digital LAB](https://vimeo.com/psdl)
 * [Resonate.io Festival](http://resonate.io/)
 * [Victoria and Albert Museum](http://www.vam.ac.uk/)
-* [Yamaguchi Center for Arts and Media](http://www.ycam.jp/en/) (YCAM)
 
 ----------------
 
 design philosophy
 --------
 
-openFrameworks development is **distributed**. It thrives on the contributions of [many people](https://github.com/openframeworks/openFrameworks/contributors), who engage in [frequent discussion](http://forum.openframeworks.cc/), and collaborate on [addons](http://ofxaddons.com/) and [projects](../gallery). We encourage people to make openFrameworks their own, and contribute to the ecosystem.
+openFrameworks is guided by a number of goals: it should be collaborative, usable and simple, consistent and intuitive, cross-platform, powerful, and extensible. openFrameworks is also driven by a "do it with others" (DIWO) philosophy.
 
-openFrameworks is **consistent** and **intuitive**: it should operate on the principle of least surprise, so that what you learn about one part of openFrameworks can be applied to other parts of it. Beginners can use openFrameworks to learn about common programming patterns, and advanced users will be able to apply their experience from other languages and toolkits.
+**Collaborative**
 
-openFrameworks tries to balance **usability** and **simplicity**. The earliest versions of openFrameworks used the core as a tool for teaching C++ and OpenGL, but over time the examples have become the best way to learn while the core takes advantage of more advanced features. 
+openFrameworks development is collaborative. It thrives on the contributions of [many people](https://github.com/openframeworks/openFrameworks/contributors), who engage in [frequent discussion](http://forum.openframeworks.cc/), and collaborate on [addons](http://ofxaddons.com/) and [projects](../gallery). We encourage people to make openFrameworks their own, and contribute to the ecosystem.
 
-openFrameworks is a **cross-platform** toolkit. openFrameworks supports as many development environments and operating systems as possible. When you download openFrameworks, you can pick your platform and development environment of choice, and have projects and examples ready to learn from and play with. Difficult to port code is kept out of the core, and kept in addons instead.
+openFrameworks is developed in a collaborative way. We use git, a distributed versioning system, which means also that people can branch, experiment, and make suggestions. If you look at the network diagram on GitHub, it's looks like some alien diagram, full of weaving branches, code pulling apart and coming together. There's a huge community, all over the world, working on the core code: fixing bugs, submitting pull requests, and shaping the tool the way they want to see it. It's a world wide project, and it's common to wake up in the USA to an inbox full of pull requests and issues emails from coders in Asia and Europe. Over 70 people have contributed to the openFrameworks core directly, and hundreds of people have forked the code or contributed in other ways.
 
-openFrameworks is **powerful**: it allows you to leverage advanced libraries like OpenCV, use hardware like your graphics card efficiently, and connect peripherals like cameras and other devices.
+**Simplicity**
 
-openFrameworks is **extensible**. When you find something missing from openFrameworks, it's easy to create addons that extend it. The core addons for openFrameworks generally wrap libraries rather than solving problems in novel ways. When openFrameworks wraps libraries, the libraries are left exposed for further hacking.
+openFrameworks tries to balance usability and simplicity. The earliest versions of openFrameworks used the core as a tool for teaching C++ and OpenGL, but over time the examples have become the best way to learn while the core takes advantage of more advanced features. In exchange, we created many more examples that come with openFrameworks, with the goal of trying to make simple, hackable starting points for experimentation. 
+
+We want openFrameworks to be as simple as possible, especially for folks coming from other languages and environments. C++ is a "large" language, large in the sense that you can write very different types of C++ code. If you go to the bookstore, you'll see hundreds of C++ books. We want to create a library where you don't need to be an expert, where at most you might need a book or two, but that the patterns, approaches and style of the code is simple and intuitive. We were especially interested in achieving a sort of parity with Processing, where many of the functions are similar, allowing easier movement from one framework to another.
+
+**Consistent and Intuitive**
+
+openFrameworks is consistent and intuitive: it should operate on the principle of least surprise, so that what you learn about one part of openFrameworks can be applied to other parts of it. Beginners can use openFrameworks to learn about common programming patterns, and advanced users will be able to apply their experience from other languages and toolkits.
+
+Student first is the motto. A lot of the thinking guiding openFrameworks is: what would I would have liked in a tool 5 or 10 years ago? We want the patterns of coding to be simple and to make it as easy as possible to type. This means having self-explanatory function names like "play" and "stop" for video players, and variable names that are intuitive. We have lots of discussions about intuition, driven by a desire to make the code as straightforward as possible. You should learn by typing, autocomplete should be helpful, etc. 
+
+**Cross-platform**
+
+openFrameworks is a cross-platform toolkit. openFrameworks supports as many development environments and operating systems as possible. When you download openFrameworks, you can pick your platform and development environment of choice, and have projects and examples ready to learn from and play with. Difficult to port code is kept out of the core, and kept in addons instead.
+
+openFrameworks is designed to work on a multitude of platforms: OS X, Windows, Linux, iOS, Android, embedded ARM Linux systems, as well as experimental platforms such as BlackBerry PlayBook. openFrameworks developers have devised some clever ways of interfacing with other languages, such such as Java in the case of Android, or Objective-C in the case of iOS.
+
+The joy of a cross-platform library is that it's easy to port your ideas from platform to platform. You can sketch on your laptop then immediately run it on your phone. It allows your ideas to come first, without worrying about the grunt work in making something work across platforms.
+
+**Powerful**
+
+openFrameworks is powerful: it allows you to leverage advanced libraries like OpenCV, use hardware like your graphics card efficiently, and connect peripherals like cameras and other devices.
+
+We chose C++ because it's a fairly low level language, but can still be programmed in a high level way. Because C++ is an extension of the older C programming language, it's possible to write very low level, oldschool C code or higher level C++ code. In openFrameworks, we try to harness both approaches and present simple, clear, yet powerful ways of working with code. Using C++ also makes it easier to interface to the many libraries that have been written in C and C++ without needing to rely on a wrapper for another language.
+
+openFrameworks essentially wraps other libraries such as OpenGL, Cairo, FreeType, FreeImage, and OpenCV. You can think of openFrameworks as a layer of code between user code (the code you will write) and these libraries. Those libraries have different styles, idioms, approaches, etc. and our job it to wrap them in a way which makes them more consistent and intuitive.
+
+**Extensible**
+
+openFrameworks is extensible. When you find something missing from openFrameworks, it's easy to create addons that extend it. The core addons for openFrameworks generally wrap libraries rather than solving problems in novel ways. When openFrameworks wraps libraries, the libraries are left exposed for further hacking.
+
+One mental image of openFrameworks is a scaffolding, or shoulders to stand on while building what you want. One thing that helps keep the core light is that rather than try to include everything we can, openFrameworks has an "addon" system that allows for additional code, libraries, approaches, to be shared between users and woven into projects as necessary. 
+
+An openFrameworks addon can be a snippet of code, or it might wrap much more complex libraries such as OpenNI, Tesseract, or Box2d. Addon names usually begin with the prefix "ofx", allowing you to easily see the difference between "core" code and non core code. In addition we include "core addons", addons that we think people will probably want to use, such as ofxOpenCv, but aren't essential for every project.
+
+We try to organize and support the community developing addons through the http://ofxaddons.com site, which automatically collects addons from GitHub by looking for repos that contain the term "ofx" in the title. Right now there are more than 1,500 addons.
+
+**Do it with others (DIWO)**
+
+The driving philosophy behind openFrameworks is "do it with others" (DIWO). We love do it yourself (DIY) culture, which has been heavily promoted and facilitated by the rise of tutorial website like Instructables or Make. But we're also excited about the idea of "making socially" ("with others"). We practice DIWO through workshops, developer conferences, hackathons/labs, knitting circles and meetups in person, and online in the form of mailing lists, forum posts, and so on. We even have a gang sign. Because if you have a gang, you have to have a gang sign. The most important thing we want to stress is that you are not alone, that there's a great group of people out there learning, teaching, hacking, making and exploring the creative side of code. 
+
+If you are not a part of the group, welcome!
 
 ----------------
 

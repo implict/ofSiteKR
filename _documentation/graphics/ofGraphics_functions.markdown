@@ -1,6 +1,13 @@
 #functions
 
+
+<!--
+_visible: True_
+_advanced: False_
+-->
+
 ##Description
+
 
 
 
@@ -25,14 +32,24 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Sets the background color. It takes as input r,g,b (0-255). The background is cleared automatically, just before the draw() command, so if the background color is not changing, you could call this inside of setup() (once, at the start of the application). If the background color is changing, you can call this inside of update().
 ~~~~{.cpp}
-void testApp::setup(){
+void ofApp::setup(){
 	ofBackground(255,0,0); 	// Sets the background color to red
 }    
 ~~~~
+
 
 
 
@@ -58,7 +75,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -85,7 +111,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -112,7 +147,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -139,10 +183,71 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
-undocumented!!
-notfound:ofBackgroundGradient
+
+Sets the background color to a gradient. It takes as input 2 ofColor() objects and a Gradient Mode. Must be called in the draw() function. Accepted modes are:
+
+Circular: OF_GRADIENT_CIRCULAR  
+Linear: OF_GRADIENT_LINEAR  
+Bar: OF_GRADIENT_BAR  
+  
+**Background Gradient: Circular:**
+![Background Gradient Circular](bkgGradient_circular.png)
+~~~~{.cpp}
+void ofApp::draw(){
+
+	ofColor colorOne;
+	ofColor colorTwo;
+
+	colorOne.set (255, 0, 0);
+	colorTwo.set (0, 0, 255);
+
+	ofBackgroundGradient(colorOne, colorTwo, OF_GRADIENT_CIRCULAR);  
+	// Sets the background to a circular gradient
+}    
+~~~~
+  
+**Background Gradient: Linear:**
+![Background Gradient Linear](bkgGradient_linear.png)
+~~~~{.cpp}
+void ofApp::draw(){
+
+	ofColor colorOne;
+	ofColor colorTwo;
+
+	colorOne.set (255, 0, 0);
+	colorTwo.set (0, 0, 255);
+
+	ofBackgroundGradient(colorOne, colorTwo, OF_GRADIENT_LINEAR);
+	  // Sets the background to a linear gradient
+}    
+~~~~
+  
+**Background Gradient: Bar:**
+![Background Gradient Bar](bkgGradient_bar.png)
+~~~~{.cpp}
+void ofApp::draw(){
+
+	ofColor colorOne;
+	ofColor colorTwo;
+
+	colorOne.set (255, 0, 0);
+	colorTwo.set (0, 0, 255);
+
+	ofBackgroundGradient(colorOne, colorTwo, OF_GRADIENT_BAR);
+	  // Sets the background to a bar gradient
+}    
+~~~~
+
 
 
 
@@ -168,7 +273,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -195,7 +309,23 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Sets the background color using a hex color value. 
+~~~~{.cpp}
+void ofApp::setup(){
+	ofBackgroundHex(0xff0000); 	// Sets the background color to red
+}    
+~~~~
 
 
 
@@ -222,7 +352,32 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Begins render to pdf. OpenFrameworks allows rendering of 2D graphics to pdf via the ofCairoRenderer. ofBeginSaveScreenAsPDF is called before drawing. When done drawing call ofEndSaveScreenAsPDF() to output the file. 
+~~~~{.cpp}
+void ofApp::setup(){
+	if( oneShot ){
+		ofBeginSaveScreenAsPDF("screenshot-"+ofGetTimestampString()+".pdf", false);
+	}
+	
+	ofSetColor(54,54,54);
+	ofEllipse(100,100,200,200);
+	if( oneShot ){
+		ofEndSaveScreenAsPDF();
+		oneShot = false;
+	}
+}
+~~~~
 
 
 
@@ -249,7 +404,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Call this to start drawing a new shape. Needs to be followed by a list of vertex points and lastly a call to ofEndShape().
 ~~~~{.cpp}
@@ -263,6 +427,7 @@ ofBeginShape();
   ofVertex(250,25);
 ofEndShape();
 ~~~~
+
 
 
 
@@ -288,9 +453,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
+
 Draws a bezier curve from point (x0, y0) to point (x3, y3). The curve is shaped by the two control points (x1,y1) and (x2,y2) in a way where they are the respective tangents for the line at either ends.
+
 
 
 
@@ -316,7 +491,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -343,9 +527,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
+
 Describes a bezier curve through three points of a shape. To be called between ofBeginShape() and ofEndShape(). 
+
 
 
 
@@ -371,7 +565,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -398,7 +601,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -425,7 +637,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Gets the current background color that is set by ofBackground() or default.
 eg:
@@ -438,141 +659,6 @@ float b = bgColor[2];	//blue
 float a = bgColor[3];	//alpha
 ~~~~
 
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void ofBox(x, y, z, size)
-
-<!--
-_syntax: ofBox(x, y, z, size)_
-_name: ofBox_
-_returns: void_
-_returns_description: _
-_parameters: float x, float y, float z, float size_
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Draws a 3-dimensional box with equal sides (size) at the position of X and Y and Z.
-~~~~{.cpp}
-void testApp::draw(){
-	ofBox(50,50,-10,40);
-}    
-~~~~
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void ofBox(x, y, size)
-
-<!--
-_syntax: ofBox(x, y, size)_
-_name: ofBox_
-_returns: void_
-_returns_description: _
-_parameters: float x, float y, float size_
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Draws a 3-dimensional box with equal sides (size) at the position of X and Y, at the current depth.
-~~~~{.cpp}
-void testApp::draw(){
-	ofBox(50,50,40);
-}    
-~~~~
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void ofBox(&position, size)
-
-<!--
-_syntax: ofBox(&position, size)_
-_name: ofBox_
-_returns: void_
-_returns_description: _
-_parameters: const ofPoint &position, float size_
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Draws a 3-dimensional box with equal sides (size) at the position of point.
-~~~~{.cpp}
-void testApp::draw(){
-	ofPoint p;
-	p.x = 50;
-	p.y = 50;
-	ofBox(p,40);
-}    
-~~~~
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void ofBox(size)
-
-<!--
-_syntax: ofBox(size)_
-_name: ofBox_
-_returns: void_
-_returns_description: _
-_parameters: float size_
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Draws a 3-dimensional box with equal sides at the current coordinate point.
-~~~~{.cpp}
-void testApp::draw(){
-	ofTranslate(50,50);
-	ofBox(40);
-}    
-~~~~
 
 
 
@@ -598,14 +684,25 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Draws a circle, centered at x,y, with a given radius.
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofCircle(150,150,100);			
 }    
 ~~~~
+Please keep in mind that drawing circle with different outline color and fill requires calling ofNoFill and ofSetColor for drawing stroke and ofFill and again ofSetColor for filled solid color circle.
+
 
 
 
@@ -631,7 +728,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -658,7 +764,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -685,7 +800,45 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Clears the color and depth bits of current renderer and replaces it with an RGB color.
+
+When drawing to the screen, ofClear(…) will clear the screen entirely.
+
+~~~~{.cpp}
+void ofApp::draw() {
+	ofClear ( 255, 0, 0 ); 
+	// Clears current screen and replaces it with red.
+	// Screen will render as a flat color.
+}
+~~~~
+
+When using the opengl renderer and drawing into an [FBO](http://www.openframeworks.cc/documentation/gl/ofFbo.html), ofClear(...) will clear that buffer rather than the main screen.
+
+~~~~{.cpp}
+void ofApp::draw() {
+	ofFbo myFbo;
+	myFbo.allocate ( 300, 300 );
+
+	myFbo.begin();
+		ofClear ( 255, 0, 0 );
+		// Clears FBO buffer and replaces it with red.
+		// No effect in current drawing screen.
+	myFbo.end();
+}
+~~~~
+
+ofClear(…) is based on glClear (http://www.opengl.org/sdk/docs/man/xhtml/glClear.xml).
 
 
 
@@ -712,7 +865,27 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Clears the color and depth bits of current renderer and replaces it with a grayscale value.
+
+~~~~{.cpp}
+void ofApp::draw(){
+	ofColor myColor;
+	myColor.set ( 128 );
+	ofClear ( myColor );  
+	// Clears current screen and replaces it with a grayscale value.
+}
+~~~~
 
 
 
@@ -739,7 +912,27 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Clears the color and depth bits of current renderer and replaces it with an ofColor.
+
+~~~~{.cpp}
+void ofApp::draw(){
+	ofColor myColor;
+	myColor.set ( 0, 0, 255 );
+	ofClear ( myColor );  
+	// Clears current screen and replaces it with myColor.
+}
+~~~~
 
 
 
@@ -766,143 +959,16 @@ _visible: True_
 _advanced: False_
 -->
 
-_description: _
+_inlined_description: _
 
 
 
 
 
 
-
-<!----------------------------------------------------------------------------->
-
-###void ofCone(size)
-
-<!--
-_syntax: ofCone(size)_
-_name: ofCone_
-_returns: void_
-_returns_description: _
-_parameters: float size_
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
-undocumented!
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void ofCone(x, y, z, radius, height)
-
-<!--
-_syntax: ofCone(x, y, z, radius, height)_
-_name: ofCone_
-_returns: void_
-_returns_description: _
-_parameters: float x, float y, float z, float radius, float height_
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void ofCone(x, y, radius, height)
-
-<!--
-_syntax: ofCone(x, y, radius, height)_
-_name: ofCone_
-_returns: void_
-_returns_description: _
-_parameters: float x, float y, float radius, float height_
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void ofCone(&position, radius, height)
-
-<!--
-_syntax: ofCone(&position, radius, height)_
-_name: ofCone_
-_returns: void_
-_returns_description: _
-_parameters: const ofPoint &position, float radius, float height_
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void ofCone(radius, height)
-
-<!--
-_syntax: ofCone(radius, height)_
-_name: ofCone_
-_returns: void_
-_returns_description: _
-_parameters: float radius, float height_
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
 
 
 
@@ -929,9 +995,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
+
 Draws a curve from point (x1, y1) to point (x2, y2). The curve is shaped by the two control points (x0,y0) and (x3,y3).
+
 
 
 
@@ -957,9 +1033,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
+
 Draws a 3-dimensional curve from point (x1, y1, z1) to point (x2, y2, z2). The curve is shaped by the two control points (x0, y0, z0) and (x3, y3, z3).
+
 
 
 
@@ -985,9 +1071,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
+
 Specifies a single point of a shape. The difference from ofVertex is that the line describing the edge of the shape between two points will be a curve as opposed to a straight line. The curve is automatically generated using the catmull rom forumla. To be called between ofBeginShape() and ofEndShape().
+
 
 
 
@@ -1013,7 +1109,52 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofCurveVertex(x, y, z)
+
+<!--
+_syntax: ofCurveVertex(x, y, z)_
+_name: ofCurveVertex_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y, float z_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -1040,7 +1181,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Draws a curve through a series of vertices stored as a vector of ofPoints. Should be called between ofBeginShape() and ofEndShape().
 
 
 
@@ -1067,11 +1219,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Turns off alpha blending. 
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofEnableAlphaBlending();	// turn on alpha blending
 	ofSetColor(255,0,0,127);	// red, 50% transparent
 	ofRect(20,20,100,100);		// draws the rect with alpha
@@ -1079,6 +1240,45 @@ void testApp::draw(){
 	ofRect(120,20,100,100);	// draws the rect without alpha
 }
 ~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofDisableAntiAliasing()
+
+<!--
+_syntax: ofDisableAntiAliasing()_
+_name: ofDisableAntiAliasing_
+_returns: void_
+_returns_description: _
+_parameters: _
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+Turns off anti-aliasing (smoothing). 
+
 
 
 
@@ -1104,7 +1304,79 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Disables the current blend mode.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofDisableDepthTest()
+
+<!--
+_syntax: ofDisableDepthTest()_
+_name: ofDisableDepthTest_
+_returns: void_
+_returns_description: _
+_parameters: _
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+Turns off depth testing so rendering happens in draw order rather than by z-depth. Turning off depth test is useful for combining 3d scenes with 2d overlays such as a control panel.
+~~~~{.cpp}
+void ofApp::draw(){
+    
+    ofPushMatrix();
+    
+        ofTranslate( ofGetWidth()/2, ofGetHeight()/2, 0 );
+    
+        ofEnableDepthTest();
+        ofSetColor(255);
+        ofDrawSphere(0,0,100,60);
+        ofSetColor(255,0,255);
+        ofDrawSphere(50,0,50,100);
+        ofDisableDepthTest();
+    
+        ofSetColor(0);
+        ofRect(75,75,120,30);
+        ofSetColor(255);
+        ofDrawBitmapString("Some bubbles.",85,90);
+    
+    ofPopMatrix();
+}
+~~~~
+ 
 
 
 
@@ -1131,7 +1403,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Turns off point sprite. 
 
 
 
@@ -1158,9 +1441,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
+
 Turns off smoothing. Currently, this only works for lines. You can draw a filled object, and then draw the outline with smoothing enabled to get smoothing effects on filled shapes.
+
 
 
 
@@ -1186,11 +1479,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Draws a bitmapped string, on screen, at point (x,y). For example, you can write some text on screen like this:
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofDrawBitmapString("hi!!", 100,100);
 }
 ~~~~
@@ -1206,6 +1508,7 @@ string fpsStr = "frame rate: "+ofToString(ofGetFrameRate(), 2);
 ofDrawBitmapString(fpsStr, 100,100);
 ~~~~
 Please note, ofDrawBitmapString wraps a glut function that uses glDrawPixels. On some graphics cards, you may discover that glDrawPixels is slow (or even, very slow). If so, you might want to invsetigate using ofTrueTypeFont with a small typeface, non-anti-aliased, as a suitable alternative.
+
 
 
 
@@ -1231,7 +1534,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1258,7 +1570,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1285,7 +1606,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1312,7 +1642,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1339,14 +1678,24 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Draws an ellipse from point (x,y) with a given width (w) and height (h).
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofEllipse(10,10,50,30);
 }    
 ~~~~
+
 
 
 
@@ -1372,7 +1721,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1399,7 +1757,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1426,11 +1793,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Turns on alpha blending, which is off by default for performance purposes. It simply wraps opengl commands that enable blending, and turn on a common blend mode.
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofEnableAlphaBlending();	// turn on alpha blending
 	ofSetColor(255,0,0,127);	// red, 50% transparent
 	ofRect(20,20,100,100);		// draws the rect with alpha
@@ -1438,6 +1814,45 @@ void testApp::draw(){
 	ofRect(120,20,100,100);	// draws the rect without alpha
 }
 ~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofEnableAntiAliasing()
+
+<!--
+_syntax: ofEnableAntiAliasing()_
+_name: ofEnableAntiAliasing_
+_returns: void_
+_returns_description: _
+_parameters: _
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+Enables anti-aliasing (smoothing) for lines.
+
 
 
 
@@ -1463,7 +1878,87 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Sets and enables the blend mode for drawing. The options are:
+	
+	OF_BLENDMODE_DISABLED
+	OF_BLENDMODE_ALPHA
+	OF_BLENDMODE_ADD
+	OF_BLENDMODE_SUBTRACT
+	OF_BLENDMODE_MULTIPLY
+	OF_BLENDMODE_SCREEN 
+There is a blendingExample in the openFrameworks examples > graphics
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofEnableDepthTest()
+
+<!--
+_syntax: ofEnableDepthTest()_
+_name: ofEnableDepthTest_
+_returns: void_
+_returns_description: _
+_parameters: _
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+Turns on depth testing so rendering happens according to z-depth rather than draw order. 
+~~~~{.cpp}
+void ofApp::draw(){
+    
+    ofPushMatrix();
+    
+        ofTranslate( ofGetWidth()/2, ofGetHeight()/2, 0 );
+    
+        ofEnableDepthTest(); // enable depth test
+        ofSetColor(255);
+        ofDrawSphere(0,0,100,60); // draw 3d sphere
+        ofSetColor(255,0,255);
+        ofDrawSphere(50,0,50,100);
+        ofDisableDepthTest(); // disable depth test
+    	
+    	// draw 2d overlay
+        ofSetColor(0);
+        ofRect(75,75,120,30);
+        ofSetColor(255);
+        ofDrawBitmapString("Some bubbles.",85,90);
+    
+    ofPopMatrix();
+}
+~~~~
 
 
 
@@ -1490,7 +1985,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Turns on point sprite. Textures can be mapped onto points. By default, point size is 1pt. So texture is not shown correctly. You can change point size by glPointSize(GLfloat size).
 
 
 
@@ -1517,9 +2023,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
+
 Turns on smoothing. Currently, this only works for lines. You can draw a filled object, and then draw the outline with smoothing enabled to get smoothing effects on filled shapes.
+
 
 
 
@@ -1545,7 +2061,32 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Terminates draw to pdf through ofCairoRenderer and outputs the pdf file.
+~~~~{.cpp}
+void ofApp::setup(){
+	if( oneShot ){
+		ofBeginSaveScreenAsPDF("screenshot-"+ofGetTimestampString()+".pdf", false);
+	}
+	
+	ofSetColor(54,54,54);
+	ofEllipse(100,100,200,200);
+	if( oneShot ){
+		ofEndSaveScreenAsPDF();
+		oneShot = false;
+	}
+}
+~~~~
 
 
 
@@ -1572,9 +2113,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
+
 This tells the program that your shape is finished and that it should now draw it to the screen. If you set the optional 'bClose' argument to true it will automatically close your shape for you.'bClose' is set to false by default. This function must be called otherwise you will not see your shape.
+
 
 
 
@@ -1600,16 +2151,64 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Draw shapes filled with the current draw color. 
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofSetColor(0,0,255);
 	ofFill();
 	ofRect(10,10,100,100); 	//draws the rectangle filled in blue
 }    
 ~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor ofGetBackground()
+
+<!--
+_syntax: ofGetBackground()_
+_name: ofGetBackground_
+_returns: ofColor_
+_returns_description: _
+_parameters: _
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+Returns the current background color as an ofColor.
+
 
 
 
@@ -1635,7 +2234,54 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofMatrix4x4 ofGetCurrentMatrix(matrixMode_)
+
+<!--
+_syntax: ofGetCurrentMatrix(matrixMode_)_
+_name: ofGetCurrentMatrix_
+_returns: ofMatrix4x4_
+_returns_description: _
+_parameters: ofMatrixMode matrixMode__
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+Queries the current OpenGL matrix state  Returns the specified matrix as held by the renderer's current matrix stack. 
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -1662,7 +2308,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1689,7 +2344,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1716,7 +2380,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1726,12 +2399,12 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofPtr ofGetGLRenderer()
+###ofRectangle ofGetNativeViewport()
 
 <!--
-_syntax: ofGetGLRenderer()_
-_name: ofGetGLRenderer_
-_returns: ofPtr_
+_syntax: ofGetNativeViewport()_
+_name: ofGetNativeViewport_
+_returns: ofRectangle_
 _returns_description: _
 _parameters: _
 _version_started: _
@@ -1743,7 +2416,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1770,11 +2452,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Tells you if rect drawing mode is set to drawn from the center or drawn from the top left corner, as set with the ofSetRectMode() function.
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	if(ofGetRectMode() == OF_RECTMODE_CORNER){
 		ofRect(10,10,80,80);	
 	}
@@ -1783,6 +2474,7 @@ void testApp::draw(){
 	}
 }    
 ~~~~
+
 
 
 
@@ -1808,7 +2500,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1835,7 +2536,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1862,7 +2572,52 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool ofIsVFlipped()
+
+<!--
+_syntax: ofIsVFlipped()_
+_name: ofIsVFlipped_
+_returns: bool_
+_returns_description: _
+_parameters: _
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -1889,14 +2644,24 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Draws a line between two points: (x1,y1),(x2,y2). 
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofLine(10,10,100,100);
 }    
 ~~~~
+
 
 
 
@@ -1922,7 +2687,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1949,7 +2723,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1976,7 +2759,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -2003,7 +2795,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -2030,7 +2831,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -2057,7 +2867,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -2084,7 +2903,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -2111,9 +2939,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
+
 Allows you to draw multiple contours within one shape. Call this between ofBeginShape() and ofEndShape() to create a new contour for your shape. If you set the optional argument 'bClose' to true then the previous contour will be automatically closed. 'bClose' is set to false by default.
+
 
 
 
@@ -2139,16 +2977,26 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Draw shapes as outlines with the current draw color. 
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofSetColor(0,0,255);
 	ofNoFill();
 	ofRect(10,10,100,100); 	//draws only the outline in blue
 }    
 ~~~~
+
 
 
 
@@ -2174,7 +3022,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -2201,11 +3058,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 ofPopMatrix() restores the prior coordinate system. 
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofCircle(10, 10, 5);	// draw a circle
 	ofPushMatrix();			// push the current coordinate position
 	ofRotateX(90);			// change the coordinate system
@@ -2213,6 +3079,7 @@ void testApp::draw(){
 	ofPopMatrix();			// recall the pushed coordinate position
 }
 ~~~~
+
 
 
 
@@ -2238,11 +3105,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 ofPopStyle() restores the prior style settings. It needs to be called after ofPushStyle. 
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofCircle(10,10,5);
 	ofPushStyle();	// push the current style for use later
 	ofFill();
@@ -2251,6 +3127,7 @@ void testApp::draw(){
 	ofPopStyle();	// recall the pushed style
 }    
 ~~~~
+
 
 
 
@@ -2276,7 +3153,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -2303,12 +3189,21 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 ofPushMatrix saves the current coordinate system allowing users to develop specific movements in some graphic objects. ofPopMatrix needs to be called after.
 In the following example we only rotate the square.
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofCircle(10, 10, 5);	// draw a circle
 	ofPushMatrix();			// push the current coordinate position
 	ofRotateX(90);			// change the coordinate system
@@ -2316,6 +3211,7 @@ void testApp::draw(){
 	ofPopMatrix()			// recall the pushed coordinate position
 }
 ~~~~
+
 
 
 
@@ -2341,12 +3237,21 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 ofPushStyle saves the current style settings for the ofGraphics after its call. Usage of ofPushStyle and ofPopStyle allow users to have more control of certain graphics elements. All the style that applies to certain elements is controled using ofStyle class. See ofStyle type.
 In the following example the properties of being red and filled only applies to the ellipse:
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofCircle(10,10,5);
 	ofPushStyle();	// push the current style for use later
 	ofFill();
@@ -2355,6 +3260,7 @@ void testApp::draw(){
 	ofPopStyle();	// recall the pushed style
 }    
 ~~~~
+
 
 
 
@@ -2380,7 +3286,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -2407,14 +3322,24 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
-Draws an rectangle from point x,y with a given width and height. 
+
+Draws a rectangle from point x,y with a given width and height. 
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofRect(10,10,100,100);
 }    
 ~~~~
+
 
 
 
@@ -2440,11 +3365,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Draws an rectangle from the given rectangle.
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofRectangle rect;
 	rect.x = 10;
 	rect.y = 10;
@@ -2454,6 +3388,7 @@ void testApp::draw(){
 	ofRect(rect);
 }    
 ~~~~
+
 
 
 
@@ -2479,11 +3414,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Draws an rectangle from point p, with a given width and height.
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofPoint p;		// create a point P
 	p.x = 10;		// set the x of the point
 	p.y = 10;		// set the y of the point
@@ -2491,6 +3435,7 @@ void testApp::draw(){
 	ofRect(p, 80, 80); // Draw the rectangle
 }    
 ~~~~
+
 
 
 
@@ -2516,14 +3461,24 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Draws an rectangle from point X, Y at depth Z with a given width and height.
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofRect(10,10,-100, 80, 80); // Draw a rectangle at 100 pixels in depth
 }    
 ~~~~
+
 
 
 
@@ -2549,7 +3504,30 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Draws a rounded rectangle from the given rectangle using given radius.
+
+~~~~{.cpp}
+void ofApp::draw(){
+	ofRectangle myRect;
+	myRect.x = 10;
+	myRect.y = 10;
+	myRect.width = 100;
+	myRect.height = 100;
+	
+	ofRectRounded( myRect, 10 );
+}    
+~~~~
 
 
 
@@ -2576,7 +3554,26 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Draws a rectangle from point p with a given width, height and radius of rounded corners.
+  
+~~~~{.cpp}
+void ofApp::draw(){
+	ofPoint p;
+	p.set ( 10, 10 );
+	ofRectRounded( p, 100, 100, 10 );
+}    
+~~~~
 
 
 
@@ -2603,7 +3600,24 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Draws a rectangle from point X, Y with a given width, height and radius of rounded corners.
+  
+~~~~{.cpp}
+void ofApp::draw(){
+	ofRectRounded(10, 10, 100, 100, 10);
+}    
+~~~~
 
 
 
@@ -2630,7 +3644,162 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Draws a rectangle from point X, Y, at depth Z with a given width, height and radius of rounded corners.
+  
+~~~~{.cpp}
+void ofApp::draw(){
+	ofRectRounded(10, 10, 10, 100, 100, 10);
+}    
+~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofRectRounded(&p, w, h, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius)
+
+<!--
+_syntax: ofRectRounded(&p, w, h, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius)_
+_name: ofRectRounded_
+_returns: void_
+_returns_description: _
+_parameters: const ofPoint &p, float w, float h, float topLeftRadius, float topRightRadius, float bottomRightRadius, float bottomLeftRadius_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+Draws a rounded rectangle from point X, Y, at depth Z with a given width, height and radius of rounded corners.
+  
+~~~~{.cpp}
+void ofApp::draw(){
+	ofRectRounded(10, 10, 10, 100, 100, 10);
+}    
+~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofRectRounded(&b, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius)
+
+<!--
+_syntax: ofRectRounded(&b, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius)_
+_name: ofRectRounded_
+_returns: void_
+_returns_description: _
+_parameters: const ofRectangle &b, float topLeftRadius, float topRightRadius, float bottomRightRadius, float bottomLeftRadius_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+Draws a rounded rectangle from the given rectangle using different given radius for each of the corners.
+
+~~~~{.cpp}
+void ofApp::draw(){
+	ofRectangle myRect;
+	myRect.x = 10;
+	myRect.y = 10;
+	myRect.width = 100;
+	myRect.height = 100;
+	
+	ofRectRounded( myRect, 10, 20, 30, 40 );
+}    
+~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofRectRounded(x, y, z, w, h, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius)
+
+<!--
+_syntax: ofRectRounded(x, y, z, w, h, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius)_
+_name: ofRectRounded_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y, float z, float w, float h, float topLeftRadius, float topRightRadius, float bottomRightRadius, float bottomLeftRadius_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+Draws a rounded rectangle from point X, Y, at depth Z with a given width, height and different radius for each rounded corner.
+  
+~~~~{.cpp}
+void ofApp::draw(){
+	ofRectRounded(10, 10, 10, 100, 100, 10, 20, 30, 40);
+}    
+~~~~
 
 
 
@@ -2657,17 +3826,27 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 ofRotate produces a rotation of angle "degrees"	around the vector (vecX,vecY,vecZ).
 "degrees"specifies the angle of rotation, in degrees. vecX, vecY, vecZ specify the x, y, and z coordinates of a vector, respectively.
 All graphics drawn after ofRotate is called are rotated. Use ofPushMatrix and ofPopMatrix to save and restore the unrotated coordinate system.
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofRotate(50, 1, 0.5, 0); //rotates the coordinate system 50 degrees along the x-axis and 25 degrees on the y-axis
 	ofRect(20,20,100,100);		
 }
 ~~~~
+
 
 
 
@@ -2693,7 +3872,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -2720,15 +3908,25 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 ofRotateX produces a rotation of angle "degrees" around the X-axis of our coordinate system represented by the vector (1,0,0)."degrees"specifies the angle of rotation, in degrees.
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofRotateX(45); //rotates the coordinate system 45 degrees around the x-axis
 	ofRect(20,20,100,100);		
 }
 ~~~~
+
 
 
 
@@ -2754,16 +3952,26 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 ofRotateY produces a rotation of angle "degrees" around the Y-axis of our coordinate system represented by the vector (0,1,0).
 "degrees"specifies the angle of rotation, in degrees.
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofRotateY(45); //rotates the coordinate system 45 degrees around the x-axis
 	ofRect(20,20,100,100);		
 }
 ~~~~
+
 
 
 
@@ -2789,16 +3997,26 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 ofRotateZ produces a rotation of angle "degrees" around the Z-axis of our coordinate system represented by the vector (0,0,1).
 "degrees"specifies the angle of rotation, in degrees.
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofRotateZ(45); //rotates the coordinate system 45 degrees around the x-axis
 	ofRect(20,20,100,100);		
 }
 ~~~~
+
 
 
 
@@ -2824,17 +4042,27 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 ofScale produces a nonuniform scaling along the x, y, and z axes. The three parameters xAmnt, yAmnt and zAmnt indicate the desired scale factor along each of the three axes.
 e.g:
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofScale(0.5,1,1);		// scale 0.5 in height
 	ofRect(10,10,40,40);	// draw a square rectangle	
 }
 ~~~~
 Rectangle width will be now 20px heigh!
+
 
 
 
@@ -2860,20 +4088,30 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Sets the background clearing function to be auto (default) or not. If non-auto, then background clearing will not occur per frame (at the start of draw) but rather, whenever ofBackground is called.
 ~~~~{.cpp}
-void testApp::setup(){
+void ofApp::setup(){
 	ofSetBackgroundAuto(false); //disable automatic background redraw
 }    
-void testApp::draw(){
+void ofApp::draw(){
 	if(ofGetFrameNum() % 10 == 0){
 		// draws a black background every 10 frames
-		ofBackground(0,0,0);
+		ofSetBackground(0,0,0);
 	}
 }
 ~~~~
+
 
 
 
@@ -2899,7 +4137,23 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Sets the background color. It takes as input r,g,b (0-255). The background is cleared automatically, just before the draw() command, so if the background color is not changing, you could call this inside of setup() (once, at the start of the application). If the background color is changing, you can call this inside of update().
+~~~~{.cpp}
+void ofApp::setup(){
+	ofSetBackgroundColor(255,0,0); 	// Sets the background color to red
+}    
+~~~~
 
 
 
@@ -2926,7 +4180,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -2953,7 +4216,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -2980,7 +4252,23 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Sets the background color using a hex color value. 
+~~~~{.cpp}
+void ofApp::setup(){
+	ofSetBackgroundColorHex(0xff0000); 	// Sets the background color to red
+}    
+~~~~
 
 
 
@@ -3007,17 +4295,27 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Sets the resolution for the ofCircle command. By default, the circle is 22 points, but if you need to draw larger circles, you can adjust the resolution using this command. all circles are cached in opengl using a display list for optimization purposes.
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofSetCircleResolution(10);		
 	ofCircle(150,150,100);			//draws a rough circle
 	ofSetCircleResolution(100);
 	ofCircle(450,150,100);			//draws a fine circle
 }    
 ~~~~
+
 
 
 
@@ -3043,15 +4341,25 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Sets the draw color with r,g,b, 0-255. For example, red (0xff0000) would be: ofSetColor(255,0,0). This affects not only the color of shapes drawn with ofRect(...), ofCircle(...), etc, but also the tint of images and textures.
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofSetColor(0,0,255); 	//set te color to blue
 	ofRect(10,10,100,100); 
 }    
 ~~~~
+
 
 
 
@@ -3077,17 +4385,27 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 sets the draw color with r,g,b,a 0-255. For alpha (transparency), you must first enable transparent blending (turned off by default for performance reasons), and draw in the proper z-order (objects in the back drawn first). For example, to draw a transparent red rectangle: 
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofEnableAlphaBlending();	// turn on alpha blending
 	ofSetColor(255,0,0,127);	// red, 50% transparent
 	ofRect(20,20,100,100);
 	ofDisableAlphaBlending();	// turn it back off, if you don't need it
 }
 ~~~~
+
 
 
 
@@ -3113,16 +4431,26 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Sets the draw color with r,g,b, passed in as a hex. Hex is a conventient way to write colors. Some examples:
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofSetColor(0xffffff);  // white  (255,255,255)
 	ofSetColor(0x000000);  // black  (0,0,0);
 	ofSetColor(0x00ff00);  // green  (0,255,0);
 }
 ~~~~
+
 
 
 
@@ -3148,7 +4476,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -3175,7 +4512,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -3202,7 +4548,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -3229,7 +4584,88 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofSetCurrentRenderer(renderer, setDefaults = false)
+
+<!--
+_syntax: ofSetCurrentRenderer(renderer, setDefaults = false)_
+_name: ofSetCurrentRenderer_
+_returns: void_
+_returns_description: _
+_parameters: ofPtr< ofBaseRenderer > renderer, bool setDefaults=false_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofSetCurrentRenderer(&rendererType, setDefaults = false)
+
+<!--
+_syntax: ofSetCurrentRenderer(&rendererType, setDefaults = false)_
+_name: ofSetCurrentRenderer_
+_returns: void_
+_returns_description: _
+_parameters: const string &rendererType, bool setDefaults=false_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -3256,7 +4692,54 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofSetDepthTest(depthTest)
+
+<!--
+_syntax: ofSetDepthTest(depthTest)_
+_name: ofSetDepthTest_
+_returns: void_
+_returns_description: _
+_parameters: bool depthTest_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+Set depth testing on or off to either sort by z-depth (true) or draw order (false). 
 
 
 
@@ -3283,9 +4766,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
+
 takes OF_BITMAPMODE_SIMPLE, OF_BITMAPMODE_SCREEN, OF_BITMAPMODE_VIEWPORT, OF_BITMAPMODE_MODEL and OF_BITMAPMODE_MODEL_BILLBOARD
+
 
 
 
@@ -3311,7 +4804,24 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+Sets the draw color with a hex value. 
+~~~~{.cpp}
+void ofApp::draw(){
+	ofSetHexColor(0xff0000); 	//set te color to red
+	ofRect(10,10,100,100); 
+}    
+~~~~
 
 
 
@@ -3338,17 +4848,63 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 ofSetLineWidth sets the width of the ofLines called after.
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofSetLineWidth(1);		// set line width to 1
 	ofLine(10,10,100,100);	// draw thin line
 	ofSetLineWidth(10);		// set line width to 10
 	ofLine(10,100,100,10);	// draw fat line
 }    
 ~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofSetMatrixMode(matrixMode)
+
+<!--
+_syntax: ofSetMatrixMode(matrixMode)_
+_name: ofSetMatrixMode_
+_returns: void_
+_returns_description: _
+_parameters: ofMatrixMode matrixMode_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
 
 
 
@@ -3374,7 +4930,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Sets the drawing behavior for ovelapping parts of the same polygon. Possible modes are:
 OF_POLY_WINDING_ODD -
@@ -3382,6 +4947,7 @@ OF_POLY_WINDING_NONZERO -
 OF_POLY_WINDING_POSITIVE -
 OF_POLY_WINDING_NEGATIVE -
 OF_POLY_WINDING_ABS_GEQ_TWO -
+
 
 
 
@@ -3407,7 +4973,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -3434,11 +5009,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Sets the mode for drawing rectangles and other rectangular objects, if they are corner aligned, or drawn so that the x,y position is the center of the rectangle. possible options are OF_RECTMODE_CENTER and OF_RECTMODE_CORNER. This afects not only how ofRect() objects are drawn, but also ofTexture (and threfore ofImage) objects. 
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofSetRectMode(OF_RECTMODE_CORNER); //set rectangle mode to the corner
 	ofRect(10,10,80,80);	
 	ofSetRectMode(OF_RECTMODE_CENTER); //set rectangle mode to the center
@@ -3446,6 +5030,7 @@ void testApp::draw(){
 	// both rectangles are drawn at the same place
 }    
 ~~~~
+
 
 
 
@@ -3471,34 +5056,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void ofSetSphereResolution(res)
-
-<!--
-_syntax: ofSetSphereResolution(res)_
-_name: ofSetSphereResolution_
-_returns: void_
-_returns_description: _
-_parameters: int res_
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
 
 
 
@@ -3525,9 +5092,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
+
 We use ofSetStyle to set the current style of the ofGraphics. Parameter style contains information of the graphics style such as ofColor, ofFill, polyMode and others. See ofStyle for more details. 
+
 
 
 
@@ -3553,9 +5130,19 @@ _visible: True_
 _advanced: True_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
+
 Resets openGL parameters back to OF defaults.
+
 
 
 
@@ -3581,7 +5168,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -3608,7 +5204,52 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofSetupScreenOrtho(width = 0, height = 0, nearDist = -1, farDist = 1)
+
+<!--
+_syntax: ofSetupScreenOrtho(width = 0, height = 0, nearDist = -1, farDist = 1)_
+_name: ofSetupScreenOrtho_
+_returns: void_
+_returns_description: _
+_parameters: float width=0, float height=0, float nearDist=-1, float farDist=1_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -3635,7 +5276,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -3645,14 +5295,14 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###void ofSphere(x, y, z, radius)
+###void ofSetupScreenPerspective(width = 0, height = 0, fov = 60, nearDist = 0, farDist = 0)
 
 <!--
-_syntax: ofSphere(x, y, z, radius)_
-_name: ofSphere_
+_syntax: ofSetupScreenPerspective(width = 0, height = 0, fov = 60, nearDist = 0, farDist = 0)_
+_name: ofSetupScreenPerspective_
 _returns: void_
 _returns_description: _
-_parameters: float x, float y, float z, float radius_
+_parameters: float width=0, float height=0, float fov=60, float nearDist=0, float farDist=0_
 _version_started: _
 _version_deprecated: _
 _summary: _
@@ -3662,117 +5312,17 @@ _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-Draws a 3-dimensional sphere at X, Y and Z with the given radius.
-~~~~{.cpp}
-void testApp::draw(){
-	ofSphere(50,50,-10,40);
-}    
-~~~~
+_inlined_description: _
 
 
 
 
 
 
-<!----------------------------------------------------------------------------->
-
-###void ofSphere(x, y, radius)
-
-<!--
-_syntax: ofSphere(x, y, radius)_
-_name: ofSphere_
-_returns: void_
-_returns_description: _
-_parameters: float x, float y, float radius_
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Draws a 3-dimensional sphere at X and Y at the current depth with the given radius.
-~~~~{.cpp}
-void testApp::draw(){
-	ofSphere(50,50,40);
-}    
-~~~~
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void ofSphere(&position, radius)
-
-<!--
-_syntax: ofSphere(&position, radius)_
-_name: ofSphere_
-_returns: void_
-_returns_description: _
-_parameters: const ofPoint &position, float radius_
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Draws a 3-dimensional sphere at position by point with the given radius.
-~~~~{.cpp}
-void testApp::draw(){
-	ofPoint p;
-	p.x = 50;
-	p.y = 50;
-	ofSphere(p, 40);
-}    
-~~~~
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void ofSphere(radius)
-
-<!--
-_syntax: ofSphere(radius)_
-_name: ofSphere_
-_returns: void_
-_returns_description: _
-_parameters: float radius_
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
-Draws a 3-dimensional sphere with the given radius.
-~~~~{.cpp}
-void testApp::draw(){
-	ofTranslate(50,50,0);
-	ofSphere(40);
-}    
-~~~~
+
 
 
 
@@ -3798,16 +5348,26 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 ofTranslate produces a translation by (x,y,z) vector of our coordinate system. The call of ofTranslate modifies graphics positions.
 Use ofPushMatrix and ofPopMatrix to save and restore the untranslated coordinate system.
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofTranslate(100, 100, 0);	// move the coordinate system to position x 100 and y 100 and make that zero.
 	ofRect(0, 0, 10, 10);		// draw a rect at that position
 }
 ~~~~
+
 
 
 
@@ -3833,12 +5393,21 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 ofTranslate produces a translation by (x,y,z) vector of our coordinate system. The call of ofTranslate modifies graphics positions.
 Use ofPushMatrix and ofPopMatrix to save and restore the untranslated coordinate system.
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofPoint point;
 	point.x = 100;
 	point.y = 100;
@@ -3847,6 +5416,7 @@ void testApp::draw(){
 	ofRect(0, 0, 10, 10);	// draw a rect at that position
 }
 ~~~~
+
 
 
 
@@ -3872,14 +5442,24 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Draws a triangle, with the three points: (x1,y1),(x2, y2),(x3, y3). 
 ~~~~{.cpp}
-void testApp::draw(){
+void ofApp::draw(){
 	ofTriangle(50,10,10,40,90,40);
 }    
 ~~~~
+
 
 
 
@@ -3905,7 +5485,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -3932,7 +5521,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -3959,9 +5557,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
+
 Specifies a single point of a shape. To be called between ofBeginShape() and ofEndShape(). 
+
 
 
 
@@ -3987,7 +5595,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -4014,7 +5631,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -4041,7 +5667,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -4068,7 +5703,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -4085,7 +5729,7 @@ _syntax: ofViewport(x = 0, y = 0, width = 0, height = 0, invertY = true)_
 _name: ofViewport_
 _returns: void_
 _returns_description: _
-_parameters: float x=0, float y=0, float width=0, float height=0, bool invertY=true_
+_parameters: float x=0, float y=0, float width=0, float height=0, bool vflip=ofIsVFlipped()_
 _version_started: _
 _version_deprecated: _
 _summary: _
@@ -4095,7 +5739,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -4122,7 +5775,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 

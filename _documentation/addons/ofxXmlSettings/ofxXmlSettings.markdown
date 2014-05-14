@@ -1,6 +1,19 @@
 #class ofxXmlSettings
 
 
+<!--
+_visible: True_
+_advanced: False_
+_istemplated: False_
+-->
+
+##InlineDescription
+
+
+
+
+
+
 ##Description
 
 ofxXmlSettings addon allows for reading and writing of xml files in openFrameworks. Most commonly xml settings are used for storing settings between closing and launching apps. XML has the advantage of being easy for people to read and edit but still convenient for manipulating with code.
@@ -117,890 +130,11 @@ we can use push and pop to move into the recording tags as if they were the docu
 
 
 
+
+
 ##Methods
 
 
-
-### ofxXmlSettings()
-
-<!--
-_syntax: ofxXmlSettings()_
-_name: ofxXmlSettings_
-_returns: _
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-Default constructor for ofxXmlSettings.  Initializes an empty object with no file set or loaded and no contents.
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-### ofxXmlSettings(&xmlFile)
-
-<!--
-_syntax: ofxXmlSettings(&xmlFile)_
-_name: ofxXmlSettings_
-_returns: _
-_returns_description: _
-_parameters: const string &xmlFile_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-Initializes an xml settings object and loads the file at xmlFile path.
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-### ~ofxXmlSettings()
-
-<!--
-_syntax: ~ofxXmlSettings()_
-_name: ~ofxXmlSettings_
-_returns: _
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: False_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setVerbose(_verbose)
-
-<!--
-_syntax: setVerbose(_verbose)_
-_name: setVerbose_
-_returns: void_
-_returns_description: _
-_parameters: bool _verbose_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: False_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool loadFile(&xmlFile)
-
-<!--
-_syntax: loadFile(&xmlFile)_
-_name: loadFile_
-_returns: bool_
-_returns_description: _
-_parameters: const string &xmlFile_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Loads and parses the xml file at the given path.  Returns true if the file is found and is correctly formatted xml.
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool saveFile(&xmlFile)
-
-<!--
-_syntax: saveFile(&xmlFile)_
-_name: saveFile_
-_returns: bool_
-_returns_description: _
-_parameters: const string &xmlFile_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Saves the current state of the xml settings object to file at xmlFile path.  
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool saveFile()
-
-<!--
-_syntax: saveFile()_
-_name: saveFile_
-_returns: bool_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Saves the current state of the xml file to its current path. The current path is defined by whatever path was specified when loadFile(xmlFile) or saveFile(xmlFile) was last called.
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void clearTagContents(&tag, which = 0)
-
-<!--
-_syntax: clearTagContents(&tag, which = 0)_
-_name: clearTagContents_
-_returns: void_
-_returns_description: _
-_parameters: const string &tag, int which=0_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-If the given tag exists at the current pushTag level set its contents to empty.
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void removeTag(&tag, which = 0)
-
-<!--
-_syntax: removeTag(&tag, which = 0)_
-_name: removeTag_
-_returns: void_
-_returns_description: _
-_parameters: const string &tag, int which=0_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Removes a tag from the current level. This differs from clearing it in that the entire tag is removed, rather than just its contents being set to empty.
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool tagExists(&tag, which = 0)
-
-<!--
-_syntax: tagExists(&tag, which = 0)_
-_name: tagExists_
-_returns: bool_
-_returns_description: _
-_parameters: const string &tag, int which=0_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Returns true if the given tag exists at the current pushTag level.
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void clear()
-
-<!--
-_syntax: clear()_
-_name: clear_
-_returns: void_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Removes all tags at the current document level.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int getValue(&tag, defaultValue, which = 0)
-
-<!--
-_syntax: getValue(&tag, defaultValue, which = 0)_
-_name: getValue_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag, int defaultValue, int which=0_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Returns the value stored by the requested tag. The data type returned depends on the type provided as the defaultArgument. For example, if the tag is:
-~~~~{.xml}
-<myTag>9.8</myTag>   
-~~~~
-
-The value can be interpreted in three different ways, as a float, int, or string by changing the default type provided to the call.
-
-~~~~{.cpp}
-//returns "9.8"
-string myString = settings.getValue("myTag", "");
-//returns the integer value 9
-int myInt = settings.getValue("myTag", 0);
-//returns the double value 9.8
-double myDouble = settings.getValue("myTag", 0.0);
-~~~~
-
-
-
-<!----------------------------------------------------------------------------->
-
-###double getValue(&tag, defaultValue, which = 0)
-
-<!--
-_syntax: getValue(&tag, defaultValue, which = 0)_
-_name: getValue_
-_returns: double_
-_returns_description: _
-_parameters: const string &tag, double defaultValue, int which=0_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Returns the value stored by the requested tag as a double. Refer above for description of how this method works.
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###string getValue(&tag, &defaultValue, which = 0)
-
-<!--
-_syntax: getValue(&tag, &defaultValue, which = 0)_
-_name: getValue_
-_returns: string_
-_returns_description: _
-_parameters: const string &tag, const string &defaultValue, int which=0_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Returns the value stored by the requested tag as a string. Refer above for description of how this method works.
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int setValue(&tag, value, which = 0)
-
-<!--
-_syntax: setValue(&tag, value, which = 0)_
-_name: setValue_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag, int value, int which=0_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Sets the value of a tag to an integer value.  If the tag already exists, the current value is replaced with value. Otherwise a new tag is created.
-
-The number of tags with the same name at the current document level is returned.
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int setValue(&tag, value, which = 0)
-
-<!--
-_syntax: setValue(&tag, value, which = 0)_
-_name: setValue_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag, double value, int which=0_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Sets the value of a tag to an integer value.  If the tag already exists, the current value is replaced with value otherwise a new tag is created.
-
-The number of tags with the same name at the current document level is returned.
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int setValue(&tag, &value, which = 0)
-
-<!--
-_syntax: setValue(&tag, &value, which = 0)_
-_name: setValue_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag, const string &value, int which=0_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Sets the value of a tag to a string value.  If the tag already exists, the current value is replaced with value otherwise a new tag is created.
-
-The number of tags with the same name at the current document level is returned.
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool pushTag(&tag, which = 0)
-
-<!--
-_syntax: pushTag(&tag, which = 0)_
-_name: pushTag_
-_returns: bool_
-_returns_description: _
-_parameters: const string &tag, int which=0_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Pushing and Popping operations are used to set the current document level. Most of the methods in ofxXmlSettings are done in relationship to just the top level tags, so pushing tags is necessary to go deeper into documents. Every pushTag should be matched with a popTag after operations at that level are finished.  
-
-pushingTag pushes the given tag which is then treated as the tag as as the document root.
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int popTag()
-
-<!--
-_syntax: popTag()_
-_name: popTag_
-_returns: int_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-popTag restores the current document root after a call to pushTag.
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int getPushLevel()
-
-<!--
-_syntax: getPushLevel()_
-_name: getPushLevel_
-_returns: int_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-getPushLevel returns the number of tags that have been pushed. Starting at 0 when the file is first populated (eg a call to loadFile). Each time pushTag is called push level increases by one. Each time popTag is called it decreases.
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int getNumTags(&tag)
-
-<!--
-_syntax: getNumTags(&tag)_
-_name: getNumTags_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Returns the number of tags with the given name at the current document level. Useful for iterating through a list of sibling tags with the same name.  
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int addValue(&tag, value)
-
-<!--
-_syntax: addValue(&tag, value)_
-_name: addValue_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag, int value_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Adds a tag with tag name and integer value to the document, returning the number of tags with the same name.
-
-addValue and setValue are very similar, both add new tags to the current document with the given name and value.  The distinction is that if tags exist with the same name at the current document level, addValue will create additional tags, while setValue will replace contents of the tags based on the 'which' parameter.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int addValue(&tag, value)
-
-<!--
-_syntax: addValue(&tag, value)_
-_name: addValue_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag, double value_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Adds a tag with tag name and double value to the document, returning the number of tags with the same name.
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int addValue(&tag, &value)
-
-<!--
-_syntax: addValue(&tag, &value)_
-_name: addValue_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag, const string &value_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Adds a tag with tag name and string value to the document, returning the number of tags with the same name.
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int addTag(&tag)
-
-<!--
-_syntax: addTag(&tag)_
-_name: addTag_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Adds an empty tag at the current document level. If you want to add children tags, call pushTag afterwords to begin editing the document with the new tag as root.
-
-Return the number of tags with the same name at the current level.
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
 
 ###int addAttribute(&tag, &attribute, value, which = 0)
 
@@ -1015,19 +149,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
 Adds a new attribute to the tag with with the given int value. If the tag doesn't exist it is created. If an attribute at index 'which' already exists its value replaced by the provided value
-
-
-
-
-
 
 
 
@@ -1050,20 +189,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 Adds a new attribute to the tag with the given double value. 
-
-
-
-
-
 
 
 
@@ -1086,19 +229,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
 Adds a new attribute to the tag with the given string value. 
-
-
-
-
-
 
 
 
@@ -1121,20 +269,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 Adds a new attribute to the tag with with the given int value.
-
-
-
-
-
 
 
 
@@ -1157,19 +309,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
 Adds a new attribute to the tag with with the given double value.
-
-
-
-
-
 
 
 
@@ -1192,12 +349,22 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
 
 Adds a new attribute to the tag with with the given string value.
 
@@ -1207,107 +374,163 @@ Adds a new attribute to the tag with with the given string value.
 
 
 
-
-
-
-
-
 <!----------------------------------------------------------------------------->
 
-###void removeAttribute(&tag, &attribute, which = 0)
+###int addTag(&tag)
 
 <!--
-_syntax: removeAttribute(&tag, &attribute, which = 0)_
-_name: removeAttribute_
-_returns: void_
-_returns_description: _
-_parameters: const string &tag, const string &attribute, int which=0_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Removes the attribute from tag name at index specified by 'which'.
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void clearTagAttributes(&tag, which = 0)
-
-<!--
-_syntax: clearTagAttributes(&tag, which = 0)_
-_name: clearTagAttributes_
-_returns: void_
-_returns_description: _
-_parameters: const string &tag, int which=0_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Clears all attributes from the given tag name and tag index which.
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int getNumAttributes(&tag, which = 0)
-
-<!--
-_syntax: getNumAttributes(&tag, which = 0)_
-_name: getNumAttributes_
+_syntax: addTag(&tag)_
+_name: addTag_
 _returns: int_
 _returns_description: _
-_parameters: const string &tag, int which=0_
+_parameters: const string &tag_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-Returns the number of attributes on a tag at index which.
+
+Adds an empty tag at the current document level. If you want to add children tags, call pushTag afterwords to begin editing the document with the new tag as root.
+
+Return the number of tags with the same name at the current level.
 
 
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int addValue(&tag, value)
+
+<!--
+_syntax: addValue(&tag, value)_
+_name: addValue_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag, int value_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Adds a tag with tag name and integer value to the document, returning the number of tags with the same name.
+
+addValue and setValue are very similar, both add new tags to the current document with the given name and value.  The distinction is that if tags exist with the same name at the current document level, addValue will create additional tags, while setValue will replace contents of the tags based on the 'which' parameter.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int addValue(&tag, value)
+
+<!--
+_syntax: addValue(&tag, value)_
+_name: addValue_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag, double value_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Adds a tag with tag name and double value to the document, returning the number of tags with the same name.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int addValue(&tag, &value)
+
+<!--
+_syntax: addValue(&tag, &value)_
+_name: addValue_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag, const string &value_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Adds a tag with tag name and string value to the document, returning the number of tags with the same name.
 
 
 
@@ -1330,10 +553,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1346,6 +578,41 @@ Returns true if a tag has any attributes.
 
 
 
+<!----------------------------------------------------------------------------->
+
+###void clear()
+
+<!--
+_syntax: clear()_
+_name: clear_
+_returns: void_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Removes all tags at the current document level.
+
+
 
 
 
@@ -1353,31 +620,154 @@ Returns true if a tag has any attributes.
 
 <!----------------------------------------------------------------------------->
 
-###bool getAttributeNames(&tag, &outNames, which = 0)
+###void clearTagAttributes(&tag, which = 0)
 
 <!--
-_syntax: getAttributeNames(&tag, &outNames, which = 0)_
-_name: getAttributeNames_
-_returns: bool_
+_syntax: clearTagAttributes(&tag, which = 0)_
+_name: clearTagAttributes_
+_returns: void_
 _returns_description: _
-_parameters: const string &tag, vector< string > &outNames, int which=0_
+_parameters: const string &tag, int which=0_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-Returns an array of strings containing all attribute names on the tag.  This is useful in conjunction with a loop to get all values of the tags one by one with calls to getAttribute.
+
+Clears all attributes from the given tag name and tag index which.
 
 
 
 
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void clearTagContents(&tag, which = 0)
+
+<!--
+_syntax: clearTagContents(&tag, which = 0)_
+_name: clearTagContents_
+_returns: void_
+_returns_description: _
+_parameters: const string &tag, int which=0_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+If the given tag exists at the current pushTag level set its contents to empty.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void copyXmlToString(&str)
+
+<!--
+_syntax: copyXmlToString(&str)_
+_name: copyXmlToString_
+_returns: void_
+_returns_description: _
+_parameters: string &str_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Copies the contents of the ofxXmlSettings into the string str.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void deserialize(&parameter)
+
+<!--
+_syntax: deserialize(&parameter)_
+_name: deserialize_
+_returns: void_
+_returns_description: _
+_parameters: ofAbstractParameter &parameter_
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
 
 
 
@@ -1401,19 +791,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
 Returns the value of the attribute on tag at index which as an int.
-
-
-
-
-
 
 
 
@@ -1436,19 +831,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
 Returns the value of the attribute on tag at index which as a double.
-
-
-
-
-
 
 
 
@@ -1471,12 +871,22 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
 
 Returns the value of the attribute on tag at index which as a string.
 
@@ -1486,247 +896,27 @@ Returns the value of the attribute on tag at index which as a string.
 
 
 
-
-
-
-
-
 <!----------------------------------------------------------------------------->
 
-###int setAttribute(&tag, &attribute, value, which = 0)
+###bool getAttributeNames(&tag, &outNames, which = 0)
 
 <!--
-_syntax: setAttribute(&tag, &attribute, value, which = 0)_
-_name: setAttribute_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag, const string &attribute, int value, int which=0_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Returns the value of the attribute on tag as a double.
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int setAttribute(&tag, &attribute, value, which = 0)
-
-<!--
-_syntax: setAttribute(&tag, &attribute, value, which = 0)_
-_name: setAttribute_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag, const string &attribute, double value, int which=0_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Refer to addAttribute
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int setAttribute(&tag, &attribute, &value, which = 0)
-
-<!--
-_syntax: setAttribute(&tag, &attribute, &value, which = 0)_
-_name: setAttribute_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag, const string &attribute, const string &value, int which=0_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Refer to addAttribute
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int setAttribute(&tag, &attribute, value)
-
-<!--
-_syntax: setAttribute(&tag, &attribute, value)_
-_name: setAttribute_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag, const string &attribute, int value_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Refer to addAttribute
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int setAttribute(&tag, &attribute, value)
-
-<!--
-_syntax: setAttribute(&tag, &attribute, value)_
-_name: setAttribute_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag, const string &attribute, double value_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Refer to addAttribute
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int setAttribute(&tag, &attribute, &value)
-
-<!--
-_syntax: setAttribute(&tag, &attribute, &value)_
-_name: setAttribute_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag, const string &attribute, const string &value_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-Refer to addAttribute
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool loadFromBuffer(buffer)
-
-<!--
-_syntax: loadFromBuffer(buffer)_
-_name: loadFromBuffer_
+_syntax: getAttributeNames(&tag, &outNames, which = 0)_
+_name: getAttributeNames_
 _returns: bool_
 _returns_description: _
-_parameters: string buffer_
+_parameters: const string &tag, vector< string > &outNames, int which=0_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-Populates the ofxXmlSettings object from a string of containing xml.
+_inlined_description: _
 
 
 
@@ -1734,144 +924,11 @@ Populates the ofxXmlSettings object from a string of containing xml.
 
 
 
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void copyXmlToString(&str)
-
-<!--
-_syntax: copyXmlToString(&str)_
-_name: copyXmlToString_
-_returns: void_
-_returns_description: _
-_parameters: string &str_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-Copies the contents of the ofxXmlSettings into the string str.
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int writeTag(&tag, &valueString, which = 0)
-
-<!--
-_syntax: writeTag(&tag, &valueString, which = 0)_
-_name: writeTag_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag, const string &valueString, int which=0_
-_access: protected_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool readTag(&tag, &valHandle, which = 0)
-
-<!--
-_syntax: readTag(&tag, &valHandle, which = 0)_
-_name: readTag_
-_returns: bool_
-_returns_description: _
-_parameters: const string &tag, TiXmlHandle &valHandle, int which=0_
-_access: protected_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int writeAttribute(&tag, &attribute, &valueString, which = 0)
-
-<!--
-_syntax: writeAttribute(&tag, &attribute, &valueString, which = 0)_
-_name: writeAttribute_
-_returns: int_
-_returns_description: _
-_parameters: const string &tag, const string &attribute, const string &valueString, int which=0_
-_access: protected_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
+Returns an array of strings containing all attribute names on the tag.  This is useful in conjunction with a loop to get all values of the tags one by one with calls to getAttribute.
 
 
 
@@ -1894,10 +951,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1906,6 +972,572 @@ _description: _
 
 
 
+
+
+<!----------------------------------------------------------------------------->
+
+###int getNumAttributes(&tag, which = 0)
+
+<!--
+_syntax: getNumAttributes(&tag, which = 0)_
+_name: getNumAttributes_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag, int which=0_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Returns the number of attributes on a tag at index which.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int getNumTags(&tag)
+
+<!--
+_syntax: getNumTags(&tag)_
+_name: getNumTags_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Returns the number of tags with the given name at the current document level. Useful for iterating through a list of sibling tags with the same name.  
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int getPushLevel()
+
+<!--
+_syntax: getPushLevel()_
+_name: getPushLevel_
+_returns: int_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+getPushLevel returns the number of tags that have been pushed. Starting at 0 when the file is first populated (eg a call to loadFile). Each time pushTag is called push level increases by one. Each time popTag is called it decreases.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int getValue(&tag, defaultValue, which = 0)
+
+<!--
+_syntax: getValue(&tag, defaultValue, which = 0)_
+_name: getValue_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag, int defaultValue, int which=0_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Returns the value stored by the requested tag. The data type returned depends on the type provided as the defaultArgument. For example, if the tag is:
+~~~~{.xml}
+<myTag>9.8</myTag>   
+~~~~
+
+The value can be interpreted in three different ways, as a float, int, or string by changing the default type provided to the call.
+
+~~~~{.cpp}
+//returns "9.8"
+string myString = settings.getValue("myTag", "");
+//returns the integer value 9
+int myInt = settings.getValue("myTag", 0);
+//returns the double value 9.8
+double myDouble = settings.getValue("myTag", 0.0);
+~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###double getValue(&tag, defaultValue, which = 0)
+
+<!--
+_syntax: getValue(&tag, defaultValue, which = 0)_
+_name: getValue_
+_returns: double_
+_returns_description: _
+_parameters: const string &tag, double defaultValue, int which=0_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Returns the value stored by the requested tag as a double. Refer above for description of how this method works.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###string getValue(&tag, &defaultValue, which = 0)
+
+<!--
+_syntax: getValue(&tag, &defaultValue, which = 0)_
+_name: getValue_
+_returns: string_
+_returns_description: _
+_parameters: const string &tag, const string &defaultValue, int which=0_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Returns the value stored by the requested tag as a string. Refer above for description of how this method works.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool load(&path)
+
+<!--
+_syntax: load(&path)_
+_name: load_
+_returns: bool_
+_returns_description: _
+_parameters: const string &path_
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool loadFile(&xmlFile)
+
+<!--
+_syntax: loadFile(&xmlFile)_
+_name: loadFile_
+_returns: bool_
+_returns_description: _
+_parameters: const string &xmlFile_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Loads and parses the xml file at the given path.  Returns true if the file is found and is correctly formatted xml.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool loadFromBuffer(buffer)
+
+<!--
+_syntax: loadFromBuffer(buffer)_
+_name: loadFromBuffer_
+_returns: bool_
+_returns_description: _
+_parameters: string buffer_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Populates the ofxXmlSettings object from a string of containing xml.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+### ofxXmlSettings()
+
+<!--
+_syntax: ofxXmlSettings()_
+_name: ofxXmlSettings_
+_returns: _
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Default constructor for ofxXmlSettings.  Initializes an empty object with no file set or loaded and no contents.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+### ofxXmlSettings(&xmlFile)
+
+<!--
+_syntax: ofxXmlSettings(&xmlFile)_
+_name: ofxXmlSettings_
+_returns: _
+_returns_description: _
+_parameters: const string &xmlFile_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Initializes an xml settings object and loads the file at xmlFile path.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int popTag()
+
+<!--
+_syntax: popTag()_
+_name: popTag_
+_returns: int_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+popTag restores the current document root after a call to pushTag.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool pushTag(&tag, which = 0)
+
+<!--
+_syntax: pushTag(&tag, which = 0)_
+_name: pushTag_
+_returns: bool_
+_returns_description: _
+_parameters: const string &tag, int which=0_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Pushing and Popping operations are used to set the current document level. Most of the methods in ofxXmlSettings are done in relationship to just the top level tags, so pushing tags is necessary to go deeper into documents. Every pushTag should be matched with a popTag after operations at that level are finished.  
+
+pushingTag pushes the given tag which is then treated as the tag as as the document root.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool readDoubleAttribute(&tag, &attribute, &outValue, which)
+
+<!--
+_syntax: readDoubleAttribute(&tag, &attribute, &outValue, which)_
+_name: readDoubleAttribute_
+_returns: bool_
+_returns_description: _
+_parameters: const string &tag, const string &attribute, double &outValue, int which_
+_access: protected_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
 
 
 
@@ -1929,12 +1561,12 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
+_inlined_description: _
 
 
 
@@ -1942,40 +1574,8 @@ _description: _
 
 
 
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool readDoubleAttribute(&tag, &attribute, &outValue, which)
-
-<!--
-_syntax: readDoubleAttribute(&tag, &attribute, &outValue, which)_
-_name: readDoubleAttribute_
-_returns: bool_
-_returns_description: _
-_parameters: const string &tag, const string &attribute, double &outValue, int which_
-_access: protected_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
-
-
-
-
-
-
 
 
 
@@ -1999,10 +1599,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -2011,6 +1620,832 @@ _description: _
 
 
 
+
+
+<!----------------------------------------------------------------------------->
+
+###bool readTag(&tag, &valHandle, which = 0)
+
+<!--
+_syntax: readTag(&tag, &valHandle, which = 0)_
+_name: readTag_
+_returns: bool_
+_returns_description: _
+_parameters: const string &tag, TiXmlHandle &valHandle, int which=0_
+_access: protected_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void removeAttribute(&tag, &attribute, which = 0)
+
+<!--
+_syntax: removeAttribute(&tag, &attribute, which = 0)_
+_name: removeAttribute_
+_returns: void_
+_returns_description: _
+_parameters: const string &tag, const string &attribute, int which=0_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Removes the attribute from tag name at index specified by 'which'.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void removeTag(&tag, which = 0)
+
+<!--
+_syntax: removeTag(&tag, which = 0)_
+_name: removeTag_
+_returns: void_
+_returns_description: _
+_parameters: const string &tag, int which=0_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Removes a tag from the current level. This differs from clearing it in that the entire tag is removed, rather than just its contents being set to empty.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool save(&path)
+
+<!--
+_syntax: save(&path)_
+_name: save_
+_returns: bool_
+_returns_description: _
+_parameters: const string &path_
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool saveFile(&xmlFile)
+
+<!--
+_syntax: saveFile(&xmlFile)_
+_name: saveFile_
+_returns: bool_
+_returns_description: _
+_parameters: const string &xmlFile_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Saves the current state of the xml settings object to file at xmlFile path.  
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool saveFile()
+
+<!--
+_syntax: saveFile()_
+_name: saveFile_
+_returns: bool_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Saves the current state of the xml file to its current path. The current path is defined by whatever path was specified when loadFile(xmlFile) or saveFile(xmlFile) was last called.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void serialize(&parameter)
+
+<!--
+_syntax: serialize(&parameter)_
+_name: serialize_
+_returns: void_
+_returns_description: _
+_parameters: const ofAbstractParameter &parameter_
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int setAttribute(&tag, &attribute, value, which = 0)
+
+<!--
+_syntax: setAttribute(&tag, &attribute, value, which = 0)_
+_name: setAttribute_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag, const string &attribute, int value, int which=0_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Returns the value of the attribute on tag as a double.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int setAttribute(&tag, &attribute, value, which = 0)
+
+<!--
+_syntax: setAttribute(&tag, &attribute, value, which = 0)_
+_name: setAttribute_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag, const string &attribute, double value, int which=0_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Refer to addAttribute
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int setAttribute(&tag, &attribute, &value, which = 0)
+
+<!--
+_syntax: setAttribute(&tag, &attribute, &value, which = 0)_
+_name: setAttribute_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag, const string &attribute, const string &value, int which=0_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Refer to addAttribute
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int setAttribute(&tag, &attribute, value)
+
+<!--
+_syntax: setAttribute(&tag, &attribute, value)_
+_name: setAttribute_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag, const string &attribute, int value_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Refer to addAttribute
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int setAttribute(&tag, &attribute, value)
+
+<!--
+_syntax: setAttribute(&tag, &attribute, value)_
+_name: setAttribute_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag, const string &attribute, double value_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Refer to addAttribute
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int setAttribute(&tag, &attribute, &value)
+
+<!--
+_syntax: setAttribute(&tag, &attribute, &value)_
+_name: setAttribute_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag, const string &attribute, const string &value_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Refer to addAttribute
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int setValue(&tag, value, which = 0)
+
+<!--
+_syntax: setValue(&tag, value, which = 0)_
+_name: setValue_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag, int value, int which=0_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Sets the value of a tag to an integer value.  If the tag already exists, the current value is replaced with value. Otherwise a new tag is created.
+
+The number of tags with the same name at the current document level is returned.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int setValue(&tag, value, which = 0)
+
+<!--
+_syntax: setValue(&tag, value, which = 0)_
+_name: setValue_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag, double value, int which=0_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Sets the value of a tag to an integer value.  If the tag already exists, the current value is replaced with value otherwise a new tag is created.
+
+The number of tags with the same name at the current document level is returned.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int setValue(&tag, &value, which = 0)
+
+<!--
+_syntax: setValue(&tag, &value, which = 0)_
+_name: setValue_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag, const string &value, int which=0_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Sets the value of a tag to a string value.  If the tag already exists, the current value is replaced with value otherwise a new tag is created.
+
+The number of tags with the same name at the current document level is returned.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setVerbose(_verbose)
+
+<!--
+_syntax: setVerbose(_verbose)_
+_name: setVerbose_
+_returns: void_
+_returns_description: _
+_parameters: bool _verbose_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: False_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool tagExists(&tag, which = 0)
+
+<!--
+_syntax: tagExists(&tag, which = 0)_
+_name: tagExists_
+_returns: bool_
+_returns_description: _
+_parameters: const string &tag, int which=0_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Returns true if the given tag exists at the current pushTag level.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int writeAttribute(&tag, &attribute, &valueString, which = 0)
+
+<!--
+_syntax: writeAttribute(&tag, &attribute, &valueString, which = 0)_
+_name: writeAttribute_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag, const string &attribute, const string &valueString, int which=0_
+_access: protected_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int writeTag(&tag, &valueString, which = 0)
+
+<!--
+_syntax: writeTag(&tag, &valueString, which = 0)_
+_name: writeTag_
+_returns: int_
+_returns_description: _
+_parameters: const string &tag, const string &valueString, int which=0_
+_access: protected_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+### ~ofxXmlSettings()
+
+<!--
+_syntax: ~ofxXmlSettings()_
+_name: ~ofxXmlSettings_
+_returns: _
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: False_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
 
 
 
@@ -2024,37 +2459,6 @@ _description: _
 ##Variables
 
 
-
-###TiXmlDocument doc
-
-<!--
-_name: doc_
-_type: TiXmlDocument_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
 
 ###bool bDocLoaded
 
@@ -2079,20 +2483,14 @@ _description: _
 
 
 
-
-
-
-
-
-
 <!----------------------------------------------------------------------------->
 
-###TiXmlHandle storedHandle
+###TiXmlDocument doc
 
 <!--
-_name: storedHandle_
-_type: TiXmlHandle_
-_access: protected_
+_name: doc_
+_type: TiXmlDocument_
+_access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
@@ -2102,12 +2500,6 @@ _advanced: False_
 -->
 
 _description: _
-
-
-
-
-
-
 
 
 
@@ -2139,6 +2531,25 @@ _description: _
 
 
 
+
+
+<!----------------------------------------------------------------------------->
+
+###TiXmlHandle storedHandle
+
+<!--
+_name: storedHandle_
+_type: TiXmlHandle_
+_access: protected_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
 
 
 

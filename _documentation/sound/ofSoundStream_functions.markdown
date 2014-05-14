@@ -1,6 +1,13 @@
 #functions
 
+
+<!--
+_visible: True_
+_advanced: False_
+-->
+
 ##Description
+
 
 
 
@@ -25,7 +32,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Stops the sound stream and also cleans up the stream's resources. 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -52,7 +70,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Prints a list of available devices to the console. 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -79,7 +108,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Sets up the audio, with nOutputs channels of audio out, nInputs channels of audio in. You also must pass in a pointer to the ofSimpleApp, so you can just use the word "this". For example, for 2 channel output, call in the setup function:
 ~~~~{.cpp}
@@ -88,6 +126,7 @@ ofSoundStreamSetup(2,0,this);
 ~~~~
 
 In this simplified call, the bufferSize, sampleRate, and number of buffers (for latency) are all set to defaults.
+
 
 
 
@@ -113,9 +152,19 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
+
 Sets up the audio, but allows you to control more precise details of the audio system.
+
 
 
 
@@ -141,7 +190,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Sets up and starts a global 
+
+This will set up a sound stream with a default sample rate of 44100, a buffer size of 256 samples, and a queue of 4 buffers.
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -168,7 +230,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Sets up and starts a global 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -195,7 +268,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Sets up and starts a global 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -222,7 +306,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Starts the sound stream (audioIn() / audioOut() will start being called) 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -249,7 +344,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Stops the sound stream (audioIn() / audioOut() will stop being called) 
+
+
+
+
+
+
+
 _description: _
+
 
 
 

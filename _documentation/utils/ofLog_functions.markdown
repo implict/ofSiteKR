@@ -1,6 +1,13 @@
 #functions
 
+
+<!--
+_visible: True_
+_advanced: True_
+-->
+
 ##Description
+
 
 
 
@@ -25,13 +32,23 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Get the current log level. This is useful when combined with ofGetLogLevelName() if you want to print the current log level:
 ~~~~{.cpp}
 ofLogLevel currentLevel = ofGetLogLevel();
 ofLog() << "The current log level is " << ofGetLogLevelName(currentLevel);
 ~~~~
+
 
 
 
@@ -57,7 +74,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Returns the given log level as a string. This is useful if you want to print the current log level:
 ~~~~{.cpp}
@@ -65,6 +91,45 @@ ofLogLevel currentLevel = ofGetLogLevel();
 ofLog() << "The current log level is " << ofGetLogLevelName(currentLevel);
 ~~~~
 See [ofSetLogLevel(logLevel)](./ofLog.html#functions) for the log level values. 
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###string ofGetLogLevelName(level, pad = false)
+
+<!--
+_syntax: ofGetLogLevelName(level, pad = false)_
+_name: ofGetLogLevelName_
+_returns: string_
+_returns_description: _
+_parameters: ofLogLevel level, bool pad=false_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+get log level name as a string set pad to true if you want all log level names to be the same length 
+
+
+
+
+
+
+
+_description: _
+
+
 
 
 
@@ -90,7 +155,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -117,7 +191,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Enable logging to a file instead of the console.
 Set the path and name of the log file and it will be created if it doesn't exist. If it does exist, it will be overwritten unless you set *append* to true, whereas new lines will be added to the bottom of the file.
@@ -137,6 +220,7 @@ Note: When file logging is enabled, will not see log messages on the console!
 
 
 
+
 <!----------------------------------------------------------------------------->
 
 ###void ofSetLogLevel(logLevel)
@@ -146,7 +230,7 @@ _syntax: ofSetLogLevel(logLevel)_
 _name: ofSetLogLevel_
 _returns: void_
 _returns_description: _
-_parameters: ofLogLevel logLevel_
+_parameters: ofLogLevel level_
 _version_started: _
 _version_deprecated: _
 _summary: _
@@ -156,7 +240,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 Sets the logging level so only messages above a certain priority are shown. This is useful if you want see lots of messages when debugging, but then set a higher level so only warnings and errors appear for users.
 logLevel values are (in order of priority):
@@ -166,7 +259,7 @@ logLevel values are (in order of priority):
 	OF_LOG_ERROR
 	OF_LOG_FATAL_ERROR
 	OF_LOG_SILENT
-Following priority, setting a log level of `OF_LOG_ERROR`, means only error & fatal error messages will be printed. Conversely, setting `OF_LOG_VERBOSE` means **all** log level messages will be printed.
+Following priority, setting a log level of OF_LOG_ERROR, means only error & fatal error messages will be printed. Conversely, setting OF_LOG_VERBOSE means **all** log level messages will be printed.
 Here's a code example:
 ~~~~{.cpp}
 // set to warning level
@@ -180,8 +273,9 @@ ofLogWarning() << "a warning print";	// this still prints
 ofLogNotice() << "test print";			// this does too
 ofLogVerbose() << "a verbose print";	// this doesn't
 ~~~~
-The default log level is `OF_LOG_NOTICE`.
-`OF_LOG_SILENT` is a special value which disables **all** messages.
+The default log level is OF_LOG_NOTICE.
+OF_LOG_SILENT is a special value which disables **all** messages.
+
 
 
 
@@ -197,7 +291,7 @@ _syntax: ofSetLogLevel(module, logLevel)_
 _name: ofSetLogLevel_
 _returns: void_
 _returns_description: _
-_parameters: string module, ofLogLevel logLevel_
+_parameters: string module, ofLogLevel level_
 _version_started: _
 _version_deprecated: _
 _summary: _
@@ -207,7 +301,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -234,7 +337,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 

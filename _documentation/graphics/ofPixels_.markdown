@@ -1,8 +1,22 @@
 #class ofPixels_
 
 
-##Description
+<!--
+_visible: True_
+_advanced: False_
+_istemplated: True_
+-->
 
+##InlineDescription
+
+A class representing a collection of pixels. 
+
+
+
+
+
+
+##Description
 
 ofPixels is an object for working with blocks of pixels, those pixels can be copied from an image that you've loaded, something that you've drawn using ofGraphics, or a ofVideoGrabber instance. You can create an image from pixels, using on ofPixels object like so:
 ~~~~{.cpp}
@@ -27,6 +41,8 @@ while( i < pix.size()) {
 }
 ~~~~
 
+You can think of the ofPixels as the CPU side representation of pixel data that can be sent to the GPU as an ofTexture object. To draw pixels, you need to put them into an ofTexture and to manipulate an ofTextures pixel data you need an ofPixels object.
+
 
 
 
@@ -48,13 +64,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+Allocates space for pixel data of the given width (w), height (h) and number of channels (channels). If an ofImageType or ofPixelFormat is passed in, it will allocate based on the required number of channels.
 
 
 
@@ -77,13 +104,32 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+ofPixelFormat:
+
+	OF_PIXELS_RGB
+
+	OF_PIXELS_RGBA
+
+	OF_PIXELS_BGRA
+
+	OF_PIXELS_MONO
 
 
 
@@ -106,13 +152,30 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
+
+ofImageType:
+	
+	OF_IMAGE_GRAYSCALE
+	
+	OF_IMAGE_COLOR
+	
+	OF_IMAGE_COLOR_ALPHA
 
 
 
@@ -135,10 +198,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -164,10 +236,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -195,10 +276,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -224,10 +314,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -253,10 +352,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -284,10 +392,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -315,10 +432,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -347,10 +473,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -378,10 +513,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -410,10 +554,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -428,12 +581,12 @@ Returns the number of the pixels.
 
 <!----------------------------------------------------------------------------->
 
-###ofPixels_ getChannel(channel)
+###ofPixels_< PixelType > getChannel(channel)
 
 <!--
 _syntax: getChannel(channel)_
 _name: getChannel_
-_returns: ofPixels__
+_returns: ofPixels_< PixelType >_
 _returns_description: _
 _parameters: int channel_
 _access: public_
@@ -441,10 +594,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -464,12 +626,12 @@ This returns a single channel, for instance, the Red pixel values, from the ofPi
 
 <!----------------------------------------------------------------------------->
 
-###ofColor_ getColor(x, y)
+###ofColor_< PixelType > getColor(x, y)
 
 <!--
 _syntax: getColor(x, y)_
 _name: getColor_
-_returns: ofColor__
+_returns: ofColor_< PixelType >_
 _returns_description: _
 _parameters: int x, int y_
 _access: public_
@@ -477,10 +639,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -511,10 +682,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -542,10 +722,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -573,10 +762,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -604,10 +802,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -618,6 +825,44 @@ ofColor yellow = ofColor::yellow;
 int ind = pix.getPixelIndex(mouseX, mouseY);
 pix.setPixel(ind, yellow);
 ~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###PixelType * getPixels()
+
+<!--
+_syntax: getPixels()_
+_name: getPixels_
+_returns: PixelType *_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -640,21 +885,37 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Retrieves pixel data from the ofPixel object. 
+
+
+***return:*** 
+	A raw pointer to the pixel data. 
+
+
+
+
+
+
+
+
+
 
 _description: _
 
 
 This returns a raw pointer to the pixel data. Changing this will change the value of the pixels in the ofPixels object. One way to inspect the values returns in this pointer would be:
 ~~~~{.cpp}
-unsigned char* pixPtr = pix.getPixels();
-while(pixPtr) {
+for(int i=0;i<pixels.size();i++) {
 	// for RGB pixels there will be 3 values for each pixel
 	// for RGBA pixels there will be 4
-	++pixPtr;
+	// you can access the pixels for reading or writing with: pixels[i]
 }
 ~~~~
 
@@ -679,10 +940,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -710,10 +980,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -741,10 +1020,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -772,10 +1060,19 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -801,10 +1098,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -830,10 +1136,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -859,10 +1174,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -875,12 +1199,12 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofPixels_ operator=(&mom)
+###ofPixels_< PixelType > & operator=(&mom)
 
 <!--
 _syntax: operator=(&mom)_
 _name: operator=_
-_returns: ofPixels__
+_returns: ofPixels_< PixelType > &_
 _returns_description: _
 _parameters: const ofPixels_< PixelType > &mom_
 _access: public_
@@ -888,10 +1212,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -904,12 +1237,12 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofPixels_ operator=(&mom)
+###ofPixels_< PixelType > & operator=(&mom)
 
 <!--
 _syntax: operator=(&mom)_
 _name: operator=_
-_returns: ofPixels__
+_returns: ofPixels_< PixelType > &_
 _returns_description: _
 _parameters: const ofPixels_< SrcType > &mom_
 _access: public_
@@ -917,10 +1250,57 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###const PixelType & operator[](pos)
+
+<!--
+_syntax: operator[](pos)_
+_name: operator[]_
+_returns: const PixelType &_
+_returns_description: _
+_parameters: int pos_
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -946,10 +1326,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -977,10 +1366,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1018,10 +1416,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1052,10 +1459,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1086,10 +1502,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1117,10 +1542,19 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1146,10 +1580,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1175,10 +1618,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1204,10 +1656,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1229,21 +1690,106 @@ _syntax: setColor(x, y, color)_
 _name: setColor_
 _returns: void_
 _returns_description: _
-_parameters: int x, int y, ofColor_< PixelType > color_
+_parameters: int x, int y, const ofColor_< PixelType > &color_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
 
 Sets the color of the pixel at the x,y location.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setColor(index, &color)
+
+<!--
+_syntax: setColor(index, &color)_
+_name: setColor_
+_returns: void_
+_returns_description: _
+_parameters: int index, const ofColor_< PixelType > &color_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setColor(&color)
+
+<!--
+_syntax: setColor(&color)_
+_name: setColor_
+_returns: void_
+_returns_description: _
+_parameters: const ofColor_< PixelType > &color_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -1266,10 +1812,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1295,10 +1850,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1324,10 +1888,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1353,10 +1926,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1382,10 +1964,24 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Changes the image type for the ofPixels object. 
+
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1411,10 +2007,24 @@ _version_started: 0072_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+Sets the number of color channels for the ofPixel object. 
+
+
+
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1440,10 +2050,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1471,10 +2090,19 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1500,10 +2128,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1531,10 +2168,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 

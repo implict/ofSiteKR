@@ -1,10 +1,22 @@
 #class ofAppBaseWindow
 
 
+<!--
+_visible: True_
+_advanced: False_
+_istemplated: False_
+-->
+
+##InlineDescription
+
+
+
+
+
+
 ##Description
 
-
-Base class for all windowing classes. Extend this to create a different version of the default glut window in oF.
+Base class for all windowing classes. In OF we're extending this to create a different version of the default window in oF, like the ofAppEGLWindow or the ofAppGLFWWindow instances. For those interested in the under-the-hood details, you can always get a reference to the base graphics context from the ofAppBaseWindow, like getEGLContext() for those on Linux or getGLXContext() for those using GLFW. This is where your methods like setFullscreen() are implemented but other than that you're probably not going to be deeply interested in the ofAppBaseWindow since it's extended by every window system that you actually use (i.e. getX11Display() and getWin32Window()).
 
 
 
@@ -27,10 +39,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -56,10 +77,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -85,12 +115,12 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
+_inlined_description: _
 
 
 
@@ -98,55 +128,6 @@ _description: _
 
 
 
-
-<!----------------------------------------------------------------------------->
-
-###int getFrameNum()
-
-<!--
-_syntax: getFrameNum()_
-_name: getFrameNum_
-_returns: int_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###float getFrameRate()
-
-<!--
-_syntax: getFrameRate()_
-_name: getFrameRate_
-_returns: float_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -172,12 +153,12 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
+_inlined_description: _
 
 
 
@@ -185,26 +166,6 @@ _description: _
 
 
 
-
-<!----------------------------------------------------------------------------->
-
-###double getLastFrameTime()
-
-<!--
-_syntax: getLastFrameTime()_
-_name: getLastFrameTime_
-_returns: double_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -230,10 +191,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -259,10 +229,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -288,10 +267,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -317,10 +305,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -346,10 +343,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -375,10 +381,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -404,10 +419,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -433,10 +457,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -462,12 +495,12 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
 
-_description: _
+_inlined_description: _
 
 
 
@@ -475,26 +508,6 @@ _description: _
 
 
 
-
-<!----------------------------------------------------------------------------->
-
-###void runAppViaInfiniteLoop(appPtr)
-
-<!--
-_syntax: runAppViaInfiniteLoop(appPtr)_
-_name: runAppViaInfiniteLoop_
-_returns: void_
-_returns_description: _
-_parameters: ofBaseApp * appPtr_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -520,12 +533,12 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
+_inlined_description: _
 
 
 
@@ -533,26 +546,6 @@ _description: _
 
 
 
-
-<!----------------------------------------------------------------------------->
-
-###void setFrameRate(targetRate)
-
-<!--
-_syntax: setFrameRate(targetRate)_
-_name: setFrameRate_
-_returns: void_
-_returns_description: _
-_parameters: float targetRate_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -578,10 +571,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -607,10 +609,57 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setVerticalSync(enabled)
+
+<!--
+_syntax: setVerticalSync(enabled)_
+_name: setVerticalSync_
+_returns: void_
+_returns_description: _
+_parameters: bool enabled_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -636,10 +685,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -665,10 +723,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -694,10 +761,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -723,10 +799,19 @@ _version_started: 006_
 _version_deprecated: 0.01_
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -752,10 +837,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -781,10 +875,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -810,10 +913,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 

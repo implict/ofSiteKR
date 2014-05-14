@@ -1,8 +1,20 @@
 #class ofAppGlutWindow
 
 
-##Description
+<!--
+_visible: True_
+_advanced: False_
+_istemplated: False_
+-->
 
+##InlineDescription
+
+
+
+
+
+
+##Description
 
 Default window manager based on glut. This class provides all the functionality to create a window, change/query it's size, position... and all the keyboard and mouse events.
 
@@ -31,39 +43,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void display()
-
-<!--
-_syntax: display()_
-_name: display_
-_returns: void_
-_returns_description: _
-_parameters: void _
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_constant: False_
 _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -84,15 +76,24 @@ _name: display_
 _returns: void_
 _returns_description: _
 _parameters: void_
-_access: public_
+_access: private_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -113,15 +114,24 @@ _name: dragEvent_
 _returns: void_
 _returns_description: _
 _parameters: char **fileNames, int howManyFiles, int dragX, int dragY_
-_access: public_
+_access: private_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -147,10 +157,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -171,17 +190,17 @@ _name: entry_cb_
 _returns: void_
 _returns_description: _
 _parameters: int state_
-_access: public_
+_access: private_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
+_inlined_description: _
 
 
 
@@ -189,84 +208,6 @@ _description: _
 
 
 
-
-<!----------------------------------------------------------------------------->
-
-###void exitApp()
-
-<!--
-_syntax: exitApp()_
-_name: exitApp_
-_returns: void_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int getFrameNum()
-
-<!--
-_syntax: getFrameNum()_
-_name: getFrameNum_
-_returns: int_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###float getFrameRate()
-
-<!--
-_syntax: getFrameRate()_
-_name: getFrameRate_
-_returns: float_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -292,12 +233,12 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
+_inlined_description: _
 
 
 
@@ -305,26 +246,6 @@ _description: _
 
 
 
-
-<!----------------------------------------------------------------------------->
-
-###double getLastFrameTime()
-
-<!--
-_syntax: getLastFrameTime()_
-_name: getLastFrameTime_
-_returns: double_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -350,10 +271,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -379,10 +309,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -408,10 +347,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -437,10 +385,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -466,10 +423,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -495,10 +461,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -524,39 +499,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void idle_cb()
-
-<!--
-_syntax: idle_cb()_
-_name: idle_cb_
-_returns: void_
-_returns_description: _
-_parameters: void _
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_constant: False_
 _static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -577,15 +532,24 @@ _name: idle_cb_
 _returns: void_
 _returns_description: _
 _parameters: void_
-_access: public_
+_access: private_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -611,10 +575,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -635,15 +608,24 @@ _name: keyboard_cb_
 _returns: void_
 _returns_description: _
 _parameters: unsigned char key, int x, int y_
-_access: public_
+_access: private_
 _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -664,15 +646,24 @@ _name: keyboard_up_cb_
 _returns: void_
 _returns_description: _
 _parameters: unsigned char key, int x, int y_
-_access: public_
+_access: private_
 _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -693,15 +684,24 @@ _name: motion_cb_
 _returns: void_
 _returns_description: _
 _parameters: int x, int y_
-_access: public_
+_access: private_
 _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -722,15 +722,24 @@ _name: mouse_cb_
 _returns: void_
 _returns_description: _
 _parameters: int button, int state, int x, int y_
-_access: public_
+_access: private_
 _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -756,10 +765,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -780,15 +798,24 @@ _name: passive_motion_cb_
 _returns: void_
 _returns_description: _
 _parameters: int x, int y_
-_access: public_
+_access: private_
 _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -809,17 +836,17 @@ _name: resize_cb_
 _returns: void_
 _returns_description: _
 _parameters: int w, int h_
-_access: public_
+_access: private_
 _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
+_inlined_description: _
 
 
 
@@ -827,26 +854,6 @@ _description: _
 
 
 
-
-<!----------------------------------------------------------------------------->
-
-###void runAppViaInfiniteLoop(appPtr)
-
-<!--
-_syntax: runAppViaInfiniteLoop(appPtr)_
-_name: runAppViaInfiniteLoop_
-_returns: void_
-_returns_description: _
-_parameters: ofBaseApp * appPtr_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -872,10 +879,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -901,12 +917,12 @@ _version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
+_inlined_description: _
 
 
 
@@ -914,26 +930,6 @@ _description: _
 
 
 
-
-<!----------------------------------------------------------------------------->
-
-###void setFrameRate(targetRate)
-
-<!--
-_syntax: setFrameRate(targetRate)_
-_name: setFrameRate_
-_returns: void_
-_returns_description: _
-_parameters: float targetRate_
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
@@ -959,10 +955,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -988,10 +993,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1017,10 +1031,57 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setVerticalSync(enabled)
+
+<!--
+_syntax: setVerticalSync(enabled)_
+_name: setVerticalSync_
+_returns: void_
+_returns_description: _
+_parameters: bool enabled_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1046,10 +1107,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1075,10 +1145,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1104,10 +1183,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1133,10 +1221,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1162,10 +1259,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1186,15 +1292,24 @@ _name: special_key_cb_
 _returns: void_
 _returns_description: _
 _parameters: int key, int x, int y_
-_access: public_
+_access: private_
 _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1215,15 +1330,24 @@ _name: special_key_up_cb_
 _returns: void_
 _returns_description: _
 _parameters: int key, int x, int y_
-_access: public_
+_access: private_
 _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: yes_
+_static: True_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1249,10 +1373,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1278,10 +1411,19 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: False_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1305,6 +1447,31 @@ _name: displayString_
 _type: string_
 _access: public_
 _version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool iconSet
+
+<!--
+_name: iconSet_
+_type: bool_
+_access: private_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _visible: True_
