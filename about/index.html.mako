@@ -22,7 +22,7 @@ openFrameworks는 [오픈소스](license.html)이며, [C++](https://en.wikipedia
 * 서체 : [FreeType](http://freetype.sourceforge.net/index2.html)
 * 이미지 저장 및 로드 : [FreeImage](http://freeimage.sourceforge.net/)
 * 비디오 재생 및 로드 : [Quicktime](http://developer.apple.com/quicktime/), [GStreamer](http://gstreamer.freedesktop.org/) and [videoInput](https://github.com/ofTheo/videoInput)
-* 기능의 다양성 (for a variety of utilities) : [Poco](http://pocoproject.org/)
+* 다양한 유틸리티 : [Poco](http://pocoproject.org/)
 * 컴퓨터 비전 : [OpenCV](http://opencv.org/)
 * 3D 모델 로드 : [Assimp](http://assimp.sourceforge.net/)
 
@@ -116,7 +116,7 @@ openFrameworks는 추구하는 몇가지의 목표가 있습니다. 그것은 �
 **협업가능**
 
 openFrameworks의 개발은 [frequent discussion](http://forum.openframeworks.cc/)와 [addons](http://ofxaddons.com/),
-[projects](../gallery)에 참여하는 [수많은 분들](https://github.com/openframeworks/openFrameworks/contributors)의 노력하에 진행되고 있습니다. 우리는 참여하는 분들로 하여금 openFrameworks가 자신의 것이 되도록, 그리고 이러한 생태계에 공헌할 수 있도록 장려하고 있습니다.
+[projects](../gallery)에 참여하는 [수많은 분들](https://github.com/openframeworks/openFrameworks/contributors)의 노력하에 진행되고 있습니다. 우리는 참여하는 분들로 하여금 openFrameworks가 자신의 것이 되도록, 그리고 이러한 생태계에 공헌할 수 있도록 권장하고 있습니다.
 
 또한 openFrameworks는 협업이 가능한 방법으로 개발되고 있습니다. 우리는 버전 관리 시스템인 git을 사용합니다. 이러한 방식은 누구든지 코드를 branch하거나 실험, 제안하는것을 가능케 합니다. GitHub의 network diagram을 살펴보면, 무슨 외계 다이어그램같은것을 볼수 있을 겁니다. 이것들은 branch들의 수많은 가지치기, 제각각끼리의 pulling과 coming을 의미합니다. 이것은 핵심코드들을 위해 전세계에서 참여하는 거대 커뮤니티입니다. 버그를 수정하고, pull request를 제출하고, 그들이 원하는 방향대로 구체화합니다. 미국에서는 아시아와 유럽의 프로그래머들이 보낸 pull reqeust과 issue들로 가득찬 메일을 아침에 일어나 확인하는것은 흔한 일입니다. 70명이 넘는 분들이 openFrameworks의 코어개발에에 직접적으로 참여 하고있고, 수백명의 사람들이 그 소스코드를 fork하는 등의 다른 방법으로 참여하고 있습니다. 
 
@@ -128,14 +128,13 @@ openFrameworks는 사용성과 단순함의 균형을 유지하려고 노력합�
 
 **일관성과 직관성**
 
-openFrameworks is consistent and intuitive: it should operate on the principle of least surprise, so that what you learn about one part of openFrameworks can be applied to other parts of it. Beginners can use openFrameworks to learn about common programming patterns, and advanced users will be able to apply their experience from other languages and toolkits.
-openFrameworks는 일관적이고 직관적입니다. 최소한의 인지 철학위에서 동작해야만 합니다. 따라서 openFrameworks의 한 부분에서 배울수 있는 것은 다른 부분에도 적용이 가능합니다. 초보자에게 있어서는 기본적인 프로그래밍 패턴에 대해 배울 수 있을것이며, 고수에게 있어서는 다른 언어와 툴킷의 경험을 적용시킬 수 있을것입니다.
+openFrameworks는 일관적이고 직관적입니다. 최소한의 인지 철학위에서 동작해야만 합니다. 즉 openFrameworks의 한 부분에서 배울수 있는 것은 다른 부분에도 쉽게 적용이 가능합니다. 초보자에게 있어는 기본적인 프로그래밍 패턴에 대해 배울 수 있을것이며, 고급 사용자에게 있어서는 다른 언어와 툴킷에서의 경험을 openFrameworks에 적용시킬 수 있을 것입니다.
 
-Student first is the motto. A lot of the thinking guiding openFrameworks is: what would I would have liked in a tool 5 or 10 years ago? We want the patterns of coding to be simple and to make it as easy as possible to type. This means having self-explanatory function names like "play" and "stop" for video players, and variable names that are intuitive. We have lots of discussions about intuition, driven by a desire to make the code as straightforward as possible. You should learn by typing, autocomplete should be helpful, etc.
+학생은 첫 번째 모토입니다. openFrameworks를 이끄는 많은 생각들이 있습니다. what would I would have liked in a tool 5 or 10 years ago? 프로그래밍 코드작성의 패턴은 단순해야 하고, 그러기 위해서 가능한 한 타이핑하기 쉬워야 합니다. 가령 비디오플레이어의 함수명이 "play"와 "stop"와 같이 자기 자신을 설명하는 것처럼요. 또한 변수명들도 직관적이어야 합니다. 코드작성이 가능한한 수월하도록 하기 위해 이러한 직관성에 대해 많은 의논이 있었습니다. 여러분은 자동완성의 도움을 받기 보다는 직접 코딩을 타이핑하면서 익혀야 합니다.
 
 **크로스 플랫폼**
 
-openFrameworks는 크로스플랫폼 저작도구입니다. openFrameworks는 가능한한 다양한 개발환경과 운영체제를 지원합니다. openFrameworks를 다운로드할때, 원하는 플랫폼(운영체제)와 개발환경을 선택할 수 있고, 각각의 플랫폼과 개발환경에 맞는 프로젝트파일들과 예제코드들이 담겨있습니다. 코드의 port가 어려운 부분들은 코어에서 제외하는 대신, addon의 방식을 사용하고 있습니다.
+openFrameworks는 크로스플랫폼 저작도구입니다. openFrameworks는 가능한한 다양한 개발환경과 운영체제를 지원합니다. openFrameworks를 다운로드할때, 원하는 플랫폼(운영체제)와 개발환경을 선택할 수 있고, 각각의 플랫폼과 개발환경에 맞는 프로젝트파일들과 예제코드들이 담겨있습니다. 코드의 이식이 어려운 부분들은 코어에서 제외하는 대신, addon의 방식을 사용하고 있습니다.
 
 openFrameworks는 다양한 플랫폼에서 동작하도록 디자인되었습니다. 맥킨토시 OS X, 윈도우즈, 리눅스, iOS, 안드로이드, 임베디드 ARM기반 리눅스 시스템뿐만 아니라, BlackBerry playbook과 같은 실험적인 플랫폼들입니다. openFrameworks 개발자들은 Android의 Java나 iOS에서의 오브젝티브-C와 같은 언어들과 연결될수 있는 방법들을 구상해왔습니다.
 
@@ -147,52 +146,45 @@ openFrameworks는 강력합니다: OpenCV와 같은 고급 라이브러리를 �
 
 우리가 C++를 선택한것은 C++언어가 충분히 로우 레벨의 언어이면서도, 여전히 고급레벨의 프로그래밍이 가능하기 떄문입니다. 이는 C++언어가 로우레벨의 프로그래밍이 가능한 C언어를 기반으로 확장된 언어이므로 가능한 것입니다. 우리는 openFrameworks에서 단순하고, 명료하고, 지금까지 없어왔던 강력한 방법으로 코딩할 수 있도록 노력합니다.
 
-it to wrap them in a way which makes them more consistent and intuitive.
 openFrameworks는 본질적으로 openGL, Cairo, FreeType, FreeImage, OpenCV와 같은 다른 라이브러리들의 집합체(wrap)입니다. 따라서 openFrameworks는 사용자의 코드(실제로 사용자가 작성한 코드)와 이러한 라이브러리를 연결하는 레이러라고 생각할 수 있습니다. 이러한 라이브러리들은 각각 다른 스타일, 어법, 접근법등을 가지고 있습니다. 그리고 우리의 역할은 이러한 것들을 지속적이고 직관적으로 사용할 수 있도록 wrapping 하는 것입니다.
+
+이것들을 wrap하는것은 또한, 그것들을 더욱 일관적이고 직관적이도록 만드는 방법입니다.
 
 **확장성**
 
-openFrameworks is extensible. When you find something missing from openFrameworks, it's easy to create addons that extend it. The core addons for openFrameworks generally wrap libraries rather than solving problems in novel ways. When openFrameworks wraps libraries, the libraries are left exposed for further hacking.
+openFrameworks는 확장가능합니다. 만약 openFrameworks에 뭔가 빠져있다 생각이 든다면, addon을 만들어 아주 쉽게 확장할 수 있습니다. 오픈프레임웍스의 핵심 addon들은 직접 문제를 해결하는 방법을 대체할 여러 라이브러리들의 집합입니다. 그리하여 openFrameworks가 라이브러리를 포함한다는것은, 이러한 라이브러리들을 개조할수 있도록 남겨두었다는 의미이기도 합니다.
 
-openFrameworks는 확장가능합니다. 만약 openFrameworks에 뭔가 빠져있다 생각이 든다면, addon을 만들어 아주 쉽게 확장할 수 있습니다. 오픈프레임웍스의 핵심 addon들은 직접 문제를 해결하는 방법을 대체할 여러 라이브러리들의 집합입니다. 그리하여 openFrameworks가 라이브러리를 포함한다는것은, 이러한 라이브러리들을 추가로 개조할수 있도록 남겨두었다는 의미이기도 합니다.
+openFrameworks는 건축할때의 발판재료나 건물이 완성되기까지 지탱해주는 비계의 개념입니다. 필요한 것들을 모두 집어넣어 두기 보다는, "addon" 시스템을 사용하여 추가적인 코드, 라이브러리, 방향성등을 사용자와 짜여지는 프로젝트간에 공유하여 "core"를 최대한 가볍게 하도록 하고 있습니다.
 
-One mental image of openFrameworks is a scaffolding, or shoulders to stand on while building what you want. One thing that helps keep the core light is that rather than try to include everything we can, openFrameworks has an "addon" system that allows for additional code, libraries, approaches, to be shared between users and woven into projects as necessary.
-openFrameworks의 정신적 이미지 중 하나는 바로 청사진입니다. 마치 건물을 짓기전 당신이 원하는것을 세우는 뼈대 같은것이지요. 
+openFrameworks 애드온은 간단한 조각 코드가 될 수도 있고, OpenNI, Tesseract, Box2d와 같이 엄청나게 복잡한 라이브러리들이 될 수도 있습니다. Addon의 이름은 일반적으로 "ofx"라는 단어로 시작하는데, 이는 "core"라이브러리인지 아닌지를 쉽게 구별하기 위해서입니다. 추가적으로 우리는 "core addon"에 모든사람들에게 꼭 필요하지 않지만, 대체로 많은사람들이 아마도 쓰기 원할것 같은(가령 ofxOpenCv와 같이) addon들을 포함시켜두었습니다.
 
-An openFrameworks addon can be a snippet of code, or it might wrap much more complex libraries such as OpenNI, Tesseract, or Box2d. Addon names usually begin with the prefix "ofx", allowing you to easily see the difference between "core" code and non core code. In addition we include "core addons", addons that we think people will probably want to use, such as ofxOpenCv, but aren't essential for every project.
-
-We try to organize and support the community developing addons through the http://ofxaddons.com site, which automatically collects addons from GitHub by looking for repos that contain the term "ofx" in the title. Right now there are more than 1,500 addons.
+우리는 [http://ofxaddons.com](http://ofxaddons.com/) 웹사이트를 통해, 개발된 OF addon들을 관리하고 지원하려고 노력하고 있습니다. 이곳에 보이는 addon은 GitHub에서 "ofx"의 이름을 가진 저장소들을 자동으로 검색하여 수집된 것들입니다. 지금 당장만 해도 1,500개 이상의 addon들이 있습니다.
 
 **남들과 함게 하세요 - Do it with others (DIWO)**
 
-The driving philosophy behind openFrameworks is "do it with others" (DIWO). We love do it yourself (DIY) culture, which has been heavily promoted and facilitated by the rise of tutorial website like Instructables or Make. But we're also excited about the idea of "making socially" ("with others"). We practice DIWO through workshops, developer conferences, hackathons/labs, knitting circles and meetups in person, and online in the form of mailing lists, forum posts, and so on. We even have a gang sign. Because if you have a gang, you have to have a gang sign. The most important thing we want to stress is that you are not alone, that there's a great group of people out there learning, teaching, hacking, making and exploring the creative side of code.
+openFrameworks의 배후에는 "남들과 함께하라(do it with others:DIWO)"라는 운영철학이 있습니다. 우리는 instructable이나 make와 같이 크게 성장해온 사이트에서 장려되고 추진되는 내가 스스로 한다(do it yourself:DIY)" 문화를 사랑합니다. 하지만 또한 우리는 "making socially" ("with others")에 대해서도 열광합니다. 우리는 DIWO철학을 워크샵이나, 개발자 컨퍼런스, 해커톤/연구실, 소규모 모임, 개인적 만남, 메일링 리스트를 통한 온라인 모임, 포럼 등등을 통해 시도해봤습니다. 우리는 소속감이 있습니다. 만약 당신이 그룹에 가입하면, 소속감을 가져야 합니다. 우리가 당신에게 스트레스를 주고 싶은 가장 중요한 것은, 당신은 혼자가 아니고, 우리에겐 코드의 영역에서  배우고, 가르치고, 해킹하고, 만들고 탐구하고, 창조하는 훌륭한 사람들의 그룹들이 있다는 것입니다.
 
-If you are not a part of the group, welcome!
+아직도 우리 그룹의 일원이 아니라면, 환영합니다!
 
 ----------------
 
 faq
 --------
 
-**기존의 많은 라이브러리들이 존재하는데, 왜 또다른 c++ 라이브러리를 제작하였나요?**
-
-There are plenty of libraries that exist make it easier to make software, especially with OpenGL. For example, ogre, irrlicht, JUCE, SDL, wxWindows, etc.
-
-Originally, openFrameworks was meant to provide a "bare-bones" alternative. We wanted to write a library that would be the bare minimum necessary to get started doing audio-visual work with C++.
-
-Over time, openFrameworks has evolved into a much more robust toolkit. Now, one of the biggest differences is audience. Our intended audience are folks using computers for creative, artistic expression, and who would like low level access to the data inside of media in order manipulate, analyze or explore.
+**기존의 많은 라이브러리들이 존재하는데, 왜 또 다른 c++ 라이브러리를 제작하였나요?**
 
 이미 손쉬운 소프트웨어 제작을 위한 많은 라이브러리들이 존재합니다. OpenGL을 예를들자면, ogre, irrlicht, JUCE, DSL, wxWindows들이 있습니다.
 
 본래, openFrameworks는 "베어본"의 대체를 제공하기 위함이었습니다. 우리는 C++을 통해 오디오-비주얼 작업을 함에 있어서 최소한의 필요 라이브러리를 작성하길 원했습니다.
 
-시간이 지남에 따라, openFrameworks는 보다 강력한 호환가능 제작 도구로 진화하였습니다. 현재에 이르러, 가장 큰 차이는 바로 사용자입니다. 우리의 잠재적 사용자들은 컴퓨터를 통한 창조적인 행위와 예술적 표현을 원하며, 미디어의 데이터에 로우-레벨 접근을 통해 그것을 조작하고, 분석하고, 연구하고자 합니다.
+시간이 지남에 따라, openFrameworks는 보다 강력한 호환가능 제작 도구로 진화하였습니다. 현재에 이르러, 가장 큰 차이는 바로 사용자입니다. 우리의 잠재적 사용자들은 컴퓨터를 통한 창조적인 행위와 예술적 표현을 원하며, 미디어의 데이터에 로우-레벨로 접근하여 그것을 조작하고, 분석하고, 연구하고자 하는 사람들입니다.
 
 **어쨰서 이러한 라이브러리들을 포함하기로 결정하였나요?**
 
 우리의 경험상 가장 깔끔하고 단순한 API들을 제공하하는 라이브러리들을 선택하기로 하였습니다. 또한 가장 관대한 라이센스와, 통합이 쉬운 API들이기도 합니다.
 
 예를들어 우리는 윈도우기반에서 동작하도록 하는 라이브러리로써 GLUT을 선택하였습니다. 일단, 완벽하게 유니버셜하고 당연하게도 관대한 라이센스를 갖고 있으며, 호환불가능 컴파일러나 플랫폼을 찾기가 힘들었기 때문입니다. 물론 우리는 다른 윈도우 라이브러리들(glfw라든가 wxWindows등) 또한 오픈프레임워크에 적용시켜보았습니다만, 최종적으로 후보중에 가장 쉬운 방법을 택하기로 하였습니다.
+
 **최신버전의 openFrameworks는 어디에서 구할 수 있나요?**
 
 최종 릴리즈는 [downloads](../downloads) 페이지에서 구할 수 있고, [github](https://github.com/openframeworks/openFrameworks/)페이지에서도 다운받을 수 있습니다. 가장 최신의 버전은 [develop branch](https://github.com/openframeworks/openFrameworks/tree/develop)에 위치해 있습니다. Github에서 OF 빌드에 관한 정보는 [readme](https://github.com/openframeworks/openFrameworks/blob/master/readme.txt)를 참고해 주십시오. Github을 통한 공헌에 관한 정보를 원하시면, [this document](https://github.com/openframeworks/openFrameworks/wiki/openFrameworks-git-workflow)를 참고해주십시오.
@@ -203,7 +195,7 @@ addon을 제작하거나, 문서를 작성하는것을 돕는 방법도 있습�
 
 **openFrameworks는 왜 바이너리가 아니라 소스의 형태로 배포되나요?**
 
-몇가지 이유가 있습니다. &mdash; 첫째로, 실용적입니다. openFrameworks는 여전히 개발중이기 떄문에, 우리가 추구하는 방향대로 변경해 나갈 것입니다. 코드를 보여주는것을 유지함으로써, 이러한 우리의 의도는 훨씬 손쉽고, 문제점이나 혼란스러움에 관하여 보다 나은 피드백을 받을 수 있습니다. 두번때로, 교육적입니다. 이러한 방법은 C++ 라이브러리 논쟁에 관해 배움의 좋은 시작점이 될것입니다. 세번째로, 이것은 openFrameworks를 변화하고 싶거나, 각자의 입맛대로 라이브러리를 수정하고 재구성하는 사람들에게 훌륭한 초대장이 되기 때문입니다.
+몇가지 이유가 있습니다. &mdash; 첫째로, 실용적입니다. openFrameworks는 여전히 개발중이기 떄문에, 우리가 추구하는 방향으로 변화해 나갈 것입니다. 코드를 보여주는 방식을 유지함으로써, 이러한 우리의 의도는 훨씬 손쉬워 질것이며, 또한 발생하는 문제점에 관하여 보다 나은 피드백을 받을 수 있습니다. 두번때로, 교육적입니다. 이러한 방법은 C++ 라이브러리 논쟁에 관해 배울 수 있는 좋은 시작점이 될 것입니다. 세번째로, 이것은 openFrameworks를 변화하고 싶거나, 각자의 입맛대로 라이브러리를 수정하고 재구성하는 사람들에게 오픈되어 있기 때문입니다.
 
 **How can I learn C++?**
 
@@ -212,7 +204,7 @@ addon을 제작하거나, 문서를 작성하는것을 돕는 방법도 있습�
 * [C and C++ in 5 days][6] Philip Machanick 제공, 아마도 우리가 봐왔던 C++ 공부하기에 관하여 최고중 하나입니다. (더도 말고 5일이면 된대요!).
 * [프로세싱 유저를 위한 openFrameworks][7] Zach Gage 제공, 프로세싱에서 넘어오기
 * [C언어 사용자를 위한 C++ 튜토리얼][12] C에서 넘어오기
-* [Programming Interactivity][8] Joshua Noble 제공, 프로세싱과  아두이노 뿐만 아니라 openFrameworks 0.62버전을 포함합니다.
+* [Programming Interactivity][8] Joshua Noble 제공, 프로세싱과 아두이노 뿐만 아니라 openFrameworks 0.62버전을 포함합니다.
 * [StackOverflow][11]는 일반적인 혹은 난해한 질문을 할 수 있는 훌륭한 커뮤니티입니다.
 * [C++ FAQ](http://www.parashift.com/c++-faq-lite/index.html) Marshall Cline 제공, 그리고 [C++ FQA Lite](http://yosefk.com/c++fqa/index.html) Yossi Kreinin 제공.
 * [cppreference.com/wiki/][15] 표준 템플릿 라이브러리 레퍼런스
