@@ -1,4 +1,4 @@
-ofTutorials - Introduction
+ofTutorials - 소개
 ==========================
 Jeff Crouse <jeff@crouse.cc>
 v0.2, September 2013:
@@ -9,27 +9,26 @@ v0.2, September 2013:
 :author_site: http://www.jeffcrouse.info
 :summary: This chapter will introduce openFrameworks and prepare you to start your first project.
 
-This chapter will introduce openFrameworks and prepare you to start your first project.
+이 챕터에서는 openFrameworks를 소개하고 여러분이 첫 프로젝트를 시작할 수 있도록 준비하는 과정을 소개합니다.
 
 image::images/ofw-logo.png["oF Logo",float="right"]
 
-What is OpenFrameworks?
+OpenFrameworks는 무엇입니까?
 =======================
 
 [quote, openframeworks.cc/about]
 __________________________
-openFrameworks is an http://www.openframeworks.cc/about/license.html[open source] http://en.wikipedia.org/wiki/C%2B%2B"[C++] toolkit designed to assist the creative process by providing a simple and intuitive framework for experimentation. The toolkit is designed to work as a general purpose glue, and wraps together several commonly used libraries, including:
+오픈프레임웍스는 실험적인 작업을 위한 간단하고 직관적인 프레임워크를 제공하여 생산적인 프로세스를 돕는 창조적 http://www.openframeworks.cc/about/license.html[오픈소스] http://en.wikipedia.org/wiki/C%2B%2B"[C++] 저작도구입니다. 이 저작도구는 아래에 나열된 일반적으로 사용되는 라이브러리들을 오마 일반적인 "접착제"와 같은 역할을 하도록 디자인되어있습니다.포함된 라이브러리들은 아래와 같습니다.
+- 그래픽 : http://www.opengl.org/[OpenGL], http://glew.sourceforge.net/[GLEW], http://www.opengl.org/resources/libraries/glut/[GLUT], http://www.glfw.org/[GLFW], https://code.google.com/p/libtess2/[libtess2] and http://cairographics.org/[cairo] for graphics
+- 오디오 입/출력 및 분석 : http://www.music.mcgill.ca/~gary/rtaudio/[rtAudio], http://www.portaudio.com/[PortAudio] or http://www.fmod.org/[FMOD] and http://kissfft.sourceforge.net/[Kiss FFT]
+- 서체 : http://freetype.sourceforge.net/index2.html[FreeType]
+- 이미지의 저장/로드 :http://freeimage.sourceforge.net/[FreeImage] for image saving and loading
+- 비디오 재생 및 로드 : http://developer.apple.com/quicktime/[Quicktime] and https://github.com/ofTheo/videoInput[videoInput]
+- 다양한 도구들 : http://pocoproject.org/[Poco]
 
-- http://www.opengl.org/[OpenGL], http://glew.sourceforge.net/[GLEW], http://www.opengl.org/resources/libraries/glut/[GLUT], http://www.glfw.org/[GLFW], https://code.google.com/p/libtess2/[libtess2] and http://cairographics.org/[cairo] for graphics
-- http://www.music.mcgill.ca/~gary/rtaudio/[rtAudio], http://www.portaudio.com/[PortAudio] or http://www.fmod.org/[FMOD] and http://kissfft.sourceforge.net/[Kiss FFT] for audio input, output and analysis
-- http://freetype.sourceforge.net/index2.html[FreeType] for fonts
-- http://freeimage.sourceforge.net/[FreeImage] for image saving and loading
-- http://developer.apple.com/quicktime/[Quicktime] and https://github.com/ofTheo/videoInput[videoInput] for video playback and grabbing
-- http://pocoproject.org/[Poco] for a variety of utilities
+코드는 크로스-플랫폼으로 동작하도록 작성되었습니다. 현재만 하더라도 다섯가지의 운영체제를 지원하고(윈도우즈, 맥킨토시, 리눅스, iOS, Android), 네가지 IDE들을 지원합니다.(Xcode, Code::blocks, MS Visual Studio, Eclipse). API는 최소한으로 작성되어 파악하기가 쉽습니다.
 
-The code is written to be massively cross-compatible. Right now we support five operating systems (Windows, OSX, Linux, iOS, Android) and four IDEs (XCode, Code::Blocks, and Visual Studio and Eclipse). The API is designed to be minimal and easy to grasp.
-
-Simply put, openFrameworks is a tool that makes it much easier to make things with code. We find it super useful, and we hope you do too.
+요약하자면, openFrameworks는 코드와 함께 작업하는것을 훨씬 쉽게 도와주는 저작도구 입니다. 저희에게 상당히 유용했던 이 도구가, 여러분에게도 도움이 되었으면 좋겠습니다.
 
 openFrameworks is actively developed by http://thesystemis.com/[Zach Lieberman], http://muonics.net/[Theodore Watson], and http://arturocastro.net/[Arturo Castro], with help from the http://www.openframeworks.cc/community/[OF community]. openFrameworks is indebted to two significant precursors: the http://processing.org/[Processing development environment], created by http://reas.com/[Casey Reas], http://benfry.com/[Ben Fry] and the Processing community; and the ACU Toolkit, a privately distributed C++ library developed by Ben Fry and others in the http://acg.media.mit.edu/[MIT Media Lab's Aesthetics and Computation Group].
 __________________________
@@ -37,19 +36,23 @@ __________________________
 
 Some of these packages (like OpenGL) will be explored in more depth in other parts of the documentation. Most of them do their thing in the background and you will probably never have to worry about them. Each of these libraries have their own syntax, conventions, and quirks, but the beauty of openFrameworks is that you don't have to worry about them -- oF is a single, consistent interface to the functionality that these other libraries provide.
 
+OpenGL과 같은 이러한 패키지의 일부는 별도의 상세한 문서로 분리되어 있기도 합니다. 대부분의 패키지들은 보이지 않는 곳에서 알아서 잘 동작하기 때문에 아마도 여러분들이 걱정할 필요는 없을 것입니다. 각각의 라이브러리들은 고유의 문법, 규칙, 특징을 갖고 있지만 이 또한 걱정할 필요가 없습니다. openFrameworks가 이러한 라이브러리들이 제공하는 것들을 일관적인 단일 인터페이스로 제공하기 때문입니다.
+
 [qanda]
 .Q&A
-Is it a program?::
-    OF is not itself a http://en.wikipedia.org/wiki/Computer_program[program] or an http://en.wikipedia.org/wiki/Software_application[application], but you can use OF to write your own programs and applications.
+oF는 프로그램입니까?::
+    oF 자체는 a http://en.wikipedia.org/wiki/Computer_program[프로그램]이나 an http://en.wikipedia.org/wiki/Software_application[어플리케이션]이 아닙니다, 하지만 oF를 사용함으로써, 여러분만의 프로그램이나 어플리케이션을 제작할 수 있습니다.
 
-Is it a programming language?::
-	OF does not constitute its own http://en.wikipedia.org/wiki/Programming_language[programming language], the language you use to write programs with OF is http://en.wikipedia.org/wiki/C%2B%2B[C++].
+프로그래밍 언어인가요?::
+	oF는 자신만의 http://en.wikipedia.org/wiki/Programming_language[프로그래밍 언어]로 구성되어있지는 않습니다. oF를 사용하여 프로그래밍할때 사용하는 언어는 http://en.wikipedia.org/wiki/C%2B%2B[C++]입니다.
 
-So it's a library?::
-	OF is in fact made up of several http://en.wikipedia.org/wiki/Software_library[software libraries] but the specific way it integrates these libraries together is more appropriately called a software framework.
+그렇다면, 이것은 라이브러리인가요?::
+	oF는 사실 몇몇 http://en.wikipedia.org/wiki/Software_library[소프트웨어 라이브러리]들로 구성되어있습니다. 그러나 이러한 라이브러리를 하나로 통합하는 방법을 취하고 있으므로, "소프트웨어 프레임워크"라고 불리는것이 더 적합할 것입니다.
 
-What is a software framework?::
-	A http://en.wikipedia.org/wiki/Software_framework[software framework] is a kind of pre-fabricated software infrastructure designed to provide all of the low level functionality needed for an application while allowing a programmer to customize the higher level details of what that application should do. One way that using a framework differs from using a library is that the flow of control is http://en.wikipedia.org/wiki/Inversion_of_control[inverted]. A library can be directly controlled by your code to perform a set of general tasks. In a framework your code responds to events controlled by the framework and uses the framework as an interface to access the functionality of other libraries. 
+소프트웨어 프레임워크란 무엇인가요?::
+	A http://en.wikipedia.org/wiki/Software_framework[소프트웨어 프레임워크]는 응용프로그램이 동작해야할 내용들을 프로그래머가 높은 수준의 상세기능들을 정의할 수 있도록 필요한 모든 낮은 수준의 기능들을 제공하도록 디자인된 일종의 조립소프트웨어 구조라고 할 수 있습니다. 프레임워크를 사용하는것과 라이브러리를 사용하는것의 차이점이라면 http://ko.wikipedia.org/wiki/제어_반전[제어의 역전]이 라고 할 수 있습니다. 라이브러리를 사용하면 여러분의 코드제어를 통해 일반적인 작업을 수행합니다. 프레임워크에서는 프레임워크에 의해 발생되는 이벤트들에 의해 여러분들의 코드가 반응합니다. 즉 프레임워크를 다른 라이브러리 기능에 접근을 하는 인터페이스로써 사용한다는 것이지요.
+	
+	  is a kind of pre-fabricated software infrastructure designed to provide all of the low level functionality needed for an application while allowing a programmer to customize the higher level details of what that application should do. One way that using a framework differs from using a library is that the flow of control is http://en.wikipedia.org/wiki/Inversion_of_control[inverted]. A library can be directly controlled by your code to perform a set of general tasks. In a framework your code responds to events controlled by the framework and uses the framework as an interface to access the functionality of other libraries. 
 	
 Sound complicated?
 	

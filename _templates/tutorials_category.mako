@@ -1,6 +1,6 @@
 ## -*- coding: utf-8 -*-
 <%inherit file="base.mako" />
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
@@ -10,15 +10,15 @@
   <body>
     <div id="content">
       ${self.header()}
-      <div id="body-wrap">	
+      <div id="body-wrap">
 	    <div class="page-wide">
             <!--ul class="submenu">
-                <li><a href="/documentation">reference</a></li>
-                <li><a href="/tutorials">tutorials</a></li>
+                <li><a href="/documentation">레퍼런스</a></li>
+                <li><a href="/tutorials">튜토리얼</a></li>
             </ul-->
 
-            
-            <h1>tutorials</h1>    
+
+            <h1>tutorials</h1>
 
 
         	<div class="submenucol-left">
@@ -42,13 +42,13 @@
                 % endfor
                 </ul>
             </div><!-- End Page Wide -->
-        
-    	
+
+
 
     	</div>
-              
+
       </div><!-- End Body Wrap -->
-      
+
       <div id="footer">
         ${self.footer()}
       </div> <!-- End Footer -->
@@ -59,5 +59,3 @@
 <%def name="header()">
   <%include file="header.mako" args="active='tutorials'" />
 </%def>
-
-

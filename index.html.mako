@@ -10,13 +10,13 @@
 
 <div class="page-right-narrow">
     <div class="home-links">
-        <h2>openFrameworks is an open source C++ toolkit for creative coding.</h2>
+        <h2>openFrameworks는 창조적인 코딩을 위한 오픈소스 C++ 저작도구입니다 </h2>
 
-        <h3><a href="download/">download</a></h3>
-        <p>Grab the most recent release (${bf.config.currentVersion}) and follow the setup guide to get openFrameworks running.</p>
+        <h3><a href="download/">다룬로드</a></h3>
+        <p>가장 최근에 배포된 최신 버전 (${bf.config.currentVersion})을 다운받으시고 셋업가이드를 따라주십시오.</p>
         
-	<h3><a href="documentation/">documentation</a></h3>
-	<p>Reference for openFrameworks classes, functions and addons. For guides and tutorials, see the <a href="http://wiki.openframeworks.cc/">wiki</a>.</p>
+	<h3><a href="documentation/">도큐멘트</a></h3>
+	<p>openFrameworks의 클래스, 함수 및 addon에 관한 레퍼런스입니다. 가이드와 튜토리얼은 For guides and tutorials, see the <a href="http://wiki.openframeworks.cc/">wiki</a>를 확인해주세요.</p>
         
 	<h3><a href="http://forum.openframeworks.cc/">forum</a></h3>
 	<p>포럼은 openFrameworks에 관련해 많은 동료와 교류하는 장이 되고 있습니다. <a href="http://artcode.kr/viewforum.php?f=2">한국어 게시판</a>도 있습니다.</p>
