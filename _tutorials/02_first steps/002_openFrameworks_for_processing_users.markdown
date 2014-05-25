@@ -9,9 +9,9 @@ author_site: http://www.stfj.net
 ## Contents
 
     
-*   [1 How Processing Actually Works][3]
+*   [1 프로세싱은 실제로 어떻게 동작하는가][3]
     
-    *   [1.1 What is class extending? (base and sub classes)?][4]
+    *   [1.1 클래스 확장이란 무엇인가요? (base and sub classes)?][4]
     *   [1.2 Ok, so what does this have to do with Processing?][5]
         
     
@@ -72,9 +72,10 @@ author_site: http://www.stfj.net
     *   [7.13 accidental breakpoints in Xcode and Why Having a Debugger Rocks][38]
             
 
-## How Processing Actually Works
+## 프로세싱은 실제로 어떻게 동작하는가
 
 If you've been programming in processing for a while (and if you made it by the disclaimer), it's safe to assume that you've used classes before. One aspect of Java classes that you might not have used however, is polyMorphism (class extending). 
+만약 여러분이 한동안 프로세싱에서 프로그래밍을 해왔다면(그리고 이런것들을 무시하고 해왔다면), 여러분은 이미 클래스를 사용해왔습니다. 여러분이 아마 정혀 사용하지 않았을 Java 클래스의 한 특징중 하나는 바로 polyMorphism(다형성)입니다. (클래스 확장)
 
 ### What is class extending? (base and sub classes)?
 
