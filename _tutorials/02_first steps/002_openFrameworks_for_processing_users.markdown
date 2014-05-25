@@ -1,6 +1,6 @@
 ---
 date: 2008/06/30 14:16:00
-title: openFrameworks for Processing users
+title: Processing 사용자들을 위한 openFrameworks
 summary: An overview of OpenFrameworks for processing junkies
 author: Zach Gage
 author_site: http://www.stfj.net 
@@ -11,28 +11,28 @@ author_site: http://www.stfj.net
     
 *   [1 프로세싱은 실제로 어떻게 동작하는가][3]
     
-    *   [1.1 클래스 확장이란 무엇인가요? (base and sub classes)?][4]
+    *   [1.1 클래스 상속이란 무엇인가요? (부모 클래스 와 자식 클래스)][4]
     *   [1.2 Ok, so what does this have to do with Processing?][5]
         
     
-*   [2 How OpenFrameworks Works.][6]
+*   [2 OpenFrameworks는 어떻게 동작하는가][6]
     
     *   [2.1 Main.cpp In-depth][7]
         
     
-*   [3 Java vs. C++ Compile Processes][8]
-*   [4 How Classes Work in C++ (Two Files!?)][9]
+*   [3 Java vs. C++ 컴파일 프로세스][8]
+*   [4 C++에서 클래스는 어떻게 동작하는가(두개의 파일!?)][9]
     
     *   [4.1 ofApp.h][10]
     *   [4.2 ofApp.cpp][11]
         
     
-*   [5 What the Fu\*&? (a very basic introduction to pointers).][12]
+*   [5 What the Fu\*&? (포인터의 기초적인 소개).][12]
     
     *   [5.1 Value vs. Reference][13]
     *   [5.2 & and \*][14]
-    *   [5.3 So Where Do I use This?][15]
-    *   [5.4 Basic Data-types][16]
+    *   [5.3 그래서 이걸 어디에 쓸수 있나요?][15]
+    *   [5.4 기본 데이터형][16]
         
         *   [5.4.1 The Processing String Exception][17]
             
@@ -41,75 +41,75 @@ author_site: http://www.stfj.net
     
 *   [6 PImage, updatePixels() vs. ofTexture, pixels\[\]][18]
     
-    *   [6.1 How are pixel values stored without a Color object?][19]
+    *   [6.1 Color 오브젝트 없이 픽셀 값들은 어떻게 저장되나요?][19]
         
     
-*   [7 Common Problems With C++ / Misc. Topics][20]
+*   [7 C++에서의 일반적인 문제들 / 기타 주제들][20]
     
-    *   [7.1 Expecting implicit data conversion?][21]
-    *   [7.2 Changing window size][22]
-    *   [7.3 Update() and Draw()?][23]
+    *   [7.1 은연중에 데이터 형변환을 기대하시나요?][21]
+    *   [7.2 윈도우 사이즈 변경하기][22]
+    *   [7.3 Update() 와 Draw()?][23]
     *   [7.4 How in the world do I print to the console?][24]
         
         *   [7.4.1 printf][25]
         *   [7.4.2 iostream][26]
-            
         
-    *   [7.5 Smoothing not working on filled shapes?][27]
-    *   [7.6 Displaying video problem/feature related to ofSetColor][28]
-    *   [7.7 Processing background() vs. OF ofBackground()][29]
-    *   [7.8 ofFill() / ofNoFill() vs. processing fill() noFill()][30]
-    *   [7.9 Math functions, and where they come from (no more Math.\*)][31]
+    *   [7.5 Smoothing은 채워진 도형들에 적용되지 않나요?][27]
+    *   [7.6 ofSetColor와 관련한 비디오 재생에 관한 문제점/요점들 ][28]
+    *   [7.7 Processing의 background() vs. OF의 ofBackground()][29]
+    *   [7.8 ofFill() / ofNoFill() vs. processing의 fill() noFill()][30]
+    *   [7.9 수학 함수들은 어디에서 왔나요? Math functions, and where they come from (no more Math.\*)][31]
         
         *   [7.9.1 cmath][32]
         *   [7.9.2 ofConstants][33]
         *   [7.9.3 ofMath][34]
-            
         
-    *   [7.10 Structs, what are they for, and how can we use them?][35]
-    *   [7.11 Memory Management and You][36]
-    *   [7.12 Basic Logic Problems][37]
+    *   [7.10 구조체(Structs), 이것들은 무엇을 위한것이며, 어떻게 사용하나요?][35]
+    *   [7.11 메모리 관리와 여러분 ][36]
+    *   [7.12 기초적인 논리 문제들][37]
     *   [7.13 accidental breakpoints in Xcode and Why Having a Debugger Rocks][38]
             
 
 ## 프로세싱은 실제로 어떻게 동작하는가
 
-If you've been programming in processing for a while (and if you made it by the disclaimer), it's safe to assume that you've used classes before. One aspect of Java classes that you might not have used however, is polyMorphism (class extending). 
-만약 여러분이 한동안 프로세싱에서 프로그래밍을 해왔다면(그리고 이런것들을 무시하고 해왔다면), 여러분은 이미 클래스를 사용해왔습니다. 여러분이 아마 정혀 사용하지 않았을 Java 클래스의 한 특징중 하나는 바로 polyMorphism(다형성)입니다. (클래스 확장)
+<!--If you've been programming in processing for a while (and if you made it by the disclaimer), it's safe to assume that you've used classes before. One aspect of Java classes that you might not have used however, is polyMorphism (class extending). -->
+만약 여러분이 한동안 프로세싱에서 프로그래밍을 해왔다면(그리고 이런것들을 무시하고 해왔다면), 여러분은 이미 클래스를 사용해왔습니다. 여러분이 아마 전혀 사용하지 않았을 Java 클래스의 한 특징중 하나는 바로 polyMorphism(다형성)입니다. (클래스 상속)
 
-### What is class extending? (base and sub classes)?
+### 클래스 상속이란 무엇인가요? (부모클래스와 자식클래스)
 
-Class extension is a way that you can take one class and add functionality to it with a new class.
+클래스 상속이란 이미 갖고 있는 하나의 클래스에 기능들을 더해 새로운 클래스를 만드는 것입니다.
 
-If for instance you were making a video game of some sort. You might make a class for Enemies so that they can load an image of what they look like, figure out their own movement and then draw themselves to the screen at their proper location. It might look like this:
+예를들어 여러분이 비디오케임을 만든다 칩시다. 아마도 적캐릭터를 위한 클래스를 만들기 위해서 그들이 어떻게 생겼는지 이미지를 불러오고, 그리고 화면상에 자신의 위치를 중심으로 어떻게 움직이는지를 규정해주어야 할것입니다. 아마도 아래와 같이 말이죠:
 
 ~~~~{.cpp}
     class Enemy
     {
-    	int x; //x position
-    	int y; //y position
+    	int x; //x 위치
+    	int y; //y 위치
     	public void init(String pathToEnemyPicture, int startX, int startY)
     	{
-    		//load in the enemy picture from the hard-drive
-    		//assign starting positions
+    		// 하드드라이브상에서 적 캐릭터의 이미지를 불러옵니다.
+    		// 시작위치를 지정해준다
     	}
     	
     	public void move()
     	{
-    		//move, maybe shoot at player
+    		// 움직인다. maybe shoot at player
     	}
     	public void draw()
     	{
-    		//draw my picture to the screen at the proper location
+    		// 캐릭터를 화면의 적절한 위치에 그린다. 
     	}
     }
 ~~~~
 
-But what if you wanted to make multiple types of enemies, each drawing themselves differently? This is where class extension comes in. All of the enemies are still going to have to Init() themselves and move() themselves around screen, so really the only function that we want to change here on an individual basis is the draw() function. 
+하지만 만약 여러분이 적 캐릭터의 여러 타입을 만들고 싶어서, 매번 그들을 다르게 그리고 싶다면 어떻게 해야할까요? 여기서 클래스 상속을 사용합니다. 모든 캐릭터들은 여전히 자신만의 초기화 함수 Init()과 움직임을 구현하는 move()함수를 가질것입니다. 따라서 우리가 변화를 주어야 할것은 draw()함수일 것입니다.
 
 We are now using the Enemy class as what is called a Base Class. A Base Class is a class that probably won't ever be instantiated, only inherited by other classes. Because the draw function is the only one we want to change, we don't need to write either the init() or move() functions. By declaring the draw() function again however, we are doing something called function re-definition. This is where you re-declare a function that has already been declared, in effect overwriting it for this subclass of Enemy.
 
-For example, in Java,
+여기서 우리는 부모 클래스로 적 클래스를 사용할 것입니다. 부모 클래스는 아마도 절대 인스턴스화되지 않을것입니다. 대신에 상속받은 다른 클래스만 인스턴스화 됩니다. draw()만이 우리가 변경할 유일한 함수이기 때문에, init()이나 move()함수들은 새로 작성할 필요가 없습니다. draw()함수를 다시 작성할때 하는 작업을, **함수 재정의**라 합니다. Enemy클래스의 자식클래스에 이미 정의된 함수를 재정의 함으로써, 함수를 덮어씌우는 효과를 가져오는 것입니다.
+
+Java의 예는 아래와 같습니다.
 
 ~~~~{.cpp}
     class DoubleEnemy extends Enemy
@@ -121,126 +121,142 @@ For example, in Java,
     }
 ~~~~
 
-which in C++ would be something like,
+같은 기능으로써 C++의 예는 아래와 같습니다.
 
 ~~~~{.cpp}
-    //on a "DoubleEnemy.h" file
-    class DoubleEnemy: public Enemy // class[className]:[privacy][extended Class]{}
+    // "DoubleEnemy.h" 파일에서
+    class DoubleEnemy: public Enemy // class[클래스 이름]:[privacy][부모 클래스 이름]{}
     {
-    	public void draw();//the actual code for draw would be on the "DoubleEnemy.cpp" file
-    }; // note the ";" at the end of the class statement
+    	// 여기서는 원형만 선언하고, 실제 코드의 내용은 "DoubleEnemy.cpp"에 작성합니다.
+    	public void draw();
+    	
+    }; // 클래스 선언의 끝에는 항상 ";"을 추가해줘야 함을 잊지 마세요!
 ~~~~
     
 
-Because DoubleEnemy extends our abstract Enemy class, it inherits all of the functions and variables that we declared in the Enemy class. Because of this, we will never have to write a new init or move function. We could even create another specialized Enemy class:
+DoubleEnemy는 추상적인 Enemy클래스를 상속받고 있기 때문에, Emeny클래스에 선언된 모든 함수와 변수들을 그대로 상속받슾니다. 따라서, init()나 move()함수를 다시 새로 작성할 필요가 없는것입니다. 심지어 새로운 특별한 Enemy클래스를 새로 만들때도 마찬가지 입니다:
 
 ~~~~{.cpp}
-    //on a "TripleEnemy.h" file
+    // "TripleEnemy.h" 파일에서
     class TripleEnemy : public Enemy
     {
-    	public void draw(); //draw myself three times
+    	public void draw(); // draw myself three times
     };
 ~~~~
 
-Now we have two enemy types that know how to move and initialize themselves but each display differently. Another advantage to this is that if we ever have to change how enemies move or initialize, we only need to change it once, in the base class, and the change will take effect through all of our specialized enemy types.
+자 이제 우리는 움직이면서 스스로를 초기화하지만, 가갂 다르게 보여지는 두가지 타입의 적캐릭터를 가지게 되었습니다. 클래스 상속의 또다른 장점은 움직임이나 초기화과정을 변경하고 싶을때, 부모클래스에서 한번만 변경해주면 상속받은 모든 적캐릭터 타입이 적용된다는 점입니다. 
 
-### Ok, so what does this have to do with Processing?
+<!--Ok, so what does this have to do with Processing?-->
+### 그렇다면 Processing에서는 이러한 과정이 어떻게 동작하나요?
 
-Although Processing hides it from you through their compiler, Processing is actually an engine running a Base Class (pApplet). Anything that you write, including classes, inside the Processing application automatically extends this base class that the Processing engine then runs. When you write draw() and setup() functions, you are actually re-defining the draw() and setup() functions that are in the processing base class.
+<!--Although Processing hides it from you through their compiler, Processing is actually an engine running a Base Class (pApplet). Anything that you write, including classes, inside the Processing application automatically extends this base class that the Processing engine then runs. When you write draw() and setup() functions, you are actually re-defining the draw() and setup() functions that are in the processing base class.-->
+비록 Processing이 컴파일러를 통해 여러분에게 이러한 것들을 숨기고 있지만, Processing은 사실 부모클래스(pApplet)상에서 동작하는 엔진입니다. Processing 프로그램 내에서 작성하는 클래스들을 포함한 어떠한 것이든 자동적으로 프로세싱 엔진인 부모클래스를 기반으로 동작하는 것입니다. draw()나 setup()함수를 작성할때, 실제로는 Processing의 부모클래스에 있는 draw()와 setup()을 재정의해서 사용하고 있었던 것입니다.
 
-## How OpenFrameworks Works.
+## <!--How OpenFrameworks Works.--> OpenFrameworks에서는 어떻게 동작하는가
 
-OpenFrameworks is built in much the same way as Processing. It just doesn't hide any of the complicated parts from you. However, if you open up ofApp.h, right under the \#include "ofMain.h" line, you will see a line that says: "class TestApp : public ofSimpleApp{". 
+<!--OpenFrameworks is built in much the same way as Processing. It just doesn't hide any of the complicated parts from you. However, if you open up ofApp.h, right under the \#include "ofMain.h" line, you will see a line that says: "class TestApp : public ofSimpleApp{". -->
+OpenFrameworks도 Processing과 거의 비슷한 방법으로 만들어졌습니다. 단지 이러한 복잡한것들이 숨겨지지 않았을 뿐입니다. ofApp.h파일을 열어서 \#include "ofMain.h" 의 바로 밑 라인을 확인해보시면 아마도 이런 코드를 보실 수 있을것입니다: "class ofApp: public ofSimpleApp{".
 
-This means, the ofApp class extends the ofSimpleApp class, just like in processing. Right under that, under "Public:" are all of the functions that ofApp is inheriting from ofSimpleApp that it needs to re-write, like in processing.
+<!--
+This means, the ofApp class extends the ofSimpleApp class, just like in processing. Right under that, under "Public:" are all of the functions that ofApp is inheriting from ofSimpleApp that it needs to re-write, like in processing.-->
+이 말은, ofApp클래스는 ofSimpleApp 클래스를 상속받겠다 라는 뜻입니다. Processing과 마찬가지로요. "public:"의 아래를 보시면 ofApp의 모든 함수들이 나열되어있는데 이것 또한 ofSimpleApp에서 상속받은 것입니다. 우리가 재정의 해서 사용하면 되는것입니다, 프로세싱과 마찬가지로요.
 
-Every C++ application needs a function called int main() to define where the program starts. Java requires this as well, but Processing hides this fact from you since anything you write is only extending a larger class with that main being called elsewhere. 
+<!--
+Every C++ application needs a function called int main() to define where the program starts. Java requires this as well, but Processing hides this fact from you since anything you write is only extending a larger class with that main being called elsewhere. -->
+모든 C++프로그램은 프로그램이 실행될 때 int main()이라는 함수가 호출되도록 디자인 되어있습니다. Java도 마찬가지입니다만, Processing은 이러한 것들을 숨겨두었습니다.
 
-C++ however must start with int main(). This is called the "entry point" and is the jumping off point for your program. 
+<!-- C++ however must start with int main(). This is called the "entry point" and is the jumping off point for your program. -->
+하지만 C++은 반드시 int main()으로 시작해야 합니다. 이를 "entry point"라고 하는데, 프로그램의 시작점을 의미합니다.
 
-main.cpp contains this main() function, and essentially contains the code to set your screen size, and kick off an infinite loop which runs your program. If you want to learn more about this, you can read section 2.1, but it's not necessary, and can be confusing at this point.
+<!--main.cpp contains this main() function, and essentially contains the code to set your screen size, and kick off an infinite loop which runs your program. If you want to learn more about this, you can read section 2.1, but it's not necessary, and can be confusing at this point.-->
+main.cpp는 이 main()함수를 포함합니다. 또한 이 함수 안에는 창의 크기라든가, 실제 프로그램이 동작할 무한루프 속으로 넘겨주는 내용이 담겨있습니다. 만약 여러분이 좀 더 이해하고 싶다면 섹션 2.1을 읽어보시기 바랍니다. 하지만 꼭 필요한것은 아니에요. 어쩌면 더 혼란스러울수도 있습니다.
 
-### Main.cpp In-depth
+### <!--Main.cpp In-depth-->Main.cpp 의 계층구조
 
-If you look at any of the OF example files you will see that in the main.cpp file contains two \#include statements up at the top. These operate the same way as they do in Processing. 
-
-The first one, 
+<!-- If you look at any of the OF example files you will see that in the main.cpp file contains two \#include statements up at the top. These operate the same way as they do in Processing. -->
+OF의 예제들을 살펴보시면 main.cpp안에 두 \#include 구문이 상단에 있음을 보실 수 있습니다. 이는 processing에서 동작하는것과 같은 역할을 합니다.
+<!--The first one,-->
+첫번째는 아래와 같습니다,
 
 ~~~~{.cpp}
     #include "ofMain.h"
 ~~~~
 
-adds the entire OpenFrameworks library to the main.cpp class. This allows the class to run two important OF functions, ofSetupOpenGL(), which creates the window to display your application, and ofRunApp(), which runs your application.
+<!-- adds the entire OpenFrameworks library to the main.cpp class. This allows the class to run two important OF functions, ofSetupOpenGL(), which creates the window to display your application, and ofRunApp(), which runs your application.-->
+OpenFrameworks의 모든 라이브러리를 main.cpp 클래스에 추가합니다. 이렇게 함으로써 클래스에서 두가지의 중요한 OF함수를 사용할 수 있습니다. 여러분의 프로그램을 표시할 윈도우를 생성해주는 ofSetupOpenGL()과, 실제 여러분의 프로그램이 동작할 ofRunApp()입니다.
 
-If you notice, ofRunApp() is passing a parameter, 
+<!-- If you notice, ofRunApp() is passing a parameter, -->
+잘 보시면, ofRunApp()은 parameter를 전달하고 있습니다, 
 
 ~~~~{.cpp}
     new ofApp()
 ~~~~
 
-ofRunApp() is passing an instance of the ofApp class, which happens to be the second thing included up at the top of main.cpp. ( \#include "ofApp.h" ) 
+ofRunApp() is passing an instance of the ofApp class, which happens to be the second thing included up at the top of main.cpp. ( \#include "ofApp.h" )
+ofRunApp()은 ofApp 클래스의 인스턴스를 전달하고 있습니다. 이것이 바로 \#include "ofApp.h" 구문에 의해 실댕되는 두번째 입니다.
 
 ofRunApp requires the passed parameter to be a type of ofSimpleApp, which is why when we looked at ofApp.h earlier, we noticed it extended ofSimpleApp.
 
+ofRunApp은 ofSimple타입의 parameter를 전달받아야 할 필요가 있습니다. 이것이 바로 ofSimpleApp을 상속받는다는, 우리가 ofApp.h을 이전에 살펴보아야 할 이유였습니다.
+
 To recap, 
 we have main.cpp which includes ofMain and ofApp.
+다시 정리하자면, main.cpp는 ofMain과 ofApp 두가지를 포함하고 있습니다.
+<!-- *   It includes ofMain to set the screenSize and to call ofRunApp-->
+*	ofMain은 윈도우 사이즈를 지정하고 ofRunApp을 호출합니다.
 
-*   It includes ofMain to set the screenSize and to call ofRunApp
-    
-
-(It includes ofApp to have a class to pass ofRunApp.
+<!--It includes ofApp to have a class to pass ofRunApp.-->
+ofApp은 ofRunApp을 전달받는 클래스를 가지고 있습니다.
 
 We also have ofApp which includes ofMain
 
 *   It includes ofMain so that any code you write in ofApp can benefit from the OpenFrameworks Library.
     
 
-Until you start writing your own classes, it might help to think of ofApp.cpp and ofApp.h as the main window in Processing. Meaning, any code you write will go into one of those two files, and until you feel comfortable, you won't have to look at anything else in Xcode.
+<!-- Until you start writing your own classes, it might help to think of ofApp.cpp and ofApp.h as the main window in Processing. Meaning, any code you write will go into one of those two files, and until you feel comfortable, you won't have to look at anything else in Xcode. -->
+여러분이 자신만의 클래스를 작성하기 전에, ofApp.cpp 와 ofApp.h에 이해하는것은 Processing의 메인 윈도우를 이해하는데 도움이 많이 될 것입니다. 이 두가지 파일에 코드를 작성하는것이 익숙해질때까지는 Xcode의 다른 부분들에 대해서 알 필요가 없습니다.
 
-## Java vs. C++ Compile Processes 
+## Java 와 C++의 컴파일 과정
 
-Java and C++ have vastly different compiling processes. It is important to understand the C++ compilation process as each stage of it can produce different types of errors. Knowing what stage produces what type of errors can go a long way towards debugging your project.
+<!-- Java and C++ have vastly different compiling processes. It is important to understand the C++ compilation process as each stage of it can produce different types of errors. Knowing what stage produces what type of errors can go a long way towards debugging your project.-->
+Java와 C\++의 컴파일 처리과정은 상당히 다릅니다. c\++의 컴파일 처리과정을 이해하는 것은 매우 중요합니다. 컴파일 처리의 각 단계는 다른 타입의 에러를 생성하거든요. 어떤 단계가 어떠한 타입의 에러를 내는지를 이해하는것은 여러분의 프로젝트를 디버깅하는데 도움을 줍니다.
+<!-- In Java, every time you compile, your entire program is run through and changed into byte code. Then when you run your program, a Java interpreter does runtime compilation to make your program work.  -->
+Java는 컴파일을 할때마다, 여러분의 전체 프로그램 전체가 byte코드로 변경된 채로 동작합니다. 그리고 나서 프로그램을 실행할때, 프로그램이 동작할 수 있도록 자바 해석기가 런타임 컴파일을 합니다.
 
-In Java, every time you compile, your entire program is run through and changed into byte code. Then when you run your program, a Java interpreter does runtime compilation to make your program work.
+c++은 조금 더 복잡합니다.
 
-C++ is a bit more complicated.
+*	첫째로, 컴파일러는 프로그램을 전처리합니다. 전처리 과정에서는 모든 코드에서 \#include 문을 읽어 코드 조각들을 복사하고 붙여넣어 거대한 하나의 파일로 만듭니다. (\# 심벌로 시작되는 구문들은 전처리기에서 읽도록 되어있습니다.)
 
-*   First, the compiler pre-processes your program. This means that it goes through all of your \#include statements and copy and pastes chunks of your code to create essentially one gigantic file. (Any statements preceded by a \# symbol are targeted at the pre-processor).
+*	두번째로, 컴파일러는 코드전체를 해석(parse)하여 코드들이 문법에 맞는지 확인하고, 어셈블리어(상당히 낮은 수준의 언어)로 해석하기 위해 코드를 쪼개 해석트리(parse-tree)에 집어넣습니다.
+
+*   세번째로, 어셈블리어는 기계가 이해할 수 있는 언어로 해석되어 object파일로 변환됩니다.
+
+*   마지막으로, object파일은 실행파일인 .exe나 .app파일과 연결(link)됩니다.
     
+C++의 컴파일 스타일의 한가지 장점은 OpenFrameworks와 같은 거대한 프로그램들을 컴파일할때 두드러집니다. 코드의 변경없이 컴파일을 하면 다시 컴파일을 하지 않습니다. 처음 컴파일을 하면 아마도 30초에서 1분의 시간이 걸릴것입니다. 그리고 나서 ofApp.cpp를 변경하고 컴파일을 다시 해보면, 컴파일은 엄청 빨라집니다. 이는 xCode가 openFrameworks라이브러리 전체를 컴파일할 필요없이, 코드의 변경된 부분만 컴파일하면 되기 때문입니다. 
 
-*   Second, the compiler parses through your code, making sure that all of your code makes sense, and breaking your code down into parse-trees, which it then translates into Assembly (a very low level language). 
-    
+***역자 주** 좀 더 자세한 사항을 알고 싶으시면 [이 문서](http://ko.wikipedia.org/wiki/자바와_C%2B%2B의_비교#.EB.9F.B0.ED.83.80.EC.9E.84)의 런타임 부분을 읽어보세요.*
 
-*   Thirdly, the Assembly is translated into machine-readable code inside object files.
-    
+## C++에서 클래스는 어떻게 동작하나요? (파일이 두개!?)
 
-*   and Lastly, these Object Files are linked together to create your .exe or .app file
-    
-
-One particular advantage that you will notice right away of the C++ compiler style is that when compiling huge programs (like OpenFrameworks applications), sections that have not been updated won't need to be re-compiled. This is easy to understand by opening any example and compiling it. Your first compilation could take 30 seconds to a minute. If you then make changes to ofApp.cpp and compile again, compilation should go much quicker. This is because Xcode no longer needs to compile the entire OpenFrameworks library, only your small bit of code that changed.
-
-## How Classes Work in C++ (Two Files!?)
-
-C++ classes comprise of two files. 
+C++ 클래스는 두개의 파일로 이루어져 있습니다.
 It helps to think of these two classes as a recipe. 
 
-The header file (.h) is like the list of ingredients, and contains:
+헤더파일 (.h)은 내용물의 리스트와 같으며 아래와 같은것들을 포함하고 있습니다:
 
-*   Any preprocessor statements there to prevent multiple header definitions
-*   Any include statements to other classes
-*   Any class extension statements
-*   Any variables local to the class
-*   Prototypes of any functions to be contained in the class
-*   And the security settings of these functions and variables (e.g. public, private, protected, etc).
+*   헤더파일이 여러번 참조되는 상황을 방지하하기 위한 전처리 구문
+*   다른 클래스를 읽는 include 구문
+*   클래스 상속 구문
+*   클래스의 로컬 변수들
+*   클래스에 포함될 함수들의 원형
+*   함수들과 변수들에 대한 보안 세팅 (public, private, protected )
     
+바디 파일(.cpp)은 내용물의 리스트에 관한 상세 설명과 같으며 아래와 같은 내용들을 포함합니다:
 
-and a body file (.cpp) which is like the instructions on what to do with the ingredients and contains:
-
-*   An include statement that references the .h file
-*   All of the code to fill in the function prototypes.
+*   참조할 헤더파일을 알려주는 include 구문
+*   모든 함수 원형에 관한 실제 동작 코드들
     
-
-To explore this more, open up the ofApp.cpp and ofApp.h files.
+더 알고 싶으시면, ofApp.cpp와 ofApp.h파일을 열어보시기 바랍니다.
 
 ### ofApp.h
 
@@ -282,17 +298,18 @@ I am going to provide a very basic explanation of Pointers here, enough to get s
 
 One of the largest differences between C++ and Java is that in Java, except for the basic data-types (byte, short, int, long, float, double, boolean, and char), all values are passed by reference. One important note is that Processing copies Strings by value, whereas C++ copies them by reference like all other classes.
 
-### Value vs. Reference
+### 값 vs. 참조 (Value vs. Reference)
 
-To understand the difference between value and reference you must first understand how the computer stores variables in its RAM.
-
+값과 참조의 차이점을 이해하려면, 우선 컴퓨터가 어떻게 RAM에 변수들을 저장하는지 먼저 이해해야합니다.  
 When you write the Processing line:
+아래와 같이 코드를 작성하면:
 
 ~~~~{.cpp}
     int num = 5;
 ~~~~
 
 What the computer does is it goes to the place in its memory that is set up to store integers, picks an empty spot with the right number of bytes to store an integer, places the number 5 in that spot, and then sends the address of that spot to your program which stores it in the "num" variable.
+컴퓨터는 우선 메모리에 정수형 변수를 저장할 공간을 찾아 세팅하고, 해당위치에 5라는 숫자를 저장한다음, 변수 num이 가질 값 5가 실제로 저장된 위치의 메모리주소를 프로그램에게 알려줍니다.
 
 It might be easier to think of the spot in memory that num references as a box containing the number 5:
 5
