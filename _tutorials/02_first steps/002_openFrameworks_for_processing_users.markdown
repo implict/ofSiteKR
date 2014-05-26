@@ -12,7 +12,7 @@ author_site: http://www.stfj.net
 *   [1 프로세싱은 실제로 어떻게 동작하는가][3]
     
     *   [1.1 클래스 상속이란 무엇인가요? (부모 클래스 와 자식 클래스)][4]
-    *   [1.2 Ok, so what does this have to do with Processing?][5]
+    *   [1.2 그렇다면 Processing에서는 이러한 과정이 어떻게 동작하나요?][5]
         
     
 *   [2 OpenFrameworks는 어떻게 동작하는가][6]
@@ -20,21 +20,21 @@ author_site: http://www.stfj.net
     *   [2.1 Main.cpp In-depth][7]
         
     
-*   [3 Java vs. C++ 컴파일 프로세스][8]
+*   [3 Java 과 C++의 컴파일 과정][8]
 *   [4 C++에서 클래스는 어떻게 동작하는가(두개의 파일!?)][9]
     
     *   [4.1 ofApp.h][10]
     *   [4.2 ofApp.cpp][11]
         
     
-*   [5 What the Fu\*&? (포인터의 기초적인 소개).][12]
+*   [5 아놔 \* 이게 대체 뭐람? (포인터에 대한 아주 기초적인 소개).][12]
     
-    *   [5.1 Value vs. Reference][13]
+    *   [5.1 값 vs. 참조 (Value vs. Reference)][13]
     *   [5.2 & and \*][14]
     *   [5.3 그래서 이걸 어디에 쓸수 있나요?][15]
     *   [5.4 기본 데이터형][16]
         
-        *   [5.4.1 The Processing String Exception][17]
+        *   [5.4.1 Processing에서의 문자열 예외][17]
             
         
         
@@ -73,13 +73,14 @@ author_site: http://www.stfj.net
 ## 프로세싱은 실제로 어떻게 동작하는가
 
 <!--If you've been programming in processing for a while (and if you made it by the disclaimer), it's safe to assume that you've used classes before. One aspect of Java classes that you might not have used however, is polyMorphism (class extending). -->
-만약 여러분이 한동안 프로세싱에서 프로그래밍을 해왔다면(그리고 이런것들을 무시하고 해왔다면), 여러분은 이미 클래스를 사용해왔습니다. 여러분이 아마 전혀 사용하지 않았을 Java 클래스의 한 특징중 하나는 바로 polyMorphism(다형성)입니다. (클래스 상속)
+
+만약 여러분이 한동안 Processing에서 프로그래밍을 해왔다면(그리고 별생각 없이 만들어 왔었다면), 이전에 클래스를 사용해봤었다라고 말해도 클린말은 아닙니다. 설령 여러분이 사용하지 않았다 할지도 모를 Java 클래스의 한 특징은 바로 polyMorphism(다형성)입니다. (클래스 상속)
 
 ### 클래스 상속이란 무엇인가요? (부모클래스와 자식클래스)
 
 클래스 상속이란 이미 갖고 있는 하나의 클래스에 기능들을 더해 새로운 클래스를 만드는 것입니다.
 
-예를들어 여러분이 비디오케임을 만든다 칩시다. 아마도 적캐릭터를 위한 클래스를 만들기 위해서 그들이 어떻게 생겼는지 이미지를 불러오고, 그리고 화면상에 자신의 위치를 중심으로 어떻게 움직이는지를 규정해주어야 할것입니다. 아마도 아래와 같이 말이죠:
+예를 들어 여러분이 비디오케임을 만든다 가정해봅시다. 아마도 적캐릭터(Enemy)를 위한 클래스를 만들고, 그것들이 어떻게 생겼는지 이미지를 불러오고, 그리고 화면상에 자신의 위치를 중심으로 어떻게 움직이는지를 규정해주어야 할것입니다. 아마도 아래와 같이 말이죠:
 
 ~~~~{.cpp}
     class Enemy
@@ -88,35 +89,35 @@ author_site: http://www.stfj.net
     	int y; //y 위치
     	public void init(String pathToEnemyPicture, int startX, int startY)
     	{
-    		// 하드드라이브상에서 적 캐릭터의 이미지를 불러옵니다.
-    		// 시작위치를 지정해준다
+    		// 하드드라이브상에서 적 캐릭터로 사용할 이미지를 불러온다.
+    		// 시작위치를 지정해준다.
     	}
     	
     	public void move()
     	{
-    		// 움직인다. maybe shoot at player
+    		// 움직인다. 아마도 플레이어에게 총을 쏘겠지?
     	}
     	public void draw()
     	{
-    		// 캐릭터를 화면의 적절한 위치에 그린다. 
+    		// 캐릭터를 화면의 적절한 위치에 그린다.
     	}
     }
 ~~~~
 
-하지만 만약 여러분이 적 캐릭터의 여러 타입을 만들고 싶어서, 매번 그들을 다르게 그리고 싶다면 어떻게 해야할까요? 여기서 클래스 상속을 사용합니다. 모든 캐릭터들은 여전히 자신만의 초기화 함수 Init()과 움직임을 구현하는 move()함수를 가질것입니다. 따라서 우리가 변화를 주어야 할것은 draw()함수일 것입니다.
+하지만 만약 여러분이 Enemy의 여러 타입을 만들고, 각각 그들을 다르게 보여주고 싶다면 어떻게 해야할까요? 바로 여기서 클래스 상속을 사용합니다. 모든 캐릭터들은 여전히 자신만의 초기화 함수 init()과 움직임을 구현하는 move()함수를 가질것입니다. 따라서 우리가 변화를 주어야 할것은 실제 Enemy를 그리는 draw()함수일 것입니다.
 
-We are now using the Enemy class as what is called a Base Class. A Base Class is a class that probably won't ever be instantiated, only inherited by other classes. Because the draw function is the only one we want to change, we don't need to write either the init() or move() functions. By declaring the draw() function again however, we are doing something called function re-definition. This is where you re-declare a function that has already been declared, in effect overwriting it for this subclass of Enemy.
+<!--We are now using the Enemy class as what is called a Base Class. A Base Class is a class that probably won't ever be instantiated, only inherited by other classes. Because the draw function is the only one we want to change, we don't need to write either the init() or move() functions. By declaring the draw() function again however, we are doing something called function re-definition. This is where you re-declare a function that has already been declared, in effect overwriting it for this subclass of Enemy.-->
 
-여기서 우리는 부모 클래스로 적 클래스를 사용할 것입니다. 부모 클래스는 아마도 절대 인스턴스화되지 않을것입니다. 대신에 상속받은 다른 클래스만 인스턴스화 됩니다. draw()만이 우리가 변경할 유일한 함수이기 때문에, init()이나 move()함수들은 새로 작성할 필요가 없습니다. draw()함수를 다시 작성할때 하는 작업을, **함수 재정의**라 합니다. Enemy클래스의 자식클래스에 이미 정의된 함수를 재정의 함으로써, 함수를 덮어씌우는 효과를 가져오는 것입니다.
+여기서 Enemy 클래스를 부모 클래스로 사용할 것입니다. 부모 클래스는 아마도 절대 인스턴스화되지 않을것입니다. 대신에 상속받은 다른 클래스만 인스턴스화 됩니다. draw()만이 우리가 변경할 유일한 함수이기 때문에, init()이나 move()함수들은 새로 작성할 필요가 없습니다. draw()함수를 다시 작성할때 하는 작업을, **함수 재정의**라 합니다. Enemy클래스의 자식클래스에 이미 정의된 함수를 재정의 함으로써, 함수를 덮어씌우는 효과를 가져오는 것입니다.
 
-Java의 예는 아래와 같습니다.
+Java에서의 예는 아래와 같습니다.
 
 ~~~~{.cpp}
     class DoubleEnemy extends Enemy
     {
     	public void draw()
     	{
-    		//draw myself twice
+    		// 자신을 두번 그린다
     	}
     }
 ~~~~
@@ -124,7 +125,7 @@ Java의 예는 아래와 같습니다.
 같은 기능으로써 C++의 예는 아래와 같습니다.
 
 ~~~~{.cpp}
-    // "DoubleEnemy.h" 파일에서
+    // "DoubleEnemy.h" 파일
     class DoubleEnemy: public Enemy // class[클래스 이름]:[privacy][부모 클래스 이름]{}
     {
     	// 여기서는 원형만 선언하고, 실제 코드의 내용은 "DoubleEnemy.cpp"에 작성합니다.
@@ -134,48 +135,59 @@ Java의 예는 아래와 같습니다.
 ~~~~
     
 
-DoubleEnemy는 추상적인 Enemy클래스를 상속받고 있기 때문에, Emeny클래스에 선언된 모든 함수와 변수들을 그대로 상속받슾니다. 따라서, init()나 move()함수를 다시 새로 작성할 필요가 없는것입니다. 심지어 새로운 특별한 Enemy클래스를 새로 만들때도 마찬가지 입니다:
+DoubleEnemy는 추상적인 Enemy클래스를 상속받고 있기 때문에, Emeny클래스에 선언된 모든 함수와 변수들을 그대로 상속받습니다. 따라서, init()나 move()함수를 다시 새로 작성할 필요가 없는 것입니다. 이는 새로운 특별한 Enemy클래스를 만들때도 마찬가지 입니다:
 
 ~~~~{.cpp}
-    // "TripleEnemy.h" 파일에서
+    // "TripleEnemy.h" 파일
     class TripleEnemy : public Enemy
     {
-    	public void draw(); // draw myself three times
+    	public void draw(); // 자신을 세번 그린다
     };
 ~~~~
 
-자 이제 우리는 움직이면서 스스로를 초기화하지만, 가갂 다르게 보여지는 두가지 타입의 적캐릭터를 가지게 되었습니다. 클래스 상속의 또다른 장점은 움직임이나 초기화과정을 변경하고 싶을때, 부모클래스에서 한번만 변경해주면 상속받은 모든 적캐릭터 타입이 적용된다는 점입니다. 
+자 이제 우리는 움직이면서 스스로를 초기화하지만, 각각 다른 모습으로 보여지는 두가지 타입의 Enemy를 가지게 되었습니다. 클래스 상속의 또다른 장점은 움직임이나 초기화과정을 변경하고 싶을때, 부모클래스에서 한번만 변경해주면 상속받은 모든 Enemy 타입이 동시에 적용된다는 점입니다. 
 
 <!--Ok, so what does this have to do with Processing?-->
+
 ### 그렇다면 Processing에서는 이러한 과정이 어떻게 동작하나요?
 
 <!--Although Processing hides it from you through their compiler, Processing is actually an engine running a Base Class (pApplet). Anything that you write, including classes, inside the Processing application automatically extends this base class that the Processing engine then runs. When you write draw() and setup() functions, you are actually re-defining the draw() and setup() functions that are in the processing base class.-->
-비록 Processing이 컴파일러를 통해 여러분에게 이러한 것들을 숨기고 있지만, Processing은 사실 부모클래스(pApplet)상에서 동작하는 엔진입니다. Processing 프로그램 내에서 작성하는 클래스들을 포함한 어떠한 것이든 자동적으로 프로세싱 엔진인 부모클래스를 기반으로 동작하는 것입니다. draw()나 setup()함수를 작성할때, 실제로는 Processing의 부모클래스에 있는 draw()와 setup()을 재정의해서 사용하고 있었던 것입니다.
 
-## <!--How OpenFrameworks Works.--> OpenFrameworks에서는 어떻게 동작하는가
+비록 Processing에서 이러한 것들이 컴파일러를 통해 숨겨져 있지만, Processing은 사실 부모클래스(pApplet)상에서 동작하는 엔진입니다. Processing 프로그램 내에서는 작성하는 클래스들을 포함한 어떠한 것이든 자동적으로 프로세싱 엔진인 부모클래스를 기반으로 동작합니다. draw()나 setup()함수를 작성할 때, 실제로는 Processing의 부모클래스에 있는 draw()와 setup()을 재정의해서 사용하고 있었던 것입니다.
+
+## OpenFrameworks에서는 어떻게 동작하는가
 
 <!--OpenFrameworks is built in much the same way as Processing. It just doesn't hide any of the complicated parts from you. However, if you open up ofApp.h, right under the \#include "ofMain.h" line, you will see a line that says: "class TestApp : public ofSimpleApp{". -->
-OpenFrameworks도 Processing과 거의 비슷한 방법으로 만들어졌습니다. 단지 이러한 복잡한것들이 숨겨지지 않았을 뿐입니다. ofApp.h파일을 열어서 \#include "ofMain.h" 의 바로 밑 라인을 확인해보시면 아마도 이런 코드를 보실 수 있을것입니다: "class ofApp: public ofSimpleApp{".
+
+OpenFrameworks도 Processing과 거의 비슷한 방법으로 만들어졌습니다. 단지 이러한 복잡한것을 숨기지 않았을 뿐입니다. ofApp.h파일을 열어서 \#include "ofMain.h" 의 바로 밑 라인을 확인해보시면 아마도 이런 코드를 보실 수 있을것입니다: 
+"class ofApp: public ofSimpleApp{".
 
 <!--
 This means, the ofApp class extends the ofSimpleApp class, just like in processing. Right under that, under "Public:" are all of the functions that ofApp is inheriting from ofSimpleApp that it needs to re-write, like in processing.-->
-이 말은, ofApp클래스는 ofSimpleApp 클래스를 상속받겠다 라는 뜻입니다. Processing과 마찬가지로요. "public:"의 아래를 보시면 ofApp의 모든 함수들이 나열되어있는데 이것 또한 ofSimpleApp에서 상속받은 것입니다. 우리가 재정의 해서 사용하면 되는것입니다, 프로세싱과 마찬가지로요.
+
+저 코드의 의미는, ofApp클래스는 ofSimpleApp 클래스를 상속받겠다 라는 뜻입니다. Processing과 마찬가지로요. "public:"의 아래를 보시면 ofApp의 모든 함수들이 나열되어있는데 이것 또한 ofSimpleApp에서 상속받은 것입니다. 우리가 재정의 해서 사용하면 되는 것이지요. 프로세싱과 마찬가지로요.
 
 <!--
 Every C++ application needs a function called int main() to define where the program starts. Java requires this as well, but Processing hides this fact from you since anything you write is only extending a larger class with that main being called elsewhere. -->
+
 모든 C++프로그램은 프로그램이 실행될 때 int main()이라는 함수가 호출되도록 디자인 되어있습니다. Java도 마찬가지입니다만, Processing은 이러한 것들을 숨겨두었습니다.
 
 <!-- C++ however must start with int main(). This is called the "entry point" and is the jumping off point for your program. -->
+
 하지만 C++은 반드시 int main()으로 시작해야 합니다. 이를 "entry point"라고 하는데, 프로그램의 시작점을 의미합니다.
 
 <!--main.cpp contains this main() function, and essentially contains the code to set your screen size, and kick off an infinite loop which runs your program. If you want to learn more about this, you can read section 2.1, but it's not necessary, and can be confusing at this point.-->
-main.cpp는 이 main()함수를 포함합니다. 또한 이 함수 안에는 창의 크기라든가, 실제 프로그램이 동작할 무한루프 속으로 넘겨주는 내용이 담겨있습니다. 만약 여러분이 좀 더 이해하고 싶다면 섹션 2.1을 읽어보시기 바랍니다. 하지만 꼭 필요한것은 아니에요. 어쩌면 더 혼란스러울수도 있습니다.
+
+main.cpp는 이 main()함수를 포함합니다. 또한 이 함수 안에는 창의 크기라든가, 실제 프로그램이 동작할 무한루프 속으로 넘겨주는 코드들이 담겨있습니다. 만약 여러분이 좀 더 이해하고 싶다면 섹션 2.1을 읽어보시기 바랍니다. 하지만 꼭 필요한것은 아니에요. 어쩌면 더 혼란스러울수도 있습니다.
 
 ### <!--Main.cpp In-depth-->Main.cpp 의 계층구조
 
 <!-- If you look at any of the OF example files you will see that in the main.cpp file contains two \#include statements up at the top. These operate the same way as they do in Processing. -->
+
 OF의 예제들을 살펴보시면 main.cpp안에 두 \#include 구문이 상단에 있음을 보실 수 있습니다. 이는 processing에서 동작하는것과 같은 역할을 합니다.
+
 <!--The first one,-->
+
 첫번째는 아래와 같습니다,
 
 ~~~~{.cpp}
@@ -183,9 +195,11 @@ OF의 예제들을 살펴보시면 main.cpp안에 두 \#include 구문이 상단
 ~~~~
 
 <!-- adds the entire OpenFrameworks library to the main.cpp class. This allows the class to run two important OF functions, ofSetupOpenGL(), which creates the window to display your application, and ofRunApp(), which runs your application.-->
-OpenFrameworks의 모든 라이브러리를 main.cpp 클래스에 추가합니다. 이렇게 함으로써 클래스에서 두가지의 중요한 OF함수를 사용할 수 있습니다. 여러분의 프로그램을 표시할 윈도우를 생성해주는 ofSetupOpenGL()과, 실제 여러분의 프로그램이 동작할 ofRunApp()입니다.
+
+위 코드는 OpenFrameworks의 모든 라이브러리를 main.cpp 클래스에 추가합니다. 이렇게 함으로써 클래스에서 두가지의 중요한 oF함수를 사용할 수 있습니다. 여러분의 프로그램을 표시할 윈도우를 생성해주는 ofSetupOpenGL()과, 실제 여러분의 프로그램이 동작할 ofRunApp()입니다.
 
 <!-- If you notice, ofRunApp() is passing a parameter, -->
+
 잘 보시면, ofRunApp()은 parameter를 전달하고 있습니다, 
 
 ~~~~{.cpp}
@@ -193,35 +207,45 @@ OpenFrameworks의 모든 라이브러리를 main.cpp 클래스에 추가합니�
 ~~~~
 
 ofRunApp() is passing an instance of the ofApp class, which happens to be the second thing included up at the top of main.cpp. ( \#include "ofApp.h" )
-ofRunApp()은 ofApp 클래스의 인스턴스를 전달하고 있습니다. 이것이 바로 \#include "ofApp.h" 구문에 의해 실댕되는 두번째 입니다.
 
-ofRunApp requires the passed parameter to be a type of ofSimpleApp, which is why when we looked at ofApp.h earlier, we noticed it extended ofSimpleApp.
+ofRunApp()은 ofApp 클래스의 인스턴스를 전달하고 있습니다. 이것이 바로 \#include "ofApp.h" 구문에 의해 실행되는 두번째 입니다.
+
+<!-- ofRunApp requires the passed parameter to be a type of ofSimpleApp, which is why when we looked at ofApp.h earlier, we noticed it extended ofSimpleApp.-->
 
 ofRunApp은 ofSimple타입의 parameter를 전달받아야 할 필요가 있습니다. 이것이 바로 ofSimpleApp을 상속받는다는, 우리가 ofApp.h을 이전에 살펴보아야 할 이유였습니다.
 
-To recap, 
-we have main.cpp which includes ofMain and ofApp.
+<!-- To recap, we have main.cpp which includes ofMain and ofApp.-->
+
 다시 정리하자면, main.cpp는 ofMain과 ofApp 두가지를 포함하고 있습니다.
-<!-- *   It includes ofMain to set the screenSize and to call ofRunApp-->
+
+<!-- *   It includes ofMain to set the screenSize and to call ofRunApp -->
+
 *	ofMain은 윈도우 사이즈를 지정하고 ofRunApp을 호출합니다.
 
 <!--It includes ofApp to have a class to pass ofRunApp.-->
+
 ofApp은 ofRunApp을 전달받는 클래스를 가지고 있습니다.
 
-We also have ofApp which includes ofMain
+<!-- We also have ofApp which includes ofMain-->
+
+또한 ofApp은 ofMain을 포함하고 있습니다
 
 *   It includes ofMain so that any code you write in ofApp can benefit from the OpenFrameworks Library.
     
 
 <!-- Until you start writing your own classes, it might help to think of ofApp.cpp and ofApp.h as the main window in Processing. Meaning, any code you write will go into one of those two files, and until you feel comfortable, you won't have to look at anything else in Xcode. -->
+
 여러분이 자신만의 클래스를 작성하기 전에, ofApp.cpp 와 ofApp.h에 이해하는것은 Processing의 메인 윈도우를 이해하는데 도움이 많이 될 것입니다. 이 두가지 파일에 코드를 작성하는것이 익숙해질때까지는 Xcode의 다른 부분들에 대해서 알 필요가 없습니다.
 
-## Java 와 C++의 컴파일 과정
+## Java 과 C++의 컴파일 과정
 
 <!-- Java and C++ have vastly different compiling processes. It is important to understand the C++ compilation process as each stage of it can produce different types of errors. Knowing what stage produces what type of errors can go a long way towards debugging your project.-->
-Java와 C\++의 컴파일 처리과정은 상당히 다릅니다. c\++의 컴파일 처리과정을 이해하는 것은 매우 중요합니다. 컴파일 처리의 각 단계는 다른 타입의 에러를 생성하거든요. 어떤 단계가 어떠한 타입의 에러를 내는지를 이해하는것은 여러분의 프로젝트를 디버깅하는데 도움을 줍니다.
+
+Java와 C\++의 컴파일 처리과정은 상당히 다릅니다. c\++의 컴파일 처리과정을 이해하는 것은 매우 중요합니다. 컴파일 처리의 각 단계는 다른 타입의 에러를 생성하기 때문입니다. 어떤 단계가 어떠한 타입의 에러를 내는지를 이해하면, 여러분의 프로젝트를 디버깅하는데 많은 도움이 될 것입니다.
+
 <!-- In Java, every time you compile, your entire program is run through and changed into byte code. Then when you run your program, a Java interpreter does runtime compilation to make your program work.  -->
-Java는 컴파일을 할때마다, 여러분의 전체 프로그램 전체가 byte코드로 변경된 채로 동작합니다. 그리고 나서 프로그램을 실행할때, 프로그램이 동작할 수 있도록 자바 해석기가 런타임 컴파일을 합니다.
+
+Java는 컴파일을 할 때마다, 프로그램 전체가 byte코드로 변경된 채로 동작합니다. 그리고 나서 프로그램을 실행할 때, 프로그램이 동작할 수 있도록 자바 해석기가 런타임 컴파일을 합니다.
 
 c++은 조금 더 복잡합니다.
 
@@ -233,9 +257,9 @@ c++은 조금 더 복잡합니다.
 
 *   마지막으로, object파일은 실행파일인 .exe나 .app파일과 연결(link)됩니다.
     
-C++의 컴파일 스타일의 한가지 장점은 OpenFrameworks와 같은 거대한 프로그램들을 컴파일할때 두드러집니다. 코드의 변경없이 컴파일을 하면 다시 컴파일을 하지 않습니다. 처음 컴파일을 하면 아마도 30초에서 1분의 시간이 걸릴것입니다. 그리고 나서 ofApp.cpp를 변경하고 컴파일을 다시 해보면, 컴파일은 엄청 빨라집니다. 이는 xCode가 openFrameworks라이브러리 전체를 컴파일할 필요없이, 코드의 변경된 부분만 컴파일하면 되기 때문입니다. 
+C++의 컴파일 스타일의 한가지 장점은 OpenFrameworks와 같은 거대한 프로그램들을 컴파일할 때 두드러집니다. 코드의 변경없이 컴파일을 하면 다시 컴파일을 하지 않습니다. 처음으로 컴파일을 시도하면 아마도 30초에서 1분의 시간이 걸릴것입니다. 그 다음 ofApp.cpp의 일부를 변경하고 컴파일을 다시 해보면, 컴파일은 엄청 빨라집니다. 이는 xCode가 openFrameworks라이브러리 전체를 컴파일할 필요 없이, 코드의 변경된 부분만 컴파일 하기 떄문입니다.
 
-***역자 주** 좀 더 자세한 사항을 알고 싶으시면 [이 문서](http://ko.wikipedia.org/wiki/자바와_C%2B%2B의_비교#.EB.9F.B0.ED.83.80.EC.9E.84)의 런타임 부분을 읽어보세요.*
+_**역자 주 : 좀 더 자세한 사항을 알고 싶으시면 [이 문서](http://ko.wikipedia.org/wiki/자바와_C++의_비교#.EB.9F.B0.ED.83.80.EC.9E.84)의 런타임 부분을 읽어보세요.**_
 
 ## C++에서 클래스는 어떻게 동작하나요? (파일이 두개!?)
 
@@ -260,164 +284,216 @@ It helps to think of these two classes as a recipe.
 
 ### ofApp.h
 
-All of the code in ofApp.h is wrapped in a large if statement called \#ifndef. This statement is designed explicitly for the preProcessor stage of compilation. Basically, when the compiler runs through your code before it compiles, it copies and pastes code to make all of the include statements work. If you have included the same header file in multiple places, this can cause a problem for compilation. \#ifndef tells the compiler that if whatever variable name you have decided, in this case, \_TEST\_APP, has already been defined somewhere in the code, not to define it again. It's sort of a hack to make organizing code easier, and is good practice to include in any custom classes you make (with a different variable name obviously).
+<!-- All of the code in ofApp.h is wrapped in a large if statement called \#ifndef. This statement is designed explicitly for the preProcessor stage of compilation. Basically, when the compiler runs through your code before it compiles, it copies and pastes code to make all of the include statements work. If you have included the same header file in multiple places, this can cause a problem for compilation. \#ifndef tells the compiler that if whatever variable name you have decided, in this case, \_TEST\_APP, has already been defined somewhere in the code, not to define it again. It's sort of a hack to make organizing code easier, and is good practice to include in any custom classes you make (with a different variable name obviously). -->
 
-After this comes the \#include statement that brings in all of the OpenFrameworks functionality.
+ofApp.h의 모든 코드는 \#ifndef라는 if 조건문으로 둘러싸여 있습니다. 이 구문은 컴파일의 전처리 단계를 위한 명시(explicitly)로 디자인 된 것입니다. 기본적으로 컴파일을 하기 전, 컴파일러는 전처리 단계에서 코드를 훑으면서 include 구문에 따라 코드를 복사하고 붙이는 과정을 거칩니다. 만약 여러 위치에서 같은 .h파일(헤더파일)을 여러번 include 하게 되면, 컴파일 과정에서 문제가 발생하게 됩니다. \#ifndef는 컴파일러에게 **"변수명을 뭐라고 정했건 간에(예제에서는 \_OF\_APP) 코드의 다른 부분에서 이미 선언되어 있다면, 다시 중복해서 선언하지 마"** 라고 말하는 것과 같습니다. 사실 이것은 코드를 관리하는데 편리함을 제공하는 방법이기도 합니다. 또한 이것은 또한 여러분이 만들 클래스를 include하는데 있어서 좋은 예제이기도 합니다(당연히 다른 변수명을 사용해야겠지요).
 
-Then comes the class ofApp : public ofSimpleApp{ line which is very similar to java's class declaration structure. To compare the two:
+<!-- After this comes the \#include statement that brings in all of the OpenFrameworks functionality.-->
+
+이후 등장하는 \#include 구문은 OpenFrameworks의 모든 기능들을 가져오게 합니다.
+
+<!--Then comes the class ofApp : public ofSimpleApp{ line which is very similar to java's class declaration structure. To compare the two:-->
+
+그리고 나서, "class ofApp : public ofSimpleApp{"가 보입니다. 이는 Java의 클래스 선언 구문과 아주 비슷합니다. 둘을 한번 비교해볼까요?
+
 C++  :
 class \[className\] : \[privacy\] \[extendedClass\]
 
 JAVA/P5:
 \[privacy\] class \[className\] extends \[extendedClass\]
 
-Following the class definition is the meat of the .h file, the class itself. The class is broken into privacy blocks. In this case, there is only a public: block, but you may wish to add a private or protected block yourself. In Java, you can define your public and private functions and variables in any order, but in c++ they must be grouped into blocks.
+이어지는 클래스 정의는 .h파일 자체를 의미합니다. 바로 클래스 자신이지요. 클래스는 privacy 블럭으로 쪼개집니다. 여기서는, public: 블럭밖에 없네요. 하지만 원하신다면 private이나 protected 블럭을 추가할 수도 있습니다. Java에서는 public이나 private 함수및 변수들을 어떠한 순서로 정의해도 됩니다만, C++에서는 블럭으로 묶어주어야 합니다.
 
-It is important to note that in c++ you must define your classes in your header before you use them (much like your classes local variables). This is called prototyping. At first it can be annoying, but in the end, having all of your functions and variables in an easy to read header file can serve as a sort of documentation for your class, and is especially useful when trying to learn about someone else's classes or the OpenFrameworks library.
+C++에서는 클래스를 사용하기 전에 반드시 헤더에 클래스를 정의해야 합니다. 아주 중요한 사항입니다. (클래스 로컬 변수처럼 말이죠) 이것을 프로토타이핑이라고 부릅니다. 처음에는 상당히 귀찮지만, 모든 함수와 변수들을 헤더파일에 정의하면 헤더파일은 마치 클래스에 대한 문서가 되어 읽기 쉬워지기 때문에, 결국에는 다른사람이 작성한 클래스나 openFrameworks라이브러리들을 파악할 때 상당히 유용합니다.
 
-It is important to note that classes end with a curly bracket and semi-colon "};" and not just a normal curly bracket. Also important is the \#endif which ends the \#ifndef statement from the top of the .h file
+클래스의 끝이 "};", 즉 curly bracket과 세미콜론으로 끝나다는 것은 매우 중요합니다. "}"로만 끝나는것이 아니에요! 또한 .h파일의 최상단이 \#ifndef으로 시작된것과 마찬가지로 파일의 끝이 \#endif로 끝난다는 것도 역시 중요합니다.
 
-More information on C++ classes can be found at:
+
+C++의 클래스에 관한 추가 정보는 아래에서 확인하실 수 있습니다:
 [http://pages.cs.wisc.edu/~hasti/cs368/CppTutorial/NOTES/CLASSES-INTRO.html][48]
 
 ### ofApp.cpp
 
-This is where you write the actual code for your class. The syntax for class functions is slightly different than Processing.
+이 파일이 바로 실제 클래스를 위한 코드들이 작성되는 곳입니다. 클래스 함수를 작성하는 문법은 Processing과 살짝 다릅니다.
+
 C++  :
 \[ReturnType\] \[class\] :: \[functionName\] ( \[type\]\[variableName\]..etc )
+\[리턴형\] \[클래스명\] :: \[함수명\] ( \[변수형\]\[변수명\]..등등 )
 
 JAVA/P5:
 \[ReturnType\] \[functionName\] ( \[type\]\[variableName\]..etc )
+\[리턴형\] \[함수명\] ( \[변수형\]\[변수명\]..등등 )
 
-## What the Fu\*&? (a very basic introduction to pointers).
+## 아놔 \* 이게 대체 뭐람? (포인터에 대한 아주 기초적인 소개).
 
-Pointers are arguably the most difficult and frustrating part of C++.
-I am going to provide a very basic explanation of Pointers here, enough to get some of an idea of what they are about, and how they relate to Java, but if you want a full-blown explanation of how they work and what they can be used for, I suggest reading this excellent and massive tutorial:
+<!-- Pointers are arguably the most difficult and frustrating part of C++.
+I am going to provide a very basic explanation of Pointers here, enough to get some of an idea of what they are about, and how they relate to Java, but if you want a full-blown explanation of how they work and what they can be used for, I suggest reading this excellent and massive tutorial: -->
+
+포인터는 정말로 애매모호하고 C++에서 가장 골치아프면서 어려운 부분입니다.
+저는 여기서 포인터에 대해 아주 기본적인 설명을 하고자 합니다. 이것들이 대충 어떠한 녀석들인지 이해하기엔 충분할 것이고, 또 Java와는 어떤 관계가 있는지도 알 수 있을 것입니다. 하지만 만약 여러분들 중에 포인터가 어떻게 동작하고 어떻게 쓰여지는지 완벽하게 알고 싶으신 분이 계시다면, 훌륭하고 엄청난 양의 아래 튜토리얼을 정독해 보실것을 추천해 드립니다:
 
 [http://www.cplusplus.com/doc/tutorial/pointers.html][51]
 
-One of the largest differences between C++ and Java is that in Java, except for the basic data-types (byte, short, int, long, float, double, boolean, and char), all values are passed by reference. One important note is that Processing copies Strings by value, whereas C++ copies them by reference like all other classes.
+One of the largest differences between C\+\+ and Java is that in Java, except for the basic data-types (byte, short, int, long, float, double, boolean, and char), all values are passed by reference. One important note is that Processing copies Strings by value, whereas C++ copies them by reference like all other classes.
+
+<!-- C++과 Java의 가장 큰 차이점 중 하나는 바로, 자바에서는 기본 데이터형(byte, short, int, long, float, double, boolean, char)중 하나가 없다는 것입니다. 이것이 바로 참조에 의한 전달인데요. Processing에서는 String(문자열을) 복사하지만, C++에서는 참조에 의해 복사한다는것입니다. 마치 모든 클래스를 다루듯이 말이죠.  -->
 
 ### 값 vs. 참조 (Value vs. Reference)
 
-값과 참조의 차이점을 이해하려면, 우선 컴퓨터가 어떻게 RAM에 변수들을 저장하는지 먼저 이해해야합니다.  
-When you write the Processing line:
+값과 참조의 차이점을 이해하려면, 우선 컴퓨터가 어떻게 RAM(메모리)에 변수들을 저장하는지를 이해해야 합니다.  
+
 아래와 같이 코드를 작성하면:
 
 ~~~~{.cpp}
     int num = 5;
 ~~~~
 
-What the computer does is it goes to the place in its memory that is set up to store integers, picks an empty spot with the right number of bytes to store an integer, places the number 5 in that spot, and then sends the address of that spot to your program which stores it in the "num" variable.
-컴퓨터는 우선 메모리에 정수형 변수를 저장할 공간을 찾아 세팅하고, 해당위치에 5라는 숫자를 저장한다음, 변수 num이 가질 값 5가 실제로 저장된 위치의 메모리주소를 프로그램에게 알려줍니다.
+<!--What the computer does is it goes to the place in its memory that is set up to store integers, picks an empty spot with the right number of bytes to store an integer, places the number 5 in that spot, and then sends the address of that spot to your program which stores it in the "num" variable.-->
 
-It might be easier to think of the spot in memory that num references as a box containing the number 5:
+컴퓨터는 우선 컴퓨터의 메모리에 정수형 변수를 저장할 위치를 찾아, int를 저장하기에 알맞은 byte의 크기만큼의 빈 위치를 지정한 다음, 해당 위치에 정수 5를 위치시킵니다. 그 다음 저장 변수 num이 가질 정수 5가 실제로 저장된 위치의 "메모리주소"를 프로그램에게 알려줍니다.
+
+<!--It might be easier to think of the spot in memory that num references as a box containing the number 5:-->
+
+변수 num가 참조하는(reference) 메모리의 위치를 숫자 5가 저장되어있는 상자라고 생각하시면 아마 훨씬 이해가 빠를 겁니다.
+
+number 5:
 5
-// value stored
+// 값이 저장됨
 
 2591
-// address in memory
+// 메모리의 주소
 
   
-and as num as knowing the address this box
+<!--and as num as knowing the address this box-->
+
+그리고 변수 num은 이 상자의 주소를 알고 있는 것이지요.
 
 num:
 2591
-// address in memory
+// 메모리의 주소
 
-Because Processing knows you're using an int and knows to pass it by value, when you ask for what num is with the line print(num), it prints the value of the address that num is referencing.
+<!-- Because Processing knows you're using an int and knows to pass it by value, when you ask for what num is with the line print(num), it prints the value of the address that num is referencing.-->
 
-Try typing this code into processing:
+Processing은 여러분이 int형을 사용하고 그것을 값으로 전달하는 것을 알고 있기 떄문에, 'print(num)' 명령으로 num이 무엇이냐고 물어보면, 변수 num이 참조하고 있는 메모리에 담긴 실제 값을 출력합니다.
+
+아래 코드를 Processing에서 작성하고 실행해보세요:
 
 ~~~~{.cpp}
     void setup()
     {
-    int num = 1;
-    addOne(num);
-    print(num);
+    	int num = 1;
+    	addOne(num);
+    	print(num);
     }
     
     void addOne(int num)
     {
-      num++;
+        num++;
     }
 ~~~~
 
-Unsurprisingly, the program prints "1". We know that this is because when you pass num to a function, the function makes a copy of num and doesn't modify the original. This is called passing by value.
+<!-- Unsurprisingly, the program prints "1". We know that this is because when you pass num to a function, the function makes a copy of num and doesn't modify the original. This is called passing by value. -->
+
+놀랄것도 없이, 프로그램은 당연히 "1"을 출력합니다. 함수에 변수 num을 전달했기 때문에 이렇게 동작할 것이라 당연히 예상할 수 있습니다. 함수는 num를 복사하고, 원본을 수정하지 않습니다. 이것을 값에 의한 전달이라고 합니다.
 
   
-Lets look at another example. Here, instead of passing an integer, we will try passing a class containing an integer. Try typing this code into Processing:
+<!-- Lets look at another example. Here, instead of passing an integer, we will try passing a class containing an integer. Try typing this code into Processing: -->
+
+다른 예제를 한번 살펴보죠. 정수를 전달하는 대신에, 정수형을 포함하고 있는 클래스를 한번 전달해볼려고 합니다. 아래 코드를 Processing에서 작성하고 실행해 보세요:
 
 ~~~~{.cpp}
     class Test
     {
-      int num=0;
+        int num=0;
     }
     
     void setup()
     {
-    Test test = new Test();
-    test.num=1;
-    addOne(test);
-    print(test.num);
+        Test test = new Test();
+        test.num=1;
+        addOne(test);
+        print(test.num);
     }
     
     void addOne(Test test)
     {
-      test.num++;
+     	test.num++;
     }
 ~~~~
 
   
-This time it printed "2". What's going on here? 
+<!-- This time it printed "2". What's going on here? -->
 
-What happened is that because we created a class Test, Processing recognized that it was not a basic data-type (even though the class contained an int which IS a basic data-type), and passed it to the function by reference. Reference means that instead of passing a copy of the entire Test object to the addOne function, it sent only the address in memory of where the class was stored. 
+이번에는 이상하게 "2"를 출력합니다. 대체 어떻게 된걸까요?
 
-Let's look at boxes again.
+<!--What happened is that because we created a class Test, Processing recognized that it was not a basic data-type (even though the class contained an int which IS a basic data-type), and passed it to the function by reference. Reference means that instead of passing a copy of the entire Test object to the addOne function, it sent only the address in memory of where the class was stored. 
+-->
 
+여기서는 앞의 예제와 다르게 Test클래스를 생성했기 때문에, (설령 클래스가 int라는 일반적인 데이터형을 포함하고 있다 하더라도)Processing은 이것을 일반적인 데이터형으로 인식하지 않습니다. 그리고 이것을 함수에 참조형(Reference)으로 전달하였습니다. 여기서 참조(Reference)란, addOne() 함수에 Test 오브젝트 전체의 복사본으로 전달하는 대신, 클래스가 저장되어있는 메모리의 주소만 전달했다는 의미입니다.
+
+<!-- Let's look at boxes again.-->
+
+박스를 한번 더 살펴보죠
 test:
 52498
-// address in memory
+// 메모리의 주소
 
 52498:
 1
 // test.num
 
-So when test is passed through addOne(), really just 52498, or whatever the actual memory address of test's data is passed. Because of that, when test's num is incremented, it is actually changed. No copy is ever made.
+<!-- So when test is passed through addOne(), really just 52498, or whatever the actual memory address of test's data is passed. Because of that, when test's num is incremented, it is actually changed. No copy is ever made.-->
 
-Java does this because if it were to pass entire objects around constantly everything would slow to a crawl. The basic data-types are small enough to get passed by value, but everything else is passed by reference.
+따라서 text는 addOne()에 전달될 때, 실제로는 52398(실제 text의 데이터가 들어있는 메모리 주소)로 전달되었던 것입니다. 이러한 이유로 test의 num이 증가할때, 실제 값이 변경되었던 것이지요. 복사본으로 전달될때는 이렇지 않습니다.
 
-### & and \*
+<!-- Java does this because if it were to pass entire objects around constantly everything would slow to a crawl. The basic data-types are small enough to get passed by value, but everything else is passed by reference. -->
 
-C++ differs from Java in that you need to explicitly state whether you are passing something by value or by reference. You can also define when a variable will behave as if it contains actual data and when a variable will only contain a pointer to data. You can even make an int that behaves like the Test class did above. This is all done with the & (referencing) and \* (dereferencing) symbols.
+Java가 이렇게 동작하는 이유는, 만약 오브젝트 전체를 복사본으로 전달하게 되면 성능저하가 있기 때문입니다. 기본적인 데이터형은 크기가 작기 때문에 값에 의해 전달되지만, 다른것들은 참조형으로 전달됩니다.
 
-the & symbol is used to acquire the memory address of a variable or function, so for example:
+### & 와 \*
 
+<!--C++ differs from Java in that you need to explicitly state whether you are passing something by value or by reference. You can also define when a variable will behave as if it contains actual data and when a variable will only contain a pointer to data. You can even make an int that behaves like the Test class did above. This is all done with the & (referencing) and \* (dereferencing) symbols.-->
+
+C++은 Java와 다르게 값으로 전달할건지, 참조로 전달할것인지를 확실하게 명시할 필요가 있습니다. 이 뿐만 아니라 변수를 정의할 때 실제 데이터를 저장하게 할것인지 아니면 데이터를 가리키는 포인터를 담을 것인지 정할 수도 있습니다. 심지어 int형이지만 위 예제에서의 Test클래스를 가리키게 할수도 있습니다. 이러한 모든 것들이 &(참조,레퍼런스 / referencing) 과 \*(포인터, 디레퍼런스 / dereferencing) 심벌로 가능합니다.
+
+<!-- the & symbol is used to acquire the memory address of a variable or function, so for example: -->
+
+& 심벌은 변수나 함수의 메모리 주소를 얻어올 때 사용합니다. 아례의 예와 같이요 :
 ~~~~{.cpp}
     b=1;
     a = &b;
 ~~~~
 
 means, a is now equal to (or points to) the memory address of b, (and not the value of b). At this point, 
+a는 b의 메모리 주소를 의미합니다.(하지만 실제로 b의 값을 가지는 것이 아닙니다.) 다른말로 b를 가리킨다고(pointing) 하죠. 
+자 여기서,
 
 ~~~~{.cpp}
     a++;
 ~~~~
 
-would make a equal to the next memory address after b.
+<!-- would make a equal to the next memory address after b.-->
 
-the \* symbol is used to acquire the value stored in an address. So, 
+이렇게 코드를 입력하면, a는 b의 다음 메모리 주소값을 갖게 됩니다. (b의 메모리 주소 + 1)
 
+<!-- the \* symbol is used to acquire the value stored in an address. So, -->
+
+\* 심벌은 메모리주소에 담긴 값을 얻어올때 사용합니다. 따라서,
 ~~~~{.cpp}
     *a++;
 ~~~~
 
-would increment the value stored in a, and therefore, b would now equal 2\.
+<!-- would increment the value stored in a, and therefore, b would now equal 2\.-->
 
-But how do I declare a variable to point to an address?
-To do this, you use the \* symbol. This variable is called a pointer. Because different types of variables take on specific numbers of bytes, it is important to declare pointers of the same type as what they are pointing to, e.g. integer pointers for integers, float pointers for floats, etc.
+는 a에 담긴(즉 b) 값이 증가하게 되므로, b는 2가 됩니다.
 
-example:
+<!-- But how do I declare a variable to point to an address?
+To do this, you use the \* symbol. This variable is called a pointer. Because different types of variables take on specific numbers of bytes, it is important to declare pointers of the same type as what they are pointing to, e.g. integer pointers for integers, float pointers for floats, etc. -->
+
+하지만 어떻게 주소를 가리키는 변수를 선언할수 있냐고요?
+그러기 위해 \*를 사용합니다. 이러한 변수를 '포인터'라고 합니다. 변수형마다 메모리를 사용하는 byte의 크기가 다르기 때문에, 포인터를 선언할때, 포인터 변수가 가리키는 메모리에 들어있는 실제 데이터형을 표기하는것은 매우 중요합니다. int를 위한 포인터는 int형 포인터를, float를 위한 포인터는 float형 포인터가 되는것이지요.
+
+다음은 포인터를 사용하는 예제입니다:
 
 ~~~~{.cpp}
     int x;
@@ -427,53 +503,61 @@ example:
     ptr = &x;
     *ptr = 10;
     
-    //x now equals 10
+    // 이제 x는 10과 같습니다.
 ~~~~
 
-### So Where Do I use This?
+### 이걸 어디에 쓸수 있나요?
 
-Initially, you will use pointers to pass arrays back and forth through functions. This can be seen in the movieGrabberExample, where a pointer is used to access the pixels from the video grabber. 
+<!-- Initially, you will use pointers to pass arrays back and forth through functions. This can be seen in the movieGrabberExample, where a pointer is used to access the pixels from the video grabber. -->
 
+기본적으로, 함수에 배열을 전달할때 사용하게 됩니다. 이는 movieGrabberExample 예제에서 보실 수 있는데, video grabber에서 픽셀에 접근할때 아래와 같이 포인터를 사용합니다.
 ~~~~{.cpp}
     ( unsigned char * 	videoInverted;)
 ~~~~
 
-This works because when you refer to an array in C++ without the \[\]'s you are actually referring to an address in memory. The \[\]'s work as a dereferencing operator, or, a "\*". 
+<!-- This works because when you refer to an array in C++ without the \[\]'s you are actually referring to an address in memory. The \[\]'s work as a dereferencing operator, or, a "\*". -->
+이는 c++에서 배열을 참조하여 사용할때, \[\]없이도 메모리의 주소를 참조하기 떄문에 가능합니다. \[\]는 디레퍼런스 연산자로 동작하는데, 이는 "\*"와 같은 의미입니다.
 
 At runtime, your processor multiplies the number inside of the \[\]'s (your index) by the number of bytes your data-type takes up in memory to figure out how far it must jump in memory to reach that index of your array.
 
 So to pass an array in C++ you must pass it without the \[\]'s, and the receiving function must be aware it is receiving a pointer:
+따라서 C++에서 배열을 전달할때는, \[\]없이 전달해야하며, 전달받는 함수는 반드시 포인터로 전달받아야 합니다. 이점을 주의해주세요.
 
     [functionName] ( [variable type] * [varName]){
     }
     
 
-To learn more about the infinite complexities of pointers, I recommend visiting the site I referenced at the top of this section.
+<!-- To learn more about the infinite complexities of pointers, I recommend visiting the site I referenced at the top of this section. -->
+
+포인터는 정말로 복잡한 녀석입니다. 좀더 공부하고 싶으신 분들은, 상위 섹션에서도 한번 소개해드렸지만, 아래 사이트를 한번 방분해보시길 권장합니다. 
 ( [http://www.cplusplus.com/doc/tutorial/pointers.html][51] )
 
-### Basic Data-types
+### 기초적인 데이터 형
 
-Java and C++ share most basic data-types:
-
+Java와 C++은 대부분의 기본적인 데이터형을 공유하고 있습니다:
 byte, short, int, long, float, double, and char. 
-(Boolean is also in C++, and works the same way as it does in processing except it is called 'bool').
+(Boolean형은 C++에도 있고, processing과 마찬가지로 똑같이 동작합니다만, 단지 'bool'이라고 불립니다 )
 
-However, C++ has an extra set of data-types that are unsigned:
-
+하지만 C++은 unsigned라는 추가적인 데이터형 세트를 갖고 있습니다.
 unsigned byte, unsigned short, unsigned int, unsigned long, unsigned float, unsigned double, unsigned char.
 
-Unsigned means that instead of running positive and negative, (e.g. char can be set to any value between -128 and 127), these variables have no sign. (e.g. unsigned char can be set to any value 0-255).
-
+<!-- Unsigned means that instead of running positive and negative, (e.g. char can be set to any value between -128 and 127), these variables have no sign. (e.g. unsigned char can be set to any value 0-255).-->
+Unsigned란, 양수와 음수를 사용하는 대신에 (참고로 char형은 -128 ~ 127사이의 값을 갖습니다), 부호를 갖지 않는 다는 의미입니다 (unsigned char형은 0 ~ 255의 값을 갖습니다).
   
-#### The Processing String Exception
+#### Processing에서의 문자열 예외
 
-One major difference in the basic data-types is that Processing's string type is "String" while C++ uses a lowercase "string". But more importantly, C++'s string type, when set equal to another string type refers to it by reference (does not make a copy).
+<-- One major difference in the basic data-types is that Processing's string type is "String" while C++ uses a lowercase "string". But more importantly, C++'s string type, when set equal to another string type refers to it by reference (does not make a copy).-->
 
-_**NOTE: (theo) not sure if this is true. I think C++ is by copy. So this example might be incorrect.** _
+기본적인 데이터형에서 가장 큰차이점은 Processing에서의 문자열 타입은  "String"이고, C++에서는 앞글자가 소문자인 "string"이라는 것입니다. 하지만 더 중요한 사실은, C++의 문자열 타입에서 = 을 사용할때는 값에의한 전달이 아니라 참조를 한다는 것입니다. (복사를 하는것이 아니에요!)
 
-_**NOTE: (nathan) I've tested this. It's definitely incorrect. Output is "yes". Also it should be a.c\_str() not a.c\_str(a)** _
+_**메모 : (theo) 이게 사실인지는 잘 모르겠어. 내생각엔 C++ 역시 복사인것 같아. 그래서 이 예제는 어쩌면 틀린걸지도 몰라. **_
+_**메모 : (nathan) 내가 테스트해봤어. 이건 분명히 잘못되었어. 출력은 "yes"였어. 또한 a.c\_str(a)가 아니라 a.c|_str()이어야 돼**_
+
+_**역자 주 : 문서 제작 과정중에 개발자들이 실험을 한 모양입니다. 코멘트가 달려있네요. 참고해주시기 바랍니다**_
+
 
 So, in processing:
+따라서 Processing에서는 :
 
 ~~~~{.java}
     String a = "yes";
@@ -483,183 +567,242 @@ So, in processing:
     print(a);
 ~~~~
 
-will print "yes"
+<!-- will print "yes" -->
 
-but in C++
+"yes"를 출력하지만,
+
+C++에서는,
 
 ~~~~{.cpp}
     string a = "yes";
     string b = a;
     b = "no";
-    printf("%s \n", a.c_str(a));   // to see how this prints, see section 6.3.3 How in the world do I print to the console?
+    printf("%s \n", a.c_str(a));   // 콘솔에 출력하는 방법은, "6.3.3 콘솔에 출력하려면 어떻게 해야하나요?"" 를 읽어주세요
 ~~~~
     
 
-will print "no".
+<!-- will print "no".-->
 
-## PImage, updatePixels() vs. ofTexture, pixels\[\]
+"no"를 출력할 것입니다.
 
-When you draw in openGL (OF draws using the GLUT library, which in turn uses openGL, Processing draws to openGL optionally, if you decide to when declaring your window size), any pixel data that you want to put on the screen must be preloaded into your RAM before you can draw it. Loading pixel (bitmap) data to RAM is called loading your image into a texture.
+## PImage, updatePixels() 과 ofTexture, pixels\[\]
+
+<!-- When you draw in openGL (OF draws using the GLUT library, which in turn uses openGL, Processing draws to openGL optionally, if you decide to when declaring your window size), any pixel data that you want to put on the screen must be preloaded into your RAM before you can draw it. Loading pixel (bitmap) data to RAM is called loading your image into a texture.-->
+
+openGL에서 그림을 그릴 때(oF는 openGL을 사용하게 해주는 GLUT라이브러리를 사용하여 그립니다. Processing은 그림을 그릴때 openGL을 옴션으로 두고 있는데, 윈도우의 사이즈를 지정 할때 결정할 수 있습니다), 화면상에 뿌려질 모든 픽셀 데이터는, 실제로 그리기 전에 반드시 RAM(메모리)에 미리 로드되어져있어야 합니다. 픽셀(bitmap)데이터를 RAM에 불러오는것을 가리켜, "여러분의 이미지를 텍스쳐로 불러온다" 라고 합니다.
 
 Processing has a number of ways to solve this texture problem that hide what you are actually doing from you.
 
+Processing에서는 위에서 언급한 실제 동작들을 숨김으로써, 이러한 텍스쳐 관련 문제들을 해결하는 몇가지 해결책을 가지고 있습니다.
+
 The first is the PImage object. A PImage is a texture object that has a built in color array that holds pixel values so that you can access the individual pixels of the image that you have loaded in. Images cannot draw themselves exactly, but they can be drawn by the image() function.
 
+첫번째는 바로 PImage 오브젝트입니다. PImage는 픽셀 값을 갖고 있는 color 배열로 만들어진 텍스쳐 오브젝트입니다. 그렇기 때문에 불러온 이미지의 개별 픽셀에 대해 접근이 가능한 것입니다. 실제로는 이미지 스스로가 자신을 그려낼 방법이 없고, image() 함수에 의해 그려집니다.
+
 ~~~~{.java}
-    PImage myPImage; //allocate space for variable
-    myPImage = loadImage("sample.jpg"); //allocate space for pixels in ram, decode the jpg, and load pixels of the decoded sample.jpg into the pixels.
-    image(myPImage,100,100); //draw the texture to the screen at 100,100
+    PImage myPImage; // 변수를 위한 공간 할당 (allocate space for variable)
+    myPImage = loadImage("sample.jpg"); // ram상에 픽셀들을 위한 공간을 할당하고,  sample.jpg를 디코드하여 해석된 픽셀데이터를 불러온다. 
+    image(myPImage,100,100); //스크린의 100, 100 위치에 텍스쳐를 그린다.
 ~~~~
     
 
-_I should note that its possible that the image() function actually loads the pixels into the ram instead of the PImage, but I dont know enough about the tech behind Processing to say for sure if this is the case or not._
+<!-- _I should note that its possible that the image() function actually loads the pixels into the ram instead of the PImage, but I dont know enough about the tech behind Processing to say for sure if this is the case or not._ -->
 
-If you want to access the individual pixels of the screen itself, however, you use a different function altogether. You first call loadPixels(), make your pixel changes, and then call updatePixels() to make your changes appear. 
+_필자는 여기서 PImage 오브젝트가 아닌 image()함수가 실제로 픽셀을 메모리에 불러온다는 것을 강조하고 싶습니다만, 사실 Processing의 기술적인 배경에 대해선 충분히 알고 있지 않기 때문에 이것이 확실한것인지 아닌지는 확신할 수 없습니다._
 
-This is slightly confusing, because what is actually happening here is the same as what happened above with the PImage: Processing is loading your pixels from the screen into a texture, essentially a PImage, and then drawing that texture to the screen after you update it. For some reason, however, they chose not to use the same function for both.
+<!-- If you want to access the individual pixels of the screen itself, however, you use a different function altogether. You first call loadPixels(), make your pixel changes, and then call updatePixels() to make your changes appear.  -->
 
-OpenFrameworks handles this a little differently (and a little bit better in my opinion). Instead of having two different methods, the ofImage object loads images from files, _and_ images from the screen. Additionally, ofImage can draw itself and needs no separate function to do this.
+하지만, 만약 화면 스스로의 픽셀값들에 대해 접근하고 싶다면, 다른 함수를 함께 사용해야만 합니다. 우선 loadPixels()함수를 호출하고, 픽셀을 변경한 다음, updatePixels()를 호출해야 변경된 것들이 적용됩니다.
+
+<!-- This is slightly confusing, because what is actually happening here is the same as what happened above with the PImage: Processing is loading your pixels from the screen into a texture, essentially a PImage, and then drawing that texture to the screen after you update it. For some reason, however, they chose not to use the same function for both. -->
+
+이건 살짝 혼란스럽습니다. 실제 벌어지는 것들이 위에서 언급한 PImage와 같기 때문입니다: Processing은 스크린에서 픽셀을 불러와 텍스쳐로 불러오고, 업데이트 한 이후에 스크린에 텍스쳐를 그리는것입니다. 그러나 몇몇 이유로, 같은 함수를 사용하지 않기로 한것입니다.
+
+<!-- OpenFrameworks handles this a little differently (and a little bit better in my opinion). Instead of having two different methods, the ofImage object loads images from files, _and_ images from the screen. Additionally, ofImage can draw itself and needs no separate function to do this. -->
+
+openFrameworks는 이것을 약간 다른 방식으로 다룹니다(그리고 제 생각에는 좀더 나은 방식인것 같네요). 서로 다른 두 메서드 대신, ofImage 오브젝트는 파일에서 이미지를 불러올 수도 있고, 화면에서도 이미지를 불러옵니다. 추가적으로, 별도의 함수로 분리되지 않고 자신 스스로를 그립니다.
 
 The OF code for the example above with myPImage looks like:
 
 ~~~~{.cpp}
-    ofImage myImage; //allocate space for variable
-    myImage.loadImage("sample.jpg"); //allocate space in ram, decode jpg, load pixels.
-    myImage.draw(100,100);
+    ofImage myImage; // 변수를 위한 공간 할당
+    myImage.loadImage("sample.jpg"); // 메모리에 공간을 할당하고, jpg를 디코드하여 픽셀을 불러온다
+    myImage.draw(100,100);	
 ~~~~
 
-If you wanted to change the pixels on the screen, you would also use an ofImage.
+<!-- If you wanted to change the pixels on the screen, you would also use an ofImage.-->
+화면상에 픽셀을 변경하고 싶다면, 역시 ofImage를 사용하면 됩니다.
 
 ~~~~{.cpp}
-    ofImage theScreen; //declare variable
-    theScreen.grabScreen(0,0,1024,768); //grab at 0,0 a rect of 1024x768. Equivalent to loadPixels();
-    //edit pixels in theScreen
-    theScreen.draw(0,0); //equivalent to updatePixels();
+    ofImage theScreen; // 변수 선언
+    theScreen.grabScreen(0,0,1024,768); // 화면의 0, 0부터 1024, 768까지의 사각영역을 픽셀로 불러온다. 이는 loadPixels()와 같은 역할을 한다.
+    // 화면에서 픽셀을 편집한다.
+    theScreen.draw(0,0); // updatePixels()와 같음 
 ~~~~
 
 But how do I edit the pixels of something that is in the ram you may ask? The short answer is you cannot. Once something is in the RAM (in an ofTexture), you cannot access it anymore. 
 
+하지만 여러분중에는 "어떻게 메모리상에 있는 무언가의 픽셀을 수정할수 있을까요?" 라고 질문하는 분들이 있을수도 있습니다. 간단히 대답하자면 불가능합니다. 한번 메모리에 올라가면 (ofTexture안에 있지요), 더이상 접근할 수 없습니다.
+
 You can edit the pixels of an ofImage because ofImages contain two data structures. One of these is an array of Unsigned Characters which represent all of the colors of every pixel, and the other is an ofTexture, which is used to upload those pixels into the ram after changes.
 
-You can actually turn off this texture in an ofImage to save RAM if you know you won't ever have to draw what you are loading to the screen. This could be useful if you only need to load an image to access pixel color values in it, or if you are taking a screenshot that you will save to your hard drive but never draw. 
+ofImage는 두가지 데이터 구조를 가지고 있기 떄문에 ofImage의 픽셀은 수정이 가능합니다. 하나는 모든 픽셀의 컬러값을 의미하는 Unsigned Char형 배열이고, 다른 하나는 변경된 이후 메모리에 이 픽셀들을 업로드하는데 사용되는 ofTexture입니다.
+
+<!-- You can actually turn off this texture in an ofImage to save RAM if you know you won't ever have to draw what you are loading to the screen. This could be useful if you only need to load an image to access pixel color values in it, or if you are taking a screenshot that you will save to your hard drive but never draw.  -->
+
+만약 불러온 이미지를 사실상 화면상에 그릴 일이 없다면 메모리를 절약하기 위해 ofImage의 텍스쳐를 끌 수도 있습니다. 이는 이미지의 픽셀값에만 접근하기위해 파일을 불러올 때나, 혹은 화면을 캡쳐해 하드드라이브에 저장만 하지 화면에 그려낼 필요가 없을때 유용합니다.
+
 see: [http://www.openframeworks.cc/documentation\#ofImage-setUseTexture][58]
 
-### How are pixel values stored without a Color object?
+### Color 오브젝트 없이 어떻게 픽셀값들이 저장되나요?
 
-Pixel values are stored as a series of Unsigned Characters. An Unsigned Character is a fancy way of saying a byte value between 0 and 255 inclusive. Every object in OF that can return a pixel array ( getPixels() ), will return you an array of unsigned characters. Because it takes three unsigned characters to denote a color (one for each of the red, green, blue, channels), this array's length will be three times the number of pixels inside of it and structured like:
+<!-- Pixel values are stored as a series of Unsigned Characters. An Unsigned Character is a fancy way of saying a byte value between 0 and 255 inclusive. Every object in OF that can return a pixel array ( getPixels() ), will return you an array of unsigned characters. Because it takes three unsigned characters to denote a color (one for each of the red, green, blue, channels), this array's length will be three times the number of pixels inside of it and structured like: -->
+
+픽셀 값들은 unsigned char 시리즈로 저장됩니다. unsigned char는 byte값을 0에서 255 사이의 값으로 저장할 수 있는 아주 편리한 방법입니다. oF의 모든 오브젝트들은 픽셀 배열로 리턴이 가능한데(getPixels()), 이때 unsigned char의 배열이 리턴됩니다. 세 unsigned char로 color을 표기할 수 있기 때문에(각각 red, green, blue 채널을 나타냅니다), 배열의 길이는 "총 픽셀 갯수 x 3"이 됩니다. 배열의 내부 구조는 아래와 같습니다 :
 
 ~~~~{.cpp}
     {pixel_1_Red, pixel_1_Green, pixel_1_Blue, pixel_2_Red, pixel_2_Green, pixel_2_Blue....}
 ~~~~
 
-To access a color of a specific pixel:
+<!-- To access a color of a specific pixel:-->
+특정 픽셀의 컬러에 접근하기 위해서는 :
 
 ~~~~{.cpp}
-    unsigned char *	myPixels; //create a pointer to an unsigned charecter
-    myPixels = myOFImage.getPixels(); //set that pointer to point to the beginning of the pixel array
-    int colorIndex = y*(myOFImage.width*3)+x*3; // yPos * width * 3 + xPos * 3 = the red channel position
+    unsigned char *	myPixels; // unsigned char형 포인터를 생성한다 
+    myPixels = myOFImage.getPixels(); // 포인터를 픽셀 배열의 시작점을 가리키도록 한다.
+    int colorIndex = y*(myOFImage.width*3)+x*3; // yPos * width * 3 + xPos * 3 = red 채널의 위치
     ofSetColor(myPixels[colorIndex],myPixels[colorIndex+1],myPixels[colorIndex+2]); 
     //sets the color of each channel by going to the successive two values in the array after that of the red channel. 
 ~~~~
 
-## Common Problems With C++ / Misc. Topics
+## C++의 일반적인 문제점 / 기타 주제 
 
-### Expecting implicit data conversion?
+### 암묵적인 데이터 형변환을 기대하시나요?
 
 One big surprise that comes with C++ is that it doesn't do implicit data conversion.
 A good example of this is trying to print an integer.
+
+C++에서 발견할 수 있는 놀라운 사실중 하나는 암묵적 데이터 형변환이 불가능하다는 점입니다.
+int형 변수를 출력하는 좋은 예제입니다.
 
 ~~~~{.cpp}
     int num = 5;
     printf(num +"\n");
 ~~~~
 
-will yield an error.
+<!-- will yield an error.-->
 
-This is because printf only prints strings and chars, and num is neither one of these.
-To convert any non-string or non-char to a string, use the ofToString() function.
+위 코드는 에러를 발생합니다.
 
-### Changing window size
+<!-- This is because printf only prints strings and chars, and num is neither one of these.
+To convert any non-string or non-char to a string, use the ofToString() function.-->
 
-Window size is set intuitively in main.cpp. If you open it up, the comments will show you clearly how to change the size or go to fullscreen mode.
+이는 printf 함수가 오직 문자열과 문자형만을 출력할 수 있기 떄문입니다. num변수는 둘중 어느 하나도 아니죠.
+비 문자열 또는 비 문자형 데이터를 문자열로 변환하기 위해서는 ofToString()함수를 사용합니다.
 
-### Update() and Draw()?
+### 윈도우 사이즈 변경하기 
+
+<!-- Window size is set intuitively in main.cpp. If you open it up, the comments will show you clearly how to change the size or go to fullscreen mode. -->
+
+윈도우 사이즈는 main.cpp에서 세팅할 수 있습니다. 파일을 직접 열어보시면, 윈도우 사이즈를 어떻게 변경할것인지, 또는 전체화면으로 변경할지를 알려주는 주석을 보실 수 있을것입니다.
+
+### Update() 와 Draw()?
 
 Unlike Processing, OF contains two methods that are run every loop through of your program, Update() and Draw(). 
-It is good practice to do all of your calculations in the Update() function and reserve Draw() for simply showing results on the screen. This prevents any large slowdowns that might occur during a draw function that could be too complicated. Instead of getting halves of images drawn or screen-tearing, you simply get a low framerate.
+
+Processing과 다르게, openFrameworks는 프로그램이 실행되는동안 두가지 함수가 매번 반복해서 동작합니다. update()와 draw()입니다.
+
+<!-- It is good practice to do all of your calculations in the Update() function and reserve Draw() for simply showing results on the screen. This prevents any large slowdowns that might occur during a draw function that could be too complicated. Instead of getting halves of images drawn or screen-tearing, you simply get a low framerate. -->
+
+update()함수에서 모든 계산처리를 하도록 맡겨두고, draw()에게는 단순히 화면상에 결과를 보여주는 역할만 하도록 지정 해 주는것입니다. 이는 자칫 draw()가 복잡해짐으로써 발생할 수 있는 속도 하락을 방지합니다. 이렇게 함으로써, 화면출력의 절반만 건진다거나, 화면의 일그러짐 없이, 낮은 framerate를 유지할 수 있습니다.
 
 Additionally, I should mention that if you do any heavy lifting in your project (e.g. loading in images, or loading anything at all from a file really), you should do it in your setup() function if possible. Update() and Draw() run in a loop, and because of that you should only include code in them that has to run every frame. If something only has to run once, it should probably be in Setup().
 
-### How in the world do I print to the console?
+추가적으로, 만약 프로젝트에 무언가 엄청나게 무거운 작업(이미지를 불러온다거나, 파일에서 실제로 무언가를 불러오는것 등)을 할때에는, 가능한 한 반드시 setup()함수내에 작성하라고 말씀드리고 싶습니다. update()와 draw()함수는 프로그램이 종료될때까지 무한반복해서 동작하기 때문에, 매 프레임 동작하지 않는 곳에 코드를 작성해야 할것입니다. 한번만 동작하는 코드를 작성할 때 역시, setup()에 작성해야 합니다.
 
-For printing to the console, you have two options. The first is printf, which is robust but a bit complicated, and is included by default in openframeworks.
+### 콘솔에 출력하려면 어떻게 해야하나요?
 
-The second is iostream, which is simpler, but less robust, and not included by default.
+<!-- For printing to the console, you have two options. The first is printf, which is robust but a bit complicated, and is included by default in openframeworks. -->
+
+콘솔에 출력하는 방법은 두가지가 있습니다. 하나는 조금 복잡하지만 확실한 규칙이 있는 printf입니다. 이는 openframeworks에 디폴트로 포함되어있습니다.
+
+<!-- The second is iostream, which is simpler, but less robust, and not included by default. -->
+
+두번째는 더 단순한하고 유연한 iostream이지만, 기본적으로 포함되어있지 않습니다.
 
 #### printf
 
 If you want to use printf to print to the console, this is a good tutorial on how it works:
+콘솔에 출력하기 위해 printf를 사용하길 원하신다면, 아래 링크를 확인해주시기 바랍니다. printf가 어떻게 동작하는지 알려주는 훌륭한 튜토리얼입니다 :
 [http://www.cplusplus.com/reference/clibrary/cstdio/printf.html][66]
 
   
 #### iostream
 
-Another option for printing to the console is iostream. This is a very old c++ library that lets you print to the console very easily and will implicitly convert many variable types for you so you don't have to use ofToString(). 
+<!-- Another option for printing to the console is iostream. This is a very old c++ library that lets you print to the console very easily and will implicitly convert many variable types for you so you don't have to use ofToString().  -->
 
-To use iostream you first need to include it at the top of your .cpp file
+콘솔에 출력하는 다른 옵션으로, iostream이 있습니다. 이것은 아주 오래된 C++라이브러리로써, 콘솔에 아주 쉽게 출력하게 해줄 뿐만 아니라, ofToString()의 사용없이도 다양한 데이터형에 대해 암묵적인 형변환을 제공합니다.
+
+<!-- To use iostream you first need to include it at the top of your .cpp file -->
+
+iostream을 사용하기 위해서 해야할 젓번째 일은 .cpp파일 최상단에 아래 코드를 삽입하는 것입니다.
 
 ~~~~{.cpp}
     #include <iostream>
 ~~~~
 
-Note that in some compilers, specifically very old ones, you will need to include <iostream.h\> instead of just <iostream\>. This is due to updates in the c++ standard language library (std) in recent years. A more detailed explanation can be found at:
+<!-- Note that in some compilers, specifically very old ones, you will need to include <iostream.h\> instead of just <iostream\>. This is due to updates in the c++ standard language library (std) in recent years. A more detailed explanation can be found at: -->
 
+어떠한 컴파일러에서는, 특히 오래된 컴파일러에서, <iostream\>대신 <iostream.h\> 를 include해야 합니다. 이는 근래의 c++의 표준언어라이브러리(STL : standard language library) 업데이트 때문입니다. 보다 자세한 설명은 아래 링크에서 확인하실 수 있습니다.:
 [http://members.gamedev.net/sicrane/articles/iostream.html][68]
 
-Actually using iostream is extraordinarily easy.
+<!-- Actually using iostream is extraordinarily easy.-->
 
-in processing your code might look like this:
+사실 iostream의 사용은 너무나도 엄청나게 쉽습니다.
+Processing에서의 코드는 아마도 아래와 같을 것입니다:
 
 ~~~~{.java}
     int i = 10;
     String s = "Hello!";
     boolean b = false;
     
-    println(i+" "+s+" "+b); // print variables and end the line
-    print(i+" "+s+" "+b); // print variables without ending the line.
+    println(i+" "+s+" "+b); // 변수를 출력하고, 줄바꿈을 한다.
+    print(i+" "+s+" "+b); // 변수를 출력하지만, 줄바꿈을 하지 않는다.
 ~~~~
 
-this would print 
+콘솔에서의 출력은 아래와 같을 것입니다.
 
 ~~~~{.java}
     10 Hello! false
     10 Hello! false
 ~~~~
 
-in the console.
-
-The equivalent c++ code using iostream is:
+iostream을 사용한 같은 역할을 하는 C++ 코드는 아래왁 같습니다:
 
 ~~~~{.cpp}
     int i = 10;
     string s = "Hello!";
     bool b = false;
-    
-    cout<<i<<" "<<s<<" "<<b<<endl; // print variables and end the line
-    cout<<i<<" "<<s<<" "<<b;       // print variables without ending the line.
-~~~~
-    
 
-this would print 
+    cout<<i<<" "<<s<<" "<<b<<endl; // 변수를 출력하고, 줄바꿈을 한다.
+    cout<<i<<" "<<s<<" "<<b;       // 변수를 출력하지만, 줄바꿈을 하지 않는다.
+~~~~
+
+
+콘솔에서의 출력은 아래와 같을 것입니다.
 
 ~~~~{.cpp}
     10 Hello! 0
     10 Hello! 0
 ~~~~
 
-in the console. Note that with iostream, unlike in processing, a false boolean is represented by a '0' and not "false", and a true boolean is represented by a '1'.
+Note that with iostream, unlike in processing, a false boolean is represented by a '0' and not "false", and a true boolean is represented by a '1'.
+
+출력 결과를 잘 살펴보면, Processing과 다르게, false boolean값이 'false'가 아니라 '0'으로 나타납니다. 반대로 true boolean값은 '1'로 나타납니다.
 
 Also note that in Java, ending or not ending the line after you print is accomplished by which function you pick, print() or println(), whereas in c++ with iostream, it is controlled by whether or not you put the 'endl' keyword at the end of your cout statement.
+
+Java에서는 줄바꿈으로 끝나느냐 아니냐의 결정이 print(), println() 중 어떤 함수를 선택하느냐에 따라 달라짐을 알 수 있습니다. C++은 iostream에서는 cout 구문의 끝에 'endl' 키워드를 넣느냐에 따라 달라집니다.
 
 ### Smoothing not working on filled shapes?
 
