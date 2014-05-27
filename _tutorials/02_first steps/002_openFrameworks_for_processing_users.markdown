@@ -515,13 +515,15 @@ To do this, you use the \* symbol. This variable is called a pointer. Because di
     ( unsigned char * 	videoInverted;)
 ~~~~
 
-<!-- This works because when you refer to an array in C++ without the \[\]'s you are actually referring to an address in memory. The \[\]'s work as a dereferencing operator, or, a "\*". -->
-이는 c++에서 배열을 참조하여 사용할때, \[\]없이도 메모리의 주소를 참조하기 떄문에 가능합니다. \[\]는 디레퍼런스 연산자로 동작하는데, 이는 "\*"와 같은 의미입니다.
+<!-- This works because when you refer to an array in C++ without the \[\]'s you are actually referring to an address in memory. The \[ \]'s work as a dereferencing operator, or, a "\*". -->
+
+이는 c++에서 배열을 참조하여 사용할때, \[ \]없이도 메모리의 주소를 참조하기 떄문에 가능합니다. \[ \]는 디레퍼런스 연산자로 동작하는데, 이는 "\*"와 같은 의미입니다.
 
 At runtime, your processor multiplies the number inside of the \[\]'s (your index) by the number of bytes your data-type takes up in memory to figure out how far it must jump in memory to reach that index of your array.
 
-So to pass an array in C++ you must pass it without the \[\]'s, and the receiving function must be aware it is receiving a pointer:
-따라서 C++에서 배열을 전달할때는, \[\]없이 전달해야하며, 전달받는 함수는 반드시 포인터로 전달받아야 합니다. 이점을 주의해주세요.
+<!-- So to pass an array in C++ you must pass it without the \[\]'s, and the receiving function must be aware it is receiving a pointer: -->
+
+따라서 C++에서 배열을 전달할때는, \[ \]없이 전달해야하며, 전달받는 함수는 반드시 포인터로 전달받아야 합니다 :
 
     [functionName] ( [variable type] * [varName]){
     }
@@ -542,21 +544,23 @@ byte, short, int, long, float, double, and char.
 unsigned byte, unsigned short, unsigned int, unsigned long, unsigned float, unsigned double, unsigned char.
 
 <!-- Unsigned means that instead of running positive and negative, (e.g. char can be set to any value between -128 and 127), these variables have no sign. (e.g. unsigned char can be set to any value 0-255).-->
+
 Unsigned란, 양수와 음수를 사용하는 대신에 (참고로 char형은 -128 ~ 127사이의 값을 갖습니다), 부호를 갖지 않는 다는 의미입니다 (unsigned char형은 0 ~ 255의 값을 갖습니다).
-  
+
 #### Processing에서의 문자열 예외
 
-<-- One major difference in the basic data-types is that Processing's string type is "String" while C++ uses a lowercase "string". But more importantly, C++'s string type, when set equal to another string type refers to it by reference (does not make a copy).-->
+<!-- One major difference in the basic data-types is that Processing's string type is "String" while C\+\+ uses a lowercase "string". But more importantly, C\+\+\'s string type, when set equal to another string type refers to it by reference (does not make a copy).-->
 
-기본적인 데이터형에서 가장 큰차이점은 Processing에서의 문자열 타입은  "String"이고, C++에서는 앞글자가 소문자인 "string"이라는 것입니다. 하지만 더 중요한 사실은, C++의 문자열 타입에서 = 을 사용할때는 값에의한 전달이 아니라 참조를 한다는 것입니다. (복사를 하는것이 아니에요!)
+기본적인 데이터형에서 가장 큰차이점은 Processing에서의 문자열 타입은  "String"이고, C++에서는 앞글자가 소문자인 "string"이라는 것입니다. 하지만 더 중요한 사실은, C++의 문자열형은 = (assign) 연산자를 사용할때 값에 의한 전달이 아니라 참조에 의한 전달을 한다는 것입니다. (복사를 하는것이 아니에요!)
 
 _**메모 : (theo) 이게 사실인지는 잘 모르겠어. 내생각엔 C++ 역시 복사인것 같아. 그래서 이 예제는 어쩌면 틀린걸지도 몰라. **_
 _**메모 : (nathan) 내가 테스트해봤어. 이건 분명히 잘못되었어. 출력은 "yes"였어. 또한 a.c\_str(a)가 아니라 a.c|_str()이어야 돼**_
 
-_**역자 주 : 문서 제작 과정중에 개발자들이 실험을 한 모양입니다. 코멘트가 달려있네요. 참고해주시기 바랍니다**_
+_**역자 주 : 문서 제작 과정중에 개발자들이 테스트를 해 봤나 봅니다. 코멘트가 달려있네요. 참고해주시기 바랍니다**_
 
 
-So, in processing:
+<!-- So, in processing: -->
+
 따라서 Processing에서는 :
 
 ~~~~{.java}
@@ -589,13 +593,13 @@ C++에서는,
 
 <!-- When you draw in openGL (OF draws using the GLUT library, which in turn uses openGL, Processing draws to openGL optionally, if you decide to when declaring your window size), any pixel data that you want to put on the screen must be preloaded into your RAM before you can draw it. Loading pixel (bitmap) data to RAM is called loading your image into a texture.-->
 
-openGL에서 그림을 그릴 때(oF는 openGL을 사용하게 해주는 GLUT라이브러리를 사용하여 그립니다. Processing은 그림을 그릴때 openGL을 옴션으로 두고 있는데, 윈도우의 사이즈를 지정 할때 결정할 수 있습니다), 화면상에 뿌려질 모든 픽셀 데이터는, 실제로 그리기 전에 반드시 RAM(메모리)에 미리 로드되어져있어야 합니다. 픽셀(bitmap)데이터를 RAM에 불러오는것을 가리켜, "여러분의 이미지를 텍스쳐로 불러온다" 라고 합니다.
+openGL에서 그림을 그릴 때(oF는 openGL을 사용하게 해주는 GLUT라이브러리를 사용하여 그립니다. Processing은 그림을 그릴때 openGL을 옴션으로 두고 있는데, 윈도우의 사이즈를 지정할 떄 결정할 수 있습니다), 화면상에 뿌려질 모든 픽셀 데이터는, 실제로 그려지기 전에 반드시 RAM(메모리)에 미리 로드되어 있어야 합니다. 픽셀(bitmap)데이터를 RAM에 불러오는것을 가리켜, "여러분의 이미지를 텍스쳐로 불러온다" 라고 합니다.
 
-Processing has a number of ways to solve this texture problem that hide what you are actually doing from you.
+<!-- Processing has a number of ways to solve this texture problem that hide what you are actually doing from you.-->
 
 Processing에서는 위에서 언급한 실제 동작들을 숨김으로써, 이러한 텍스쳐 관련 문제들을 해결하는 몇가지 해결책을 가지고 있습니다.
 
-The first is the PImage object. A PImage is a texture object that has a built in color array that holds pixel values so that you can access the individual pixels of the image that you have loaded in. Images cannot draw themselves exactly, but they can be drawn by the image() function.
+<!-- The first is the PImage object. A PImage is a texture object that has a built in color array that holds pixel values so that you can access the individual pixels of the image that you have loaded in. Images cannot draw themselves exactly, but they can be drawn by the image() function.-->
 
 첫번째는 바로 PImage 오브젝트입니다. PImage는 픽셀 값을 갖고 있는 color 배열로 만들어진 텍스쳐 오브젝트입니다. 그렇기 때문에 불러온 이미지의 개별 픽셀에 대해 접근이 가능한 것입니다. 실제로는 이미지 스스로가 자신을 그려낼 방법이 없고, image() 함수에 의해 그려집니다.
 
@@ -616,14 +620,15 @@ _필자는 여기서 PImage 오브젝트가 아닌 image()함수가 실제로 �
 
 <!-- This is slightly confusing, because what is actually happening here is the same as what happened above with the PImage: Processing is loading your pixels from the screen into a texture, essentially a PImage, and then drawing that texture to the screen after you update it. For some reason, however, they chose not to use the same function for both. -->
 
-이건 살짝 혼란스럽습니다. 실제 벌어지는 것들이 위에서 언급한 PImage와 같기 때문입니다: Processing은 스크린에서 픽셀을 불러와 텍스쳐로 불러오고, 업데이트 한 이후에 스크린에 텍스쳐를 그리는것입니다. 그러나 몇몇 이유로, 같은 함수를 사용하지 않기로 한것입니다.
+이건 살짝 혼란스럽습니다. 실제 수행하는 일이 위에서 언급한 PImage와 같기 때문입니다: Processing은 스크린에서 픽셀을 불러와 텍스쳐로 불러오고, 업데이트 한 이후에 스크린에 텍스쳐를 그리는 것입니다. 그러나 어떠한 이유로, 같은 함수를 사용하지 않기로 한것입니다.
 
 <!-- OpenFrameworks handles this a little differently (and a little bit better in my opinion). Instead of having two different methods, the ofImage object loads images from files, _and_ images from the screen. Additionally, ofImage can draw itself and needs no separate function to do this. -->
 
-openFrameworks는 이것을 약간 다른 방식으로 다룹니다(그리고 제 생각에는 좀더 나은 방식인것 같네요). 서로 다른 두 메서드 대신, ofImage 오브젝트는 파일에서 이미지를 불러올 수도 있고, 화면에서도 이미지를 불러옵니다. 추가적으로, 별도의 함수로 분리되지 않고 자신 스스로를 그립니다.
+openFrameworks는 이것을 약간 다른 방식으로 다룹니다(그리고 제 생각에는 좀더 나은 방식인 것 같네요). 서로 다른 두 메서드 대신, ofImage 오브젝트는 파일에서 이미지를 불러올 수도 있고, 화면에서도 이미지를 불러옵니다. 이 둘은 별도의 함수로 분리되지 않고 자신 스스로를 그릴 수 있습니다.
 
-The OF code for the example above with myPImage looks like:
+<!-- The OF code for the example above with myPImage looks like:-->
 
+위에 언급한 myPImage 예제를 위한 oF의 코드는 아래와 같습니다 :
 ~~~~{.cpp}
     ofImage myImage; // 변수를 위한 공간 할당
     myImage.loadImage("sample.jpg"); // 메모리에 공간을 할당하고, jpg를 디코드하여 픽셀을 불러온다
@@ -631,6 +636,7 @@ The OF code for the example above with myPImage looks like:
 ~~~~
 
 <!-- If you wanted to change the pixels on the screen, you would also use an ofImage.-->
+
 화면상에 픽셀을 변경하고 싶다면, 역시 ofImage를 사용하면 됩니다.
 
 ~~~~{.cpp}
@@ -640,11 +646,11 @@ The OF code for the example above with myPImage looks like:
     theScreen.draw(0,0); // updatePixels()와 같음 
 ~~~~
 
-But how do I edit the pixels of something that is in the ram you may ask? The short answer is you cannot. Once something is in the RAM (in an ofTexture), you cannot access it anymore. 
+<!-- But how do I edit the pixels of something that is in the ram you may ask? The short answer is you cannot. Once something is in the RAM (in an ofTexture), you cannot access it anymore.  -->
 
-하지만 여러분중에는 "어떻게 메모리상에 있는 무언가의 픽셀을 수정할수 있을까요?" 라고 질문하는 분들이 있을수도 있습니다. 간단히 대답하자면 불가능합니다. 한번 메모리에 올라가면 (ofTexture안에 있지요), 더이상 접근할 수 없습니다.
+하지만 여러분중에는 "어떻게 메모리상에 있는 무언가의 픽셀을 수정할 수 있나요?" 라고 질문하시는 분도 있을겁니다. 간단히 대답하자면 불가능합니다. 한번 메모리에 올라가면 (ofTexture안에 있지요), 더이상 접근할 수 없습니다.
 
-You can edit the pixels of an ofImage because ofImages contain two data structures. One of these is an array of Unsigned Characters which represent all of the colors of every pixel, and the other is an ofTexture, which is used to upload those pixels into the ram after changes.
+<!-- You can edit the pixels of an ofImage because ofImages contain two data structures. One of these is an array of Unsigned Characters which represent all of the colors of every pixel, and the other is an ofTexture, which is used to upload those pixels into the ram after changes. -->
 
 ofImage는 두가지 데이터 구조를 가지고 있기 떄문에 ofImage의 픽셀은 수정이 가능합니다. 하나는 모든 픽셀의 컬러값을 의미하는 Unsigned Char형 배열이고, 다른 하나는 변경된 이후 메모리에 이 픽셀들을 업로드하는데 사용되는 ofTexture입니다.
 
@@ -652,7 +658,7 @@ ofImage는 두가지 데이터 구조를 가지고 있기 떄문에 ofImage의 �
 
 만약 불러온 이미지를 사실상 화면상에 그릴 일이 없다면 메모리를 절약하기 위해 ofImage의 텍스쳐를 끌 수도 있습니다. 이는 이미지의 픽셀값에만 접근하기위해 파일을 불러올 때나, 혹은 화면을 캡쳐해 하드드라이브에 저장만 하지 화면에 그려낼 필요가 없을때 유용합니다.
 
-see: [http://www.openframeworks.cc/documentation\#ofImage-setUseTexture][58]
+이 문서를 한번 읽어보세요: [http://www.openframeworks.cc/documentation\#ofImage-setUseTexture][58]
 
 ### Color 오브젝트 없이 어떻게 픽셀값들이 저장되나요?
 
@@ -665,6 +671,7 @@ see: [http://www.openframeworks.cc/documentation\#ofImage-setUseTexture][58]
 ~~~~
 
 <!-- To access a color of a specific pixel:-->
+
 특정 픽셀의 컬러에 접근하기 위해서는 :
 
 ~~~~{.cpp}
@@ -679,8 +686,8 @@ see: [http://www.openframeworks.cc/documentation\#ofImage-setUseTexture][58]
 
 ### 암묵적인 데이터 형변환을 기대하시나요?
 
-One big surprise that comes with C++ is that it doesn't do implicit data conversion.
-A good example of this is trying to print an integer.
+<!-- One big surprise that comes with C++ is that it doesn't do implicit data conversion.
+A good example of this is trying to print an integer. -->
 
 C++에서 발견할 수 있는 놀라운 사실중 하나는 암묵적 데이터 형변환이 불가능하다는 점입니다.
 int형 변수를 출력하는 좋은 예제입니다.
@@ -710,13 +717,13 @@ To convert any non-string or non-char to a string, use the ofToString() function
 
 Unlike Processing, OF contains two methods that are run every loop through of your program, Update() and Draw(). 
 
-Processing과 다르게, openFrameworks는 프로그램이 실행되는동안 두가지 함수가 매번 반복해서 동작합니다. update()와 draw()입니다.
+Processing과 다르게, openFrameworks는 프로그램이 실행되는동안 두가지 함수가 매번 반복해서 동작합니다. update()와 draw() 두 함수입니다.
 
 <!-- It is good practice to do all of your calculations in the Update() function and reserve Draw() for simply showing results on the screen. This prevents any large slowdowns that might occur during a draw function that could be too complicated. Instead of getting halves of images drawn or screen-tearing, you simply get a low framerate. -->
 
-update()함수에서 모든 계산처리를 하도록 맡겨두고, draw()에게는 단순히 화면상에 결과를 보여주는 역할만 하도록 지정 해 주는것입니다. 이는 자칫 draw()가 복잡해짐으로써 발생할 수 있는 속도 하락을 방지합니다. 이렇게 함으로써, 화면출력의 절반만 건진다거나, 화면의 일그러짐 없이, 낮은 framerate를 유지할 수 있습니다.
+update()함수에서 모든 계산처리를 하도록 맡겨두고, draw()는 단순히 화면상에 결과를 보여주는 역할만 하도록 지정 해 주는것입니다. 이는 자칫 draw()가 복잡해짐으로써 발생할 수 있는 속도 하락을 방지합니다. 이렇게 함으로써, 화면출력의 절반만 건진다거나, 화면의 일그러짐 없이, 낮은 framerate를 유지할 수 있습니다.
 
-Additionally, I should mention that if you do any heavy lifting in your project (e.g. loading in images, or loading anything at all from a file really), you should do it in your setup() function if possible. Update() and Draw() run in a loop, and because of that you should only include code in them that has to run every frame. If something only has to run once, it should probably be in Setup().
+<!-- Additionally, I should mention that if you do any heavy lifting in your project (e.g. loading in images, or loading anything at all from a file really), you should do it in your setup() function if possible. Update() and Draw() run in a loop, and because of that you should only include code in them that has to run every frame. If something only has to run once, it should probably be in Setup(). -->
 
 추가적으로, 만약 프로젝트에 무언가 엄청나게 무거운 작업(이미지를 불러온다거나, 파일에서 실제로 무언가를 불러오는것 등)을 할때에는, 가능한 한 반드시 setup()함수내에 작성하라고 말씀드리고 싶습니다. update()와 draw()함수는 프로그램이 종료될때까지 무한반복해서 동작하기 때문에, 매 프레임 동작하지 않는 곳에 코드를 작성해야 할것입니다. 한번만 동작하는 코드를 작성할 때 역시, setup()에 작성해야 합니다.
 
@@ -724,7 +731,7 @@ Additionally, I should mention that if you do any heavy lifting in your project 
 
 <!-- For printing to the console, you have two options. The first is printf, which is robust but a bit complicated, and is included by default in openframeworks. -->
 
-콘솔에 출력하는 방법은 두가지가 있습니다. 하나는 조금 복잡하지만 확실한 규칙이 있는 printf입니다. 이는 openframeworks에 디폴트로 포함되어있습니다.
+콘솔에 출력하는 방법은 두가지가 있습니다. 하나는 조금 복잡하지만 견고한 printf입니다. 이는 openframeworks에 디폴트로 포함되어있습니다.
 
 <!-- The second is iostream, which is simpler, but less robust, and not included by default. -->
 
@@ -732,7 +739,8 @@ Additionally, I should mention that if you do any heavy lifting in your project 
 
 #### printf
 
-If you want to use printf to print to the console, this is a good tutorial on how it works:
+<!-- If you want to use printf to print to the console, this is a good tutorial on how it works:-->
+
 콘솔에 출력하기 위해 printf를 사용하길 원하신다면, 아래 링크를 확인해주시기 바랍니다. printf가 어떻게 동작하는지 알려주는 훌륭한 튜토리얼입니다 :
 [http://www.cplusplus.com/reference/clibrary/cstdio/printf.html][66]
 
@@ -751,6 +759,8 @@ iostream을 사용하기 위해서 해야할 젓번째 일은 .cpp파일 최상�
     #include <iostream>
 ~~~~
 
+_** 역자 주 : 2008년도에 만들어진 문서라서 그런지 이부분은 현재 버전과 조금 다릅니다. xCode상에서는 iostream 을 include하지 않더라도 동작합니다 **_
+
 <!-- Note that in some compilers, specifically very old ones, you will need to include <iostream.h\> instead of just <iostream\>. This is due to updates in the c++ standard language library (std) in recent years. A more detailed explanation can be found at: -->
 
 어떠한 컴파일러에서는, 특히 오래된 컴파일러에서, <iostream\>대신 <iostream.h\> 를 include해야 합니다. 이는 근래의 c++의 표준언어라이브러리(STL : standard language library) 업데이트 때문입니다. 보다 자세한 설명은 아래 링크에서 확인하실 수 있습니다.:
@@ -759,7 +769,8 @@ iostream을 사용하기 위해서 해야할 젓번째 일은 .cpp파일 최상�
 <!-- Actually using iostream is extraordinarily easy.-->
 
 사실 iostream의 사용은 너무나도 엄청나게 쉽습니다.
-Processing에서의 코드는 아마도 아래와 같을 것입니다:
+
+Processing에서 콘솔에 출력하는 코드는 아마도 아래와 같을 것입니다:
 
 ~~~~{.java}
     int i = 10;
@@ -777,7 +788,7 @@ Processing에서의 코드는 아마도 아래와 같을 것입니다:
     10 Hello! false
 ~~~~
 
-iostream을 사용한 같은 역할을 하는 C++ 코드는 아래왁 같습니다:
+iostream을 사용한 같은 역할을 하는 C++ 코드는 아래와 같습니다:
 
 ~~~~{.cpp}
     int i = 10;
@@ -796,19 +807,23 @@ iostream을 사용한 같은 역할을 하는 C++ 코드는 아래왁 같습니�
     10 Hello! 0
 ~~~~
 
-Note that with iostream, unlike in processing, a false boolean is represented by a '0' and not "false", and a true boolean is represented by a '1'.
+<!-- Note that with iostream, unlike in processing, a false boolean is represented by a '0' and not "false", and a true boolean is represented by a '1'. -->
 
 출력 결과를 잘 살펴보면, Processing과 다르게, false boolean값이 'false'가 아니라 '0'으로 나타납니다. 반대로 true boolean값은 '1'로 나타납니다.
 
-Also note that in Java, ending or not ending the line after you print is accomplished by which function you pick, print() or println(), whereas in c++ with iostream, it is controlled by whether or not you put the 'endl' keyword at the end of your cout statement.
+<!-- Also note that in Java, ending or not ending the line after you print is accomplished by which function you pick, print() or println(), whereas in c++ with iostream, it is controlled by whether or not you put the 'endl' keyword at the end of your cout statement. -->
 
 Java에서는 줄바꿈으로 끝나느냐 아니냐의 결정이 print(), println() 중 어떤 함수를 선택하느냐에 따라 달라짐을 알 수 있습니다. C++은 iostream에서는 cout 구문의 끝에 'endl' 키워드를 넣느냐에 따라 달라집니다.
 
 ### Smoothing not working on filled shapes?
 
-If you are drawing a filled shape, e.g. with ofBeginShape(), even if you have called ofEnableSmoothing(), you will notice that the edges of the shape have not been smoothed. This is because GLUT, the library that OF uses for openGL management, doesn't have support for true full-screen graphics, and therefor can't run full-screen anti-aliasing, which is what would smooth your shapes.
+<!--If you are drawing a filled shape, e.g. with ofBeginShape(), even if you have called ofEnableSmoothing(), you will notice that the edges of the shape have not been smoothed. This is because GLUT, the library that OF uses for openGL management, doesn't have support for true full-screen graphics, and therefor can't run full-screen anti-aliasing, which is what would smooth your shapes. -->
 
-An easy workaround for this is to simply draw your shapes twice, the first time filled, and the second time not filled, so that OF draws lines, which it software anti-aliases.
+가령 ofBeginShape()함수를 사용하여 채워진 도형을 그릴때에는, ofEnableSmoothing()함수를 이미 호출하였다 하더라도 도형의 경계가 매끄럽지 않습니다. 이는 oF에서 openGL을 관리하는 GLUT떄문입니다. GLUT은 풀스크린 그래픽을 완벽하게 지원하지 않습니다.
+
+<!-- An easy workaround for this is to simply draw your shapes twice, the first time filled, and the second time not filled, so that OF draws lines, which it software anti-aliases.-->
+
+이문제를 해결할 가장 단순한 방법은 도형을 두번 그리는겁니다. 한번은 채워진 도형을, 그리고 윤곽선만을 그리는겁니다. 윤곽선 라인은 oF가 그리는 것이고, 이것은 안티앨리어싱을 지원합니다.
 
 ~~~~{.cpp}
     ofFill();
@@ -831,12 +846,15 @@ An easy workaround for this is to simply draw your shapes twice, the first time 
     ofEndShape();
 ~~~~
 
-### Displaying video problem/feature related to ofSetColor
+### ofSetColor과 관련한 비디오 재생 문제점 및 기능
 
 Although this is a problem/feature affecting any object that uses an ofTexture draw itself to the screen, I first encountered it with the videoGrabber, and I think that may be the case for many people, so I'm listing it as the video problem/feature.
 
+비록 ofTexture를 사용하는 오브젝트가 화면에 그려질때 발생하는 문제이고, 저는 videoGrabber를 사용할때 처음 발견했습니다만, 아마도 많은 사람들에게 발생할 수 있다고 생각했기 때문에 비디오 문제 및 해결리스트를 문서에 추가하였습니다.
+
 Basically, ofTextures are constructed so that they can be tinted by the ofSetColor() call. This is great as long as you know it's going to happen, but if it catches you by surprise it can be really confusing, especially if your background is black and you have just called 
 
+기본적으로, ofTexture들은 조립되는 것들이므로 ofSetColor()의 영향을 받습니다. 이렇게 될것이라는걸 알고 있다면야 멋지겠지만.
 ~~~~{.cpp}
     ofSetColor(0,0,0);
 ~~~~
