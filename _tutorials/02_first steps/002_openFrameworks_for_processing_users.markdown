@@ -551,9 +551,10 @@ Unsigned란, 양수와 음수를 사용하는 대신에 (참고로 char형은 -1
 
 <!-- One major difference in the basic data-types is that Processing's string type is "String" while C\+\+ uses a lowercase "string". But more importantly, C\+\+\'s string type, when set equal to another string type refers to it by reference (does not make a copy).-->
 
-기본적인 데이터형에서 가장 큰차이점은 Processing에서의 문자열 타입은  "String"이고, C++에서는 앞글자가 소문자인 "string"이라는 것입니다. 하지만 더 중요한 사실은, C++의 문자열형은 = (assign) 연산자를 사용할때 값에 의한 전달이 아니라 참조에 의한 전달을 한다는 것입니다. (복사를 하는것이 아니에요!)
+기본적인 데이터형에서 가장 큰차이점은 Processing에서의 문자열 타입은 "String"이고, C++에서는 앞글자가 소문자인 "string"이라는 것입니다. 하지만 더 중요한 사실은, C++의 문자열형은 = (assign) 연산자를 사용할때 값에 의한 전달이 아니라 참조에 의한 전달을 한다는 것입니다. (복사를 하는것이 아니에요!)
 
 _**메모 : (theo) 이게 사실인지는 잘 모르겠어. 내생각엔 C++ 역시 복사인것 같아. 그래서 이 예제는 어쩌면 틀린걸지도 몰라. **_
+
 _**메모 : (nathan) 내가 테스트해봤어. 이건 분명히 잘못되었어. 출력은 "yes"였어. 또한 a.c\_str(a)가 아니라 a.c|_str()이어야 돼**_
 
 _**역자 주 : 문서 제작 과정중에 개발자들이 테스트를 해 봤나 봅니다. 코멘트가 달려있네요. 참고해주시기 바랍니다**_
@@ -672,7 +673,7 @@ ofImage는 두가지 데이터 구조를 가지고 있기 떄문에 ofImage의 �
 
 <!-- To access a color of a specific pixel:-->
 
-특정 픽셀의 컬러에 접근하기 위해서는 :
+특정 픽셀의 컬러에 접근하기 위해서는 아래와 같이 작성하면 됩니다.:
 
 ~~~~{.cpp}
     unsigned char *	myPixels; // unsigned char형 포인터를 생성한다 
@@ -848,48 +849,67 @@ Java에서는 줄바꿈으로 끝나느냐 아니냐의 결정이 print(), print
 
 ### ofSetColor과 관련한 비디오 재생 문제점 및 기능
 
-Although this is a problem/feature affecting any object that uses an ofTexture draw itself to the screen, I first encountered it with the videoGrabber, and I think that may be the case for many people, so I'm listing it as the video problem/feature.
+<!-- Although this is a problem/feature affecting any object that uses an ofTexture draw itself to the screen, I first encountered it with the videoGrabber, and I think that may be the case for many people, so I'm listing it as the video problem/feature.-->
 
-비록 ofTexture를 사용하는 오브젝트가 화면에 그려질때 발생하는 문제이고, 저는 videoGrabber를 사용할때 처음 발견했습니다만, 아마도 많은 사람들에게 발생할 수 있다고 생각했기 때문에 비디오 문제 및 해결리스트를 문서에 추가하였습니다.
+비록 이 문제가 ofTexture를 사용하는 오브젝트가 화면에 그려질 때 발생하고, 저는 videoGrabber를 사용할때 처음 발견했습니다만, 아마도 많은 사람들에게 발생할 수 있다고 생각했기 때문에 비디오 문제 및 해결리스트를 문서에 추가 하였습니다.
 
-Basically, ofTextures are constructed so that they can be tinted by the ofSetColor() call. This is great as long as you know it's going to happen, but if it catches you by surprise it can be really confusing, especially if your background is black and you have just called 
+<!-- Basically, ofTextures are constructed so that they can be tinted by the ofSetColor() call. This is great as long as you know it's going to happen, but if it catches you by surprise it can be really confusing, especially if your background is black and you have just called  -->
 
-기본적으로, ofTexture들은 조립되는 것들이므로 ofSetColor()의 영향을 받습니다. 이렇게 될것이라는걸 알고 있다면야 멋지겠지만.
+기본적으로, ofTexture들은 조립되는 것들이므로 ofSetColor()의 영향을 받습니다. 이렇게 될 것이라는걸 이미 알고 있다면야 멋지겠지만, 우연히 발견하게 된다면 상당히 혼란스러워 할것입니다. 아래와 같이 배경색을 검은색으로 설정하고 그린다면 말이죠. 
+
 ~~~~{.cpp}
     ofSetColor(0,0,0);
 ~~~~
 
-which would make whatever ofTexture you're telling to draw not show up at all.
+<!-- which would make whatever ofTexture you're telling to draw not show up at all.-->
 
-The solution to this is easy, just make sure that right before you tell any ofTextures to draw, you call ofSetColor() and set it to white, or whatever tint you want to use.
+위 코드를 작성하고 나면, 어떠한 ofTexture라도 그려봐야 아무것도 보여지지 않습니다.
 
-### Processing background() vs. OF ofBackground()
+<!-- The solution to this is easy, just make sure that right before you tell any ofTextures to draw, you call ofSetColor() and set it to white, or whatever tint you want to use. -->
 
-In Processing, making the background() call automatically tells Processing to set the background to be set every frame to the color you specified in your function call.
+이 문제에 대한 해결책은 쉽습니다. ofTexture를 그리기 바로 직전에 ofSetColor()를 사용하여 흰색으로 적용하거나, tint를 적용할 색을 사용하면 됩니다.
 
-Of can make it auto-refresh every frame, there is a separate function to call:
+### Processing의 background() vs. oF의 ofBackground()
 
+<!-- In Processing, making the background() call automatically tells Processing to set the background to be set every frame to the color you specified in your function call.-->
+
+Processing에서는, background()를 호출하면 Processing이 자동으로 매 프레임마다 지정한 색으로 배경색을 지정해줍니다.
+
+<!-- Of can make it auto-refresh every frame, there is a separate function to call:-->
+
+oF에서는 매 프레임 자동으로 배경색을 지정해 주기 위한 함수가 별도로 마련되어 있습니다:
 ~~~~{.cpp}
     ofSetBackgroundAuto(true);
 ~~~~
 
-This function will make the background autorefresh with the last ofBackground() call, without having to re-call it each time inside draw().
-If you don't want to redraw, but make a cumulative image, use:
+<!-- This function will make the background autorefresh with the last ofBackground() call, without having to re-call it each time inside draw().
+If you don't want to redraw, but make a cumulative image, use: -->
+
+이 함수를 사용하면 draw()안에서의 재호출 없이, 호출된 마지막의 ofBackground()를 사용하여 자동으로 배경색을 갱신해줍니다.
+만약 배경을 다시 그리기를 원하지 않고(배경으로 덮어씌우지 않고), 그려지는 이미지들을 누적하여 그려내고 싶다면 아래와 같이 사용하세요:
 
 ~~~~{.cpp}
     ofSetBackgroundAuto(false);
 ~~~~
     
 
-Because by default OF redraws the screen every frame.
+<!-- Because by default OF redraws the screen every frame.-->
+
+왜냐하면, oF에서는 디폴트설정으로 배경을 자동으로 매프레임 다시 그리도록 되어있기 때문입니다.
 
 ### ofFill() / ofNoFill() vs. processing fill() noFill()
 
-In processing, you can toggle fills and strokes:
-fill(), noFill.
-stroke(), noStroke.
+<!-- In processing, you can toggle fills and strokes:-->
 
-In Openframeworks, it's one or the other.
+Processing에서는, 색 채우기 및 외곽선그리기를 토글할 수 있습니다:
+
+fill(), noFill().
+stroke(), noStroke().
+
+<!-- In Openframeworks, it's one or the other.-->
+
+OpenFrameworks에서는, 한번에 쓰거나 다른 옵션을 추가로 사용할 수 있습니다.
+
 C++  :
 JAVA/P5:
 
@@ -899,8 +919,11 @@ fill(); noStroke();
 ofNoFill();
 noFill(); stroke(1);
 
-additionally, there is no way to change the stroke width built into openFrameworks.
-A way around this is to change the stroke size with an openGL call, but it doesn't look that great.
+<!-- additionally, there is no way to change the stroke width built into openFrameworks.
+A way around this is to change the stroke size with an openGL call, but it doesn't look that great. -->
+
+추가적으로 말씀드리면, openFrameworks에서는 선의 굵기값을 바꿀 방법은 없습니다.
+openGL 함수를 호출하여 선의 굵기 값을 바꾸는 방법도 있지만, 결과물이 깔끔하지는 않습니다.
 
 ~~~~{.cpp}
     glLineWidth(STROKE_SIZE);
@@ -909,23 +932,34 @@ A way around this is to change the stroke size with an openGL call, but it doesn
   
 ### Math functions, and where they come from (no more Math.\*)
 
-Math functions in OpenFrameworks actually come from three separate files
+<!--Math functions in OpenFrameworks actually come from three separate files -->
+
+openFrameworks의 수학 관련 함수들은 실질적으로 3개의 분리된 파일에서 옵니다.
 
 #### cmath
 
-Complex math functions (trigonometric, hyperbolic, exponential, logarithmic, power, rounding, absolute value and remainder functions) come from the cmath library (math.h), and are included by default in OF.
+<!--Complex math functions (trigonometric, hyperbolic, exponential, logarithmic, power, rounding, absolute value and remainder functions) come from the cmath library (math.h), and are included by default in OF.-->
 
-A list of these functions is available at:
+복잡한 수학 함수들(삼각함수, hyperbolic, 지수함수, 로그함수, 제곱, 반올림, 절대값, remainder 관련 함수들)은 cmath 라이브러리(math.h)에 들어있고, openFrameworks에 기본적으로 include 되어있습니다.
+
+<!-- A list of these functions is available at:-->
+
+사용가능한 함수리스트는 아래에서 확인하실 수 있습니다:
 [http://www.cplusplus.com/reference/clibrary/cmath/][75]
 
 #### ofConstants
 
-Other basic math functions are provided by the ofConstants file.
+<!-- Other basic math functions are provided by the ofConstants file.-->
 
-These include:
+다른 기본 수학함수들은 ofConstants(of상수) 파일에서 제공됩니다.
 
-Constants:
+<!-- These include:-->
 
+이러한 것들이 포함됩니다 :
+
+<!--Constants: -->
+
+상수들 : 
 *   PI;
 *   TWO\_PI;
 *   M\_TWO\_PI;
@@ -933,7 +967,9 @@ Constants:
 *   HALF\_PI;
     
 
-and Functions:
+<!-- and Functions: -->
+
+그리고 함수들 :
 
 *   DEG\_TO\_RAD();
 *   RAD\_TO\_DEG();
@@ -945,23 +981,36 @@ and Functions:
 
 #### ofMath
 
-additionally ofMath() provides functions for getting random values.
+<!-- additionally ofMath() provides functions for getting random values. -->
+
+추가적으로 ofMath()는 난수를 얻기위한 함수들을 제공합니다
 
 [http://www.openframeworks.cc/documentation\#ofMath-about][78]
 
-### Structs, what are they for, and how can we use them?
+<!--### Structs, what are they for, and how can we use them?-->
 
-Structs are like miniature classes except they don't have methods. Basically they're custom data objects.
+### 구조체는 무엇을 위한 것이며, 어떻게 사용할 수 있나요? 
 
-They're very convenient because they don't have to be created externally from your class files (although technically neither do classes..) 
+<!--Structs are like miniature classes except they don't have methods. Basically they're custom data objects.-->
 
-Primarily they're used for implementing linked lists (similar to ArrayLists in java). Although linked lists are probably my favorite data structure, I'm not going to write a tutorial here because they can be very complicated at first.
+구조체는 클래스의 미니어처와 같지만, 메서드(함수)를 갖고 있지 않습니다. 쉽게 말하면 커스텀된 데이터 오브젝트라고 할 수 있습니다.
 
-A very inclusive tutorial on linked lists can be found here:
+<!--They're very convenient because they don't have to be created externally from your class files (although technically neither do classes..) -->
+
+이것은 외부파일로 클래스를 만들 필요가 없기 떄문에 정말로 편리합니다.(비록 기술적으로 클래스와는 다르지만)
+
+<!-- Primarily they're used for implementing linked lists (similar to ArrayLists in java). Although linked lists are probably my favorite data structure, I'm not going to write a tutorial here because they can be very complicated at first.-->
+
+기본적으로 구조체는 연결 리스트(linked list)를 구현하는데 사용합니다(연결리스트는 Java의 "배열리스트 - ArrayList"와 비슷합니다). 비록 연결리스트가 제가 가장 좋아하는 데이터 구조지만, 처음 사용할때 상당히 까다롭기 때문에 튜토리얼을 작성하려 합니다.
+
+<!-- A very inclusive tutorial on linked lists can be found here:-->
+
+연결리스트의 튜토리얼은 여기서 확인할 수 있습니다:
 [http://richardbowles.tripod.com/cpp/linklist/linklist.htm][80]
 
-Anyway, the general format of a struct is :
+<!-- Anyway, the general format of a struct is :-->
 
+여하튼, 구조체의 일반적인 포맷은 아래와 같습니다:
 
     struct [name]
     {
@@ -972,36 +1021,57 @@ Anyway, the general format of a struct is :
     };
     
 
-### Memory Management and You
+<!-- ### Memory Management and You-->
 
-In Java/p5 the way garbage collection works is that every few cycles the interpreter sweeps the ram looking for any used objects that have no pointers referencing them, and deletes them.
+### 메모리 관리
 
-That means if you were to declare
+<!-- In Java/p5 the way garbage collection works is that every few cycles the interpreter sweeps the ram looking for any used objects that have no pointers referencing them, and deletes them.-->
 
+Java/Processing에서는 가비지 컬렉션(garbage collection)이 메모리 관리를 해줍니다. 가비지 컬렉션은 매 싸이클마다 메모리를 모니터링 하고 있다가 포인터가 없거나 참고되지 않는 사용된 오브젝트가 있을경우 자동으로 삭제해줍니다.
+
+<!-- That means if you were to declare-->
+
+만약 아래와 같이 선언을 하면
 ~~~~{.cpp}
     myCustomDataType temp = new myCustomDataType();
     temp = null;
 ~~~~
 
-temp was set to reference a newly created myCustomDataType. temp was then set equal to null. This did not actually clear the new myCustomDataType from ram, but whenever java's garbage collection runs it would notice that the new myCustomDataType has no references and would delete it. 
+<!-- temp was set to reference a newly created myCustomDataType. temp was then set equal to null. This did not actually clear the new myCustomDataType from ram, but whenever java's garbage collection runs it would notice that the new myCustomDataType has no references and would delete it. -->
 
-Unlike java/p5 however, c++ does not have automated garbage collection. This means that if you have declared object and you want to get rid of it, you will have to delete it yourself. Setting a pointer to NULL is not good enough.
+temp는 새로 생성된 myCustomDataType를 참조하도록 세팅이 됩니다. 그리고 나서 temp는 null로 세팅됩니다. 이러한 과정에서는 실제 메모리에서 myCustomDataType이 소거되지는 않고, Java의 가비지 컬렉션이 동작할 떄, 새로 생성된 myCustomDataType이 참조할 값이 없기 떄문에 지워야한다 라는것을 수행합니다.
 
-calling the comparable code in c++ would result in an empty pointer and some memory that had been allocated in the ram but now is lost forever. This is called a memory leak. Although it might not affect you right off the bat, memory leaks can lead to your program eating up all of its available memory and crashing. These can be very frustrating to debug because they happen over time and don't give you a specific line that's crashing your program. 
+<!-- Unlike java/p5 however, c++ does not have automated garbage collection. This means that if you have declared object and you want to get rid of it, you will have to delete it yourself. Setting a pointer to NULL is not good enough.- -->
 
-Fortunately, they're easy to avoid as long as you plan your programs carefully. The proper way to delete an object after you have created it is to use the delete keyword
+Java/Processing과는 다르게, C++에는 자동으로 수행되는 가비지 컬렉이 없습니다. 만약 오브젝트를 선언하고나서 삭제하고 싶다면, 직접 삭제해줘야 합니다. 포인터를 NULL로 세팅하는것만으로는 부족합니다.
+
+<!-- calling the comparable code in c++ would result in an empty pointer and some memory that had been allocated in the ram but now is lost forever. This is called a memory leak. Although it might not affect you right off the bat, memory leaks can lead to your program eating up all of its available memory and crashing. These can be very frustrating to debug because they happen over time and don't give you a specific line that's crashing your program. -->
+
+C++에서 Java의 방법에서와 같이 코드를 작성하게 되면, 빈 포인터와 메모리상에 할당된 메모리는 영원히 잊혀지게 됩니다. 이것을 메모리 누수라고 부릅니다. 설령 메모리 누수가 지금 당장 아무 영향을 미치지 않는다 하더라도, 결국에는 여러분의 프로그램이 메모리를 계속 잡아먹게 될것이고, 결국 크래시를 일으킬 것입니다. 이것은 디버거에서 문제의 발생요인이 정확히 코드의 몇번째 줄에서 발생하는지 상세히 알려주지 않기 때문에, 디버깅하기 상당히 어렵습니다.
+
+<!-- Fortunately, they're easy to avoid as long as you plan your programs carefully. The proper way to delete an object after you have created it is to use the delete keyword-->
+
+다행히도, 프로그램 기획시 신중을 기하면, 이러한 문제를 피하는것은 그리 어렵지 않습니다. 생성한 오브젝트를 삭제하는 적절한 방법은 delete키워드를 사용하는 것입니다.
 
 ~~~~{.cpp}
     delete temp;
 ~~~~
 
-### Basic Logic Problems
+<!-- ### Basic Logic Problems -->
 
-Zach Lieberman asked me to include a bit on conditional logic errors so here goes.
+### 기초적인 논리 문제 
 
-A very common conditional logic error is forgetting to restate your entire argument inside an if statement with an && (and) or || (or) operator.
+<!--Zach Lieberman asked me to include a bit on conditional logic errors so here goes.-->
 
-For example:
+Zach Lieberman님이 제게 약간의 조건문 논리 오류에 대해서 질문했기 떄문에 이것에 대해 답변해 드립니다.
+
+<!--A very common conditional logic error is forgetting to restate your entire argument inside an if statement with an && (and) or || (or) operator.-->
+
+조건문에서 범할 수 있는 아주 흔한 논리오류는 if 구문에서 &&(and) 또는 ||(or) 조건 연산자를 사용할 떄 입니다.
+
+<!-- For example:-->
+
+예를 들어 :
 
 ~~~~{.cpp}
     int x = 5;
@@ -1015,7 +1085,9 @@ For example:
     }
 ~~~~
 
-will always return true because ( \> 10) is always true. The proper way to write this would be:
+<!--will always return true because ( \> 10) is always true. The proper way to write this would be:-->
+
+위 예제에서 (\> 10)은 항상 참이기 때문에, if는 항상 참을 리턴합니다. 올바른 코드는 아래와 같아야 합니다.
 
 ~~~~{.cpp}
     int x = 5;
@@ -1030,27 +1102,39 @@ will always return true because ( \> 10) is always true. The proper way to write
     }
 ~~~~
     
-
-note how the entire argument is restated. Instead of asking:
+<!-- note how the entire argument is restated. Instead of asking:
 is x less than 0 or greater than 10
-
 you need to ask:
-is x less than 0 or **is x** greater than 10
+is x less than 0 or **is x** greater than 10 -->
 
-### accidental breakpoints in Xcode and Why Having a Debugger Rocks
+if문의 조건문 코드가 어떻게 수정되었는지 유심히 살펴보시기 바랍니다.
 
+"x가 0보다 작거나 또는 10보다 클 경우" 가 아니라
+"x가 0보다 작거나 또는 **x가** 10보다 클 경우" 라고 물어봐야 합니다.
+
+
+### xCode의 breakpoint, 정말 편리한 디버거!
 [![Image:BkPt.jpg](002_images/BkPt.jpg)][84]
 
-Breakpoints are something that you can put in by clicking on the far left column of the editing window. If you're compiling in debug mode:
+<!-- Breakpoints are something that you can put in by clicking on the far left column of the editing window. If you're compiling in debug mode:-->
+
+편집창의 좌측 끝을 열을 클릭함으로써, breakpoint를 세팅할 수 있습니다. 만약 여러분이 디버그 모드에서 컴파일을 수행하면 :
 [![Image:BuildConf.jpg](002_images/BuildConf.jpg)][85]
 
-your program will stop running whenever it comes across one of these breakpoints and bring up the debugging console which lets you look at variable contents and the current running processes and things like that. 
+<!-- your program will stop running whenever it comes across one of these breakpoints and bring up the debugging console which lets you look at variable contents and the current running processes and things like that.--> 
+
+breakpoint를 지나ㄹ때 프로그램이 멈추면서 디버깅 콘솔을 보여줍니다. 이 콘솔에는 현재 수행중인 프로세스의 변수들과 같은 정보들을 출력해줍니다.
 [![Image:HilightedVar.jpg](002_images/HilightedVar.jpg)][86]
 
   
-They're extremely convenient for debugging programs, but they can be confusing if you don't know what they are and they keep stopping your program.
+<!-- They're extremely convenient for debugging programs, but they can be confusing if you don't know what they are and they keep stopping your program. -->
+
+이것은 프로그램을 디버깅하는데 있어서 정말로 편리합니다. 하지만 이게 뭔지 모른다면 혼란에 빠지게 되겠지요. 또한 프로그램이 왜 멈추는지도 모를것입니다.
 
 To remove a debug point just click on it and drag it out of the window. You'll get a friendly poof of smoke and it'll be gone.
+
+breaking point(debug point)를 제거하려면, 그냥 해당 포인트를 클릭하여 윈도우의 바깥으로 드래그하면 됩니다. 
+
 [0]: #column-one
 [1]: #searchInput
 [2]: #An-overview-of-OpenFrameworks-for-processing-junkies.
